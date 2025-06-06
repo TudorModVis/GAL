@@ -4,6 +4,7 @@ import AboutUs from "../components/AboutUs/AboutUs";
 import LastNews from "../components/LastNews/LastNews";
 import Breaker from "../components/Breaker/Breaker";
 import Donation from "../components/Donation/Donation";
+import Footer from "../components/Footer/Footer";
 
 export async function generateMetadata() {
   const t = await getTranslations('index.meta');
@@ -20,16 +21,17 @@ export default async function Home({params}: {params: Promise<{locale: string}>;
   setRequestLocale(locale);
 
   const t = await getTranslations('index');
-  const tBreaker = await getTranslations("index.Breaker");
+  // const tBreaker = await getTranslations("index.Breaker");
   return (
     <>
-      <main className="relative">
+      <main className="relative mb-[100vh] bg-sand-50">
         <Hero heroTitle1={t('heroTitle.1')} heroTitle2={t('heroTitle.2')} />
         <AboutUs />
         <LastNews />
         <Breaker />
         <Donation />
       </main>
+      <Footer />
     </>
   );
 }

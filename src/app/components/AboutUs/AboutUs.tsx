@@ -28,7 +28,7 @@ const AboutUs = () => {
         <h4 className='mt-2 mb-9'>
           {tAboutUs("impact_description")}
         </h4>
-        <LinkWithArrow backgroundColor="bg-forest-700" insideColor="sand-50" text={tAboutUs("button_learn_more")} href="/" style="default" />
+        <LinkWithArrow backgroundColor="bg-forest-700" insideColor="#FFFEFD" text={tAboutUs("button_learn_more")} href="/" style="default" />
       </div>
       <div className='col-span-9 mt-72'>
         <h2 className='font-bold text-5xl leading-13'>
