@@ -5,6 +5,24 @@
         "description": "Index page description"
       },
       "title": "Hello world!",
-      "about": "Go to the about page"
-    }
+      "about": "Go to the about page",
+      "heroTitle": {
+        "1": "Grupul de Acțiune Locală Stejarul Dacilor",
+        "2": "Sprijin și Inițiativă pentru Dezvoltare Rurală"
+      },
+      "AboutUs": {
+        "impact_title": "Impactul Asociației",
+        "impact_description": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategia de Dezvoltare Locală 2023−2027.",
+        "button_learn_more": "Află mai multe",
+        "main_headline": "GAL „Stejarul Dacilor” este o asociație locală din raioanele Cimișlia și Căușeni care sprijină dezvoltarea rurală durabilă.",
+        "stat_projects_success": "Proiecte desfășurate cu succes în cadrul perioadei de activitate.",
+        "stat_years_activity": "Anii de activitate și dezvoltare rurală.",
+        "stat_total_population": "Nr. populației totale în cadrul componentelor teritoriale din cele 14 localități ale raioanelor Cimișlia și Căușeni.",
+        "stat_total_members": "Nr. membri total din sectorul public, antreprenorial și civic."
+      },
+      "Breaker": {
+        "motto": "Cultură, tradiție și ospitalitate – toate la un loc, în proiecte realizat cu suflet.",
+        "image_alt": "Grupul de Acțiune Locală ”Stejarul Dacilor”"
+      }
   }
+} 

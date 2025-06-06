@@ -5,7 +5,7 @@ export const routing = defineRouting({
   locales: ['ro', 'en'],
 
   pathnames: {
-    '/': ''
+    '/': '/',
   },
  
   // Used when no locale matches
