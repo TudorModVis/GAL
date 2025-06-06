@@ -3,6 +3,7 @@ import Hero from "../components/HeroSection/Hero";
 import AboutUs from "../components/AboutUs/AboutUs";
 import LastNews from "../components/LastNews/LastNews";
 import Breaker from "../components/Breaker/Breaker";
+import Donation from "../components/Donation/Donation";
 
 export async function generateMetadata() {
   const t = await getTranslations('index.meta');
@@ -27,6 +28,7 @@ export default async function Home({params}: {params: Promise<{locale: string}>;
         <AboutUs />
         <LastNews />
         <Breaker />
+        <Donation />
       </main>
     </>
   );

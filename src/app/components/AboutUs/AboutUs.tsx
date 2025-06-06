@@ -5,6 +5,7 @@ import Moldova from './Moldova'
 import LinkWithArrow from '../LinkWithArrow'
 import { useTranslations } from 'next-intl'
 import { motion, Variants, useInView } from 'framer-motion'
+import AnimatedCounter from '../AnimatedCounter'
 
 
 const AboutUs = () => {
@@ -47,7 +48,10 @@ const AboutUs = () => {
         />
         <div className='h-full flex flex-col justify-between'>
           <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_projects_success")}</h4>
-          <h2 className='leading-14 font-bold text-5xl'>32+</h2>
+          <div className='flex gap'>
+             <AnimatedCounter from={0} to={32} />
+             <span className='leading-14 font-bold text-5xl'>+</span>
+          </div>
         </div>
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
@@ -60,7 +64,10 @@ const AboutUs = () => {
         />
         <div className='h-full flex flex-col justify-between'>
             <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_years_activity")}</h4>
-            <h2 className='leading-14 font-bold text-5xl'>2.5</h2>
+            <div className='flex gap'>
+             <AnimatedCounter from={0} to={2.5}/>
+             {/* <span className='leading-14 font-bold text-5xl'>+</span> */}
+            </div>
         </div>
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
@@ -73,7 +80,10 @@ const AboutUs = () => {
         />
         <div className='h-full flex flex-col justify-between'>
           <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_total_population")}</h4>
-          <h2 className='leading-14 font-bold text-5xl'>21.648+</h2>
+          <div className='flex gap'>
+             <AnimatedCounter from={0} to={21648} />
+             <span className='leading-14 font-bold text-5xl'>+</span>
+          </div>
         </div>
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
@@ -86,7 +96,7 @@ const AboutUs = () => {
         />
         <div className='h-full flex flex-col justify-between'>
           <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_total_members")}</h4>
-          <h2 className='leading-14 font-bold text-5xl'>29</h2>
+          <AnimatedCounter from={0} to={29} />
         </div>
       </div>
     </section>
