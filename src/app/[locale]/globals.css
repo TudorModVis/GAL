@@ -166,6 +166,7 @@
 
   .grid-cols-full 
   {
+    max-width: 1920px;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
     margin: 0 auto;
