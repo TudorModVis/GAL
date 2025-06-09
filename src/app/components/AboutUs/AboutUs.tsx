@@ -12,7 +12,7 @@ const AboutUs = () => {
   const tAboutUs = useTranslations('index.AboutUs');
 
   return (
-    <section className='w-screen h-fit grid grid-cols-full relative px-8 my-24'>
+    <section id='aboutUs' className='w-screen h-fit grid grid-cols-full relative px-8 my-24'>
       <div className='col-span-6 leading-4.5'>
         <h4 className='font-bold'>{tAboutUs("impact_title")}</h4>
         <h4 className='mt-2 mb-9'>

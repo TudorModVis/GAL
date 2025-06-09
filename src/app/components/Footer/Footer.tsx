@@ -11,10 +11,10 @@ const Footer = () => {
   const tFooter = useTranslations('index.Footer');
 
   return (
-    <footer className='fixed w-screen h-screen flex flex-col justify-between py-8 bottom-0 -z-10 bg-forest-600 text-sand-50'>
+    <footer id='footer' className='fixed w-screen h-screen flex flex-col justify-between py-8 bottom-0 -z-10 bg-forest-600 text-sand-50'>
       <div className='grid grid-cols-full auto-rows-min w-full'>
         <div className='col-span-5 flex flex-col'>
-          <Logo />
+          <Logo color='#FFFEFD' />
           <h4 className='mt-8'>{tFooter("useful_information.under_logo_text")}</h4>
         </div>  
         <div className='flex flex-col gap-2 col-start-1 col-span-3 row-start-2 mt-24'>
