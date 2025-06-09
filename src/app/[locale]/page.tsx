@@ -17,11 +17,9 @@ export async function generateMetadata() {
 
 export default async function Home({params}: {params: Promise<{locale: string}>;}) {
   const {locale} = await params;
-  // Enable static rendering
   setRequestLocale(locale);
 
   const t = await getTranslations('index');
-  // const tBreaker = await getTranslations("index.Breaker");
   return (
     <>
       <main className="relative mb-[100vh] bg-sand-50">

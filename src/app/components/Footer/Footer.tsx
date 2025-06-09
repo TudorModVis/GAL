@@ -3,34 +3,42 @@ import Logo from '../Logo'
 import Link from 'next/link'
 import Image from 'next/image'
 import Socials from './Socials'
+import AnimatedLine from '../AnimatedLine'
+import ContactForm from './ContactForm'
+import { useTranslations } from 'next-intl';
 
 const Footer = () => {
+  const tFooter = useTranslations('index.Footer');
+
   return (
     <footer className='fixed w-screen h-screen flex flex-col justify-between py-8 bottom-0 -z-10 bg-forest-600 text-sand-50'>
       <div className='grid grid-cols-full auto-rows-min w-full'>
         <div className='col-span-5 flex flex-col'>
           <Logo />
-          <h4 className='mt-8'>Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...</h4>
+          <h4 className='mt-8'>{tFooter("useful_information.under_logo_text")}</h4>
         </div>  
-        <div className='flex flex-col gap-2 col-start-1 col-span-3 row-start-2'>
-          <h4 className='mb-4 font-bold'>Detalii de contact</h4>
-          <p className='mb-4'>Adresa: str. 31 August 1989, s. Selemet, r. Cimișlia, Republica Moldova</p>
+        <div className='flex flex-col gap-2 col-start-1 col-span-3 row-start-2 mt-24'>
+          <h4 className='mb-4 font-bold'>{tFooter("useful_information.details_for_contact")}</h4>
+          <p className='mb-4'>{tFooter("useful_information.adress")}</p>
           <Link href="tel:37362026342">Tel: 062 026 342</Link>
           <Link href="/">Fax: 024 184 285</Link>
           <Link href="mailto:info@stejaruldacilor.md" className='mt-4'>Email: info@stejaruldacilor.md</Link>
         </div>
-        <div className='flex flex-col gap-2 col-start-4 col-span-2 row-start-2'>
-          <h4 className='mb-4 font-bold'>Link-uri de navigare</h4>
-          <Link href="/">Acasă</Link>
-          <Link href="/">Despre Noi</Link>
-          <Link href="/">Anunțuri</Link>
-          <Link href="/">Proiecte</Link>
-          <Link href="/">Istorii de succes</Link>
-          <Link href="/">Contacte</Link>
+        <div className='flex flex-col gap-2 col-start-4 col-span-2 row-start-2 mt-24'>
+          <h4 className='mb-4 font-bold'>{tFooter("useful_information.navigation_links")}</h4>
+          <Link href="/">{tFooter("useful_information.home_link")}</Link>
+          <Link href="/">{tFooter("useful_information.about_us_link")}</Link>
+          <Link href="/">{tFooter("useful_information.announcements_link")}</Link>
+          <Link href="/">{tFooter("useful_information.projects_link")}</Link>
+          <Link href="/">{tFooter("useful_information.success_stories_link")}</Link>
+          <Link href="/">{tFooter("useful_information.contacts_link")}</Link>
         </div>
+      <div className='col-start-7 col-span-6 row-start-1 row-end-4 relative grid grid-cols-6 gap-x-6'>
+        <ContactForm />
+      </div>
       </div>
       <div className='grid grid-cols-full auto-rows-min w-full'>
-        <div className='border-[1px] border-sand-50 opacity-25 col-span-full row-start-3 mb-2'></div>
+        <AnimatedLine customStyles='opacity-25 col-span-full row-start-3 mb-2' />
         <div className='row-start-4 col-span-full'>
           <h4>Partenerii noștri:</h4>
           <div className='flex justify-between relative items-center [&>*]:cursor-pointer [&>*]:transition [&>*]:hover:scale-110'>
@@ -67,10 +75,10 @@ const Footer = () => {
           </div>
         </div>
         <div className='row-start-5 flex justify-between items-baseline col-span-full'>
-          <h4>© 2025 Grupul de Acțiune Locală Stejarul Dacilor </h4>
+          <h4>{tFooter("useful_information.copyright")}</h4>
           <Socials />
           <div className='flex gap-8'>
-            <Link href="/">Termeni & Condiții</Link>
+            <Link href="/">{tFooter("useful_information.terms_and_conditions")}</Link>
             <Link
               className='flex gap-1 items-center group justify-between' 
               href="/">

@@ -23,6 +23,43 @@
       "Breaker": {
         "motto": "Culture, tradition, and hospitality – all in one place, in projects created from the heart.",
         "image_alt": "Local Action Group ”Stejarul Dacilor”"
+      },
+      "Donation": {
+        "cta_title": "Do you want to support us? Contact us!",
+        "territorial_population_info": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts.",
+        "contact_button_text": "Contact us"
+      },
+      "Footer": {
+        "useful_information": {
+          "under_logo_text": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts. Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts...",
+          "details_for_contact": "Contact details",
+          "navigation_links": "Navigation links",
+          "adress": "Address: 31 August 1989 Street, Selemet Village, Cimișlia District, Republic of Moldova",
+          "home_link": "Home",
+          "about_us_link": "About Us",
+          "announcements_link": "Announcements",
+          "projects_link": "Projects",
+          "success_stories_link": "Success Stories",
+          "contacts_link": "Contacts",
+          "our_partners": "Our partners:",
+          "copyright": "© 2025 Local Action Group Stejarul Dacilor",
+          "terms_and_conditions": "Terms & Conditions"
+        },
+        "form_text": {
+          "how_can_we_help_header": "How can we help you?",
+          "donation_button": "Donation",
+          "consultation_button": "Consultation",
+          "collaboration_button": "Collaboration",
+          "different_topic_button": "Different topic",
+          "personal_data_header": "Personal data",
+          "name_placeholder": "Name",
+          "surname_placeholder": "Surname",
+          "telephone_placeholder": "Phone",
+          "message_header": "Message",
+          "message_placeholder": "Your message.",
+          "checkmark_label": "By submitting this form, you confirm that you agree to the processing of personal data.",
+          "contact_button_text": "Contact us"
+        }
       }
     }
   }

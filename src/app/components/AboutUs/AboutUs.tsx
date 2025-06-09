@@ -1,25 +1,15 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React from 'react'
 import Moldova from './Moldova'
 import LinkWithArrow from '../LinkWithArrow'
 import { useTranslations } from 'next-intl'
-import { motion, Variants, useInView } from 'framer-motion'
 import AnimatedCounter from '../AnimatedCounter'
+import AnimatedLine from '../AnimatedLine'
 
 
 const AboutUs = () => {
   const tAboutUs = useTranslations('index.AboutUs');
-  const ref = useRef(null)
-  const isInView = useInView(ref, {once: true})
-
-  const line: Variants = {
-  hidden:  { width: 0 },
-  visible: {
-    width: '100%',
-    transition: { duration: 0.9, ease: 'easeInOut', delay: 0.1 }
-    }
-  }
 
   return (
     <section className='w-screen h-fit grid grid-cols-full relative px-8 my-24'>
@@ -39,13 +29,7 @@ const AboutUs = () => {
         <Moldova />
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
-        <motion.div
-          ref={ref} 
-          className='w-full h-[1px] bg-stone-400'
-          variants={line}
-          initial='hidden'
-          animate={isInView ? 'visible' : 'hidden'}
-        />
+        <AnimatedLine />
         <div className='h-full flex flex-col justify-between'>
           <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_projects_success")}</h4>
           <div className='flex gap'>
@@ -55,29 +39,16 @@ const AboutUs = () => {
         </div>
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
-        <motion.div
-          ref={ref} 
-          className='w-full h-[1px] bg-stone-400'
-          variants={line}
-          initial='hidden'
-          animate={isInView ? 'visible' : 'hidden'}
-        />
+        <AnimatedLine />
         <div className='h-full flex flex-col justify-between'>
             <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_years_activity")}</h4>
             <div className='flex gap'>
              <AnimatedCounter from={0} to={2.5}/>
-             {/* <span className='leading-14 font-bold text-5xl'>+</span> */}
             </div>
         </div>
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
-        <motion.div
-          ref={ref} 
-          className='w-full h-[1px] bg-stone-400'
-          variants={line}
-          initial='hidden'
-          animate={isInView ? 'visible' : 'hidden'}
-        />
+        <AnimatedLine />
         <div className='h-full flex flex-col justify-between'>
           <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_total_population")}</h4>
           <div className='flex gap'>
@@ -87,13 +58,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div className='flex flex-col col-span-3 row-start-3 mt-24 h-40'>
-        <motion.div
-          ref={ref} 
-          className='w-full h-[1px] bg-stone-400'
-          variants={line}
-          initial='hidden'
-          animate={isInView ? 'visible' : 'hidden'}
-        />
+        <AnimatedLine />
         <div className='h-full flex flex-col justify-between'>
           <h4 className='leading-4.5 mt-2'>{tAboutUs("stat_total_members")}</h4>
           <AnimatedCounter from={0} to={29} />
