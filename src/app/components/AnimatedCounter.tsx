@@ -1,6 +1,11 @@
-'use client';
+"use client";
 
-import { KeyframeOptions, animate, useInView, useIsomorphicLayoutEffect} from "framer-motion";
+import {
+  KeyframeOptions,
+  animate,
+  useInView,
+  useIsomorphicLayoutEffect,
+} from "framer-motion";
 import { useRef } from "react";
 
 type AnimatedCounterProps = {
@@ -11,17 +16,21 @@ type AnimatedCounterProps = {
   animationOptions?: KeyframeOptions;
 };
 
-const AnimatedCounter = ({ from, to, animationOptions }: AnimatedCounterProps) => {
+const AnimatedCounter = ({
+  from,
+  to,
+  animationOptions,
+}: AnimatedCounterProps) => {
   const ref = useRef<HTMLHeadingElement>(null);
   const inView = useInView(ref, { once: true });
-  const decimals = Number.isInteger(to) ? 0 : 1
+  const decimals = Number.isInteger(to) ? 0 : 1;
 
-  const formatter = new Intl.NumberFormat('en-US', {
+  const formatter = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   });
-  
-  const format = (n: number) => formatter.format(n).replace(/,/g, '.');
+
+  const format = (n: number) => formatter.format(n).replace(/,/g, ".");
 
   useIsomorphicLayoutEffect(() => {
     const el = ref.current;
@@ -29,16 +38,16 @@ const AnimatedCounter = ({ from, to, animationOptions }: AnimatedCounterProps) =
 
     el.textContent = format(from);
 
-    if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    if (window.matchMedia("(prefers-reduced-motion)").matches) {
       el.textContent = format(to);
       return;
     }
 
     const controls = animate(from, to, {
       duration: 1.2,
-      ease: 'easeInOut',
+      ease: "easeInOut",
       ...animationOptions,
-      onUpdate: v => (el.textContent = format(v)),
+      onUpdate: (v) => (el.textContent = format(v)),
     });
 
     return () => controls.stop();
