@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useMotionValueEvent, useScroll, Variants } from "motion/react";
+import React, { useRef, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import NavContent from "./NavContent";
 import { AnimatePresence } from "motion/react";
 
@@ -17,14 +17,6 @@ const NavBar = () => {
     offset: ["start start", "start start"],
   });
   const [isAtTop, setIsAtTop] = useState(true);
-  const [isInitialLoad, setIsInitialLoad] = useState(false);
-
-  useEffect(() => {
-    setIsInitialLoad(true);
-    setTimeout(() => {
-      setIsInitialLoad(false);
-    }, 400);
-  }, []);
 
   useMotionValueEvent(scrollYProgressFirst, "change", (position) => {
     setIsAtTop(position === 0);
@@ -34,23 +26,6 @@ const NavBar = () => {
     setIsAtTop(position === 0);
   });
 
-  const NavBarAnimation: Variants = {
-    initial: {
-      opacity: 0,
-      top: [0, -250],
-      transition: {
-        duration: 0.7,
-        ease: "easeInOut",
-      },
-    },
-    animate: {
-      top: [-250, 0],
-      transition: {
-        duration: 0.7,
-        ease: "easeInOut",
-      },
-    },
-  };
   return (
     <>
       <nav className="text-nowrap">
