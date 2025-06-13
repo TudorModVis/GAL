@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../Logo";
 import LinkWithArrow from "../LinkWithArrow";
 import Link from "next/link";
 import ArrowDown from "./ArrowDown";
-import { motion, useAnimation, AnimatePresence, delay } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { createPortal } from "react-dom";
+import Search from "./Search";
+import { useTranslations } from "next-intl";
 
 interface ArrowColor {
   arrowColor?: string;
@@ -13,6 +16,7 @@ interface ArrowColor {
 
 const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
   const controls = useAnimation();
+  const [mounted, setMounted] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<null | "despre" | "autentic">(
     null
   );
@@ -26,6 +30,12 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
     | "atractii_turistice"
     | "oameni_si_valori"
   >(null);
+
+  const tNav = useTranslations("index.NavBar");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const boxVariants = {
     initial: {
@@ -71,6 +81,17 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
     },
   };
 
+  const modalVariants = {
+    initial: {
+      opacity: 0,
+      transition: { duration: 0.3 },
+    },
+    hover: {
+      opacity: 1,
+      transition: { delay: 0.3, duration: 0.5 },
+    },
+  };
+
   const handleHoverStart = (menu: "despre" | "autentic") => {
     setHoveredMenu(menu);
     controls.start("hover");
@@ -80,7 +101,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
     setTimeout(() => {
       setHoveredMenu(null);
       controls.start("initial");
-    }, 700);
+    }, 500);
   };
 
   return (
@@ -91,6 +112,16 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
         initial="initial"
         className="bg-sand-50 origin-top top-0 w-[400%] -left-[100%] absolute -z-10"
       ></motion.div>
+      {mounted &&
+        createPortal(
+          <motion.div
+            variants={modalVariants}
+            animate={hoveredMenu ? "hover" : "initial"}
+            initial="initial"
+            className={`bg-black/35 backdrop-blur-xs pointer-events-none -left-[50%] w-[200%] h-screen fixed z-10 top-0`}
+          ></motion.div>,
+          document.body
+        )}
       <AnimatePresence>
         {hoveredMenu && (
           <motion.div
@@ -112,7 +143,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Despre Noi"
+                  text={tNav("about.about_us")}
                   fill=""
                   href=""
                   style="split"
@@ -124,7 +155,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Conducerea GAL-ului"
+                  text={tNav("about.management")}
                   fill=""
                   href=""
                   style="split"
@@ -136,7 +167,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Documente Oficiale"
+                  text={tNav("about.documents")}
                   fill=""
                   href=""
                   style="split"
@@ -157,7 +188,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Produse Locale"
+                  text={tNav("authentic_local.local_products")}
                   fill=""
                   href=""
                   style="split"
@@ -171,7 +202,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Servicii din Comunitate"
+                  text={tNav("authentic_local.community_services")}
                   fill=""
                   href=""
                   style="split"
@@ -183,7 +214,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Atracții Turistice"
+                  text={tNav("authentic_local.tourist_attractions")}
                   fill=""
                   href=""
                   style="split"
@@ -195,7 +226,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                   circle="bg-forest-800"
                   backgroundColor="bg-sand-50"
                   insideColor="#11200B"
-                  text="Oameni și Valori"
+                  text={tNav("authentic_local.people_and_values")}
                   fill=""
                   href=""
                   style="split"
@@ -292,36 +323,38 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
         animate={controls}
         className="flex gap-8 col-span-6 col-start-3"
       >
-        <Link href="/">Acasă</Link>
+        <Link href="/">{tNav("home")}</Link>
         <motion.div
           onHoverStart={() => handleHoverStart("despre")}
           className="flex gap-1 items-center cursor-pointer"
         >
-          Despre GAL
+          {tNav("about.about_btn")}
           <ArrowDown
             arrowColor={
               hoveredMenu === "autentic" || hoveredMenu === "despre"
                 ? "#11200B"
                 : arrowColor
             }
+            direction={hoveredMenu === "autentic" ? "rotate-180" : ""}
           />
         </motion.div>
-        <Link href="/">Noutați</Link>
-        <Link href="/">Proiecte</Link>
+        <Link href="/">{tNav("news")}</Link>
+        <Link href="/">{tNav("projects")}</Link>
         <motion.div
           onHoverStart={() => handleHoverStart("autentic")}
           className="flex gap-1 items-center cursor-pointer"
         >
-          Autentic Local
+          {tNav("authentic_local.authentic_btn")}
           <ArrowDown
             arrowColor={
               hoveredMenu === "autentic" || hoveredMenu === "despre"
                 ? "#11200B"
                 : arrowColor
             }
+            direction={hoveredMenu === "despre" ? "rotate-180" : ""}
           />
         </motion.div>
-        <Link href="/">Contacte</Link>
+        <Link href="/">{tNav("contacts")}</Link>
       </motion.div>
 
       <div className="col-start-10 col-span-3 flex items-center gap-6">
@@ -332,10 +365,11 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
               : arrowColor
           }
         />
+        <Search hoveredMenu={hoveredMenu} handleHoverEnd={handleHoverEnd} />
         <LinkWithArrow
           backgroundColor="bg-forest-800"
           insideColor="#FFFEFD"
-          text="Harta resurselor"
+          text={tNav("resource_map")}
           href="/"
           style="default"
         />

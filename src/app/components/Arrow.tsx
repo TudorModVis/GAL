@@ -3,11 +3,13 @@ import React from "react";
 interface ArrowProp {
   fill?: string;
   isCircle?: boolean;
+  customStyle?: string;
 }
 
 const Arrow: React.FC<ArrowProp> = (props) => {
   return (
     <svg
+      className={`${props.customStyle}`}
       width={props.isCircle ? 10 : 12}
       height={props.isCircle ? 10 : 12}
       viewBox="0 0 12 12"

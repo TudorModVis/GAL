@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import LinkWithArrow from "../LinkWithArrow";
 import { useTranslations } from "next-intl";
+import AnimatedText from "../AnimatedText";
+import AnimatedHeader from "../AnimatedHeader";
 
 const Donation = () => {
   const tDonation = useTranslations("index.Donation");
@@ -9,12 +11,14 @@ const Donation = () => {
   return (
     <section className="w-screen h-fit grid grid-cols-donation relative px-8 mt-24 pb-24">
       <div className="col-span-11 grid grid-cols-11 text-sand-50 bg-forest-800 p-8 rounded-l-2xl">
-        <h3 className="col-span-10 text-5xl font-bold leading-13">
-          {tDonation("cta_title")}
-        </h3>
-        <h4 className="col-span-10 row-start-2 leading-4.5 mt-6">
-          {tDonation("territorial_population_info")}
-        </h4>
+        <AnimatedHeader
+          customStyles="col-span-9 text-5xl h-fit font-bold mb-8"
+          text={tDonation("cta_title")}
+        />
+        <AnimatedText
+          customStyles="col-span-10 row-start-2 leading-4.5 mt-6"
+          text={tDonation("territorial_population_info")}
+        />
         <div className="col-span-10 row-start-3 mt-32">
           <LinkWithArrow
             backgroundColor="bg-sand-50"
