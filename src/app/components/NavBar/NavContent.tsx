@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react"; // Import useRef
 import Logo from "../Logo";
 import LinkWithArrow from "../LinkWithArrow";
 import Link from "next/link";
@@ -31,77 +31,55 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
     | "oameni_si_valori"
   >(null);
 
+  const closeMenuTimer = useRef<NodeJS.Timeout | null>(null);
+
   const tNav = useTranslations("index.NavBar");
 
   useEffect(() => {
     setMounted(true);
+
+    return () => {
+      if (closeMenuTimer.current) {
+        clearTimeout(closeMenuTimer.current);
+      }
+    };
   }, []);
 
   const boxVariants = {
-    initial: {
-      height: 0,
-      transition: { duration: 0.5 },
-    },
-    hover: {
-      height: "420%",
-      transition: { duration: 0.5 },
-    },
+    initial: { height: 0, transition: { duration: 0.5 } },
+    hover: { height: "420%", transition: { duration: 0.5 } },
   };
-
   const textVariants = {
-    initial: {
-      color: arrowColor,
-      transition: { duration: 0.4 },
-    },
-    hover: {
-      color: "#11200B",
-      transition: { duration: 0.4 },
-    },
+    initial: { color: arrowColor, transition: { duration: 0.4 } },
+    hover: { color: "#11200B", transition: { duration: 0.4 } },
   };
-
   const lineVariants = {
-    initial: {
-      background: "#FFFEFD",
-      transition: { duration: 0.4 },
-    },
-    hover: {
-      background: "#BFBFBE",
-      transition: { duration: 0.4 },
-    },
+    initial: { background: "#FFFEFD", transition: { duration: 0.4 } },
+    hover: { background: "#BFBFBE", transition: { duration: 0.4 } },
   };
-
   const dropDownVariants = {
-    initial: {
-      opacity: 0,
-      transition: { duration: 0.1 },
-    },
-    hover: {
-      opacity: 1,
-      transition: { delay: 0.3, duration: 0.5 },
-    },
+    initial: { opacity: 0, transition: { duration: 0.1 } },
+    hover: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
   };
-
   const modalVariants = {
-    initial: {
-      opacity: 0,
-      transition: { duration: 0.3 },
-    },
-    hover: {
-      opacity: 1,
-      transition: { delay: 0.3, duration: 0.5 },
-    },
+    initial: { opacity: 0, transition: { duration: 0.3 } },
+    hover: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
   };
 
-  const handleHoverStart = (menu: "despre" | "autentic") => {
+  const handleMouseEnter = (menu: "despre" | "autentic") => {
+    if (closeMenuTimer.current) {
+      clearTimeout(closeMenuTimer.current);
+      closeMenuTimer.current = null;
+    }
     setHoveredMenu(menu);
     controls.start("hover");
   };
 
-  const handleHoverEnd = () => {
-    setTimeout(() => {
+  const handleMouseLeave = () => {
+    closeMenuTimer.current = setTimeout(() => {
       setHoveredMenu(null);
       controls.start("initial");
-    }, 500);
+    }, 1300);
   };
 
   return (
@@ -126,8 +104,8 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
         {hoveredMenu && (
           <motion.div
             className="absolute left-0 top-[120%] w-full h-[300%] grid grid-cols-full"
-            onMouseEnter={() => controls.start("hover")}
-            onMouseLeave={handleHoverEnd}
+            onMouseEnter={() => handleMouseEnter(hoveredMenu)}
+            onMouseLeave={handleMouseLeave}
           >
             {hoveredMenu === "despre" && (
               <motion.div
@@ -325,7 +303,8 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
       >
         <Link href="/">{tNav("home")}</Link>
         <motion.div
-          onHoverStart={() => handleHoverStart("despre")}
+          onMouseEnter={() => handleMouseEnter("despre")}
+          onMouseLeave={handleMouseLeave}
           className="flex gap-1 items-center cursor-pointer"
         >
           {tNav("about.about_btn")}
@@ -341,7 +320,8 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
         <Link href="/">{tNav("news")}</Link>
         <Link href="/">{tNav("projects")}</Link>
         <motion.div
-          onHoverStart={() => handleHoverStart("autentic")}
+          onMouseEnter={() => handleMouseEnter("autentic")}
+          onMouseLeave={handleMouseLeave}
           className="flex gap-1 items-center cursor-pointer"
         >
           {tNav("authentic_local.authentic_btn")}
@@ -365,7 +345,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
               : arrowColor
           }
         />
-        <Search hoveredMenu={hoveredMenu} handleHoverEnd={handleHoverEnd} />
+        <Search hoveredMenu={hoveredMenu} handleHoverEnd={handleMouseLeave} />
         <LinkWithArrow
           backgroundColor="bg-forest-800"
           insideColor="#FFFEFD"

@@ -12,7 +12,7 @@ const newsData = [
     id: 1,
     image: "/donation_image.png",
     title:
-      "1. ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională...",
+      "ECOMONDO – The Green Technology Expo, cea mai mare...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
@@ -20,7 +20,7 @@ const newsData = [
     id: 2,
     image: "/breaker_image.png",
     title:
-      "2. Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...",
+      "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecve...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
@@ -28,21 +28,21 @@ const newsData = [
     id: 3,
     image: "/donation_image.png",
     title:
-      "3. Biodiversitate și raportarea sustenabilității: de la ODD la ESRS",
+      "ECOMONDO – The Green Technology Expo, cea mai mare...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 4,
     image: "/breaker_image.png",
-    title: "4. A Patra Știre pentru un Carousel Complet",
+    title: "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecve...",
     description:
       "Aceasta este descrierea pentru a patra știre, asigurând o buclă lină.",
   },
   {
     id: 5,
     image: "/donation_image.png",
-    title: "5. A Cincea Știre în Lista Noastră",
+    title: "ECOMONDO – The Green Technology Expo, cea mai mare...",
     description:
       "Descrierea celei de-a cincea știri pentru a demonstra funcționalitatea completă.",
   },
@@ -87,7 +87,7 @@ const LastNews = () => {
           </div>
         </div>
 
-        <div className="col-span-full overflow-hidden">
+        <div className="col-span-full px-2 overflow-hidden">
           <motion.div
             className="flex"
             style={{ columnGap: "24px" }}
@@ -97,7 +97,7 @@ const LastNews = () => {
             {newsData.map((news) => (
               <div
                 key={news.id}
-                className="bg-sand-50 relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer"
+                className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer"
                 style={{ flex: "0 0 calc(100% / 3 - 16px)" }}
               >
                 <div className="h-1/2 relative">

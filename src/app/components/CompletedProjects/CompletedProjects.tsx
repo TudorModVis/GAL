@@ -85,19 +85,19 @@ const CompletedProjects = () => {
           <motion.div
             className="flex"
             style={{ columnGap: "24px" }}
-            animate={{ x: `-${currentIndex * (100 / itemsVisible)}%` }}
+            animate={{ x: `-${currentIndex * (102 / itemsVisible)}%` }}
             transition={{ type: "tween", ease: "easeInOut", duration: 0.7 }}
           >
             {completedProjectsData.map((project) => (
               <div
                 key={project.id}
-                className="flex-shrink-0"
+                className="flex-shrink-0 flex justify-center items-center"
                 style={{
                   width: "calc(50% - 12px)",
                   height: "605px",
                 }}
               >
-                <div className="bg-sand-50 w-full h-full relative flex flex-col rounded-2xl overflow-hidden cursor-pointer">
+                <div className="bg-stone-50 custom-shadow w-[98%] h-[98%] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer">
                   <div className="h-1/2 relative">
                     <Image
                       alt={project.title}

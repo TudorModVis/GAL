@@ -151,6 +151,10 @@
     background-color: #f1f1f1;
   }
 
+  .custom-shadow{
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  }
+
   .scroll-bar-custom::-webkit-scrollbar {
     width: 10px;
   }
@@ -192,13 +196,13 @@
   }
 }
 
-@media (min-width: 1636px) {
+@media (min-width: 1500px) {
   :root {
     --current-rem: 16;
   }
 
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   input,
