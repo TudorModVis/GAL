@@ -2,12 +2,12 @@
 
 import React from "react";
 import Moldova from "./Moldova";
-import LinkWithArrow from "../LinkWithArrow";
 import { useTranslations } from "next-intl";
 import AnimatedCounter from "../AnimatedCounter";
 import AnimatedLine from "../AnimatedLine";
 import AnimatedText from "../AnimatedText";
 import AnimatedHeader from "../AnimatedHeader";
+import LinkWithArrow from "../LinkWithArrow";
 
 const AboutUs = () => {
   const tAboutUs = useTranslations("index.AboutUs");
@@ -27,11 +27,11 @@ const AboutUs = () => {
           text={tAboutUs("impact_description")}
         />
         <LinkWithArrow
-          backgroundColor="bg-forest-700"
-          insideColor="#FFFEFD"
           text={tAboutUs("button_learn_more")}
           href="/"
-          style="default"
+          arrowProps="group-hover/link:fill-sand-50 group-hover/link:rotate-0 -rotate-45 fill-sand-50"
+          customStyle="flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
+                     [&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:group-hover/link:bg-forest-800 text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
         />
       </div>
       <div className="col-span-9 mt-72">

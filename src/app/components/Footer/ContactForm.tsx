@@ -1,5 +1,5 @@
 import React from "react";
-import LinkWithArrow from "../LinkWithArrow";
+// import LinkWithArrow from "../LinkWithArrow";
 import { useTranslations } from "next-intl";
 
 const ContactForm = () => {
@@ -76,13 +76,13 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="col-span-full">
-        <LinkWithArrow
+        {/* <LinkWithArrow
           backgroundColor="bg-sand-50"
           insideColor="#11200B"
           text={tFooter("form_text.contact_button_text")}
           href="/"
           style="default"
-        />
+        /> */}
       </div>
     </>
   );

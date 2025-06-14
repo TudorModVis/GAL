@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"; // Import useRef
 import Logo from "../Logo";
-import LinkWithArrow from "../LinkWithArrow";
 import Link from "next/link";
 import ArrowDown from "./ArrowDown";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
@@ -8,6 +7,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { createPortal } from "react-dom";
 import Search from "./Search";
 import { useTranslations } from "next-intl";
+import LinkWithArrow from "../LinkWithArrow";
 
 interface ArrowColor {
   arrowColor?: string;
@@ -79,7 +79,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
     closeMenuTimer.current = setTimeout(() => {
       setHoveredMenu(null);
       controls.start("initial");
-    }, 1300);
+    }, 800);
   };
 
   return (
@@ -117,38 +117,26 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
               >
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("despre_noi")}
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("about.about_us")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
                 <div className="w-full h-[1px] bg-stone-400"></div>
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("conducerea_gal")}
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("about.management")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
                 <div className="w-full h-[1px] bg-stone-400"></div>
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("documente_oficiale")}
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("about.documents")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
               </motion.div>
             )}
@@ -162,52 +150,36 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
               >
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("produse_locale")}
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("authentic_local.local_products")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
                 <div className="w-full h-[1px] bg-stone-400"></div>
                 <LinkWithArrow
                   onMouseEnter={() =>
                     setHoveredSubMenu("servicii_din_comunitate")
                   }
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("authentic_local.community_services")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
                 <div className="w-full h-[1px] bg-stone-400"></div>
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("atractii_turistice")}
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("authentic_local.tourist_attractions")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
                 <div className="w-full h-[1px] bg-stone-400"></div>
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("oameni_si_valori")}
-                  onMouseLeave={() => setHoveredSubMenu(null)}
-                  circle="bg-forest-800"
-                  backgroundColor="bg-sand-50"
-                  insideColor="#11200B"
                   text={tNav("authentic_local.people_and_values")}
-                  fill=""
                   href=""
-                  style="split"
+                  arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
+                  customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
               </motion.div>
             )}
@@ -347,11 +319,11 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
         />
         <Search hoveredMenu={hoveredMenu} handleHoverEnd={handleMouseLeave} />
         <LinkWithArrow
-          backgroundColor="bg-forest-800"
-          insideColor="#FFFEFD"
           text={tNav("resource_map")}
           href="/"
-          style="default"
+          arrowProps="group-hover/link:rotate-0 -rotate-45 fill-sand-50"
+          customStyle="flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50
+                     [&>div:nth-child(1)]:px-4 [&>div]:group-hover/link:bg-forest-700 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
         />
       </div>
       <motion.div

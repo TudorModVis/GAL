@@ -67,8 +67,8 @@ const Search: React.FC<hoveredMenu> = ({ hoveredMenu, handleHoverEnd }) => {
       <div
         onClick={handleClick}
         className={`cursor-pointer flex justify-center items-center rounded-full ${
-          isClicked ? "bg-sand-50" : "bg-forest-800"
-        } transition duration-400 bg-forest-800 p-3.5`}
+          isClicked ? "bg-stone-50" : "bg-forest-800"
+        } transition duration-400 bg-forest-800 hover:bg-forest-700 p-3.5`}
       >
         {isClicked ? <Cross /> : <MagnifyGlass />}
       </div>
@@ -88,7 +88,7 @@ const Search: React.FC<hoveredMenu> = ({ hoveredMenu, handleHoverEnd }) => {
                   type="search"
                   placeholder="Caută proiecte, noutăți, persoane, ..."
                 />
-                <div className="h-16 col-span-full flex items-center px-6 space-x-2 border-t border-b border-gray-200">
+                <div className="h-16 col-span-full flex items-center px-6 space-x-2 bg-stone-50">
                   <div
                     onClick={() => setFilter("all")}
                     className={`rounded-full cursor-pointer ${
@@ -155,37 +155,37 @@ const Search: React.FC<hoveredMenu> = ({ hoveredMenu, handleHoverEnd }) => {
                   <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
                     Biodiversitate și raportarea sustenabilității
                     <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow />
+                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45"/>
                     </div>
                   </div>
                   <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
                     ECOMONDO – The Green Technology Expo
                     <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow />
+                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45"/>
                     </div>
                   </div>
                   <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
                     Responsabilitatea Extinsă a Producătorului
                     <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow />
+                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45"/>
                     </div>
                   </div>
                   <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
                     Economia Circulară în industria Textilelor
                     <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow />
+                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45"/>
                     </div>
                   </div>
                   <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
                     The Living First Language Platform
                     <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow />
+                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45"/>
                     </div>
                   </div>
                   <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
                     Coding Aboriginal Languages for Indigenous Literacy (CALIL)
                     <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow />
+                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45"/>
                     </div>
                   </div>
                 </div>
