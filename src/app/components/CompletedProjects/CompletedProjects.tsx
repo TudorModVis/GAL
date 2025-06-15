@@ -13,9 +13,9 @@ const completedProjectsData = [
     image: "/donation_image.png",
     tags: ["Antreprenorial", "Noutate"],
     date: "24.06.2024 - 01.03.2025",
-    title: "1. Proiect Completat: Modernizarea Infrastructurii Locale",
+    title: "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională de...",
     description:
-      "Descrierea detaliată pentru primul proiect finalizat, subliniind impactul și rezultatele obținute.",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 2,
@@ -140,10 +140,10 @@ const CompletedProjects = () => {
                       </span>
                     </div>
                     <AnimatedHeader
-                      customStyles="font-bold text-2xl"
+                      customStyles="font-bold text-xl leading-6"
                       text={project.title}
                     />
-                    <h4>{project.description}</h4>
+                    <h4 className="leading-4.5">{project.description}</h4>
                     <LinkWithArrow
                       text="Accesează articol"
                       href="/"

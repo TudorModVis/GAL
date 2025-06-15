@@ -132,7 +132,7 @@ const LastNews = () => {
                 </div>
                 <div className="bg-sand-50 h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col group">
                   <AnimatedHeader
-                    customStyles="font-bold text-2xl leading-6"
+                    customStyles="font-bold text-xl leading-6"
                     text={news.title}
                   />
                   <h4 className="group-hover:opacity-100 leading-4.5 opacity-0 transition-opacity duration-300">
@@ -164,9 +164,9 @@ const LastNews = () => {
           <LinkWithArrow
             text={tLastNews("see_more_news")}
             href="/"
-            arrowProps="group-hover/link:fill-sand-50 group-hover/link:rotate-0 -rotate-45 fill-forest-900"
+            arrowProps="group-hover/link:rotate-0 -rotate-45 fill-forest-900"
             customStyle="flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                          [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-forest-700 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
+                          [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
           />
         </div>
       </div>

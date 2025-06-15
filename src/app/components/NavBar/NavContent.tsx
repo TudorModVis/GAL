@@ -46,8 +46,8 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
   }, []);
 
   const boxVariants = {
-    initial: { height: 0, transition: { duration: 0.5 } },
-    hover: { height: "420%", transition: { duration: 0.5 } },
+    initial: { height: 0, transition: { duration: 0.4 } },
+    hover: { height: "420%", transition: { duration: 0.4 } },
   };
   const textVariants = {
     initial: { color: arrowColor, transition: { duration: 0.4 } },
@@ -286,7 +286,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 ? "#11200B"
                 : arrowColor
             }
-            direction={hoveredMenu === "autentic" ? "rotate-180" : ""}
+            direction={hoveredMenu === "despre" ? "rotate-180" : ""}
           />
         </motion.div>
         <Link href="/">{tNav("news")}</Link>
@@ -303,7 +303,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 ? "#11200B"
                 : arrowColor
             }
-            direction={hoveredMenu === "despre" ? "rotate-180" : ""}
+            direction={hoveredMenu === "autentic" ? "rotate-180" : ""}
           />
         </motion.div>
         <Link href="/">{tNav("contacts")}</Link>

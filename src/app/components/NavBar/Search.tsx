@@ -68,7 +68,7 @@ const Search: React.FC<hoveredMenu> = ({ hoveredMenu, handleHoverEnd }) => {
         onClick={handleClick}
         className={`cursor-pointer flex justify-center items-center rounded-full ${
           isClicked ? "bg-stone-50" : "bg-forest-800"
-        } transition duration-400 bg-forest-800 hover:bg-forest-700 p-3.5`}
+        } transition duration-400 bg-forest-800 hover:bg-stone-200 p-3.5`}
       >
         {isClicked ? <Cross /> : <MagnifyGlass />}
       </div>

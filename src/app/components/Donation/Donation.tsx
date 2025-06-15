@@ -23,9 +23,9 @@ const Donation = () => {
           <LinkWithArrow
             text={tDonation("contact_button_text")}
             href="/"
-            arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900"
+            arrowProps="group-hover/link:rotate-0 -rotate-45 fill-forest-900"
             customStyle="flex gap-1 mx-auto w-full items-center [&>div:nth-child(1)]:py-2.5
-                         [&>div:nth-child(1)]:px-4 [&>div]:text-forest-900 [&>div]:bg-sand-50 [&>div]:group-hover/link:bg-forest-700 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
+                         [&>div:nth-child(1)]:px-4 [&>div]:text-forest-900 [&>div]:bg-sand-50 [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
           />
         </div>
       </div>

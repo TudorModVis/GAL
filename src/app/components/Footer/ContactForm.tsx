@@ -1,6 +1,6 @@
 import React from "react";
-// import LinkWithArrow from "../LinkWithArrow";
 import { useTranslations } from "next-intl";
+import LinkWithArrow from "../LinkWithArrow";
 
 const ContactForm = () => {
   const tFooter = useTranslations("index.Footer");
@@ -14,8 +14,8 @@ const ContactForm = () => {
         <div
           className="flex gap-4 mt-4 mb-6 [&>*]:bg-sand-50 [&>*]:cursor-pointer
                       [&>*]:text-black [&>*]:rounded-full [&>*]:font-medium
-                        [&>*]:hover:bg-forest-500 [&>*]:transition 
-                        [&>*]:hover:text-sand-50 [&>*]:active:bg-forest-800
+                        [&>*]:hover:bg-stone-200 [&>*]:transition 
+                        [&>*]:active:bg-forest-800
                         [&>*]:px-4 [&>*]:py-2.5"
         >
           <button>{tFooter("form_text.donation_button")}</button>
@@ -76,13 +76,13 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="col-span-full">
-        {/* <LinkWithArrow
-          backgroundColor="bg-sand-50"
-          insideColor="#11200B"
+        <LinkWithArrow
           text={tFooter("form_text.contact_button_text")}
           href="/"
-          style="default"
-        /> */}
+          arrowProps="group-hover/link:rotate-0 -rotate-45 fill-forest-900"
+          customStyle="flex gap-1 mx-auto w-full items-center [&>div:nth-child(1)]:py-2.5
+                         [&>div:nth-child(1)]:px-4 [&>div]:text-forest-900 [&>div]:bg-sand-50 [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
+        />
       </div>
     </>
   );
