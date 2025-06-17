@@ -5,6 +5,7 @@ import { motion, useCycle, Variants } from "framer-motion";
 interface HeroProps {
   heroTitle1: string;
   heroTitle2: string;
+  videoSource: string;
 }
 
 const topLine: Variants = {
@@ -39,7 +40,7 @@ const scrollDot: Variants = {
   },
 };
 
-export default function Hero({ heroTitle1, heroTitle2 }: HeroProps) {
+export default function Hero(props: HeroProps) {
   const [phase, cyclePhase] = useCycle<"title1" | "title2">("title1", "title2");
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export default function Hero({ heroTitle1, heroTitle2 }: HeroProps) {
     <section className="w-screen h-screen relative px-8">
       <video
         className="absolute inset-0 left-0 w-full h-full object-cover"
-        src="video1.mp4"
+        src={props.videoSource}
         autoPlay
         loop
         muted
@@ -60,7 +61,7 @@ export default function Hero({ heroTitle1, heroTitle2 }: HeroProps) {
       <div className="w-full h-full grid grid-cols-full px-8">
         <motion.div className="relative overflow-hidden font-bold text-sand-50 text-[5rem] leading-24 col-start-3 self-center text-center col-span-8 mx-auto">
           <h1>
-            {heroTitle1.split(/(\s+)/).map((l, i) => (
+            {props.heroTitle1.split(/(\s+)/).map((l, i) => (
               <span
                 key={i}
                 className="inline-block overflow-hidden align-baseline"
@@ -79,7 +80,7 @@ export default function Hero({ heroTitle1, heroTitle2 }: HeroProps) {
           </h1>
 
           <h1 className="absolute inset-0">
-            {heroTitle2.split(/(\s+)/).map((l, i) => (
+            {props.heroTitle2.split(/(\s+)/).map((l, i) => (
               <span
                 key={i}
                 className="inline-block overflow-hidden align-baseline"

@@ -1,12 +1,11 @@
+import Donation from "@/app/components/Donation/Donation";
+import Footer from "@/app/components/Footer/Footer";
+import Hero from "@/app/components/HeroSection/Hero";
+import LastNews from "@/app/components/LastNews/LastNews";
+import MainSection from "@/app/components/ListAndStatistics/MainSection";
+import Members from "@/app/components/Members/Members";
+import NavBar from "@/app/components/NavBar/NavBar";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Hero from "../components/HeroSection/Hero";
-import AboutUs from "../components/AboutUs/AboutUs";
-import LastNews from "../components/LastNews/LastNews";
-import Breaker from "../components/Breaker/Breaker";
-import Donation from "../components/Donation/Donation";
-import Footer from "../components/Footer/Footer";
-import NavBar from "../components/NavBar/NavBar";
-import CompletedProjects from "../components/CompletedProjects/CompletedProjects";
 
 export async function generateMetadata() {
   const t = await getTranslations("index.meta");
@@ -17,7 +16,7 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Home({
+export default async function AboutUsPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -25,7 +24,7 @@ export default async function Home({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("index");
+  const t = await getTranslations("aboutUs");
   return (
     <>
       <NavBar />
@@ -33,12 +32,11 @@ export default async function Home({
         <Hero
           heroTitle1={t("heroTitle.1")}
           heroTitle2={t("heroTitle.2")}
-          videoSource="/video1.mp4"
+          videoSource="../video1.mp4"
         />
-        <AboutUs />
+        <MainSection />
         <LastNews />
-        <Breaker />
-        <CompletedProjects />
+        <Members />
         <Donation />
       </main>
       <Footer />

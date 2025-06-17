@@ -118,7 +118,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("despre_noi")}
                   text={tNav("about.about_us")}
-                  href=""
+                  href="/aboutUs"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />

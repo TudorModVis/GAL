@@ -102,7 +102,7 @@ const LastNews = () => {
             {newsData.map((news) => (
               <div
                 key={news.id}
-                className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer"
+                className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group"
                 style={{ flex: "0 0 calc(100% / 3 - 16px)" }}
               >
                 <div className="h-1/2 relative">
@@ -130,7 +130,7 @@ const LastNews = () => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
-                <div className="bg-sand-50 h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col group">
+                <div className="bg-sand-50 h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col">
                   <AnimatedHeader
                     customStyles="font-bold text-xl leading-6"
                     text={news.title}
@@ -141,9 +141,9 @@ const LastNews = () => {
                   <LinkWithArrow
                     text={tLastNews("access_article")}
                     href="/"
-                    arrowProps="group-hover/link:fill-sand-50 group-hover/link:rotate-0 -rotate-45 fill-forest-900"
+                    arrowProps="group-hover:fill-sand-50 group-hover:rotate-0 -rotate-45 fill-forest-900"
                     customStyle="flex w-full justify-between items-center [&>div:nth-child(1)]:py-2.5
-                      [&>div:nth-child(1)]:px-4 [&>div]:group-hover/link:bg-forest-700 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
+                      [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-forest-700 [&>div]:group-hover:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
                   />
                 </div>
               </div>

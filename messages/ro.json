@@ -89,5 +89,11 @@
     "CompletedProjects": {
       "completed_projects_header": "Proiecte realizate"
     }
+  },
+  "aboutUs": {
+    "heroTitle": {
+      "1": "Descrierea Generală a GAL-ului Stejarul Dacilor",
+      "2": "Cum Contribuim și Cine Suntem ca Organizație?"
+    }
   }
 }

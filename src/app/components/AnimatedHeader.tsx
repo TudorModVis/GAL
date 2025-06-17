@@ -15,7 +15,7 @@ const AnimatedText: React.FC<TextProps> = (props) => {
   const words = props.text.split(/(\s+)/);
 
   return (
-    <h4 className={props.customStyles} ref={ref}>
+    <h2 className={props.customStyles} ref={ref}>
       {words.map((word, index) => {
         const isSpace = /^\s+$/.test(word);
         return (
@@ -34,7 +34,7 @@ const AnimatedText: React.FC<TextProps> = (props) => {
           </motion.span>
         );
       })}
-    </h4>
+    </h2>
   );
 };
 

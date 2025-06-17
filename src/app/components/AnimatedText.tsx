@@ -25,7 +25,7 @@ const AnimatedText: React.FC<TextProps> = (props) => {
   };
 
   return (
-    <motion.h2
+    <motion.h4
       className={`${props.customStyles}`}
       ref={ref}
       variants={textAnimation}
@@ -33,7 +33,7 @@ const AnimatedText: React.FC<TextProps> = (props) => {
       animate={isInView ? "visible" : "hidden"}
     >
       {props.text}
-    </motion.h2>
+    </motion.h4>
   );
 };
 
