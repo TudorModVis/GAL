@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import Search from "./Search";
 import { useTranslations } from "next-intl";
 import LinkWithArrow from "../LinkWithArrow";
+import { useLenis } from "lenis/react";
 
 interface ArrowColor {
   arrowColor?: string;
@@ -31,9 +32,19 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
     | "oameni_si_valori"
   >(null);
 
+  const lenis = useLenis();
+
   const closeMenuTimer = useRef<NodeJS.Timeout | null>(null);
 
   const tNav = useTranslations("index.NavBar");
+
+  useEffect(() => {
+    if (hoveredMenu) {
+      lenis?.stop();
+    } else {
+      lenis?.start();
+    }
+  }, [hoveredMenu, lenis]);
 
   useEffect(() => {
     setMounted(true);
