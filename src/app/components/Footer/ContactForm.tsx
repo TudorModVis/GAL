@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import LinkWithArrow from "../LinkWithArrow";
+import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 
 const ContactForm = () => {
   const tFooter = useTranslations("index.Footer");

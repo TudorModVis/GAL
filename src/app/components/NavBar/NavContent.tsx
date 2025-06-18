@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"; // Import useRef
-import Logo from "../Logo";
+import Logo from "../CommonComponents/Logo";
 import Link from "next/link";
 import ArrowDown from "./ArrowDown";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
@@ -7,7 +7,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { createPortal } from "react-dom";
 import Search from "./Search";
 import { useTranslations } from "next-intl";
-import LinkWithArrow from "../LinkWithArrow";
+import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 import { useLenis } from "lenis/react";
 
 interface ArrowColor {
@@ -137,7 +137,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("conducerea_gal")}
                   text={tNav("about.management")}
-                  href=""
+                  href="/administration"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
@@ -145,7 +145,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("documente_oficiale")}
                   text={tNav("about.documents")}
-                  href=""
+                  href="/documents"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />

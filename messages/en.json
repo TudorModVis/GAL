@@ -92,8 +92,64 @@
   },
   "aboutUs": {
     "heroTitle": {
-      "1": "Descrierea Generală a GAL-ului Stejarul Dacilor",
-      "2": "Cum Contribuim și Cine Suntem ca Organizație?"
+      "1": "General Description of the LAG Stejarul Dacilor",
+      "2": "How We Contribute and Who We Are as an Organization"
+    },
+    "members": {
+      "title": "Executive members",
+      "president": "President of LAG “Stejarul Dacilor”",
+      "director": "Director of LAG “Stejarul Dacilor”",
+      "manager": "Manager of LAG “Stejarul Dacilor”",
+      "accountant": "Accountant of LAG “Stejarul Dacilor”"
+    },
+    "map": {
+      "name": "Name",
+      "details": "Details",
+      "location": "Location",
+      "sector": "Sector",
+      "unit": "Unit",
+      "marker_selemet": {
+        "name": "Selemet Commune City Hall",
+        "details": "098230243645 - Legal entity",
+        "location": "Cimișlia District, Selemet Village",
+        "sector": "Public",
+        "foj": "Random testing unit"
+      }
+    },
+    "listAndStatistics": {
+      "title": "Member Statistics of LAG Stejarul Dacilor",
+      "description": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the goal of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027.",
+      "resource_map_button": "Resource Map",
+      "total_members": "Total number of members",
+      "entrepreneurial_sector_members": "Number of members from the entrepreneurial sector",
+      "public_sector_members": "Number of members from the public sector",
+      "civic_sector_members": "Number of members from the civic sector"
+    },
+    "miniSection": {
+      "title": "Do you want to learn more about the structure and functioning of the LAG?",
+      "description1": "Discover who the people are that guide the activity of the “Stejarul Dacilor” LAG — from the General Assembly to the executive committees. Get to know the internal structure, the roles, and the way we make decisions for the community.",
+      "description2": "Transparency is essential. Access the statute, strategies, annual reports, and other key documents that define our direction and commitments towards the localities in the region.",
+      "management_button": "LAG Leadership",
+      "documents_button": "Official Documents"
+    },
+    "administration": {
+      "regulations": "Regulations",
+      "regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and young people from refugee backgrounds through personalized guidance tailored to their unique needs.",
+      "regulation_btn": "Access Regulation",
+      "statute": "Statute",
+      "statute_text": "Statute: Association of the Local Action Group",
+      "statute_btn": "Access Statute",
+      "strategy": "Strategy",
+      "strategy_text1": "Local Development Strategy 2022–2028",
+      "strategy_text2": "Strategic Action Plan 2018 – 2022",
+      "strategy_btn": "Access Strategy",
+      "constitution_agreement": "Constitution Agreement",
+      "constitution_agreement_text": "The Constitution Agreement Document of the Local Action Group 'Stejarul Dacilor'",
+      "constitution_agreement_btn": "Access Constitution Agreement",
+      "annual_report": "Annual Reports",
+      "annual_report_text1": "Annual activity report on the implementation of the 2022–2028 local development strategy",
+      "annual_report_text2": "Activity report for the year 2019",
+      "annual_report_btn": "Access Report"
     }
   }
 }

@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import AnimatedHeader from "../AnimatedHeader";
+import AnimatedHeader from "../CommonComponents/AnimatedHeader";
 import { useTranslations } from "next-intl";
-import Arrow from "../Arrow";
+import Arrow from "../CommonComponents/Arrow";
 import Image from "next/image";
-import LinkWithArrow from "../LinkWithArrow";
+import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 
 const completedProjectsData = [
   {
@@ -13,7 +13,8 @@ const completedProjectsData = [
     image: "/donation_image.png",
     tags: ["Antreprenorial", "Noutate"],
     date: "24.06.2024 - 01.03.2025",
-    title: "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională de...",
+    title:
+      "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională de...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import AnimatedHeader from "../AnimatedHeader";
+import AnimatedHeader from "../CommonComponents/AnimatedHeader";
 
 const Breaker = () => {
   const tBreaker = useTranslations("index.Breaker");

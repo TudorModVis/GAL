@@ -5,7 +5,11 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import NavContent from "./NavContent";
 import { AnimatePresence } from "motion/react";
 
-const NavBar = () => {
+interface NavBarProps {
+  onlyFixed?: boolean;
+}
+
+const NavBar: React.FC<NavBarProps> = (props) => {
   const first = useRef(null);
   const second = useRef(null);
   const { scrollYProgress: scrollYProgressFirst } = useScroll({
@@ -17,31 +21,21 @@ const NavBar = () => {
     offset: ["start start", "start start"],
   });
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isNearEnd, setIsNearEnd] = useState(false);
 
   useMotionValueEvent(scrollYProgressFirst, "change", (position) => {
     setIsAtTop(position === 0);
   });
 
   useMotionValueEvent(scrollYProgressSecond, "change", (position) => {
-    setIsAtTop(position === 0);
+    setIsNearEnd(position > 0);
   });
 
   return (
     <>
       <nav className="text-nowrap">
         <AnimatePresence mode="wait">
-          {!isAtTop ? (
-            <motion.div
-              key="top"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4"
-            >
-              <NavContent arrowColor="#FFFEFD" />
-            </motion.div>
-          ) : (
+          {!isNearEnd && (props.onlyFixed || isAtTop) ? (
             <motion.div
               key="scrolled"
               initial={{ opacity: 0, y: -50 }}
@@ -54,12 +48,23 @@ const NavBar = () => {
               <div className="absolute bg-sand-50 w-[400%] -left-[100%] h-full -z-10"></div>
               <div className="bg-stone-400 h-[1px] absolute bottom-0 w-[400%] -left-[100%]"></div>
             </motion.div>
-          )}
+          ) : !isAtTop && !isNearEnd && !props.onlyFixed ? (
+            <motion.div
+              key="top"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4"
+            >
+              <NavContent arrowColor="#FFFEFD" />
+            </motion.div>
+          ) : null}
         </AnimatePresence>
       </nav>
 
-      <div ref={first} className="absolute top-[100vh]"></div>
-      <div ref={second} className="absolute top-[90%]"></div>
+      <div ref={first} className="absolute top-[100vh] invisible"></div>
+      <div ref={second} className="absolute top-[90%] invisible"></div>
     </>
   );
 };

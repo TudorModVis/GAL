@@ -59,7 +59,7 @@ export default function Hero(props: HeroProps) {
         playsInline
       />
       <div className="w-full h-full grid grid-cols-full px-8">
-        <motion.div className="relative overflow-hidden font-bold text-sand-50 text-[5rem] leading-24 col-start-3 self-center text-center col-span-8 mx-auto">
+        <motion.div className="relative font-bold text-sand-50 text-[5rem] leading-24 col-start-3 self-center text-center col-span-8 mx-auto">
           <h1>
             {props.heroTitle1.split(/(\s+)/).map((l, i) => (
               <span
@@ -79,7 +79,7 @@ export default function Hero(props: HeroProps) {
             ))}
           </h1>
 
-          <h1 className="absolute inset-0">
+          <h1 className="absolute inset-0 h-fit">
             {props.heroTitle2.split(/(\s+)/).map((l, i) => (
               <span
                 key={i}

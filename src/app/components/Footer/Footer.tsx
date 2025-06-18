@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from "../Logo";
+import Logo from "../CommonComponents/Logo";
 import Link from "next/link";
 import Image from "next/image";
 import Socials from "./Socials";
-import AnimatedLine from "../AnimatedLine";
+import AnimatedLine from "../CommonComponents/AnimatedLine";
 import ContactForm from "./ContactForm";
 import { useTranslations } from "next-intl";
 

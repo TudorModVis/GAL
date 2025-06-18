@@ -1,16 +1,16 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import Image from "next/image";
-import AnimatedHeader from "../AnimatedHeader";
-import AnimatedText from "../AnimatedText";
+import AnimatedHeader from "../CommonComponents/AnimatedHeader";
+import AnimatedText from "../CommonComponents/AnimatedText";
 
 const Members = () => {
-  const tDonation = useTranslations("index.Donation");
+  const tMembers = useTranslations("aboutUs.members");
 
   return (
     <section className="w-screen min-h-[77vh] h-fit grid grid-cols-full grid-rows-[auto_1fr] relative text-forest-900">
       <AnimatedHeader
-        text="Membri executivi"
+        text={tMembers("title")}
         customStyles="font-bold text-5xl leading-13 col-span-full mt-24 mb-12"
       />
       <div className="col-span-3 h-full relative flex flex-col">
@@ -28,7 +28,7 @@ const Members = () => {
           text="Victor Rudenco"
           customStyles="font-bold mt-6 mb-4 text-xl"
         />
-        <AnimatedText text="Președinte GAL “Stejarul Dacilor”" />
+        <AnimatedText text={tMembers("president")} />
       </div>
 
       <div className="col-span-3 h-full relative flex flex-col">
@@ -46,7 +46,7 @@ const Members = () => {
           text="Ana-Maria Ioniță"
           customStyles="font-bold mt-6 mb-4 text-xl"
         />
-        <AnimatedText text="Director GAL “Stejarul Dacilor”" />
+        <AnimatedText text={tMembers("director")} />
       </div>
       <div className="col-span-3 h-full relative flex flex-col">
         <div className="w-full" style={{ height: "67%" }}>
@@ -63,7 +63,7 @@ const Members = () => {
           text="Maxim Furtună"
           customStyles="font-bold mt-6 mb-4 text-xl"
         />
-        <AnimatedText text="Manager GAL “Stejarul Dacilor”" />
+        <AnimatedText text={tMembers("manager")} />
       </div>
       <div className="col-span-3 h-full relative flex flex-col">
         <div className="w-full" style={{ height: "88%" }}>
@@ -80,7 +80,7 @@ const Members = () => {
           text="Dumitru Marguleț"
           customStyles="font-bold mt-6 mb-4 text-xl"
         />
-        <AnimatedText text="Contabil GAL “Stejarul Dacilor”" />
+        <AnimatedText text={tMembers("accountant")} />
       </div>
     </section>
   );

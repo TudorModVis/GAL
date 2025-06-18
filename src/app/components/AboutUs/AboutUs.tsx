@@ -3,11 +3,11 @@
 import React from "react";
 import Moldova from "./Moldova";
 import { useTranslations } from "next-intl";
-import AnimatedCounter from "../AnimatedCounter";
-import AnimatedLine from "../AnimatedLine";
-import AnimatedText from "../AnimatedText";
-import AnimatedHeader from "../AnimatedHeader";
-import LinkWithArrow from "../LinkWithArrow";
+import AnimatedCounter from "../CommonComponents/AnimatedCounter";
+import AnimatedLine from "../CommonComponents/AnimatedLine";
+import AnimatedText from "../CommonComponents/AnimatedText";
+import AnimatedHeader from "../CommonComponents/AnimatedHeader";
+import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 
 const AboutUs = () => {
   const tAboutUs = useTranslations("index.AboutUs");

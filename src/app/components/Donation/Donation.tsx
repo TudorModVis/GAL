@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import LinkWithArrow from "../LinkWithArrow";
+import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 import { useTranslations } from "next-intl";
-import AnimatedText from "../AnimatedText";
-import AnimatedHeader from "../AnimatedHeader";
+import AnimatedText from "../CommonComponents/AnimatedText";
+import AnimatedHeader from "../CommonComponents/AnimatedHeader";
 
 const Donation = () => {
   const tDonation = useTranslations("index.Donation");

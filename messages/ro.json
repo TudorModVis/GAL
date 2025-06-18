@@ -94,6 +94,62 @@
     "heroTitle": {
       "1": "Descrierea Generală a GAL-ului Stejarul Dacilor",
       "2": "Cum Contribuim și Cine Suntem ca Organizație?"
+    },
+    "members": {
+      "title": "Membrii executivi",
+      "president": "Președinte GAL “Stejarul Dacilor”",
+      "director": "Director GAL “Stejarul Dacilor”",
+      "manager": "Manager GAL “Stejarul Dacilor”",
+      "accountant": "Contabil GAL “Stejarul Dacilor”"
+    },
+    "map": {
+      "name": "Denumirea",
+      "details": "Detalii",
+      "location": "Locație",
+      "sector": "Sector",
+      "unit": "Foj",
+      "marker_selemet": {
+        "name": "Primăria comunei Selemet",
+        "details": "098230243645 - Persoană juridică",
+        "location": "R-UL CIMIȘLIA, S.Selemet",
+        "sector": "Public",
+        "foj": "Unitate random de testare"
+      }
+    },
+    "listAndStatistics": {
+      "title": "Lista și statistica membrilor GAL-ului Stejarul Dacilor",
+      "description": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027.",
+      "resource_map_button": "Harta resurselor",
+      "total_members": "Nr. total membri",
+      "entrepreneurial_sector_members": "Nr. membri din sectorul antreprenorial",
+      "public_sector_members": "Nr. membri din sectorul public",
+      "civic_sector_members": "Nr. membri din sectorul civic"
+    },
+    "miniSection": {
+      "title": "Vrei să afli mai multe despre structura și funcționarea GAL-ului?",
+      "description1": "Descoperă cine sunt oamenii care ghidează activitatea GAL-ului „Stejarul Dacilor” — de la Adunarea Generală până la comisiile executive. Cunoaște structura internă, rolurile și modul în care luăm decizii pentru comunitate.",
+      "description2": "Transparența este esențială. Accesează statutul, strategiile, rapoartele anuale și alte documente-cheie care definesc direcția și angajamentele noastre față de localitățile din regiune.",
+      "management_button": "Conducerea GAL-ului",
+      "documents_button": "Documente Oficiale"
+    },
+    "administration": {
+      "regulations": "Regulamente",
+      "regulation_text": "Programul ALNF de Sprijin pentru Acțiunile în Favoarea Refugiaților este o inițiativă premiată, concepută pentru a sprijini copiii și tinerii proveniți din medii de refugiați prin îndrumări individuale, adaptate nevoilor lor unice.",
+      "regulation_btn": "Accesează Regulament",
+      "statute": "Statut",
+      "statute_text": "Statutul : Asociația Grupului de Acțiune Locală",
+      "statute_btn": "Accesează Statut",
+      "strategy": "Strategie",
+      "strategy_text1": "Strategia de Dezvoltare Locală 2022–2028",
+      "strategy_text2": "Plan strategic de acțiuni 2018 – 2022",
+      "strategy_btn": "Accesează Strategie",
+      "constitution_agreement": "Acord de Constituție",
+      "constitution_agreement_text": "Documentul de Acordul de Constituție al Grupului de Acțiune Locală “Stejarul Dacilor”",
+      "constitution_agreement_btn": "Accesează Acord de Constituție",
+      "annual_report": "Rapoarte anuale",
+      "annual_report_text1": "Raport anual de activitate privind implementarea strategiei de dezvoltare locală 2022-2028",
+      "annual_report_text2": "Raport de activitate pentru anul 2019",
+      "annual_report_btn": "Accesează Raport"
     }
   }
 }

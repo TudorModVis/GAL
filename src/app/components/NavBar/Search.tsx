@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import Image from "next/image";
-import Arrow from "../Arrow";
+import Arrow from "../CommonComponents/Arrow";
 
 interface hoveredMenu {
   hoveredMenu: string | null;

@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import AnimatedHeader from "../AnimatedHeader";
+import AnimatedHeader from "../CommonComponents/AnimatedHeader";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Arrow from "../Arrow";
-import LinkWithArrow from "../LinkWithArrow";
+import Arrow from "../CommonComponents/Arrow";
+import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 
 const newsData = [
   {
