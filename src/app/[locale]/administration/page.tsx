@@ -19,7 +19,7 @@ export default async function AboutUsPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("aboutUs");
+  // const t = await getTranslations("aboutUs");
   return (
     <>
       <NavBar />
