@@ -6,6 +6,7 @@ interface HeroProps {
   heroTitle1: string;
   heroTitle2: string;
   videoSource: string;
+  posterSource: string;
 }
 
 const topLine: Variants = {
@@ -57,6 +58,7 @@ export default function Hero(props: HeroProps) {
         loop
         muted
         playsInline
+        poster={props.posterSource}
       />
       <div className="w-full h-full grid grid-cols-full px-8">
         <motion.div className="relative font-bold text-sand-50 text-[5rem] leading-24 col-start-3 self-center text-center col-span-8 mx-auto">

@@ -42,16 +42,15 @@ const LanguageSwitcher: React.FC<ArrowColor> = ({ arrowColor }) => {
           {locales
             .filter((loc) => loc !== currentLocale)
             .map((loc) => (
-              <>
+              <React.Fragment key={loc}>
                 <div className="bg-stone-400 w-[42px] h-[1px]"></div>
                 <button
-                  key={loc}
                   className="flex gap-1 items-center cursor-pointer w-full py-1 hover:text-forest-700"
                   onClick={() => changeLocale(loc)}
                 >
                   {loc}
                 </button>
-              </>
+              </React.Fragment>
             ))}
         </div>
       </div>

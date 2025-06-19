@@ -32,7 +32,8 @@ export default async function AboutUsPage({
         <Hero
           heroTitle1={t("heroTitle.1")}
           heroTitle2={t("heroTitle.2")}
-          videoSource="../video1.mp4"
+          videoSource="../video1.webm"
+          posterSource="../videoPoster.jpg"
         />
         <MainSection />
         <LastNews />
