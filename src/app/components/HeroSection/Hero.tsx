@@ -79,7 +79,7 @@ export default function Hero(props: HeroProps) {
             ))}
           </h1>
 
-          <h1 className="absolute inset-0 h-fit">
+          <h1 className="absolute inset-0 top-1/2 -translate-y-1/2 h-fit">
             {props.heroTitle2.split(/(\s+)/).map((l, i) => (
               <span
                 key={i}

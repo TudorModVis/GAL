@@ -31,9 +31,8 @@ const AnimatedText: React.FC<TextProps> = (props) => {
       variants={textAnimation}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-    >
-      {props.text}
-    </motion.h4>
+      dangerouslySetInnerHTML={{ __html: props.text }}
+    ></motion.h4>
   );
 };
 

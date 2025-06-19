@@ -19,7 +19,7 @@ const LinkWithArrow: React.FC<ArrowProps> = (props) => {
       href={props.href}
       className={`${props.customStyle} group/link text-forest-900`}
     >
-      <div className="transition">{props.text}</div>
+      <div className="transition text-nowrap">{props.text}</div>
       <div className="flex justify-center items-center transition">
         <Arrow arrowCustomStyle={props.arrowProps} />
       </div>

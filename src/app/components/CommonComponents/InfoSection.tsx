@@ -27,7 +27,7 @@ const InfoSection: React.FC<InfoSectionProps> = (props) => {
             return (
               <span
                 key={index}
-                className={`${randomBg} px-3 py-1 rounded-sm mr-2 mb-2`}
+                className={`${randomBg} px-3 py-1 rounded-sm mr-2 mb-2 text-nowrap`}
               >
                 {tag}
               </span>

@@ -87,7 +87,8 @@
       "see_more_news": "See more news"
     },
     "CompletedProjects": {
-      "completed_projects_header": "Completed Projects"
+      "completed_projects_header": "Completed Projects",
+      "see_more_projects": "See more projects"
     }
   },
   "aboutUs": {

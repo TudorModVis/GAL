@@ -171,7 +171,7 @@ const CompletedProjects = () => {
             />
           </div>
           <LinkWithArrow
-            text="Vezi mai multe noutăți"
+            text={tCompletedProjects("see_more_projects")}
             href="/"
             arrowProps="group-hover/link:rotate-0 -rotate-45 fill-sand-50"
             customStyle="flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5

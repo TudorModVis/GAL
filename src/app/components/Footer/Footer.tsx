@@ -52,7 +52,7 @@ const Footer = () => {
       <div className="grid grid-cols-full auto-rows-min w-full">
         <AnimatedLine customStyles="opacity-25 col-span-full mt-8 mb-2" />
         <div className="col-span-full">
-          <h4>Partenerii noștri:</h4>
+          <h4>{tFooter("useful_information.our_partners")}</h4>
           <div className="flex justify-between relative items-center [&>*]:cursor-pointer [&>*]:transition [&>*]:hover:scale-105">
             <Image
               src="/programul_leader.png"
