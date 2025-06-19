@@ -108,7 +108,7 @@ const CompletedProjects = () => {
                   height: "605px",
                 }}
               >
-                <div className="bg-stone-50 custom-shadow w-[98%] h-[98%] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer">
+                <div className="bg-stone-50 group custom-shadow w-[98%] h-[98%] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer">
                   <div className="h-1/2 relative">
                     <Image
                       alt={project.title}
@@ -150,9 +150,9 @@ const CompletedProjects = () => {
                     <LinkWithArrow
                       text="Accesează articol"
                       href="/"
-                      arrowProps="group-hover/link:fill-sand-50 group-hover/link:rotate-0 -rotate-45 fill-forest-900"
+                      arrowProps="group-hover:fill-sand-50 group-hover:rotate-0 -rotate-45 fill-forest-900"
                       customStyle="flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
-                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover/link:bg-forest-700 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
+                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-forest-700 [&>div]:group-hover:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
                     />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ const CompletedProjects = () => {
             />
           </div>
           <LinkWithArrow
-            text={tCompletedProjects("see_more_projects")}
+            text="dawdaw"
             href="/"
             arrowProps="group-hover/link:rotate-0 -rotate-45 fill-sand-50"
             customStyle="flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5

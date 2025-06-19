@@ -25,7 +25,7 @@ const letterTransition = (i: number) => ({
   ease: "easeInOut",
 });
 
-const INTERVAL = 5000;
+const INTERVAL = 4000;
 
 const scrollDot: Variants = {
   animate: {
