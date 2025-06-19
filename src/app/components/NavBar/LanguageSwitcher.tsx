@@ -7,18 +7,25 @@ interface ArrowColor {
   arrowColor?: string;
 }
 
+const locales = ["RO", "EN", "RU"];
+
 const LanguageSwitcher: React.FC<ArrowColor> = ({ arrowColor }) => {
   const pathname = usePathname();
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
-  const currentLocale = pathname.startsWith("/en") ? "EN" : "RO";
+
+  const currentLocale = pathname.startsWith("/en")
+    ? "EN"
+    : pathname.startsWith("/ru")
+    ? "RU"
+    : "RO";
 
   const changeLocale = (newLocale: string) => {
-    const pathWithoutLocale = pathname.replace(/^\/(ro|en)/, "");
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+    const pathWithoutLocale = pathname.replace(/^\/(ro|en|ru)/, "");
+    router.push(`/${newLocale.toLowerCase()}${pathWithoutLocale}`);
   };
 
-  const arrowHex = isHovered ? "#11200B" : (arrowColor || "#254119");
+  const arrowHex = isHovered ? "#11200B" : arrowColor || "#254119";
 
   return (
     <div
@@ -27,19 +34,26 @@ const LanguageSwitcher: React.FC<ArrowColor> = ({ arrowColor }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <p className="flex gap-1 items-center w-[58px] group-hover:text-forest-900 rounded-t-sm px-2 py-2">
+      <p className="flex gap-1 items-center w-[58px] group-hover:text-forest-900 rounded-t-sm px-2 pt-2">
         {currentLocale} <ArrowDown arrowColor={arrowHex} />
       </p>
-      <div
-        className="absolute group-hover:opacity-100 opacity-0 w-[58px] transition px-2 py-0.5 left-1/2 -translate-x-1/2 bg-sand-50 text-forest-900 rounded-b-sm z-10"
-      >
-        <div className="bg-stone-400 w-[42px] h-[1px] mb-2"></div>
-        <button
-          className="flex gap-1 items-center cursor-pointer"
-          onClick={() => changeLocale(currentLocale === "RO" ? "EN" : "RO")}
-        >
-          {currentLocale === "RO" ? "EN" : "RO"}
-        </button>
+      <div className="absolute group-hover:opacity-100 opacity-0 w-[58px] transition px-2 py-0.5 left-1/2 -translate-x-1/2 bg-sand-50 text-forest-900 rounded-b-sm z-10">
+        <div className="flex flex-col items-center">
+          {locales
+            .filter((loc) => loc !== currentLocale)
+            .map((loc) => (
+              <>
+                <div className="bg-stone-400 w-[42px] h-[1px]"></div>
+                <button
+                  key={loc}
+                  className="flex gap-1 items-center cursor-pointer w-full py-1 hover:text-forest-700"
+                  onClick={() => changeLocale(loc)}
+                >
+                  {loc}
+                </button>
+              </>
+            ))}
+        </div>
       </div>
     </div>
   );
