@@ -103,7 +103,7 @@ const Map = () => {
                   src={marker.image}
                   width={400}
                   height={400}
-                  style={{ width: "100%", height: "auto" }}
+                  style={{ width: "100%", height: "auto", borderRadius: "8px" }}
                 />
               </div>
             </Popup>
@@ -140,7 +140,7 @@ const Map = () => {
                   src={marker.image}
                   width={400}
                   height={400}
-                  style={{ width: "100%", height: "auto" }}
+                  style={{ width: "100%", height: "auto", borderRadius: "8px" }}
                 />
               </div>
             </Popup>

@@ -35,15 +35,14 @@ const Footer = () => {
             {tFooter("useful_information.navigation_links")}
           </h4>
           <Link href="/">{tFooter("useful_information.home_link")}</Link>
-          <Link href="/">{tFooter("useful_information.about_us_link")}</Link>
+          <Link href="/aboutUs">
+            {tFooter("useful_information.about_us_link")}
+          </Link>
           <Link href="/">
             {tFooter("useful_information.announcements_link")}
           </Link>
           <Link href="/">{tFooter("useful_information.projects_link")}</Link>
-          <Link href="/">
-            {tFooter("useful_information.success_stories_link")}
-          </Link>
-          <Link href="/">{tFooter("useful_information.contacts_link")}</Link>
+          <Link href="/">{tFooter("useful_information.authentic_local")}</Link>
         </div>
         <div className="col-start-7 col-span-6 row-start-1 row-end-4 relative grid grid-cols-6 gap-x-6">
           <ContactForm />

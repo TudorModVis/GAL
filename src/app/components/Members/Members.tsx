@@ -8,7 +8,7 @@ const Members = () => {
   const tMembers = useTranslations("aboutUs.members");
 
   return (
-    <section className="w-screen min-h-[77vh] h-fit grid grid-cols-full grid-rows-[auto_1fr] relative text-forest-900">
+    <section className="w-screen min-h-[77vh] h-fit grid grid-cols-full grid-rows-[auto_1fr] relative text-forest-900 mb-16">
       <AnimatedHeader
         text={tMembers("title")}
         customStyles="font-bold text-5xl leading-13 col-span-full mt-24 mb-12"

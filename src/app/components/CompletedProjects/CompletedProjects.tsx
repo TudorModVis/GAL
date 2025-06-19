@@ -23,27 +23,29 @@ const completedProjectsData = [
     image: "/breaker_image.png",
     tags: ["Noutate", "Public"],
     date: "12.02.2025",
-    title: "2. Proiect Completat: Inițiativă Educațională Regională",
+    title:
+      "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...",
     description:
-      "Acest proiect a avut ca scop îmbunătățirea accesului la educație de calitate pentru tinerii din comunitate.",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 3,
     image: "/donation_image.png",
     tags: ["Antreprenorial", "Noutate"],
     date: "24.06.2024 - 01.03.2025",
-    title: "3. Proiect Completat: Program de Sustenabilitate Agricolă",
+    title: "Biodiversitate și raportarea sustenabilității: de la ODD la ESRS",
     description:
-      "Implementarea de practici agricole durabile pentru a sprijini fermierii locali și a proteja mediul.",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 4,
     image: "/breaker_image.png",
     tags: ["Noutate", "Public"],
     date: "12.02.2025",
-    title: "4. Proiect Completat: Digitalizarea Serviciilor Publice",
+    title:
+      "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...",
     description:
-      "Un proiect de anvergură care a adus serviciile administrative mai aproape de cetățeni prin tehnologie.",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
 ];
 
