@@ -28,7 +28,7 @@ const AboutUs = () => {
         />
         <LinkWithArrow
           text={tAboutUs("button_learn_more")}
-          href="/"
+          href="/aboutUs"
           arrowProps="group-hover/link:fill-sand-50 group-hover/link:rotate-0 -rotate-45 fill-sand-50"
           customStyle="flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
                      [&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:group-hover/link:bg-forest-800 text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
