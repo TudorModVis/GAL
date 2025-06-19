@@ -160,12 +160,12 @@ export default async function AboutUsPage({
             />
             <div className="col-span-4 flex flex-col gap-4 mb-24">
               <AnimatedText text="1. <b>Badan Tatiana</b>, Primăria satului Selemet, primar" />
-              <AnimatedText text="2. Strogoteanu Efim, GȚ „Gaibu Serghei Fiodor”, angajat" />
-              <AnimatedText text="3. Botea Inga,  A.O. „Renașterea”, contabil" />
-              <AnimatedText text="4. Ghenciu Ion,  GȚ „Ghenciu Ion Tudor”, conducător" />
-              <AnimatedText text="5. Spînu Valeriu, Primăria satului Codreni, primar" />
-              <AnimatedText text="6. Melnic Victoria, A.O. „Speranța Viitorului”, administrator" />
-              <AnimatedText text="7. Prodius Nicolae, SRL „Rodinic-Service”, administrator" />
+              <AnimatedText text="2. <b>Strogoteanu Efim</b>, GȚ „Gaibu Serghei Fiodor”, angajat" />
+              <AnimatedText text="3. <b>Botea Inga</b>,  A.O. „Renașterea”, contabil" />
+              <AnimatedText text="4. <b>Ghenciu Ion</b>,  GȚ „Ghenciu Ion Tudor”, conducător" />
+              <AnimatedText text="5. <b>Spînu Valeriu</b>, Primăria satului Codreni, primar" />
+              <AnimatedText text="6. <b>Melnic Victoria</b>, A.O. „Speranța Viitorului”, administrator" />
+              <AnimatedText text="7. <b>Prodius Nicolae</b>, SRL „Rodinic-Service”, administrator" />
             </div>
             <div className="col-span-4 flex flex-col gap-4 mb-24">
               <AnimatedText text="<b>Membri suplianți</b>" />
