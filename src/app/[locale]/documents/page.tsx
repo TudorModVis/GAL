@@ -1,10 +1,9 @@
 import AnimatedLine from "@/app/components/CommonComponents/AnimatedLine";
 import AnimatedText from "@/app/components/CommonComponents/AnimatedText";
 import InfoSection from "@/app/components/CommonComponents/InfoSection";
-import Footer from "@/app/components/Footer/Footer";
-import NavBar from "@/app/components/NavBar/NavBar";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+
 export async function generateMetadata() {
   const t = await getTranslations("index.meta");
 
@@ -25,7 +24,6 @@ export default async function Administration({
   const t = await getTranslations("aboutUs.administration");
   return (
     <>
-      <NavBar onlyFixed={true} />
       <main className="relative w-full h-fit mb-[100vh] bg-sand-50">
         <InfoSection
           tags={[
@@ -163,7 +161,6 @@ export default async function Administration({
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

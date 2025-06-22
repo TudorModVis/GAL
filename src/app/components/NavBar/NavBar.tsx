@@ -1,15 +1,28 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import NavContent from "./NavContent";
 import { AnimatePresence } from "motion/react";
+import { usePathname } from "next/navigation";
 
-interface NavBarProps {
-  onlyFixed?: boolean;
-}
+const NavBar = () => {
+  const [onlyFixed, setOnlyFixed] = useState(false);
+  const pathname = usePathname();
+  const pathWithoutLocale = pathname.replace(/^\/(ro|en|ru)/, "");
 
-const NavBar: React.FC<NavBarProps> = (props) => {
+  useEffect(() => {
+    if (
+      pathWithoutLocale === "" ||
+      pathWithoutLocale === "/" ||
+      pathWithoutLocale === "/aboutUs"
+    ) {
+      setOnlyFixed(false);
+    } else {
+      setOnlyFixed(true);
+    }
+  }, [pathWithoutLocale]);
+
   const first = useRef(null);
   const second = useRef(null);
   const { scrollYProgress: scrollYProgressFirst } = useScroll({
@@ -35,7 +48,7 @@ const NavBar: React.FC<NavBarProps> = (props) => {
     <>
       <nav className="text-nowrap">
         <AnimatePresence mode="wait">
-          {!isNearEnd && (props.onlyFixed || isAtTop) ? (
+          {!isNearEnd && (onlyFixed || isAtTop) ? (
             <motion.div
               key="scrolled"
               initial={{ opacity: 0, y: -50 }}
@@ -48,7 +61,7 @@ const NavBar: React.FC<NavBarProps> = (props) => {
               <div className="absolute bg-sand-50 w-[400%] -left-[100%] h-full -z-10"></div>
               <div className="bg-stone-400 h-[1px] absolute bottom-0 w-[400%] -left-[100%]"></div>
             </motion.div>
-          ) : !isAtTop && !isNearEnd && !props.onlyFixed ? (
+          ) : !isAtTop && !isNearEnd && !onlyFixed ? (
             <motion.div
               key="top"
               initial={{ opacity: 0, y: -50 }}

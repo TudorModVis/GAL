@@ -10,8 +10,9 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import { useTranslations } from "next-intl";
 
 L.Icon.Default.mergeOptions({
-  iconUrl: "/marker-icon.png",
-  shadowUrl: "/marker-shadow.png",
+  shadowUrl: "/markerShadow.png",
+  iconRetinaUrl: "/markerIcon2x.png",
+  iconUrl: "/markerIcon.png",
 });
 
 const Map = () => {

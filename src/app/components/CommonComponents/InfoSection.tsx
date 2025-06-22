@@ -8,7 +8,7 @@ import Image from "next/image";
 interface InfoSectionProps {
   tags: string[];
   headerText: string;
-  lastActualization: string;
+  lastActualization?: string;
   location: string[];
   imageSrc: string;
   imageAlt: string;
@@ -38,10 +38,12 @@ const InfoSection: React.FC<InfoSectionProps> = (props) => {
           text={props.headerText}
           customStyles="leading-13 text-5xl font-bold my-4"
         />
-        <AnimatedText
-          text={"ultima actualizare " + props.lastActualization}
-          customStyles="leading-4.5 mb-6 font-bold"
-        />
+        {props.lastActualization && (
+          <AnimatedText
+            text={"ultima actualizare " + props.lastActualization}
+            customStyles="leading-4.5 mb-6 font-bold"
+          />
+        )}
       </div>
       <AnimatedLine customStyles="col-span-full mt-24 mb-2" />
       <div className="flex gap-1 items-center col-span-full">

@@ -1,10 +1,8 @@
 import Donation from "@/app/components/Donation/Donation";
-import Footer from "@/app/components/Footer/Footer";
 import Hero from "@/app/components/HeroSection/Hero";
 import LastNews from "@/app/components/LastNews/LastNews";
 import MainSection from "@/app/components/ListAndStatistics/MainSection";
 import Members from "@/app/components/Members/Members";
-import NavBar from "@/app/components/NavBar/NavBar";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata() {
@@ -27,7 +25,6 @@ export default async function AboutUsPage({
   const t = await getTranslations("aboutUs");
   return (
     <>
-      <NavBar />
       <main className="relative mb-[100vh] bg-sand-50">
         <Hero
           heroTitle1={t("heroTitle.1")}
@@ -40,7 +37,6 @@ export default async function AboutUsPage({
         <Members />
         <Donation />
       </main>
-      <Footer />
     </>
   );
 }

@@ -3,6 +3,7 @@ import React from "react";
 import Arrow from "./Arrow";
 
 interface ArrowProps {
+  asBtn?: boolean;
   href: string;
   text: string;
   customStyle?: string;
@@ -12,7 +13,7 @@ interface ArrowProps {
 }
 
 const LinkWithArrow: React.FC<ArrowProps> = (props) => {
-  return (
+  return !props.asBtn ? (
     <Link
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
@@ -24,6 +25,13 @@ const LinkWithArrow: React.FC<ArrowProps> = (props) => {
         <Arrow arrowCustomStyle={props.arrowProps} />
       </div>
     </Link>
+  ) : (
+    <button className={`${props.customStyle} group/link text-forest-900 cursor-pointer`}>
+      <div className="transition text-nowrap">{props.text}</div>
+      <div className="flex justify-center items-center transition">
+        <Arrow arrowCustomStyle={props.arrowProps} />
+      </div>
+    </button>
   );
 };
 

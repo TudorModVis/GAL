@@ -1,14 +1,16 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import type { Metadata } from "next";
-import {routing} from '@/i18n/routing';
-import {notFound} from 'next/navigation';
-import { Onest } from 'next/font/google';
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+import { Onest } from "next/font/google";
 import "./globals.css";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import TrpcProvider from "../_trpc/TrpcProvider";
 import SmoothScroll from "../components/providers/SmoothScroll";
+import NavBar from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,27 +18,23 @@ export const metadata: Metadata = {
 };
 
 const onest = Onest({
-  weight: [
-    '100', '200', '300', '400',
-    '500', '600', '700', '800', '900',
-  ],
-  subsets: ['latin'],
-  display: 'swap',
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
-
-  const {locale} = await params;
+  const { locale } = await params;
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
@@ -50,11 +48,13 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={`relative ${onest.className}`}>
         <NextIntlClientProvider messages={messages}>
-            <TrpcProvider>
-              <SmoothScroll>
-                {children} 
-              </SmoothScroll>
-            </TrpcProvider>
+          <TrpcProvider>
+            <SmoothScroll>
+              <NavBar />
+              {children}
+              <Footer />
+            </SmoothScroll>
+          </TrpcProvider>
         </NextIntlClientProvider>
       </body>
     </html>

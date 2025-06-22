@@ -300,7 +300,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
             direction={hoveredMenu === "despre" ? "rotate-180" : ""}
           />
         </motion.div>
-        <Link href="/">{tNav("news")}</Link>
+        <Link href="/news">{tNav("news")}</Link>
         <Link href="/">{tNav("projects")}</Link>
         <motion.div
           onMouseEnter={() => handleMouseEnter("autentic")}

@@ -38,7 +38,7 @@ const Footer = () => {
           <Link href="/aboutUs">
             {tFooter("useful_information.about_us_link")}
           </Link>
-          <Link href="/">
+          <Link href="/news">
             {tFooter("useful_information.announcements_link")}
           </Link>
           <Link href="/">{tFooter("useful_information.projects_link")}</Link>

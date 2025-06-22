@@ -2,8 +2,6 @@ import AnimatedHeader from "@/app/components/CommonComponents/AnimatedHeader";
 import AnimatedLine from "@/app/components/CommonComponents/AnimatedLine";
 import AnimatedText from "@/app/components/CommonComponents/AnimatedText";
 import InfoSection from "@/app/components/CommonComponents/InfoSection";
-import Footer from "@/app/components/Footer/Footer";
-import NavBar from "@/app/components/NavBar/NavBar";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata() {
@@ -26,7 +24,6 @@ export default async function AboutUsPage({
   // const t = await getTranslations("aboutUs");
   return (
     <>
-      <NavBar onlyFixed={true} />
       <main className="relative mb-[100vh] bg-sand-50">
         <InfoSection
           tags={[
@@ -192,7 +189,6 @@ export default async function AboutUsPage({
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

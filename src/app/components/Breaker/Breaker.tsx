@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AnimatedHeader from "../CommonComponents/AnimatedHeader";
+import ParalaxImage from "../CommonComponents/ParalaxImage";
 
 const Breaker = () => {
   const tBreaker = useTranslations("index.Breaker");
@@ -13,11 +13,9 @@ const Breaker = () => {
         text={tBreaker("motto")}
       />
       <div className="col-span-full h-[640px] relative">
-        <Image
-          src="/breaker_image.png"
-          fill={true}
-          alt={tBreaker("image_alt")}
-          className="rounded-2xl object-cover"
+        <ParalaxImage
+          source="/breaker_image.png"
+          altText={tBreaker("image_alt")}
         />
       </div>
     </section>
