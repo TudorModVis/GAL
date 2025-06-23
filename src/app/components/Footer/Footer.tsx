@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../CommonComponents/Logo";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import Socials from "./Socials";
 import AnimatedLine from "../CommonComponents/AnimatedLine";
@@ -24,11 +24,11 @@ const Footer = () => {
             {tFooter("useful_information.details_for_contact")}
           </h4>
           <p className="mb-4">{tFooter("useful_information.adress")}</p>
-          <Link href="tel:37362026342">Tel: 062 026 342</Link>
-          <Link href="/">Fax: 024 184 285</Link>
-          <Link href="mailto:info@stejaruldacilor.md" className="mt-4">
+          <a href="tel:37362026342">Tel: 062 026 342</a>
+          <a href="tel:37324184285">Fax: 024 184 285</a>
+          <a href="mailto:info@stejaruldacilor.md" className="mt-4">
             Email: info@stejaruldacilor.md
-          </Link>
+          </a>
         </div>
         <div className="flex flex-col gap-2 col-start-4 col-span-2 row-start-2 mt-24">
           <h4 className="mb-4 font-bold">

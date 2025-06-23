@@ -2,7 +2,7 @@ import AnimatedLine from "@/app/components/CommonComponents/AnimatedLine";
 import AnimatedText from "@/app/components/CommonComponents/AnimatedText";
 import InfoSection from "@/app/components/CommonComponents/InfoSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata() {
   const t = await getTranslations("index.meta");

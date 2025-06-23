@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"; // Import useRef
 import Logo from "../CommonComponents/Logo";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import ArrowDown from "./ArrowDown";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -163,7 +163,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("produse_locale")}
                   text={tNav("authentic_local.local_products")}
-                  href=""
+                  href="/"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
@@ -173,7 +173,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                     setHoveredSubMenu("servicii_din_comunitate")
                   }
                   text={tNav("authentic_local.community_services")}
-                  href=""
+                  href="/"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
@@ -181,7 +181,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("atractii_turistice")}
                   text={tNav("authentic_local.tourist_attractions")}
-                  href=""
+                  href="/"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />
@@ -189,7 +189,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
                 <LinkWithArrow
                   onMouseEnter={() => setHoveredSubMenu("oameni_si_valori")}
                   text={tNav("authentic_local.people_and_values")}
-                  href=""
+                  href="/"
                   arrowProps="group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3"
                   customStyle="w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5"
                 />

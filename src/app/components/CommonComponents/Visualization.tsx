@@ -29,7 +29,7 @@ const content = [
       "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-    link: "/",
+    link: "/news",
     date: "24.06.2024 - 01.03.2025",
   },
   {
@@ -39,7 +39,7 @@ const content = [
     title: "Economia Circulară în industria Textilelor și Îmbrăcămintei",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-    link: "/",
+    link: "/news",
     date: "12.02.2025",
   },
   {
@@ -50,7 +50,7 @@ const content = [
       "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-    link: "/",
+    link: "/news",
     date: "24.06.2024 - 01.03.2025",
   },
   {
@@ -60,7 +60,7 @@ const content = [
     title: "Economia Circulară în industria Textilelor și Îmbrăcămintei",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-    link: "/",
+    link: "/news",
     date: "12.02.2025",
   },
   {
@@ -71,7 +71,7 @@ const content = [
       "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională...",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-    link: "/",
+    link: "/news",
     date: "24.06.2024 - 01.03.2025",
   },
   {
@@ -81,7 +81,7 @@ const content = [
     title: "Economia Circulară în industria Textilelor și Îmbrăcămintei",
     description:
       "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-    link: "/",
+    link: "/news",
     date: "12.02.2025",
   },
 ];

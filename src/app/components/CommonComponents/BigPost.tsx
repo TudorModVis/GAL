@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import LinkWithArrow from "./LinkWithArrow";
 import AnimatedHeader from "./AnimatedHeader";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface BigPostProps {
   tags: string[];
@@ -19,7 +19,7 @@ const bgClasses = ["bg-forest-800", "bg-forest-700", "bg-forest-600"];
 const BigPost: React.FC<BigPostProps> = (props) => {
   return (
     <Link
-      href={props.link}
+      href="/"
       draggable="false"
       className="bg-stone-50 group col-span-6 custom-shadow w-full h-[605px] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer select-none"
     >
@@ -60,7 +60,7 @@ const BigPost: React.FC<BigPostProps> = (props) => {
         <LinkWithArrow
           asBtn
           text="Accesează articol"
-          href={props.link}
+          href="/"
           arrowProps="group-hover:fill-sand-50 group-hover:rotate-0 -rotate-45 fill-forest-900"
           customStyle="flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
                        [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-forest-700 [&>div]:group-hover:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"

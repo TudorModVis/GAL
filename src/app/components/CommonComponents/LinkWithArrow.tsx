@@ -1,10 +1,10 @@
-import Link from "next/link";
-import React from "react";
+import { Link } from "@/i18n/navigation";
+import React, { ComponentProps } from "react";
 import Arrow from "./Arrow";
 
 interface ArrowProps {
   asBtn?: boolean;
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
   text: string;
   customStyle?: string;
   arrowProps?: string;
@@ -26,7 +26,9 @@ const LinkWithArrow: React.FC<ArrowProps> = (props) => {
       </div>
     </Link>
   ) : (
-    <button className={`${props.customStyle} group/link text-forest-900 cursor-pointer`}>
+    <button
+      className={`${props.customStyle} group/link text-forest-900 cursor-pointer`}
+    >
       <div className="transition text-nowrap">{props.text}</div>
       <div className="flex justify-center items-center transition">
         <Arrow arrowCustomStyle={props.arrowProps} />

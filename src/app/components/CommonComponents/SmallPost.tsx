@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import LinkWithArrow from "./LinkWithArrow";
 import AnimatedHeader from "./AnimatedHeader";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface SmallPostProps {
   tags: string[];
@@ -20,7 +20,7 @@ const SmallPost: React.FC<SmallPostProps> = (props) => {
   return (
     <Link
       draggable="false"
-      href={props.link}
+      href="/"
       className="grid col-span-4 pointer select-none"
     >
       <div className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group">
@@ -58,7 +58,7 @@ const SmallPost: React.FC<SmallPostProps> = (props) => {
           <LinkWithArrow
             asBtn
             text="Accesează articol"
-            href={props.link}
+            href="/"
             arrowProps="group-hover:fill-sand-50 group-hover:rotate-0 -rotate-45 fill-forest-900"
             customStyle="flex w-full justify-between items-center [&>div:nth-child(1)]:py-2.5
                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-forest-700 [&>div]:group-hover:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
