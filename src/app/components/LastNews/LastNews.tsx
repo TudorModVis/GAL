@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import AnimatedHeader from "../CommonComponents/AnimatedHeader";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Arrow from "../CommonComponents/Arrow";
 import LinkWithArrow from "../CommonComponents/LinkWithArrow";
+import SmallPost from "../CommonComponents/SmallPost";
 
 const newsData = [
   {
@@ -14,7 +15,7 @@ const newsData = [
     tags: ["Antreprenorial", "Noutate"],
     title: "ECOMONDO – The Green Technology Expo, cea mai mare...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 2,
@@ -22,7 +23,7 @@ const newsData = [
     tags: ["Noutate", "Public"],
     title: "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecve...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 3,
@@ -30,7 +31,7 @@ const newsData = [
     tags: ["Logistică", "Noutate"],
     title: "ECOMONDO – The Green Technology Expo, cea mai mare...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 4,
@@ -38,7 +39,7 @@ const newsData = [
     tags: ["Antreprenorial", "Noutate"],
     title: "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecve...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 5,
@@ -46,25 +47,111 @@ const newsData = [
     tags: ["Noutate", "Public"],
     title: "ECOMONDO – The Green Technology Expo, cea mai mare...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
 ];
 
 const LastNews = () => {
   const tLastNews = useTranslations("index.LastNews");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const maxIndex = newsData.length - 3;
+  const router = useRouter();
+  const numVisibleItems = 3;
+  const canScroll = newsData.length > numVisibleItems;
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : 0));
-  };
+  const initialIndex = canScroll ? numVisibleItems : 0;
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [transition, setTransition] = useState({
+    type: "tween",
+    ease: "easeInOut",
+    duration: 0.7,
+  });
+  const [isClickable, setIsClickable] = useState(true);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : maxIndex));
-  };
+  const [dragStartPos, setDragStartPos] = useState(0);
+  const [isPointerDown, setIsPointerDown] = useState(false);
+
+  const extendedNewsData = useMemo(() => {
+    if (!canScroll) return newsData;
+    const startClones = newsData
+      .slice(0, numVisibleItems)
+      .map((item) => ({ ...item, id: `${item.id}-clone-start` }));
+    const endClones = newsData
+      .slice(-numVisibleItems)
+      .map((item) => ({ ...item, id: `${item.id}-clone-end` }));
+    return [...endClones, ...newsData, ...startClones];
+  }, [canScroll]);
+
+  const maxPageIndex = canScroll ? newsData.length - numVisibleItems : 0;
+  const numPages = canScroll ? maxPageIndex + 1 : 1;
+
+  const currentPageIndex = canScroll
+    ? (((currentIndex - initialIndex) % numPages) + numPages) % numPages
+    : 0;
 
   const progressPercentage =
-    maxIndex > 0 ? (currentIndex / maxIndex) * 100 : 100;
+    maxPageIndex > 0 ? (currentPageIndex / maxPageIndex) * 100 : 0;
+
+  const handleNavigation = (direction: number) => {
+    if (!isClickable || !canScroll) return;
+    setIsClickable(false);
+
+    if (transition.duration === 0) {
+      setTransition({ type: "tween", ease: "easeInOut", duration: 0.7 });
+    }
+
+    setCurrentIndex((prev) => prev + direction);
+  };
+
+  const handleAnimationComplete = () => {
+    if (currentIndex === initialIndex - 1) {
+      setTransition({ type: "tween", ease: "easeInOut", duration: 0 });
+      setCurrentIndex(initialIndex + newsData.length - 1);
+    } else if (currentIndex === initialIndex + newsData.length) {
+      setTransition({ type: "tween", ease: "easeInOut", duration: 0 });
+      setCurrentIndex(initialIndex);
+    } else {
+      setIsClickable(true);
+    }
+  };
+
+  useEffect(() => {
+    if (transition.duration === 0) {
+      setTimeout(() => {
+        setTransition({ type: "tween", ease: "easeInOut", duration: 0.7 });
+        setIsClickable(true);
+      }, 50);
+    }
+  }, [transition.duration]);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    setIsPointerDown(true);
+    setDragStartPos(e.clientX);
+  };
+
+  const handlePointerUp = (
+    e: React.PointerEvent<HTMLDivElement>,
+    link: string | null
+  ) => {
+    if (!isPointerDown) return;
+
+    const dragEndPos = e.clientX;
+    const dragDistance = dragEndPos - dragStartPos;
+    const swipeThreshold = 50;
+    const clickThreshold = 5;
+
+    if (dragDistance < -swipeThreshold) {
+      handleNavigation(1);
+    } else if (dragDistance > swipeThreshold) {
+      handleNavigation(-1);
+    } else if (link && Math.abs(dragDistance) < clickThreshold) {
+      router.push(link);
+    }
+
+    setIsPointerDown(false);
+  };
+
+  const handlePointerLeave = () => {
+    setIsPointerDown(false);
+  };
 
   return (
     <section className="w-screen h-[calc(100vh+3.75rem)] relative bg-forest-600 flex items-center">
@@ -77,75 +164,58 @@ const LastNews = () => {
           <div className="flex gap-2 items-center">
             <button
               className="rounded-full bg-sand-50 hover:bg-stone-400 p-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handlePrev}
-              disabled={currentIndex === 0}
+              onClick={() => handleNavigation(-1)}
+              disabled={!isClickable || !canScroll}
             >
               <Arrow arrowCustomStyle="-rotate-180 fill-forest-900" />
             </button>
             <button
               className="rounded-full bg-sand-50 hover:bg-stone-400 p-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleNext}
-              disabled={currentIndex === maxIndex}
+              onClick={() => handleNavigation(1)}
+              disabled={!isClickable || !canScroll}
             >
               <Arrow arrowCustomStyle="fill-forest-900" />
             </button>
           </div>
         </div>
 
-        <div className="col-span-full px-2 overflow-hidden">
+        <div
+          className="col-span-full px-2 overflow-hidden cursor-grab"
+          onPointerDown={handlePointerDown}
+          onPointerUp={(e) => handlePointerUp(e, null)}
+          onPointerLeave={handlePointerLeave}
+        >
           <motion.div
             className="flex"
-            style={{ columnGap: "24px" }}
+            style={{ columnGap: "24px", pointerEvents: "none" }}
             animate={{ x: `-${currentIndex * (102 / 3)}%` }}
-            transition={{ type: "tween", ease: "easeInOut", duration: 0.7 }}
+            transition={transition}
+            onAnimationComplete={handleAnimationComplete}
           >
-            {newsData.map((news) => (
+            {extendedNewsData.map((news) => (
               <div
                 key={news.id}
-                className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group"
-                style={{ flex: "0 0 calc(100% / 3 - 16px)" }}
+                style={{
+                  flex: "0 0 calc(100% / 3 - 16px)",
+                  pointerEvents: "auto",
+                }}
+                onPointerUp={(e) => {
+                  e.stopPropagation();
+                  handlePointerUp(
+                    e,
+                    `/news/${news.id.toString().split("-")[0]}`
+                  );
+                }}
               >
-                <div className="h-1/2 relative">
-                  <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
-                    {news.tags.map((tag) => (
-                      <div
-                        key={tag}
-                        className={`${
-                          ["Antreprenorial", "Public", "Logistică"].includes(
-                            tag
-                          )
-                            ? "bg-forest-800"
-                            : "bg-forest-500"
-                        } py-1 px-4 text-sand-50 rounded-sm text-sm`}
-                      >
-                        {tag}
-                      </div>
-                    ))}
-                  </div>
-                  <Image
-                    alt={news.title}
-                    src={news.image}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="bg-sand-50 h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col">
-                  <AnimatedHeader
-                    customStyles="font-bold text-xl leading-6"
-                    text={news.title}
-                  />
-                  <h4 className="group-hover:opacity-100 leading-4.5 opacity-0 transition-opacity duration-300">
-                    {news.description}
-                  </h4>
-                  <LinkWithArrow
-                    text={tLastNews("access_article")}
-                    href="/"
-                    arrowProps="group-hover:fill-sand-50 group-hover:rotate-0 -rotate-45 fill-forest-900"
-                    customStyle="flex w-full justify-between items-center [&>div:nth-child(1)]:py-2.5
-                      [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-forest-700 [&>div]:group-hover:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
-                  />
-                </div>
+                <SmallPost
+                  tags={news.tags}
+                  imageSrc={news.image}
+                  imageAlt={news.title}
+                  title={news.title}
+                  description={news.description}
+                  // The link prop is now just for semantic/SEO purposes
+                  link={`/news/${news.id.toString().split("-")[0]}`}
+                />
               </div>
             ))}
           </motion.div>
@@ -155,10 +225,8 @@ const LastNews = () => {
           <div className="bg-stone-500/50 h-[2px] w-full">
             <motion.div
               className="bg-white h-full"
-              animate={{
-                width: `${progressPercentage}%`,
-              }}
-              transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+              animate={{ width: `${progressPercentage}%` }}
+              transition={{ ease: "easeInOut", duration: 0.5 }}
             />
           </div>
           <LinkWithArrow
@@ -166,7 +234,7 @@ const LastNews = () => {
             href="/"
             arrowProps="group-hover/link:rotate-0 -rotate-45 fill-forest-900"
             customStyle="flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                          [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
+                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
           />
         </div>
       </div>

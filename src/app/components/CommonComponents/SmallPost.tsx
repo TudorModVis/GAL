@@ -18,7 +18,11 @@ const bgClasses = ["bg-forest-800", "bg-forest-700", "bg-forest-600"];
 
 const SmallPost: React.FC<SmallPostProps> = (props) => {
   return (
-    <Link href={props.link} className="grid col-span-4">
+    <Link
+      draggable="false"
+      href={props.link}
+      className="grid col-span-4 pointer select-none"
+    >
       <div className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group">
         <div className="h-1/2 relative">
           <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
@@ -35,6 +39,7 @@ const SmallPost: React.FC<SmallPostProps> = (props) => {
             })}
           </div>
           <Image
+            draggable="false"
             alt={props.imageAlt}
             src={props.imageSrc}
             fill

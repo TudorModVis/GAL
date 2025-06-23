@@ -37,7 +37,7 @@ const LanguageSwitcher: React.FC<ArrowColor> = ({ arrowColor }) => {
       <p className="flex gap-1 items-center w-[58px] group-hover:text-forest-900 rounded-t-sm px-2 pt-2">
         {currentLocale} <ArrowDown arrowColor={arrowHex} />
       </p>
-      <div className="absolute group-hover:opacity-100 opacity-0 w-[58px] transition px-2 py-0.5 left-1/2 -translate-x-1/2 bg-stone-50 text-forest-900 rounded-b-sm z-10">
+      <div className="absolute pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 opacity-0 w-[58px] transition px-2 py-0.5 left-1/2 -translate-x-1/2 bg-stone-50 text-forest-900 rounded-b-sm z-10">
         <div className="flex flex-col items-center">
           {locales
             .filter((loc) => loc !== currentLocale)

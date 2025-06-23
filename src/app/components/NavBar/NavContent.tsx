@@ -9,6 +9,7 @@ import Search from "./Search";
 import { useTranslations } from "next-intl";
 import LinkWithArrow from "../CommonComponents/LinkWithArrow";
 import { useLenis } from "lenis/react";
+import AnimatedLink from "../CommonComponents/AnimatedLink";
 
 interface ArrowColor {
   arrowColor?: string;
@@ -282,15 +283,17 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
         variants={textVariants}
         initial="initial"
         animate={controls}
-        className="flex gap-8 col-span-6 col-start-3"
+        className="flex gap-8 col-span-6 col-start-3 items-center"
       >
-        <Link href="/">{tNav("home")}</Link>
+        <Link href="/">
+          <AnimatedLink text={tNav("home")} />
+        </Link>
         <motion.div
           onMouseEnter={() => handleMouseEnter("despre")}
           onMouseLeave={handleMouseLeave}
           className="flex gap-1 items-center cursor-pointer"
         >
-          {tNav("about.about_btn")}
+          <AnimatedLink text={tNav("about.about_btn")} />
           <ArrowDown
             arrowColor={
               hoveredMenu === "autentic" || hoveredMenu === "despre"
@@ -300,14 +303,18 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
             direction={hoveredMenu === "despre" ? "rotate-180" : ""}
           />
         </motion.div>
-        <Link href="/news">{tNav("news")}</Link>
-        <Link href="/">{tNav("projects")}</Link>
+        <Link href="/news">
+          <AnimatedLink text={tNav("news")} />
+        </Link>
+        <Link href="/">
+          <AnimatedLink text={tNav("projects")} />
+        </Link>
         <motion.div
           onMouseEnter={() => handleMouseEnter("autentic")}
           onMouseLeave={handleMouseLeave}
           className="flex gap-1 items-center cursor-pointer"
         >
-          {tNav("authentic_local.authentic_btn")}
+          <AnimatedLink text={tNav("authentic_local.authentic_btn")} />
           <ArrowDown
             arrowColor={
               hoveredMenu === "autentic" || hoveredMenu === "despre"
@@ -317,7 +324,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
             direction={hoveredMenu === "autentic" ? "rotate-180" : ""}
           />
         </motion.div>
-        <Link href="/">{tNav("contacts")}</Link>
+        <Link href="/">
+          <AnimatedLink text={tNav("contacts")} />
+        </Link>
       </motion.div>
 
       <div className="col-start-10 col-span-3 flex items-center gap-6">

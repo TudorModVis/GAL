@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import AnimatedHeader from "../CommonComponents/AnimatedHeader";
 import { useTranslations } from "next-intl";
 import Arrow from "../CommonComponents/Arrow";
-import Image from "next/image";
 import LinkWithArrow from "../CommonComponents/LinkWithArrow";
+import BigPost from "../CommonComponents/BigPost";
 
 const completedProjectsData = [
   {
@@ -16,7 +17,7 @@ const completedProjectsData = [
     title:
       "ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională de...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 2,
@@ -26,7 +27,7 @@ const completedProjectsData = [
     title:
       "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 3,
@@ -35,7 +36,7 @@ const completedProjectsData = [
     date: "24.06.2024 - 01.03.2025",
     title: "Biodiversitate și raportarea sustenabilității: de la ODD la ESRS",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
   {
     id: 4,
@@ -45,24 +46,107 @@ const completedProjectsData = [
     title:
       "Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...",
     description:
-      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+      "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
   },
 ];
 
 const CompletedProjects = () => {
   const tCompletedProjects = useTranslations("index.CompletedProjects");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
+  const router = useRouter();
   const itemsVisible = 2;
+  const gap = 24;
+  const canScroll = completedProjectsData.length > itemsVisible;
 
-  const maxIndex = completedProjectsData.length - itemsVisible;
+  const initialIndex = canScroll ? itemsVisible : 0;
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [transition, setTransition] = useState({
+    type: "tween",
+    ease: "easeInOut",
+    duration: 0.7,
+  });
+  const [isClickable, setIsClickable] = useState(true);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : 0));
+  const [dragStartPos, setDragStartPos] = useState(0);
+  const [isPointerDown, setIsPointerDown] = useState(false);
+
+  const extendedProjectsData = useMemo(() => {
+    if (!canScroll) return completedProjectsData;
+    const startClones = completedProjectsData
+      .slice(0, itemsVisible)
+      .map((item) => ({ ...item, id: `${item.id}-clone-start` }));
+    const endClones = completedProjectsData
+      .slice(-itemsVisible)
+      .map((item) => ({ ...item, id: `${item.id}-clone-end` }));
+    return [...endClones, ...completedProjectsData, ...startClones];
+  }, [canScroll]);
+
+  const maxPageIndex = canScroll
+    ? completedProjectsData.length - itemsVisible
+    : 0;
+  const numPages = canScroll ? maxPageIndex + 1 : 1;
+  const currentPageIndex = canScroll
+    ? (((currentIndex - initialIndex) % numPages) + numPages) % numPages
+    : 0;
+  const progressPercentage =
+    maxPageIndex > 0 ? (currentPageIndex / maxPageIndex) * 100 : 0;
+
+  const handleNavigation = (direction: number) => {
+    if (!isClickable || !canScroll) return;
+    setIsClickable(false);
+    if (transition.duration === 0) {
+      setTransition({ type: "tween", ease: "easeInOut", duration: 0.7 });
+    }
+    setCurrentIndex((prev) => prev + direction);
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : maxIndex));
+  const handleAnimationComplete = () => {
+    if (currentIndex === initialIndex - 1) {
+      setTransition({ type: "tween", ease: "easeInOut", duration: 0 });
+      setCurrentIndex(initialIndex + completedProjectsData.length - 1);
+    } else if (currentIndex === initialIndex + completedProjectsData.length) {
+      setTransition({ type: "tween", ease: "easeInOut", duration: 0 });
+      setCurrentIndex(initialIndex);
+    } else {
+      setIsClickable(true);
+    }
+  };
+
+  useEffect(() => {
+    if (transition.duration === 0) {
+      setTimeout(() => {
+        setTransition({ type: "tween", ease: "easeInOut", duration: 0.7 });
+        setIsClickable(true);
+      }, 50);
+    }
+  }, [transition.duration]);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    setIsPointerDown(true);
+    setDragStartPos(e.clientX);
+  };
+
+  const handlePointerUp = (
+    e: React.PointerEvent<HTMLDivElement>,
+    link: string | null
+  ) => {
+    if (!isPointerDown) return;
+    const dragEndPos = e.clientX;
+    const dragDistance = dragEndPos - dragStartPos;
+    const swipeThreshold = 50;
+    const clickThreshold = 5;
+
+    if (dragDistance < -swipeThreshold) {
+      handleNavigation(1);
+    } else if (dragDistance > swipeThreshold) {
+      handleNavigation(-1);
+    } else if (link && Math.abs(dragDistance) < clickThreshold) {
+      router.push(link);
+    }
+    setIsPointerDown(false);
+  };
+
+  const handlePointerLeave = () => {
+    setIsPointerDown(false);
   };
 
   return (
@@ -76,86 +160,57 @@ const CompletedProjects = () => {
           <div className="flex gap-2 items-center">
             <button
               className="rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handlePrev}
-              disabled={currentIndex === 0}
+              onClick={() => handleNavigation(-1)}
+              disabled={!isClickable || !canScroll}
             >
               <Arrow arrowCustomStyle="-rotate-180 fill-sand-50" />
             </button>
-
             <button
               className="rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleNext}
-              disabled={currentIndex === maxIndex}
+              onClick={() => handleNavigation(1)}
+              disabled={!isClickable || !canScroll}
             >
               <Arrow arrowCustomStyle="fill-sand-50" />
             </button>
           </div>
         </div>
 
-        <div className="col-span-full overflow-hidden">
+        <div
+          className="col-span-full overflow-hidden cursor-grab"
+          onPointerDown={handlePointerDown}
+          onPointerUp={(e) => handlePointerUp(e, null)}
+          onPointerLeave={handlePointerLeave}
+        >
           <motion.div
             className="flex"
-            style={{ columnGap: "24px" }}
-            animate={{ x: `-${currentIndex * (102 / itemsVisible)}%` }}
-            transition={{ type: "tween", ease: "easeInOut", duration: 0.7 }}
+            style={{ columnGap: `${gap}px`, pointerEvents: "none" }}
+            animate={{ x: `calc(-${currentIndex} * (50% + ${gap / 2}px))` }}
+            transition={transition}
+            onAnimationComplete={handleAnimationComplete}
           >
-            {completedProjectsData.map((project) => (
+            {extendedProjectsData.map((project) => (
               <div
                 key={project.id}
-                className="flex-shrink-0 flex justify-center items-center"
                 style={{
-                  width: "calc(50% - 12px)",
-                  height: "605px",
+                  flex: `0 0 calc(100% / ${itemsVisible} - ${
+                    (gap * (itemsVisible - 1)) / itemsVisible
+                  }px)`,
+                  pointerEvents: "auto",
+                }}
+                onPointerUp={(e) => {
+                  e.stopPropagation();
+                  handlePointerUp(e, `/`);
                 }}
               >
-                <div className="bg-stone-50 group custom-shadow w-[98%] h-[98%] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer">
-                  <div className="h-1/2 relative">
-                    <Image
-                      alt={project.title}
-                      src={project.image}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="50vw"
-                    />
-                  </div>
-                  <div className="h-1/2 px-6 py-8 flex flex-col justify-between group text-forest-900">
-                    <div className="flex justify-between items-center w-full">
-                      <div className="flex gap-2">
-                        {project.tags.map((tag) => (
-                          <div
-                            key={tag}
-                            className={`bg-forest-700 text-sand-50 text-xs font-semibold py-1 px-3 rounded-sm ${
-                              [
-                                "Antreprenorial",
-                                "Public",
-                                "Logistică",
-                              ].includes(tag)
-                                ? "bg-forest-800"
-                                : "bg-forest-500"
-                            }`}
-                          >
-                            {tag}
-                          </div>
-                        ))}
-                      </div>
-                      <span className="text-forest-900 text-xs font-bold">
-                        {project.date}
-                      </span>
-                    </div>
-                    <AnimatedHeader
-                      customStyles="font-bold text-xl leading-6"
-                      text={project.title}
-                    />
-                    <h4 className="leading-4.5">{project.description}</h4>
-                    <LinkWithArrow
-                      text="Accesează articol"
-                      href="/"
-                      arrowProps="group-hover:fill-sand-50 group-hover:rotate-0 -rotate-45 fill-forest-900"
-                      customStyle="flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
-                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-forest-700 [&>div]:group-hover:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3"
-                    />
-                  </div>
-                </div>
+                <BigPost
+                  tags={project.tags}
+                  imageSrc={project.image}
+                  imageAlt={project.title}
+                  title={project.title}
+                  description={project.description}
+                  date={project.date}
+                  link="/"
+                />
               </div>
             ))}
           </motion.div>
@@ -165,11 +220,8 @@ const CompletedProjects = () => {
           <div className="bg-stone-300 h-[2px] w-full">
             <motion.div
               className="bg-forest-900 h-full"
-              animate={{
-                width:
-                  maxIndex > 0 ? `${(currentIndex / maxIndex) * 100}%` : "100%",
-              }}
-              transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+              animate={{ width: canScroll ? `${progressPercentage}%` : "100%" }}
+              transition={{ ease: "easeInOut", duration: 0.5 }}
             />
           </div>
           <LinkWithArrow

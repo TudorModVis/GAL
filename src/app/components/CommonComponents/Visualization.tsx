@@ -7,11 +7,18 @@ import ColumnIcon from "./ColumnIcon";
 import GridIcon from "./GridIcon";
 import SmallPost from "./SmallPost";
 import BigPost from "./BigPost";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface VisualisationProps {
   header: string;
   description: string;
 }
+
+const itemVariants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.2 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+};
 
 const content = [
   {
@@ -84,7 +91,7 @@ const Visualization: React.FC<VisualisationProps> = (props) => {
   // În mod implicit va fi grid, adică true = grid
   return (
     <section className="w-screen h-fit grid grid-cols-full relative text-forest-900 mt-40">
-      <AnimatedLine customStyles="col-span-full" />
+      <AnimatedLine customStyles="col-span-full mb-2" />
       <AnimatedText text={props.header} customStyles="col-span-2 font-bold" />
       <AnimatedText
         text={props.description}
@@ -118,33 +125,35 @@ const Visualization: React.FC<VisualisationProps> = (props) => {
           </button>
         </div>
       </div>
-      <div className="col-span-full grid grid-cols-12 gap-6">
-        {content.map((item, index) =>
-          !visualisationType ? (
-            <BigPost
-              key={index}
-              tags={item.tags}
-              imageSrc={item.imageSrc}
-              imageAlt={item.imageAlt}
-              title={item.title}
-              description={item.description}
-              link={item.link}
-              date={item.date}
-            />
-          ) : (
-            <SmallPost
-              key={index}
-              tags={item.tags}
-              imageSrc={item.imageSrc}
-              imageAlt={item.imageAlt}
-              title={item.title}
-              description={item.description}
-              link={item.link}
-              date={item.date}
-            />
-          )
-        )}
-      </div>
+      <motion.div className="col-span-full grid grid-cols-12 gap-6">
+        <AnimatePresence mode="wait">
+          {content.map((item, index) =>
+            visualisationType ? (
+              <motion.div
+                key={"big-" + index}
+                variants={itemVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="col-span-6"
+              >
+                <BigPost {...item} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key={"small-" + index}
+                variants={itemVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="col-span-4"
+              >
+                <SmallPost {...item} />
+              </motion.div>
+            )
+          )}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 };
