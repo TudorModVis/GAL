@@ -101,7 +101,7 @@ const NewsContent = () => {
         text="By converting oral First Languages into reading and writing courses, ALNF and local communities can provide community members with the teaching and learning skills and strategies that empower them to teach their own children to read and write in their First Languages. Literacy in First Language(s) can also help children by giving them the skills to make comparisons and contrasts with English language and literacy."
         customStyles="col-span-4 col-start-8 leading-4.5"
       />
-      <div className="w-[1448px] h-[64vh] overflow-hidden rounded-2xl mb-40 col-span-full mt-24">
+      <div className="w-[1448px] h-[64vh] overflow-hidden rounded-2xl col-span-full mt-24">
         <ParalaxImage altText="test" source="/donation_image.png" />
       </div>
     </section>
