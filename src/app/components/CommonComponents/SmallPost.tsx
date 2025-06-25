@@ -20,7 +20,10 @@ const SmallPost: React.FC<SmallPostProps> = (props) => {
   return (
     <Link
       draggable="false"
-      href="/"
+      href={{
+        pathname: "/news/[news_name]",
+        params: { news_name: "example-news" },
+      }}
       className="grid col-span-4 pointer select-none"
     >
       <div className="bg-sand-50 my-3 custom-shadow relative flex h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group">

@@ -3,7 +3,7 @@ import AnimatedHeader from "./AnimatedHeader";
 import AnimatedText from "./AnimatedText";
 import AnimatedLine from "./AnimatedLine";
 import Arrow from "./Arrow";
-import Image from "next/image";
+import ParalaxImage from "./ParalaxImage";
 
 interface InfoSectionProps {
   tags: string[];
@@ -59,19 +59,14 @@ const InfoSection: React.FC<InfoSectionProps> = (props) => {
               {loc}
             </h2>
             {index < props.location.length - 1 && (
-              <Arrow arrowCustomStyle="fill-stone-600" />
+              <Arrow arrowCustomStyle="fill-stone-600 scale-75" />
             )}
           </React.Fragment>
         ))}
       </div>
-      <Image
-        alt={props.imageAlt}
-        src={props.imageSrc}
-        width={1448}
-        height={640}
-        className="col-span-full mt-6 rounded-2xl mb-40"
-        style={{ objectFit: "cover", height: "64vh", width: "100%" }}
-      />
+      <div className="w-[1448px] h-[64vh] overflow-hidden mt-6 rounded-2xl mb-40 col-span-full">
+        <ParalaxImage altText={props.imageAlt} source={props.imageSrc} />
+      </div>
     </section>
   );
 };

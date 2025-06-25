@@ -19,7 +19,10 @@ const bgClasses = ["bg-forest-800", "bg-forest-700", "bg-forest-600"];
 const BigPost: React.FC<BigPostProps> = (props) => {
   return (
     <Link
-      href="/"
+      href={{
+        pathname: "/news/[news_name]",
+        params: { news_name: "example-news" },
+      }}
       draggable="false"
       className="bg-stone-50 group col-span-6 custom-shadow w-full h-[605px] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer select-none"
     >
