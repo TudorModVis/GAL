@@ -11,6 +11,7 @@ export function LangSelectBox() {
 	const router = useRouter()
 
 	const handleLangSwitch = (lang: string) => {
+		/* eslint-disable @typescript-eslint/no-explicit-any */
 		router.replace(pathname as any, { locale: lang })
 	}
 
