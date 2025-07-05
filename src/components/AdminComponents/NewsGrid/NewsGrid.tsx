@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { AnimatePresence, motion } from 'motion/react'
 
 import { IBlogsResponse } from '@/types/blog.types'

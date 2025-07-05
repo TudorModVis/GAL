@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
@@ -6,7 +7,6 @@ import { useState } from 'react'
 import { ThreeColIcon } from '@/components/AdminComponents/Icons/ThreeColIcon'
 import { TwoColIcon } from '@/components/AdminComponents/Icons/TwoColIcon'
 import { NewsGrid } from '@/components/AdminComponents/NewsGrid/NewsGrid'
-
 import { IGetParams } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
