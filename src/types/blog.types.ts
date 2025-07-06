@@ -4,6 +4,7 @@ export interface IGetParams {
     q?: string
     content_type?: BlogsContentTypeEnum
     category?: BlogsCategoriesEnum
+	authentic_local_category?: AuthenticLocalCategoriesEnum
     page?: number
     limit?: number
 }
@@ -19,6 +20,13 @@ export enum BlogsContentTypeEnum {
 	NEWS = 'NEWS',
 	PROJECT = 'PROJECT',
 	AUTHENTIC_LOCAL = 'AUTHENTIC_LOCAL'
+}
+
+export enum AuthenticLocalCategoriesEnum {
+    LOCAL_PRODUCTS = "LOCAL_PRODUCTS",
+    SERVICES = "SERVICES",
+    TOURIST_ATTRACTIONS = "TOURIST_ATTRACTIONS",
+    PEOPLE_AND_VALUES = "PEOPLE_AND_VALUES",
 }
 
 export interface ISummary {
@@ -44,6 +52,7 @@ export interface IBlogResponse {
 	title: IMultiLangText
 	content_type: BlogsContentTypeEnum
 	categories: BlogsCategoriesEnum[]
+	authentic_local_category: AuthenticLocalCategoriesEnum
 	main_image: string
 	summary: ISummary
 	sections: ISection[]

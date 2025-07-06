@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 
 import { AdminNav } from '@/components/AdminComponents/AdminNav'
-import { AdminSidebar } from '@/components/AdminSidebar/AdminSidebar'
+import { AdminSidebar } from '@/components/AdminComponents/AdminSidebar/AdminSidebar'
 
 export default function AdminPagesLayout({ children }: PropsWithChildren<unknown>) {
 	return (

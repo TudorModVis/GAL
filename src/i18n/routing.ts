@@ -19,9 +19,20 @@ export const routing = defineRouting({
     "/peopleAndValues": "/peopleAndValues",
     "/touristAttractions": "/touristAttractions",
     "/communityServices": "/communityServices",
+
+    // Admin routes
     "/admin": "/admin",
     "/admin/news": "/admin/news",
-    "/admin/news/[news_name]": "/admin/news/[news_name]"
+    "/admin/projects": "/admin/projects",
+    "/admin/login": "/admin/login",
+    "/admin/community-services": "/admin/community-services",
+    "/admin/local-products": "/admin/local-products",
+    "/admin/people-and-values": "/admin/people-and-values",
+    "/admin/tourist-attractions": "/admin/tourist-attractions",
+    
+    "/admin/create-blog": "/admin/create-blog",
+    "/admin/edit-blog/[id]": "/admin/edit-blog/[id]",
+
 
   },
 

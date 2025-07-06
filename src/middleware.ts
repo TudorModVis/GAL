@@ -15,7 +15,7 @@ export default async function middleware(request: NextRequest) {
 
 	const isLogInPage = url.includes('/admin/login')
 	const isAdminRootUrl = url.endsWith('/admin') || url.endsWith('/admin/')
-	const isAdminPage = url.includes('/admin')
+	const isAdminPage = url.includes('/admin') && !url.includes('/administration')
 
 	if (isLogInPage && accessToken) {
 		return NextResponse.redirect(new URL(ADMIN_PAGES.NEWS, url))

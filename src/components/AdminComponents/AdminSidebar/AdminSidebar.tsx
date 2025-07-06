@@ -15,9 +15,6 @@ export function AdminSidebar() {
 
 	return (
 		<div className={`${ open ? 'translate-x-0' : '-translate-x-full' } transition-transform duration-300 fixed top-0 left-0 h-screen border-r border-r-gray-500 bg-green-600 max-w-[16.625rem] w-full z-10`}>
-			<div className='absolute top-[1.5rem] right-0 translate-x-[calc(100%+2rem)]'>
-				<h1 className='font-bold text-[1.25rem] text-green-700 w-max'>Fac mai incolo titlul sa se schimbe</h1>
-			</div>
 			
 			<div
 				onClick={handleOpen}

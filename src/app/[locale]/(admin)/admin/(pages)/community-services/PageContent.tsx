@@ -9,7 +9,7 @@ import { Pagination } from '@/components/AdminComponents/NewsGrid/NewsCard/Pagin
 import { NewsGrid } from '@/components/AdminComponents/NewsGrid/NewsGrid'
 import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 
-import { IGetParams } from '@/types/blog.types'
+import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
 
@@ -17,7 +17,9 @@ export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(2)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
-		limit: 12
+		limit: 12,
+		content_type: BlogsContentTypeEnum.AUTHENTIC_LOCAL,
+		authentic_local_category: AuthenticLocalCategoriesEnum.SERVICES
 	})
 
 	const { data, isLoading } = useQuery({

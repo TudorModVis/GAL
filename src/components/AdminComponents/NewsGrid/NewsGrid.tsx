@@ -4,13 +4,14 @@ import { AnimatePresence, motion } from 'motion/react'
 
 import { IBlogsResponse } from '@/types/blog.types'
 
-import { NewsCard } from './NewsCard'
+import { NewsCard } from './NewsCard/NewsCard'
+import { Link } from '@/i18n/navigation'
 
-interface Props extends IBlogsResponse {
+interface Props extends Omit<IBlogsResponse, 'pagination' | 'filters'> {
 	colsNumber: 2 | 3
 }
 
-export function NewsGrid({ colsNumber, blogs, pagination, filters }: Props) {
+export function NewsGrid({ colsNumber, blogs }: Props) {
 	return (
 		<AnimatePresence mode='wait' initial={false}>
 			<motion.div
@@ -25,10 +26,15 @@ export function NewsGrid({ colsNumber, blogs, pagination, filters }: Props) {
 					gridAutoRows: 'minmax(0, 1fr)'
 				}}
 			>
+				<Link href='/admin/create-blog'>
+					<div className='bg-gray-100 h-full rounded-[1rem] grid place-content-center duration-300 border border-dashed border-gray-600'>
+						<h2 className='text-lg font-semibold text-center'>Create New Blog</h2>
+					</div>
+				</Link>
 				{blogs.map(blog => (
-					<motion.div key={blog._id}>
+					<div key={blog._id}>
 						<NewsCard {...blog} />
-					</motion.div>
+					</div>
 				))}
 			</motion.div>
 		</AnimatePresence>

@@ -5,10 +5,10 @@ import { NO_INDEX_PAGE } from '@/constants/seo.constants'
 import { PageContent } from './PageContent'
 
 export const metadata: Metadata = {
-	title: 'News',
+	title: 'Local Products',
 	...NO_INDEX_PAGE
 }
 
-export default function NewsPage() {
+export default function LocalProductsPage() {
 	return <PageContent />
 }
