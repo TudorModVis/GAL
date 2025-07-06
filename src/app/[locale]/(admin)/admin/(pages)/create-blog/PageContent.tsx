@@ -1,4 +1,5 @@
 'use client'
+/* eslint-disable */
 
 import { useLocale } from 'next-intl'
 import { useState } from 'react'

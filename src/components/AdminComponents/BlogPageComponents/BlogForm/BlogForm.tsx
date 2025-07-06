@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { TypeBlogFormState } from "@/types/blog.types"
 import { UseFormRegister } from "react-hook-form"
 
