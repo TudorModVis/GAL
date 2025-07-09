@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 export default function AdminLayout({ children }: PropsWithChildren<unknown>) {
 	return (
 		<>
-			<div className='md:hidden bg-green-500 w-screen h-screen flex justify-center items-center px-[1rem]'><ScreenSizeMessage /></div>
+			<div className='lg:hidden bg-green-500 w-screen h-screen flex justify-center items-center px-[1rem]'><ScreenSizeMessage /></div>
 
-			<div className='max-md:hidden'>
+			<div className='max-lg:hidden'>
 					{children}
 
 					<Toaster

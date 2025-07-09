@@ -23,7 +23,7 @@ export function NewsGrid({ colsNumber, blogs }: Props) {
 				animate={{ opacity: 1 }}
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.5, ease: 'easeInOut' }}
-				className={`grid gap-[1.5rem] mt-[1.5rem]`}
+				className={`grid gap-[1.5rem] mt-[1.5rem] items-stretch`}
 				style={{
 					gridTemplateColumns: `repeat(${colsNumber}, minmax(0, 1fr))`,
 					gridAutoRows: 'minmax(0, 1fr)'
@@ -36,7 +36,7 @@ export function NewsGrid({ colsNumber, blogs }: Props) {
 					</div>
 				</Link>
 				{blogs.map(blog => (
-					<div key={blog._id}>
+					<div key={blog._id} className='w-full h-full'>
 						<NewsCard blog={blog} cols={colsNumber} />
 					</div>
 				))}

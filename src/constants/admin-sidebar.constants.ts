@@ -62,7 +62,7 @@ export const ADMIN_SIDEBAR_ITEMS: IAdminSidebarSubsection[] = [
 			{
 				title: {
 					ro: 'Documente Oficiale',
-					ru: 'Официальные документы',
+					ru: 'Документы',
 					en: 'Official Documents'
 				},
 				link: ADMIN_PAGES.DOCUMENTS
@@ -95,7 +95,7 @@ export const ADMIN_SIDEBAR_ITEMS: IAdminSidebarSubsection[] = [
 			{
 				title: {
 					ro: 'Atracții Turistice',
-					ru: 'Туристические достопримечательности',
+					ru: 'Достопримечательности',
 					en: 'Tourist Attractions'
 				},
 				link: ADMIN_PAGES.TOURIST_ATTRACTIONS
@@ -111,3 +111,87 @@ export const ADMIN_SIDEBAR_ITEMS: IAdminSidebarSubsection[] = [
 		]
 	}
 ]
+
+
+export const ADMIN_PAGE_HEADERS = {
+    newsPage: {
+        title: {
+            ro: "Noutăți",
+            en: "News",
+            ru: "Новости",
+        },
+        slug: ""
+    },
+    projectsPage: {
+        title: {
+            ro: "Proiecte",
+            en: "Projects",
+            ru: "Проекты",
+        },
+        slug: ""
+    },
+    administrationPage: {
+        title: {
+            ro: "Conducerea GAL",
+            en: "GAL Management",
+            ru: "Руководство GAL",
+        },
+        slug: ""
+    },
+    documentsPage: {
+        title: {
+            ro: "Documente Oficiale",
+            en: "Official Documents",
+            ru: "Документы",
+        },
+        slug: ""
+    },
+    localProductsPage: {
+        title: {
+            ro: "Produse Locale",
+            en: "Local Products",
+            ru: "Местные Продукты",
+        },
+        slug: ""
+    },
+    communityServicesPage: {
+        title: {
+            ro: "Servicii din Comunitate",
+            en: "Community Services",
+            ru: "Услуги сообщества",
+        },
+        slug: ""
+    },
+    touristAttractionsPage: {
+        title: {
+            ro: "Atracții Turistice",
+            en: "Tourist Attractions",
+            ru: "Достопримечательности",
+        },
+        slug: ""
+    },
+    peopleAndValuesPage: {
+        title: {
+            ro: "Oameni și Valori",
+            en: "People and Values",
+            ru: "Люди и Ценности",
+        },
+        slug: ""
+    },
+	createBlogPage: {
+		title: {
+			ro: "Creare Blog",
+			en: "Create Blog",
+			ru: "Создать Блог",
+		},
+		slug: ""
+	},
+	editBlogPage: {
+		title: {
+			ro: "Editare Blog",
+			en: "Edit Blog",
+			ru: "Редактировать Блог",
+		},
+		slug: ""
+	}
+}

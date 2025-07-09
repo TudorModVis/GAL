@@ -24,14 +24,16 @@ export function NewsCard({ blog, cols }: Props) {
 	return (
 		<Link
 			href={ADMIN_PAGES.getBlogEditPage(blog._id) as Pathnames}
-			className='w-full'
+			className='w-full h-full'
 		>
 			<div
-				className='cursor-pointer w-full flex flex-col bg-gray-300 rounded-[1rem] overflow-hidden group'
+				className='cursor-pointer w-full h-full flex flex-col bg-gray-300 rounded-[1rem] overflow-hidden group'
 				style={{ boxShadow: '1px 1px 2px 0px rgba(0, 0, 0, 0.1)' }}
 			>
-				<div className={`w-full relative ${cols === 2 ? 'h-[25rem]' : 'h-[16.5rem]'}`}>
-					<div className={`${cols === 2 && 'hidden'} flex absolute top-[1rem] left-[1rem] items-center gap-[0.5rem]`}>
+				<div className={`w-full relative ${cols === 2 ? 'min-h-[25rem] max-h-[25rem]' : 'h-[16.5rem] max-h-[16.5rem]'}`}>
+					<div
+						className={`${cols === 2 && 'hidden'} flex absolute top-[1rem] left-[1rem] items-center gap-[0.5rem]`}
+					>
 						{blog.categories.map((category, index) => (
 							<Category
 								key={`category-${index}`}
@@ -49,32 +51,34 @@ export function NewsCard({ blog, cols }: Props) {
 					/>
 				</div>
 
-				<div className='p-[1.5rem]'>
-					<div className={`flex items-center justify-between ${cols === 3 && 'hidden'}`}>
-						<div className='flex items-center gap-[0.5rem]'>
-							{blog.categories.map((category, index) => (
-								<Category
-									key={`category-${index}`}
-									category={category}
-								/>
-							))}
+				<div className='p-[1.5rem] flex flex-col justify-between h-full'>
+					<div>
+						<div className={`flex items-center justify-between ${cols === 3 && 'hidden'}`}>
+							<div className='flex items-center gap-[0.5rem]'>
+								{blog.categories.map((category, index) => (
+									<Category
+										key={`category-${index}`}
+										category={category}
+									/>
+								))}
+							</div>
+
+							<p className='font-bold text-green-700 text-[0.75rem] leading-[0.875rem]'>
+								{format(blog.updatedAt, 'dd.MM.yyyy')}
+							</p>
 						</div>
 
-						<p className='font-bold text-green-700 text-[0.75rem] leading-[0.875rem]'>
-							{format(blog.updatedAt, 'dd.MM.yyyy')}
-						</p>
+						<h2
+							className={`${cols === 2 && 'mt-[1.5rem]'} line-clamp-2 font-bold text-green-700 text-[1.25rem] leading-[1.5rem]`}
+						>
+							{blog.title[locale]}
+						</h2>
+
+						<div
+							className='line-clamp-3 text-green-700 font-[400] text-[1rem] leading-[1.125rem] mt-[1rem]'
+							dangerouslySetInnerHTML={{ __html: blog.summary.column1[locale] }}
+						></div>
 					</div>
-
-					<h2
-						className={`${cols === 2 && 'mt-[1.5rem]'} line-clamp-2 font-bold text-green-700 text-[1.25rem] leading-[1.5rem]`}
-					>
-						{blog.title[locale]}
-					</h2>
-
-					<div
-						className='line-clamp-3 text-green-700 font-[400] text-[1rem] leading-[1.125rem] mt-[1rem]'
-						dangerouslySetInnerHTML={{ __html: blog.summary.column1[locale] }}
-					></div>
 
 					<div
 						className={`flex items-center gap-[0.25rem] mt-[2rem] ${cols === 3 && 'justify-between'}`}
