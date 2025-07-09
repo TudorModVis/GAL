@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 
 import SmoothScroll from '@/components/providers/SmoothScroll'
 
+import { Providers } from './(admin)/providers'
 import { routing } from '@/i18n/routing'
 
 import './globals.css'
@@ -38,7 +39,6 @@ export default async function RootLayout({
 		notFound()
 	}
 
-	// Enable static rendering
 	setRequestLocale(locale)
 
 	const messages = await getMessages()
@@ -47,7 +47,9 @@ export default async function RootLayout({
 		<html lang={locale}>
 			<body className={`relative ${onest.className} bg-white`}>
 				<NextIntlClientProvider messages={messages}>
-					<SmoothScroll>{children}</SmoothScroll>
+					<SmoothScroll>
+						<Providers>{children}</Providers>
+					</SmoothScroll>
 				</NextIntlClientProvider>
 			</body>
 		</html>
