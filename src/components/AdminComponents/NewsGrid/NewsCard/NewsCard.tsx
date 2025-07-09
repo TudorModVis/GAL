@@ -10,19 +10,20 @@ import { Button } from '../../ui/Button'
 import { Category } from './Category'
 import { Link } from '@/i18n/navigation'
 import { Pathnames } from '@/i18n/routing'
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
 
 export function NewsCard({ ...blog }: IBlogResponse) {
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
 
 	return (
-		<Link href={`/admin/edit-blog/${blog._id}` as Pathnames} className='w-full'>
+		<Link href={ADMIN_PAGES.getBlogEditPage(blog._id) as Pathnames} className='w-full'>
 			<div
 				className='cursor-pointer w-full flex flex-col bg-gray-300 rounded-[1rem] overflow-hidden group'
 				style={{ boxShadow: '1px 1px 2px 0px rgba(0, 0, 0, 0.1)' }}
 			>
 				<div className='w-full h-[25rem]'>
 					<Image
-						src='/breaker_image.png'
+						src={blog.main_image}
 						alt='main image'
 						width={700}
 						height={400}

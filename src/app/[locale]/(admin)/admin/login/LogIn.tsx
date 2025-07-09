@@ -55,14 +55,14 @@ export function LogIn() {
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<InputField
-						state={isError ? 'error' : 'default'}
+						hasError={isError}
 						placeholder='Username*'
 						{...register('username', {
 							required: 'Username is required'
 						})}
 					/>
 					<InputField
-						state={isError ? 'error' : 'default'}
+						hasError={isError}
 						type='password'
 						placeholder='Password*'
 						className='mt-[1rem]'

@@ -7,7 +7,7 @@ export function useUpdateBlog(id: string) {
 
     const queryClient = useQueryClient()
 
-    const { mutate: updateTask, isPending: isUpdatePending } = useMutation({
+    const { mutate: updateBlog, isPending: isUpdatePending } = useMutation({
         mutationKey: ['update blog'],
         mutationFn: (data: TypeBlogFormState) => blogService.updateBlog(id, data),
         onSuccess: () => {
@@ -20,5 +20,5 @@ export function useUpdateBlog(id: string) {
         },
     })
 
-    return { updateTask, isUpdatePending }
+    return { updateBlog, isUpdatePending }
 }

@@ -1,0 +1,16 @@
+p.is-editor-empty:first-child::before {
+	color: #11200b;
+	opacity: 0.7;
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+	font-weight: 400;
+	color: #11200b;
+	font-size: 1rem;
+	line-height: 1.125rem;
+}
+
+.error-state p.is-editor-empty:first-child::before {
+	color: #db3c3c !important;
+}

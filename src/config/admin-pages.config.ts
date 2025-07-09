@@ -11,6 +11,13 @@ class DASHBOARD {
     COMMUNITY_SERVICES = `${this.root}/community-services`
     TOURIST_ATTRACTIONS = `${this.root}/tourist-attractions`
     PEOPLE_AND_VALUES = `${this.root}/people-and-values`
+
+    CREATE_BLOG = `${this.root}/create-blog`
+    EDIT_BLOG = `${this.root}/edit-blog`
+
+    getBlogEditPage(blogId: string) {
+        return `${this.EDIT_BLOG}/${blogId}`
+    }
 }
 
 export const ADMIN_PAGES = new DASHBOARD()

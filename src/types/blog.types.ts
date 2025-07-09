@@ -80,8 +80,14 @@ export interface IBlogsResponse {
 
 export interface ImageLinkResponse {
 	success: boolean
-	imageUrl: string
+	uploadUrl: string
+	publicUrl: string
 	key: string
+}
+
+export interface ImageToUpload {
+	uploadUrl: string
+	file: File
 }
 
 // Create / Update Blog type ( ! For React Hook Form )

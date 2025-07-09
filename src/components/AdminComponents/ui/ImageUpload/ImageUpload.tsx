@@ -1,0 +1,212 @@
+'use client'
+
+import { Upload, X } from 'lucide-react'
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import { Control, RegisterOptions, useController } from 'react-hook-form'
+import { toast } from 'sonner'
+
+import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
+import { TypeStatisticsFormState } from '@/types/statistics.types'
+
+import { BLOG_FORM } from '@/config/blog-form.config'
+
+import { useGenerateImageLink } from '@/hooks/blog/useGenerateImageLink'
+
+import { isImageValid } from '@/lib/file-upload.utils'
+import { cn } from '@/lib/utils'
+
+interface ImageUploadProps {
+	name: keyof TypeBlogFormState | keyof TypeStatisticsFormState
+	control: Control<TypeBlogFormState | TypeStatisticsFormState>
+	rules?: RegisterOptions
+	className?: string
+	height?: string
+
+	addImageToUpload?: (imageUrl: ImageToUpload) => void
+	addImageToDelete?: (imageUrl: string) => void
+	removeImageFromUpload: (uploadUrl: string) => void
+
+	// For removing the image upload field in the form
+	onRemove?: () => void
+}
+
+export function ImageUpload({
+	name,
+	height,
+	control,
+	rules,
+	className,
+	addImageToUpload,
+	addImageToDelete,
+	removeImageFromUpload,
+	onRemove
+}: ImageUploadProps) {
+	const fileInputRef = useRef<HTMLInputElement>(null)
+	const [selectedFile, setSelectedFile] = useState<File | null>(null)
+	const [previewUrl, setPreviewUrl] = useState<string>('')
+	const [currentUploadUrl, setCurrentUploadUrl] = useState<string>('')
+	const { imageData, isImageLinkPending, generateLink, isImageLinkGenerated } =
+		useGenerateImageLink()
+
+	const {
+		field: { value, onChange },
+		fieldState
+	} = useController({
+		name: name as keyof TypeBlogFormState,
+		control,
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		rules: rules as any
+	})
+
+	useEffect(() => {
+		if (isImageLinkGenerated && imageData && selectedFile && value !== imageData.data.publicUrl) {
+			const uploadInfo = {
+				file: selectedFile,
+				uploadUrl: imageData.data.uploadUrl
+			}
+
+			addImageToUpload?.(uploadInfo)
+			setCurrentUploadUrl(imageData.data.uploadUrl)
+
+			onChange(imageData.data.publicUrl)
+		}
+	}, [isImageLinkGenerated, imageData, selectedFile, onChange, addImageToUpload, value])
+
+	const createPreview = (file: File) => {
+		const reader = new FileReader()
+
+		reader.onload = e => {
+			if (e.target?.result) {
+				setPreviewUrl(e.target.result as string)
+			}
+		}
+
+		reader.onerror = () => {
+			toast.error('Failed to read image file')
+		}
+
+		reader.readAsDataURL(file)
+	}
+
+	const handleFileUpload = (file: File) => {
+		const isValid = isImageValid(
+			file,
+			BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB,
+			BLOG_FORM.ACCEPTED_IMAGE_FORMATS
+		)
+		if (!isValid) return
+
+		setSelectedFile(file)
+		createPreview(file)
+		generateLink()
+	}
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files && e.target.files[0]) {
+			handleFileUpload(e.target.files[0])
+		}
+	}
+
+	const hasError = !!fieldState.error
+
+	const hasImage = !!value || !!previewUrl
+	const displayImageUrl = previewUrl || value
+
+	const removeImage = () => {
+		onChange('')
+		setPreviewUrl('')
+		setSelectedFile(null)
+
+		if (fileInputRef.current) {
+			fileInputRef.current.value = ''
+		}
+
+		if (currentUploadUrl) {
+			removeImageFromUpload?.(currentUploadUrl)
+			setCurrentUploadUrl('')
+		}
+
+		if (value && !previewUrl) {
+			addImageToDelete?.(value as string)
+		}
+	}
+
+	useEffect(() => {
+		return () => {
+			if (previewUrl && previewUrl.startsWith('blob:')) {
+				URL.revokeObjectURL(previewUrl)
+			}
+		}
+	}, [previewUrl])
+
+	return (
+		<div
+			className={cn(
+				'w-full hover:opacity-80 relative rounded-[2rem] transition-all duration-300 bg-gray-400 border border-dashed border-gray-500 overflow-hidden flex flex-col items-center justify-center',
+				hasError && 'border-error',
+				isImageLinkPending && 'opacity-50',
+				className
+			)}
+			style={{
+				height: hasImage ? '40rem' : height || '40rem'
+			}}
+		>
+			<input
+				ref={fileInputRef}
+				type='file'
+				accept={BLOG_FORM.ACCEPTED_IMAGE_FORMATS.join(',')}
+				onChange={handleInputChange}
+				className='cursor-pointer w-full h-full absolute inset-0 opacity-0 z-10'
+				onError={() => {
+					toast.error('Failed to upload image. Please try again.')
+				}}
+				disabled={isImageLinkPending}
+			/>
+
+			{isImageLinkPending ? (
+				<div className='text-center'>
+					<p className='text-gray-600'>Processing image...</p>
+				</div>
+			) : hasImage ? (
+				<div className='relative w-full h-full'>
+					<Image
+						src={displayImageUrl as string}
+						alt='Uploaded Image'
+						fill
+						className='w-full h-full object-cover hover:opacity-80 transition-opacity duration-300'
+					/>
+
+					<button
+						onClick={removeImage}
+						className='absolute z-20 top-[1.5rem] right-[1.5rem] cursor-pointer hover:opacity-80 transition-opacity duration-300'
+					>
+						<Image
+							src='/admin_assets/delete-icon.svg'
+							alt='Delete Image'
+							width={24}
+							height={24}
+							className='size-[1.5rem]'
+						/>
+					</button>
+				</div>
+			) : (
+				<div className=''>
+					{onRemove && (
+						<X
+							onClick={onRemove}
+							className='absolute z-50 top-[0.5rem] right-[0.5rem] cursor-pointer hover:opacity-80 transition-opacity duration-300'
+						/>
+					)}
+					<div className='flex items-center gap-[0.5rem]'>
+						<Upload className={`size-[1.25rem] ${hasError ? 'text-error' : 'text-green-700'} `}/>
+						<p className={` text-[1rem] leading-[1.125rem] ${hasError ? 'text-error' : 'text-green-700'}`}>Click to upload image</p>
+					</div>
+					<p className={`text-[0.75rem] leading-[0.875rem] text-center mt-[0.5rem] ${hasError ? 'text-error' : 'text-green-600'}`}>
+						Max size: {BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB}MB
+					</p>
+				</div>
+			)}
+		</div>
+	)
+}

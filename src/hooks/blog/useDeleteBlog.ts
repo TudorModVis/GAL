@@ -6,7 +6,7 @@ import { blogService } from '@/services/blog.service'
 export function useDeleteBlog() {
 	const queryClient = useQueryClient()
 
-	const { mutate: deleteBlog, isPending: isDeletePending } = useMutation({
+	const { mutate: deleteBlog, isPending: isBlogDeletePending } = useMutation({
 		mutationKey: ['delete blog'],
 		mutationFn: (id: string) => blogService.deleteBlog(id),
 		onSuccess: () => {
@@ -17,5 +17,5 @@ export function useDeleteBlog() {
 			toast.error('A apărut o eroare la ștergerea articolului.')
 		}
 	})
-	return { deleteBlog, isDeletePending }
+	return { deleteBlog, isBlogDeletePending }
 }

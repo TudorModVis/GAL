@@ -17,7 +17,7 @@ export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(2)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
-		limit: 12,
+		limit: 11,
 		content_type: BlogsContentTypeEnum.AUTHENTIC_LOCAL,
 		authentic_local_category: AuthenticLocalCategoriesEnum.PEOPLE_AND_VALUES
 	})

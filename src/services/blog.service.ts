@@ -48,18 +48,32 @@ class BlogService {
         return response
     }
 
-    async generateUploadLink(id: string) {
+    async generateUploadLink() {
         const response = await axiosWithAuth.post<ImageLinkResponse>(
-            `${this.BASE_URL}/${id}/generate-upload-link`
+            `${this.BASE_URL}/generate-upload-link`
         )
 
         return response
     }
 
-    async deleteImages(images: string[]) {
-        const response = await axiosWithAuth.post<Omit<ImageLinkResponse, "imageUrl" | "key">>(
+    async uploadImage(uploadUrl: string, file: File) {
+        const response = await axiosClassic.put(
+            uploadUrl,
+            file,
+            {
+                headers: {
+                    "Content-Type": file.type
+                }
+            }
+        )
+
+        return response
+    }
+
+    async deleteImages(imageUrls: string[]) {
+        const response = await axiosWithAuth.post<Omit<ImageLinkResponse, "uploadUrl" | "key" | "publicUrl">>(
             `${this.BASE_URL}/delete-images`,
-            { images }
+            { imageUrls }
         )
 
         return response
