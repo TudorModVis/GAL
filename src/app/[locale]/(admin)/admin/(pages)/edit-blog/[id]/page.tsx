@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 }
 
 interface Props { 
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
-export default function EditBlogPage({ params }: Props) {
+export default async function EditBlogPage({ params }: Props) {
 
-    const { id } = params
+    const { id } = await params
 
 	return <PageContent blogId={id}/>
 }
