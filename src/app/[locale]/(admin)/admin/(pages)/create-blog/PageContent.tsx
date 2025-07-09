@@ -17,6 +17,7 @@ export function PageContent() {
 	const [language, setLanguage] = useState<'ro' | 'ru' | 'en'>(locale)
 
 	const [imagesToUpload, setImagesToUpload] = useState<ImageToUpload[]>([])
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [imagesToDelete, setImagesToDelete] = useState<string[]>([])
 
 	const { uploadImages, isImagesUploadPending } = useUploadImages()
