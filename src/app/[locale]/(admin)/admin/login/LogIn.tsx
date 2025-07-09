@@ -1,5 +1,7 @@
 'use client'
 
+import './login.styles.css'
+
 import { useMutation } from '@tanstack/react-query'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -22,7 +24,7 @@ export function LogIn() {
 
 	const router = useRouter()
 
-	const { mutate, isError } = useMutation({
+	const { mutate, isError, isPending } = useMutation({
 		mutationKey: ['login'],
 		mutationFn: (data: IAuthForm) => authService.main('login', data),
 		onSuccess: () => {
@@ -73,9 +75,10 @@ export function LogIn() {
 
 					<Button
 						type='submit'
-						className='mt-[2rem]'
+						className='mt-[2rem] flex items-center justify-center'
+						disabled={isPending}
 					>
-						Log In
+						{isPending ? <div className="login-loader"></div> : 'Log In'}
 					</Button>
 				</form>
 			</div>
