@@ -25,19 +25,19 @@ export function LangSelectBox() {
 					className='bg-gray-300 z-[10] rounded-[0.25rem] overflow-hidden scale-y-0 data-[enter]:scale-y-100 origin-top transition-all duration-300'
 				>
 					<Ariakit.SelectItem
-						className='text-green-700 border-gray-500 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer'
+						className={`${locale === 'ro' && 'hidden'} text-green-700 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer`}
 						value='RO'
 						disabled={locale === 'ro'}
 						onClick={() => handleLangSwitch('ro')}
 					/>
 					<Ariakit.SelectItem
-						className='text-green-700 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer'
+						className={`${locale === 'ru' && 'hidden'} text-green-700 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer`}
 						value='RU'
 						disabled={locale === 'ru'}
 						onClick={() => handleLangSwitch('ru')}
 					/>
 					<Ariakit.SelectItem
-						className='text-green-700 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer'
+						className={`${locale === 'en' && 'hidden'} text-green-700 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer`}
 						value='EN'
 						disabled={locale === 'en'}
 						onClick={() => handleLangSwitch('en')}

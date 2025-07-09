@@ -37,7 +37,7 @@ export function NewsGrid({ colsNumber, blogs }: Props) {
 				</Link>
 				{blogs.map(blog => (
 					<div key={blog._id}>
-						<NewsCard {...blog} />
+						<NewsCard blog={blog} cols={colsNumber} />
 					</div>
 				))}
 			</motion.div>
