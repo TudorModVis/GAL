@@ -16,12 +16,16 @@ import { useUpdateBlog } from '@/hooks/blog/useUpdateBlog'
 import { useUploadImages } from '@/hooks/blog/useUploadImages'
 
 import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
+import { useRouter } from '@/i18n/navigation'
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
+import { Pathnames } from '@/i18n/routing'
 
 interface Props {
 	blogId: string
 }
 
 export function PageContent({ blogId }: Props) {
+	const router = useRouter()
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
 	const [language, setLanguage] = useState<'ro' | 'ru' | 'en'>(locale)
 
@@ -95,7 +99,7 @@ export function PageContent({ blogId }: Props) {
 				onSuccess: () => {
 					deleteBlog(blogId, {
 						onSuccess: () => {
-							// router.push('/admin/blogs') // if you have router
+							router.push(ADMIN_PAGES.NEWS as Pathnames)
 						}
 					})
 				}

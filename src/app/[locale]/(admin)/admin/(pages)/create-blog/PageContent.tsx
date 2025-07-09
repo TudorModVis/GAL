@@ -11,8 +11,12 @@ import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 import { useUploadImages } from '@/hooks/blog/useUploadImages'
 import { useCreateBlog } from '@/hooks/blog/useCreateBlog'
 import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
+import { useRouter } from '@/i18n/navigation'
+import { Pathnames } from '@/i18n/routing'
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
 
 export function PageContent() {
+	const router = useRouter()
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
 	const [language, setLanguage] = useState<'ro' | 'ru' | 'en'>(locale)
 
@@ -33,10 +37,9 @@ export function PageContent() {
 		const cleanedData = cleanBlogFormData(data)
 		uploadImages(imagesToUpload, {
 			onSuccess: () => {
-				console.log(cleanedData)
 				createBlog(cleanedData, {
-					onError: (error) => {
-						console.error('Failed to create blog:', error)
+					onSuccess: (data) => {
+						router.push(ADMIN_PAGES.getBlogEditPage(data.data._id) as Pathnames)
 					}
 				})
 				setImagesToUpload([])
