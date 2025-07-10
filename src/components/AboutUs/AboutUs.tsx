@@ -15,9 +15,9 @@ const AboutUs = () => {
   return (
     <section
       id="aboutUs"
-      className="w-screen h-fit grid grid-cols-full relative sm:px-8 my-24"
+      className="w-screen h-fit grid grid-cols-full relative sm:px-8 sm:my-24"
     >
-      <div className="order-1 col-span-full sm:col-span-6 leading-4.5 mb-12 sm:mb-0">
+      <div className="order-1 col-span-full sm:col-span-6 leading-4.5 mb-12 sm:mb-0 sm:mt-0 mt-20">
         <AnimatedText
           customStyles="font-bold"
           text={tAboutUs("impact_title")}
@@ -81,7 +81,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className="order-7 flex flex-col col-span-full sm:col-span-3 sm:row-start-3 sm:mt-24 mt-4 sm:h-40 h-[106px]">
+      <div className="order-7 flex flex-col col-span-full sm:col-span-3 sm:row-start-3 sm:mt-24 mt-4 sm:h-40 h-[106px] sm:mb-0 mb-20">
         <AnimatedLine />
         <div className="h-full flex flex-col justify-between">
           <AnimatedText

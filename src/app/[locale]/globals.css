@@ -172,6 +172,7 @@
 		@apply bg-white text-black;
 		overflow-x: hidden;
 		font-family: 'Onest', sans-serif;
+		box-sizing: border-box;
 	}
 
 	@keyframes shake {
@@ -226,6 +227,7 @@
 		margin: 0 auto;
 		padding: 0 2rem;
 	}
+	
 
 	.leaflet-popup-content {
 		margin: 0 !important;

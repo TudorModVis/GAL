@@ -9,7 +9,7 @@ const Breaker = () => {
   return (
     <section className="w-screen grid grid-cols-full relative sm:px-8 my-40">
       <AnimatedHeader
-        customStyles="col-span-full sm:col-span-9 text-2xl sm:text-5xl h-fit font-bold sm:leading-13 leading-7 mb-6 sm:mb-8"
+        customStyles="col-span-full sm:col-span-9 text-2xl sm:text-5xl h-fit font-bold sm:leading-13 leading-7 mb-6 sm:mb-8 sm:mt-0 mt-20"
         text={tBreaker("motto")}
       />
       <div className="col-span-full h-[358px] sm:h-[640px] relative">

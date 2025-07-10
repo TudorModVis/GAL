@@ -22,7 +22,7 @@ export default async function AboutUsPage({ params }: { params: Promise<{ locale
 	const t = await getTranslations('aboutUs')
 	return (
 		<>
-			<main className='relative mb-[100vh] bg-sand-50'>
+			<main className='relative mb-12 sm:mb-[100vh] bg-sand-50'>
 				<Hero
 					heroTitle1={t('heroTitle.1')}
 					heroTitle2={t('heroTitle.2')}
