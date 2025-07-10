@@ -29,7 +29,10 @@ const Members = () => {
 					text='Victor Rudenco'
 					customStyles='font-bold mt-6 mb-4 text-xl'
 				/>
-				<AnimatedText text={tMembers('president')} />
+				<AnimatedText
+					text={tMembers('president')}
+					customStyles='sm:mb-0 mb-6'
+				/>
 			</div>
 
 			<div className='sm:col-span-3 col-span-full h-full relative flex flex-col'>
@@ -47,7 +50,10 @@ const Members = () => {
 					text='Ana-Maria Ioniță'
 					customStyles='font-bold mt-6 mb-4 text-xl'
 				/>
-				<AnimatedText text={tMembers('director')} />
+				<AnimatedText
+					text={tMembers('director')}
+					customStyles='sm:mb-0 mb-6'
+				/>
 			</div>
 			<div className='sm:col-span-3 col-span-full h-full relative flex flex-col'>
 				<div className='w-full sm:h-[67%] max-h-[358px] sm:max-h-none h-full'>
@@ -64,7 +70,10 @@ const Members = () => {
 					text='Maxim Furtună'
 					customStyles='font-bold mt-6 mb-4 text-xl'
 				/>
-				<AnimatedText text={tMembers('manager')} />
+				<AnimatedText
+					text={tMembers('manager')}
+					customStyles='sm:mb-0 mb-6'
+				/>
 			</div>
 			<div className='sm:col-span-3 col-span-full h-full relative flex flex-col mb-20 sm:mb-0'>
 				<div className='w-full sm:h-[88%] max-h-[358px] sm:max-h-none h-full'>
@@ -81,7 +90,10 @@ const Members = () => {
 					text='Dumitru Marguleț'
 					customStyles='font-bold mt-6 mb-4 text-xl'
 				/>
-				<AnimatedText text={tMembers('accountant')} />
+				<AnimatedText
+					text={tMembers('accountant')}
+					customStyles='sm:mb-0 mb-6'
+				/>
 			</div>
 		</section>
 	)

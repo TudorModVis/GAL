@@ -54,9 +54,44 @@ const NavBar = () => {
 	}
 
 	const isMobile = useIsMobile()
-
 	return isMobile ? (
-		<NavBarMobile />
+		<>
+			<nav className='text-nowrap sm:hidden'>
+				<AnimatePresence mode='wait'>
+					{!isNearEnd && (onlyFixed || isAtTop) ? (
+						<motion.div
+							key='scrolled'
+							initial={{ opacity: 0, y: -50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.4, ease: 'easeInOut' }}
+							className={`bg-sand-50 left-1/2 -translate-x-1/2 top-0 fixed w-full z-20`}
+						>
+							<NavBarMobile isFixed={true} />
+						</motion.div>
+					) : !isAtTop && !isNearEnd && !onlyFixed ? (
+						<motion.div
+							key='top'
+							initial={{ opacity: 0, y: -50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.4, ease: 'easeInOut' }}
+							className='left-1/2 -translate-x-1/2 top-0 text-sand-50 absolute w-full z-20'
+						>
+							<NavBarMobile />
+						</motion.div>
+					) : null}
+				</AnimatePresence>
+			</nav>
+			<div
+				ref={first}
+				className='absolute top-[100vh] invisible'
+			></div>
+			<div
+				ref={second}
+				className='absolute top-[75%] invisible'
+			></div>
+		</>
 	) : (
 		<>
 			<nav className='text-nowrap hidden sm:block'>

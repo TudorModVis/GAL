@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 import Arrow from '../CommonComponents/Arrow'
 import Logo from '../CommonComponents/Logo'
@@ -13,14 +14,30 @@ import LanguageSwitcher from './LanguageSwitcher'
 import MagnifyGlass from './MagnifyGlass'
 import { Link, usePathname } from '@/i18n/navigation'
 
-const NavBar = () => {
-	const [isOpen, setIsOpen] = useState(false)
-	const [isAboutOpen, setIsAboutOpen] = useState(false)
-	const [isAuthenticOpen, setIsAuthenticOpen] = useState(false)
+interface NavProps {
+	isFixed?: boolean
+}
+
+const NavBar: React.FC<NavProps> = ({ isFixed }) => {
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false)
+	const [isAuthenticOpen, setIsAuthenticOpen] = useState<boolean>(false)
+	const [mounted, setMounted] = useState<boolean>(false)
 
 	const pathname = usePathname()
 	const tNav = useTranslations('index.NavBar')
 	const lenis = useLenis()
+	const closeMenuTimer = useRef<NodeJS.Timeout | null>(null)
+
+	useEffect(() => {
+		setMounted(true)
+
+		return () => {
+			if (closeMenuTimer.current) {
+				clearTimeout(closeMenuTimer.current)
+			}
+		}
+	}, [])
 
 	const handleScrollToBottom = () => {
 		window.scrollTo({
@@ -108,257 +125,261 @@ const NavBar = () => {
 
 	return (
 		<>
-			<motion.div
-				className='fixed top-0 left-0 right-0 w-screen h-full bg-stone-50 text-forest-900 z-10 flex overflow-y-auto'
-				initial={false}
-				animate={isOpen ? 'open' : 'closed'}
-				variants={menuVariants}
-			>
-				<ul
-					className={`flex flex-col text-2xl ${isAuthenticOpen ? '[&>li:not(:nth-child(5))]:text-stone-400' : ''} ${isAboutOpen ? '[&>li:not(:nth-child(2))]:text-stone-400' : ''} [&>li]:transition [&>li]:duration-500 w-full px-5.5 mt-32`}
-				>
-					{/* Home Link */}
-					<motion.li
-						variants={itemVariants}
-						className='border-b-[1px] border-stone-400 py-2.5 px-2'
+			{mounted &&
+				createPortal(
+					<motion.div
+						className='fixed top-0 left-0 right-0 w-screen h-full bg-stone-50 text-forest-900 z-10 flex overflow-y-auto'
+						initial={false}
+						animate={isOpen ? 'open' : 'closed'}
+						variants={menuVariants}
 					>
-						<Link
-							className='w-full flex items-center justify-between'
-							href='/'
-							onClick={() => setIsOpen(false)}
+						<ul
+							className={`flex flex-col text-2xl list-none! ${isAuthenticOpen ? '[&>li:not(:nth-child(5))]:text-stone-400' : ''} ${isAboutOpen ? '[&>li:not(:nth-child(2))]:text-stone-400' : ''} [&>li]:transition [&>li]:duration-500 w-full px-5.5 mt-32`}
 						>
-							<span>{tNav('home')}</span>
-							<span
-								className={`size-7 ${pathname == '/' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+							{/* Home Link */}
+							<motion.li
+								variants={itemVariants}
+								className='border-b-[1px] border-stone-400 py-2.5 px-2'
 							>
-								<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-							</span>
-						</Link>
-					</motion.li>
-
-					{/* About Dropdown */}
-					<motion.li
-						variants={itemVariants}
-						className='border-b-[1px] border-stone-400 py-2.5 px-2'
-					>
-						<button
-							className='w-full flex items-center justify-between'
-							onClick={() => {
-								setIsAboutOpen(!isAboutOpen)
-								setIsAuthenticOpen(false)
-							}}
-						>
-							<span>{tNav('about.about_btn')}</span>
-							<motion.span
-								className='size-7 flex items-center justify-center rounded-full'
-								animate={{ rotate: isAboutOpen ? 180 : 0 }}
-								transition={{ duration: 0.3 }}
-							>
-								<ArrowDown
-									direction='w-3'
-									arrowColor='#11200B'
-								/>
-							</motion.span>
-						</button>
-						<motion.ul
-							initial={false}
-							animate={isAboutOpen ? 'open' : 'closed'}
-							variants={subMenuVariants}
-							className='pl-4 overflow-hidden'
-						>
-							{/* Add your 3 "About" links here */}
-							<li className='pb-2 pt-6'>
 								<Link
-									href='/aboutUs'
 									className='w-full flex items-center justify-between'
+									href='/'
 									onClick={() => setIsOpen(false)}
 								>
-									<span>{tNav('about.about_us')}</span>
-									<span
-										className={`size-7 ${pathname == '/aboutUs' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
-									>
-										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-									</span>
-								</Link>
-							</li>
-							<li className='py-2'>
-								<Link
-									href='/administration'
-									className='w-full flex items-center justify-between'
-									onClick={() => setIsOpen(false)}
-								>
-									<span>{tNav('about.management')}</span>
-									<span
-										className={`size-7 ${pathname == '/administration' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
-									>
-										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-									</span>
-								</Link>
-							</li>
-							<li className='py-2'>
-								<Link
-									href='/documents'
-									className='w-full flex items-center justify-between'
-									onClick={() => setIsOpen(false)}
-								>
-									<span>{tNav('about.documents')}</span>
-									<span
-										className={`size-7 ${pathname == '/documents' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
-									>
-										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-									</span>
-								</Link>
-							</li>
-						</motion.ul>
-					</motion.li>
-
-					{/* News Link */}
-					<motion.li
-						variants={itemVariants}
-						className='border-b-[1px] border-stone-400 py-2.5 px-2'
-					>
-						<Link
-							className='w-full flex items-center justify-between'
-							href='/news'
-							onClick={() => setIsOpen(false)}
-						>
-							<span>{tNav('news')}</span>
-							<span
-								className={`size-7 ${pathname == '/news' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
-							>
-								<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-							</span>
-						</Link>
-					</motion.li>
-
-					{/* Projects Link */}
-					<motion.li
-						variants={itemVariants}
-						className='border-b-[1px] border-stone-400 py-2.5 px-2'
-					>
-						<Link
-							className='w-full flex items-center justify-between'
-							href='/projects'
-							onClick={() => setIsOpen(false)}
-						>
-							<span>{tNav('projects')}</span>
-							<span
-								className={`size-7 ${pathname == '/projects' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
-							>
-								<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-							</span>
-						</Link>
-					</motion.li>
-
-					{/* Authentic Local Dropdown */}
-					<motion.li
-						variants={itemVariants}
-						className='border-b-[1px] border-stone-400 py-2.5 px-2'
-					>
-						<button
-							className='w-full flex items-center justify-between'
-							onClick={() => {
-								setIsAuthenticOpen(!isAuthenticOpen)
-								setIsAboutOpen(false)
-							}}
-						>
-							<span>{tNav('authentic_local.authentic_btn')}</span>
-							<motion.span
-								className='size-7 flex items-center justify-center rounded-full'
-								animate={{ rotate: isAuthenticOpen ? 180 : 0 }}
-								transition={{ duration: 0.3 }}
-							>
-								<ArrowDown
-									direction='w-3'
-									arrowColor='#11200B'
-								/>
-							</motion.span>
-						</button>
-						<motion.ul
-							initial={false}
-							animate={isAuthenticOpen ? 'open' : 'closed'}
-							variants={subMenuVariants}
-							className='pl-4 overflow-hidden'
-						>
-							{/* Add your 4 "Authentic Local" links here */}
-							<li className='pb-2 pt-6'>
-								<Link
-									href='/localProducts'
-									className='w-full flex items-center justify-between'
-									onClick={() => setIsOpen(false)}
-								>
-									<span>{tNav('authentic_local.local_products')}</span>
-									<span
-										className={`size-7 ${pathname == '/localProducts' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
-									>
-										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
-									</span>
-								</Link>
-							</li>
-							<li className='py-2'>
-								<Link
-									href='/communityServices'
-									className='w-full flex items-center justify-between'
-									onClick={() => setIsOpen(false)}
-								>
-									<span>{tNav('authentic_local.community_services')}</span>
+									<span>{tNav('home')}</span>
 									<span
 										className={`size-7 ${pathname == '/' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 									>
 										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 									</span>
 								</Link>
-							</li>
-							<li className='py-2'>
-								<Link
-									href='/touristAttractions'
+							</motion.li>
+
+							{/* About Dropdown */}
+							<motion.li
+								variants={itemVariants}
+								className='border-b-[1px] border-stone-400 py-2.5 px-2'
+							>
+								<button
 									className='w-full flex items-center justify-between'
+									onClick={() => {
+										setIsAboutOpen(!isAboutOpen)
+										setIsAuthenticOpen(false)
+									}}
+								>
+									<span>{tNav('about.about_btn')}</span>
+									<motion.span
+										className='size-7 flex items-center justify-center rounded-full'
+										animate={{ rotate: isAboutOpen ? 180 : 0 }}
+										transition={{ duration: 0.3 }}
+									>
+										<ArrowDown
+											direction='w-3'
+											arrowColor='#11200B'
+										/>
+									</motion.span>
+								</button>
+								<motion.ul
+									initial={false}
+									animate={isAboutOpen ? 'open' : 'closed'}
+									variants={subMenuVariants}
+									className='pl-4 overflow-hidden'
+								>
+									{/* Add your 3 "About" links here */}
+									<li className='pb-2 pt-6'>
+										<Link
+											href='/aboutUs'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('about.about_us')}</span>
+											<span
+												className={`size-7 ${pathname == '/aboutUs' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+									<li className='py-2'>
+										<Link
+											href='/administration'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('about.management')}</span>
+											<span
+												className={`size-7 ${pathname == '/administration' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+									<li className='py-2'>
+										<Link
+											href='/documents'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('about.documents')}</span>
+											<span
+												className={`size-7 ${pathname == '/documents' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+								</motion.ul>
+							</motion.li>
+
+							{/* News Link */}
+							<motion.li
+								variants={itemVariants}
+								className='border-b-[1px] border-stone-400 py-2.5 px-2'
+							>
+								<Link
+									className='w-full flex items-center justify-between'
+									href='/news'
 									onClick={() => setIsOpen(false)}
 								>
-									<span>{tNav('authentic_local.tourist_attractions')}</span>
+									<span>{tNav('news')}</span>
 									<span
-										className={`size-7 ${pathname == '/' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+										className={`size-7 ${pathname == '/news' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 									>
 										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 									</span>
 								</Link>
-							</li>
-							<li className='py-2'>
+							</motion.li>
+
+							{/* Projects Link */}
+							<motion.li
+								variants={itemVariants}
+								className='border-b-[1px] border-stone-400 py-2.5 px-2'
+							>
 								<Link
-									href='/peopleAndValues'
 									className='w-full flex items-center justify-between'
+									href='/projects'
 									onClick={() => setIsOpen(false)}
 								>
-									<span>{tNav('authentic_local.people_and_values')}</span>
+									<span>{tNav('projects')}</span>
 									<span
-										className={`size-7 ${pathname == '/' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+										className={`size-7 ${pathname == '/projects' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 									>
 										<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 									</span>
 								</Link>
-							</li>
-						</motion.ul>
-					</motion.li>
+							</motion.li>
 
-					{/* Contacts Link */}
-					<motion.li
-						variants={itemVariants}
-						className='border-b-[1px] border-stone-400 py-2.5 px-2'
-					>
-						<button
-							onClick={handleScrollToBottom}
-							className='w-full flex items-center justify-between cursor-pointer'
-						>
-							<span>{tNav('contacts')}</span>
-						</button>
-					</motion.li>
-				</ul>
-			</motion.div>
+							{/* Authentic Local Dropdown */}
+							<motion.li
+								variants={itemVariants}
+								className='border-b-[1px] border-stone-400 py-2.5 px-2'
+							>
+								<button
+									className='w-full flex items-center justify-between'
+									onClick={() => {
+										setIsAuthenticOpen(!isAuthenticOpen)
+										setIsAboutOpen(false)
+									}}
+								>
+									<span>{tNav('authentic_local.authentic_btn')}</span>
+									<motion.span
+										className='size-7 flex items-center justify-center rounded-full'
+										animate={{ rotate: isAuthenticOpen ? 180 : 0 }}
+										transition={{ duration: 0.3 }}
+									>
+										<ArrowDown
+											direction='w-3'
+											arrowColor='#11200B'
+										/>
+									</motion.span>
+								</button>
+								<motion.ul
+									initial={false}
+									animate={isAuthenticOpen ? 'open' : 'closed'}
+									variants={subMenuVariants}
+									className='pl-4 overflow-hidden'
+								>
+									{/* Add your 4 "Authentic Local" links here */}
+									<li className='pb-2 pt-6'>
+										<Link
+											href='/localProducts'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('authentic_local.local_products')}</span>
+											<span
+												className={`size-7 ${pathname == '/localProducts' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+									<li className='py-2'>
+										<Link
+											href='/communityServices'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('authentic_local.community_services')}</span>
+											<span
+												className={`size-7 ${pathname == '/communityServices' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+									<li className='py-2'>
+										<Link
+											href='/touristAttractions'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('authentic_local.tourist_attractions')}</span>
+											<span
+												className={`size-7 ${pathname == '/touristAttractions' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+									<li className='py-2'>
+										<Link
+											href='/peopleAndValues'
+											className='w-full flex items-center justify-between'
+											onClick={() => setIsOpen(false)}
+										>
+											<span>{tNav('authentic_local.people_and_values')}</span>
+											<span
+												className={`size-7 ${pathname == '/peopleAndValues' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+											>
+												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
+											</span>
+										</Link>
+									</li>
+								</motion.ul>
+							</motion.li>
 
-			<nav
+							{/* Contacts Link */}
+							<motion.li
+								variants={itemVariants}
+								className='border-b-[1px] border-stone-400 py-2.5 px-2'
+							>
+								<button
+									onClick={handleScrollToBottom}
+									className='w-full flex items-center justify-between cursor-pointer'
+								>
+									<span>{tNav('contacts')}</span>
+								</button>
+							</motion.li>
+						</ul>
+					</motion.div>,
+					document.body
+				)}
+
+			<div
 				className={`text-nowrap border-b-[1px] ${
-					isOpen ? 'border-stone-400' : 'border-stone-50'
-				} duration-500 transition absolute text-forest-900 z-10 top-0 left-0 right-0 w-screen sm:hidden`}
+					isOpen || isFixed ? 'border-stone-400' : 'border-stone-50'
+				} duration-500 transition text-forest-900 z-10 top-0 left-0 right-0 w-screen sm:hidden`}
 			>
 				<div className='relative col-span-full grid-cols-full px-4 mx-auto flex items-center h-16'>
 					<button className='size-10 bg-forest-800 flex justify-center items-center rounded-full'>
@@ -373,7 +394,7 @@ const NavBar = () => {
 					</Link>
 
 					<div className='flex gap-4 ml-auto'>
-						<LanguageSwitcher arrowColor={isOpen ? '#11200B' : '#FFFEFD'} />
+						<LanguageSwitcher arrowColor={isOpen || isFixed ? '#11200B' : '#FFFEFD'} />
 						<motion.button
 							onClick={() => setIsOpen(!isOpen)}
 							animate={isOpen ? 'open' : 'closed'}
@@ -395,7 +416,7 @@ const NavBar = () => {
 						</motion.button>
 					</div>
 				</div>
-			</nav>
+			</div>
 		</>
 	)
 }

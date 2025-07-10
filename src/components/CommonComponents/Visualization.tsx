@@ -146,7 +146,7 @@ const Visualization: React.FC<VisualisationProps> = (props) => {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="col-span-4"
+                className="col-span-4 [&>div]:bg-amber-600!"
               >
                 <SmallPost {...item} />
               </motion.div>
