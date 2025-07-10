@@ -1,13 +1,13 @@
 'use client'
 
-import './login.styles.css'
-
 import { useMutation } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
+import { Button } from '@/components/AdminComponents/ui/Button'
 import { InputField } from '@/components/AdminComponents/ui/InputField'
 
 import { IAuthForm } from '@/types/auth.types'
@@ -15,12 +15,16 @@ import { IAuthForm } from '@/types/auth.types'
 import { ADMIN_PAGES } from '@/config/admin-pages.config'
 
 import { authService } from '@/services/auth.service'
-import { Button } from '@/components/AdminComponents/ui/Button'
+
+import '@/app/[locale]/(admin)/admin.styles.css'
 
 export function LogIn() {
 	const { register, handleSubmit, reset } = useForm<IAuthForm>({
 		mode: 'onSubmit'
 	})
+
+	const t = useTranslations('Admin')
+	const toast_t = useTranslations('Admin.ToastMessages')
 
 	const router = useRouter()
 
@@ -28,12 +32,12 @@ export function LogIn() {
 		mutationKey: ['login'],
 		mutationFn: (data: IAuthForm) => authService.main('login', data),
 		onSuccess: () => {
-			toast.success('Logged in successfully')
+			toast.success(toast_t('loginSuccess'))
 			reset()
 			router.push(ADMIN_PAGES.NEWS)
 		},
 		onError: () => {
-			toast.error('Invalid username or password')
+			toast.error(toast_t('loginError'))
 		}
 	})
 
@@ -58,7 +62,7 @@ export function LogIn() {
 				>
 					<InputField
 						hasError={isError}
-						placeholder='Username*'
+						placeholder={`${t('username')}*`}
 						{...register('username', {
 							required: 'Username is required'
 						})}
@@ -66,11 +70,11 @@ export function LogIn() {
 					<InputField
 						hasError={isError}
 						type='password'
-						placeholder='Password*'
+						placeholder={`${t('password')}*`}
 						className='mt-[1rem]'
-                        {...register('password', {
-                            required: 'Password is required'
-                        })}
+						{...register('password', {
+							required: 'Password is required'
+						})}
 					/>
 
 					<Button
@@ -78,7 +82,7 @@ export function LogIn() {
 						className='mt-[2rem] flex items-center justify-center'
 						disabled={isPending}
 					>
-						{isPending ? <div className="login-loader"></div> : 'Log In'}
+						{isPending ? <div className='login-loader'></div> : `${t('login')}`}
 					</Button>
 				</form>
 			</div>

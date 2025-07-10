@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { Button } from '../ui/Button'
 
 import { LangBtn } from './LangBtn'
@@ -7,9 +8,13 @@ interface Props {
 	setLanguage: (lang: 'ro' | 'ru' | 'en') => void
 	isPending: boolean
 	onDeleteBlog?: () => void
+	isCreate?: boolean
 }
 
-export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog }: Props) {
+export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, isCreate }: Props) {
+
+	const t = useTranslations('Admin')
+
 	return (
 		<div className='flex items-center justify-between pb-[1.5rem] relative'>
 			<div className='absolute h-[1px] w-screen bg-gray-500 bottom-0 left-1/2 -translate-x-1/2' />
@@ -45,14 +50,14 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog }: 
 					}}
 					className='text-error text-[1rem] leading-[1.125rem] font-[400] cursor-pointer hover:opacity-70 transition-opacity duration-300'
 				>
-					Delete page
+					{isCreate ? t('cancel') : t('delete_blog')}
 				</p>
 				<Button
 					disabled={isPending}
 					type='submit'
 					className='w-fit px-[1rem] h-[2.5rem]'
 				>
-					<span className='text-[1rem] leading-[1.125rem] font-[500]'>Save blog</span>
+					<span className='text-[1rem] leading-[1.125rem] font-[500]'>{t('save_blog')}</span>
 				</Button>
 			</div>
 		</div>

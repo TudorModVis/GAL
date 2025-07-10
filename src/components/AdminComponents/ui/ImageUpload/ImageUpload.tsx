@@ -15,6 +15,7 @@ import { useGenerateImageLink } from '@/hooks/blog/useGenerateImageLink'
 
 import { isImageValid } from '@/lib/file-upload.utils'
 import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
 
 interface ImageUploadProps {
 	name: keyof TypeBlogFormState | keyof TypeStatisticsFormState
@@ -22,6 +23,7 @@ interface ImageUploadProps {
 	rules?: RegisterOptions
 	className?: string
 	height?: string
+	language: 'ro' | 'en' | 'ru'
 
 	addImageToUpload?: (imageUrl: ImageToUpload) => void
 	addImageToDelete?: (imageUrl: string) => void
@@ -34,6 +36,7 @@ interface ImageUploadProps {
 export function ImageUpload({
 	name,
 	height,
+	language,
 	control,
 	rules,
 	className,
@@ -42,6 +45,7 @@ export function ImageUpload({
 	removeImageFromUpload,
 	onRemove
 }: ImageUploadProps) {
+	const t = useTranslations("Admin.ToastMessages")
 	const fileInputRef = useRef<HTMLInputElement>(null)
 	const [selectedFile, setSelectedFile] = useState<File | null>(null)
 	const [previewUrl, setPreviewUrl] = useState<string>('')
@@ -83,7 +87,7 @@ export function ImageUpload({
 		}
 
 		reader.onerror = () => {
-			toast.error('Failed to read image file')
+			toast.error(t('failed_to_read_image'))
 		}
 
 		reader.readAsDataURL(file)
@@ -93,7 +97,8 @@ export function ImageUpload({
 		const isValid = isImageValid(
 			file,
 			BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB,
-			BLOG_FORM.ACCEPTED_IMAGE_FORMATS
+			BLOG_FORM.ACCEPTED_IMAGE_FORMATS,
+			language
 		)
 		if (!isValid) return
 
@@ -159,7 +164,7 @@ export function ImageUpload({
 				onChange={handleInputChange}
 				className='cursor-pointer w-full h-full absolute inset-0 opacity-0 z-10'
 				onError={() => {
-					toast.error('Failed to upload image. Please try again.')
+					toast.error(t('failed_to_upload_image'))
 				}}
 				disabled={isImageLinkPending}
 			/>

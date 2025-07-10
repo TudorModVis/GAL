@@ -12,6 +12,7 @@ import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
+import { useTranslations } from 'next-intl'
 
 export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(2)
@@ -35,10 +36,12 @@ export function PageContent() {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
 	}
 
+	const t = useTranslations('Admin')
+
 	return (
 		<div className='mt-[2.5rem]'>
 			<div className='flex items-center justify-end gap-[1rem]'>
-				<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>Tip vizualizare</p>
+				<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>{t('visualization_type')}</p>
 				<div className='flex items-center gap-[0.25rem]'>
 					<TwoColIcon
 						isActive={cols === 2}

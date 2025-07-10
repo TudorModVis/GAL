@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 import { IBlogResponse } from '@/types/blog.types'
@@ -20,6 +20,7 @@ interface Props {
 
 export function NewsCard({ blog, cols }: Props) {
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
+	const t = useTranslations('Admin')
 
 	return (
 		<Link
@@ -84,7 +85,7 @@ export function NewsCard({ blog, cols }: Props) {
 						className={`flex items-center gap-[0.25rem] mt-[2rem] ${cols === 3 && 'justify-between'}`}
 					>
 						<Button className='hover:bg-green-500 w-fit font-[400] h-[2.5rem] px-[1rem] bg-white group-hover:bg-green-500 text-green-700 group-hover:text-white transition-colors duration-300'>
-							Editează articolul
+							{t('edit_blog')}
 						</Button>
 						<ArrowIcon className='bg-white group-hover:-rotate-45 rotate-0 group-hover:bg-green-500 group-hover:[&>svg>path]:fill-white transition-[colors_transform] duration-300' />
 					</div>

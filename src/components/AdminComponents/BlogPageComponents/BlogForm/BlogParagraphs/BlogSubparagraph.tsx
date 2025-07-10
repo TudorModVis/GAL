@@ -182,6 +182,7 @@ export function BlogSubparagraph({
 						className='relative mt-[0.5rem]'
 					>
 						<ImageUpload
+							language={language}
 							name={
 								// eslint-disable-next-line @typescript-eslint/no-explicit-any
 								`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}` as any

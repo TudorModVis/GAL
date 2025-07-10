@@ -14,7 +14,6 @@ interface IBlogContentTypeInput extends Omit<IBlogForm, 'register' | 'watch'> {
 }
 
 export function BlogMainImageUpload({ language, control, addImageToUpload, addImageToDelete, removeImageFromUpload }: IBlogContentTypeInput) {
-	console.log(language)
 	return (
 		<>
 			<div className='flex justify-between items-center mt-[3rem]'>
@@ -26,6 +25,7 @@ export function BlogMainImageUpload({ language, control, addImageToUpload, addIm
 			</div>
 
 			<ImageUpload
+				language={language}
 				name='main_image'
 				control={control}
 				className='mt-[0.5rem]'

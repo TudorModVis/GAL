@@ -1,6 +1,7 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { ThreeColIcon } from '@/components/AdminComponents/Icons/ThreeColIcon'
@@ -33,10 +34,12 @@ export function PageContent() {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
 	}
 
+	const t = useTranslations('Admin')
+
 	return (
 		<div className='mt-[2.5rem]'>
 			<div className='flex items-center justify-end gap-[1rem]'>
-				<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>Tip vizualizare</p>
+				<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>{t('visualization_type')}</p>
 				<div className='flex items-center gap-[0.25rem]'>
 					<TwoColIcon
 						isActive={cols === 2}

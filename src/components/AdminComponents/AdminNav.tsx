@@ -7,13 +7,15 @@ import { useMutation } from "@tanstack/react-query";
 import { authService } from "@/services/auth.service";
 import { useRouter } from "@/i18n/navigation";
 import { usePageTitle } from "@/hooks/admin/usePageTitle";
+import { useTranslations } from "next-intl";
+import '@/app/[locale]/(admin)/admin.styles.css'
 
 
 export function AdminNav() {
 
     const router = useRouter()
 
-    const { mutate } = useMutation({
+    const { mutate, isPending } = useMutation({
         mutationKey: ['logout'],
         mutationFn: () => authService.logout(),
         onSuccess: () => {
@@ -22,6 +24,8 @@ export function AdminNav() {
     })
 
     const { pageTitle, pageSlug, isSlugLoading } = usePageTitle()
+
+    const t = useTranslations("Admin")
 
 	return <div className="flex items-center justify-between">
         {pageSlug !== '' || isSlugLoading ? (
@@ -52,8 +56,9 @@ export function AdminNav() {
                     draggable={false}
                 />
             </Button>
-            <Button onClick={() => mutate()} className="h-[2.5rem] w-fit flex items-center justify-center cursor-pointer px-[1rem] text-[1rem] font-[400]">
-                Log out
+            <Button onClick={() => mutate()} className="h-[2.5rem] relative w-fit flex items-center justify-center cursor-pointer px-[1rem] text-[1rem] font-[400]">
+                {isPending && <div className='login-loader absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'></div>}
+                <p className={`${isPending ? 'invisible' : 'visible'}`}>{t('logout')}</p>
             </Button>
         </div>
     </div>

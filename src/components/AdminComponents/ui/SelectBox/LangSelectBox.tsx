@@ -1,18 +1,32 @@
-"use client"
+'use client'
 
-import { usePathname, useRouter } from '@/i18n/navigation'
 import * as Ariakit from '@ariakit/react'
 import { useLocale } from 'next-intl'
+import { useParams } from 'next/navigation'
+
+import { usePathname, useRouter } from '@/i18n/navigation'
+import { Pathnames } from '@/i18n/routing'
 
 export function LangSelectBox() {
 	const locale = useLocale()
 
 	const pathname = usePathname()
 	const router = useRouter()
+	const params = useParams()
 
 	const handleLangSwitch = (lang: string) => {
-		/* eslint-disable @typescript-eslint/no-explicit-any */
-		router.replace(pathname as any, { locale: lang })
+		if(params.id) {
+			const dynamicPathname = pathname.replace(`[id]`, params.id as string)
+			console.log('Dynamic Pathname:', dynamicPathname)
+			router.replace(dynamicPathname as Pathnames, {
+				locale: lang
+			})
+			return
+		}
+
+		router.replace(pathname as Pathnames, {
+			locale: lang
+		})
 	}
 
 	return (

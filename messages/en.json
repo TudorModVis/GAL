@@ -1,155 +1,185 @@
 {
-  "index": {
-    "meta": {
-      "title": "GAL",
-      "description": "Index page description"
-    },
-    "title": "Hello world!",
-    "about": "Go to the about page",
-    "heroTitle": {
-      "1": "Stejarul Dacilor Local Action Group",
-      "2": "Support and Initiative for Rural Development"
-    },
-    "AboutUs": {
-      "impact_title": "Association Impact",
-      "impact_description": "The “Stejarul Dacilor” Local Action Group is an association founded in November 2023, bringing together 14 administrative-territorial units from Cimișlia and Căușeni districts, aiming to promote sustainable rural development by implementing the 2023–2027 Local Development Strategy.",
-      "button_learn_more": "Learn More",
-      "main_headline": "LAG “Stejarul Dacilor” is a local association from Cimișlia and Căușeni districts that supports sustainable rural development.",
-      "stat_projects_success": "Projects successfully carried out during the activity period.",
-      "stat_years_activity": "Years of activity and rural development.",
-      "stat_total_population": "Total population within the territorial components of the 14 localities in Cimișlia and Căușeni districts.",
-      "stat_total_members": "Total members from the public, entrepreneurial, and civic sectors."
-    },
-    "Breaker": {
-      "motto": "Culture, tradition, and hospitality – all in one place, in projects created from the heart.",
-      "image_alt": "Local Action Group ”Stejarul Dacilor”"
-    },
-    "Donation": {
-      "cta_title": "Do you want to support us? Contact us!",
-      "territorial_population_info": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts.",
-      "contact_button_text": "Contact us"
-    },
-    "Footer": {
-      "useful_information": {
-        "under_logo_text": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts. Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts...",
-        "details_for_contact": "Contact details",
-        "navigation_links": "Navigation links",
-        "adress": "Address: 31 August 1989 Street, Selemet Village, Cimișlia District, Republic of Moldova",
-        "home_link": "Home",
-        "about_us_link": "About Us",
-        "announcements_link": "News",
-        "projects_link": "Projects",
-        "authentic_local": "Authentic Local",
-        "our_partners": "Our partners:",
-        "copyright": "© 2025 Local Action Group Stejarul Dacilor",
-        "terms_and_conditions": "Terms & Conditions"
-      },
-      "form_text": {
-        "how_can_we_help_header": "How can we help you?",
-        "donation_button": "Donation",
-        "consultation_button": "Consultation",
-        "collaboration_button": "Collaboration",
-        "different_topic_button": "Different topic",
-        "personal_data_header": "Personal data",
-        "name_placeholder": "Name",
-        "surname_placeholder": "Surname",
-        "telephone_placeholder": "Phone",
-        "message_header": "Message",
-        "message_placeholder": "Your message.",
-        "checkmark_label": "By submitting this form, you confirm that you agree to the processing of personal data.",
-        "contact_button_text": "Contact us"
-      }
-    },
-    "NavBar": {
-      "home": "Home",
-      "about": {
-        "about_btn": "About GAL",
-        "about_us": "About Us",
-        "management": "GAL Management",
-        "documents": "Official Documents"
-      },
-      "news": "News",
-      "projects": "Projects",
-      "authentic_local": {
-        "authentic_btn": "Authentic Local",
-        "local_products": "Local Products",
-        "community_services": "Community Services",
-        "tourist_attractions": "Tourist Attractions",
-        "people_and_values": "People and Values"
-      },
-      "contacts": "Contacts",
-      "resource_map": "Resource Map"
-    },
-    "LastNews": {
-      "last_news_header": "Latest news",
-      "access_article": "Access article",
-      "see_more_news": "See more news"
-    },
-    "CompletedProjects": {
-      "completed_projects_header": "Completed Projects",
-      "see_more_projects": "See more projects"
-    }
-  },
-  "aboutUs": {
-    "heroTitle": {
-      "1": "General Description of the LAG Stejarul Dacilor",
-      "2": "How We Contribute and Who We Are as an Organization"
-    },
-    "members": {
-      "title": "Executive members",
-      "president": "President of LAG “Stejarul Dacilor”",
-      "director": "Director of LAG “Stejarul Dacilor”",
-      "manager": "Manager of LAG “Stejarul Dacilor”",
-      "accountant": "Accountant of LAG “Stejarul Dacilor”"
-    },
-    "map": {
-      "name": "Name",
-      "details": "Details",
-      "location": "Location",
-      "sector": "Sector",
-      "unit": "Unit",
-      "marker_selemet": {
-        "name": "Selemet Commune City Hall",
-        "details": "098230243645 - Legal entity",
-        "location": "Cimișlia District, Selemet Village",
-        "sector": "Public",
-        "foj": "Random testing unit"
-      }
-    },
-    "listAndStatistics": {
-      "title": "Member Statistics of LAG Stejarul Dacilor",
-      "description": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the goal of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027.",
-      "resource_map_button": "Resource Map",
-      "total_members": "Total number of members",
-      "entrepreneurial_sector_members": "Number of members from the entrepreneurial sector",
-      "public_sector_members": "Number of members from the public sector",
-      "civic_sector_members": "Number of members from the civic sector"
-    },
-    "miniSection": {
-      "title": "Do you want to learn more about the structure and functioning of the LAG?",
-      "description1": "Discover who the people are that guide the activity of the “Stejarul Dacilor” LAG — from the General Assembly to the executive committees. Get to know the internal structure, the roles, and the way we make decisions for the community.",
-      "description2": "Transparency is essential. Access the statute, strategies, annual reports, and other key documents that define our direction and commitments towards the localities in the region.",
-      "management_button": "LAG Leadership",
-      "documents_button": "Official Documents"
-    },
-    "administration": {
-      "regulations": "Regulations",
-      "regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and young people from refugee backgrounds through personalized guidance tailored to their unique needs.",
-      "regulation_btn": "Access Regulation",
-      "statute": "Statute",
-      "statute_text": "Statute: Association of the Local Action Group",
-      "statute_btn": "Access Statute",
-      "strategy": "Strategy",
-      "strategy_text1": "Local Development Strategy 2022–2028",
-      "strategy_text2": "Strategic Action Plan 2018 – 2022",
-      "strategy_btn": "Access Strategy",
-      "constitution_agreement": "Constitution Agreement",
-      "constitution_agreement_text": "The Constitution Agreement Document of the Local Action Group 'Stejarul Dacilor'",
-      "constitution_agreement_btn": "Access Constitution Agreement",
-      "annual_report": "Annual Reports",
-      "annual_report_text1": "Annual activity report on the implementation of the 2022–2028 local development strategy",
-      "annual_report_text2": "Activity report for the year 2019",
-      "annual_report_btn": "Access Report"
-    }
-  }
+	"index": {
+		"meta": {
+			"title": "GAL",
+			"description": "Index page description"
+		},
+		"title": "Hello world!",
+		"about": "Go to the about page",
+		"heroTitle": {
+			"1": "Stejarul Dacilor Local Action Group",
+			"2": "Support and Initiative for Rural Development"
+		},
+		"AboutUs": {
+			"impact_title": "Association Impact",
+			"impact_description": "The “Stejarul Dacilor” Local Action Group is an association founded in November 2023, bringing together 14 administrative-territorial units from Cimișlia and Căușeni districts, aiming to promote sustainable rural development by implementing the 2023–2027 Local Development Strategy.",
+			"button_learn_more": "Learn More",
+			"main_headline": "LAG “Stejarul Dacilor” is a local association from Cimișlia and Căușeni districts that supports sustainable rural development.",
+			"stat_projects_success": "Projects successfully carried out during the activity period.",
+			"stat_years_activity": "Years of activity and rural development.",
+			"stat_total_population": "Total population within the territorial components of the 14 localities in Cimișlia and Căușeni districts.",
+			"stat_total_members": "Total members from the public, entrepreneurial, and civic sectors."
+		},
+		"Breaker": {
+			"motto": "Culture, tradition, and hospitality – all in one place, in projects created from the heart.",
+			"image_alt": "Local Action Group ”Stejarul Dacilor”"
+		},
+		"Donation": {
+			"cta_title": "Do you want to support us? Contact us!",
+			"territorial_population_info": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts.",
+			"contact_button_text": "Contact us"
+		},
+		"Footer": {
+			"useful_information": {
+				"under_logo_text": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts. Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts...",
+				"details_for_contact": "Contact details",
+				"navigation_links": "Navigation links",
+				"adress": "Address: 31 August 1989 Street, Selemet Village, Cimișlia District, Republic of Moldova",
+				"home_link": "Home",
+				"about_us_link": "About Us",
+				"announcements_link": "News",
+				"projects_link": "Projects",
+				"authentic_local": "Authentic Local",
+				"our_partners": "Our partners:",
+				"copyright": "© 2025 Local Action Group Stejarul Dacilor",
+				"terms_and_conditions": "Terms & Conditions"
+			},
+			"form_text": {
+				"how_can_we_help_header": "How can we help you?",
+				"donation_button": "Donation",
+				"consultation_button": "Consultation",
+				"collaboration_button": "Collaboration",
+				"different_topic_button": "Different topic",
+				"personal_data_header": "Personal data",
+				"name_placeholder": "Name",
+				"surname_placeholder": "Surname",
+				"telephone_placeholder": "Phone",
+				"message_header": "Message",
+				"message_placeholder": "Your message.",
+				"checkmark_label": "By submitting this form, you confirm that you agree to the processing of personal data.",
+				"contact_button_text": "Contact us"
+			}
+		},
+		"NavBar": {
+			"home": "Home",
+			"about": {
+				"about_btn": "About GAL",
+				"about_us": "About Us",
+				"management": "GAL Management",
+				"documents": "Official Documents"
+			},
+			"news": "News",
+			"projects": "Projects",
+			"authentic_local": {
+				"authentic_btn": "Authentic Local",
+				"local_products": "Local Products",
+				"community_services": "Community Services",
+				"tourist_attractions": "Tourist Attractions",
+				"people_and_values": "People and Values"
+			},
+			"contacts": "Contacts",
+			"resource_map": "Resource Map"
+		},
+		"LastNews": {
+			"last_news_header": "Latest news",
+			"access_article": "Access article",
+			"see_more_news": "See more news"
+		},
+		"CompletedProjects": {
+			"completed_projects_header": "Completed Projects",
+			"see_more_projects": "See more projects"
+		}
+	},
+	"aboutUs": {
+		"heroTitle": {
+			"1": "General Description of the LAG Stejarul Dacilor",
+			"2": "How We Contribute and Who We Are as an Organization"
+		},
+		"members": {
+			"title": "Executive members",
+			"president": "President of LAG “Stejarul Dacilor”",
+			"director": "Director of LAG “Stejarul Dacilor”",
+			"manager": "Manager of LAG “Stejarul Dacilor”",
+			"accountant": "Accountant of LAG “Stejarul Dacilor”"
+		},
+		"map": {
+			"name": "Name",
+			"details": "Details",
+			"location": "Location",
+			"sector": "Sector",
+			"unit": "Unit",
+			"marker_selemet": {
+				"name": "Selemet Commune City Hall",
+				"details": "098230243645 - Legal entity",
+				"location": "Cimișlia District, Selemet Village",
+				"sector": "Public",
+				"foj": "Random testing unit"
+			}
+		},
+		"listAndStatistics": {
+			"title": "Member Statistics of LAG Stejarul Dacilor",
+			"description": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the goal of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027.",
+			"resource_map_button": "Resource Map",
+			"total_members": "Total number of members",
+			"entrepreneurial_sector_members": "Number of members from the entrepreneurial sector",
+			"public_sector_members": "Number of members from the public sector",
+			"civic_sector_members": "Number of members from the civic sector"
+		},
+		"miniSection": {
+			"title": "Do you want to learn more about the structure and functioning of the LAG?",
+			"description1": "Discover who the people are that guide the activity of the “Stejarul Dacilor” LAG — from the General Assembly to the executive committees. Get to know the internal structure, the roles, and the way we make decisions for the community.",
+			"description2": "Transparency is essential. Access the statute, strategies, annual reports, and other key documents that define our direction and commitments towards the localities in the region.",
+			"management_button": "LAG Leadership",
+			"documents_button": "Official Documents"
+		},
+		"administration": {
+			"regulations": "Regulations",
+			"regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and young people from refugee backgrounds through personalized guidance tailored to their unique needs.",
+			"regulation_btn": "Access Regulation",
+			"statute": "Statute",
+			"statute_text": "Statute: Association of the Local Action Group",
+			"statute_btn": "Access Statute",
+			"strategy": "Strategy",
+			"strategy_text1": "Local Development Strategy 2022–2028",
+			"strategy_text2": "Strategic Action Plan 2018 – 2022",
+			"strategy_btn": "Access Strategy",
+			"constitution_agreement": "Constitution Agreement",
+			"constitution_agreement_text": "The Constitution Agreement Document of the Local Action Group 'Stejarul Dacilor'",
+			"constitution_agreement_btn": "Access Constitution Agreement",
+			"annual_report": "Annual Reports",
+			"annual_report_text1": "Annual activity report on the implementation of the 2022–2028 local development strategy",
+			"annual_report_text2": "Activity report for the year 2019",
+			"annual_report_btn": "Access Report"
+		}
+	},
+
+
+
+
+
+	
+	"BlogCategories": {
+		"NEWS": "News",
+		"ENTERPRENEURSHIP": "Entrepreneurship",
+		"LOGISTICS": "Logistics",
+		"PUBLIC": "Public"
+	},
+	"Admin": {
+		"logout": "Logout",
+		"login": "Login",
+		"username": "Username",
+		"password": "Password",
+		"visualization_type": "Visualization type",
+
+		"create_new_blog": "Create new article",
+		"edit_blog": "Edit article",
+		"delete_blog": "Delete article",
+		"save_blog": "Save article",
+		"cancel": "Cancel",
+
+		"ToastMessages": {
+			"loginError": "Username or password is incorrect.",
+			"loginSuccess": "Login successful."
+		}
+	}
 }

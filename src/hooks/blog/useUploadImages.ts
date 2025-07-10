@@ -4,8 +4,12 @@ import { toast } from 'sonner'
 import { ImageToUpload } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
+import { useTranslations } from 'next-intl'
 
 export function useUploadImages() {
+
+	const t = useTranslations('Admin.ToastMessages')
+
 	const {
 		mutate: uploadImages,
 		isPending: isImagesUploadPending,
@@ -16,18 +20,16 @@ export function useUploadImages() {
 			let completedCount = 0
 			const totalCount = uploads.length
 
-			toast.loading(`Uploading 0 of ${totalCount} images...`, {
+			toast.loading(` ${t('uploading_slice_1')} 0 ${t('uploading_slice_2')} ${totalCount} ${t('uploading_slice_3')}...`, {
 				id: 'upload-progress'
 			})
 
-			// Upload with progress tracking
 			const uploadPromises = uploads.map(async ({ uploadUrl, file }) => {
 				try {
 					await blogService.uploadImage(uploadUrl, file)
 					completedCount++
 
-					// Update progress
-					toast.loading(`Uploading ${completedCount} of ${totalCount} images...`, {
+					toast.loading(` ${t('uploading_slice_1')} ${completedCount} ${t('uploading_slice_2')} ${totalCount} ${t('uploading_slice_3')}...`, {
 						id: 'upload-progress'
 					})
 
@@ -39,13 +41,13 @@ export function useUploadImages() {
 
 			return await Promise.all(uploadPromises)
 		},
-		onSuccess: results => {
-			toast.success(`Successfully uploaded ${results.length} images!`, {
+		onSuccess: () => {
+			toast.success(t('uploading_success'), {
 				id: 'upload-progress'
 			})
 		},
 		onError: () => {
-			toast.error('Failed to upload image')
+			toast.error(t('uploading_failed'))
 		}
 	})
 
