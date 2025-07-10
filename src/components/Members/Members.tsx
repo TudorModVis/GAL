@@ -40,7 +40,7 @@ const Members = () => {
 						width={300}
 						height={400}
 						className='rounded-2xl'
-						style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+						style={{ objectFit: 'cover', objectPosition: 'top', height: '100%', width: '100%' }}
 					/>
 				</div>
 				<AnimatedText
@@ -66,7 +66,7 @@ const Members = () => {
 				/>
 				<AnimatedText text={tMembers('manager')} />
 			</div>
-			<div className='sm:col-span-3 col-span-full h-full relative flex flex-col'>
+			<div className='sm:col-span-3 col-span-full h-full relative flex flex-col mb-20 sm:mb-0'>
 				<div className='w-full sm:h-[88%] max-h-[358px] sm:max-h-none h-full'>
 					<Image
 						alt='Dumitru'
@@ -74,7 +74,7 @@ const Members = () => {
 						width={300}
 						height={400}
 						className='rounded-2xl'
-						style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+						style={{ objectFit: 'cover', objectPosition: 'top', height: '100%', width: '100%' }}
 					/>
 				</div>
 				<AnimatedText
