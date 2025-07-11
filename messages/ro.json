@@ -1,206 +1,204 @@
 {
-  "index": {
-    "meta": {
-      "title": "GAL",
-      "description": "Index page description"
-    },
-    "title": "Hello world!",
-    "about": "Go to the about page",
-    "heroTitle": {
-      "1": "Grupul de Acțiune Locală Stejarul Dacilor",
-      "2": "Sprijin și Inițiativă pentru Dezvoltare Rurală"
-    },
-    "AboutUs": {
-      "impact_title": "Impactul Asociației",
-      "impact_description": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategia de Dezvoltare Locală 2023−2027.",
-      "button_learn_more": "Află mai multe",
-      "main_headline": "GAL „Stejarul Dacilor” este o asociație locală din raioanele Cimișlia și Căușeni care sprijină dezvoltarea rurală durabilă.",
-      "stat_projects_success": "Proiecte desfășurate cu succes în cadrul perioadei de activitate.",
-      "stat_years_activity": "Anii de activitate și dezvoltare rurală.",
-      "stat_total_population": "Nr. populației totale în cadrul componentelor teritoriale din cele 14 localități ale raioanelor Cimișlia și Căușeni.",
-      "stat_total_members": "Nr. membri total din sectorul public, antreprenorial și civic."
-    },
-    "Breaker": {
-      "motto": "Cultură, tradiție și ospitalitate – toate la un loc, în proiecte realizat cu suflet.",
-      "image_alt": "Grupul de Acțiune Locală ”Stejarul Dacilor”"
-    },
-    "Donation": {
-      "cta_title": "Dorești să ne susții? Contactează-ne!",
-      "territorial_population_info": "Nr. populației totale în cadrul componentei territoriale din cele 14 localități ale raioanelor Cimișlia și Căușeni.",
-      "contact_button_text": "Contactează-ne"
-    },
-    "Footer": {
-      "useful_information": {
-        "under_logo_text": "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
-        "details_for_contact": "Detalii de contact",
-        "navigation_links": "Link-uri de navigare",
-        "adress": "Adresa: str. 31 August 1989, s. Selemet, r. Cimișlia, Republica Moldova",
-        "home_link": "Acasă",
-        "about_us_link": "Despre Noi",
-        "announcements_link": "Noutăți",
-        "projects_link": "Proiecte",
-        "authentic_local": "Autentic Local",
-        "our_partners": "Parteneri noștrii:",
-        "copyright": "© 2025 Grupul de Acțiune Locală Stejarul Dacilor",
-        "terms_and_conditions": "Termeni & Condiții"
-      },
-      "form_text": {
-        "how_can_we_help_header": "Cum te putem ajuta?",
-        "donation_button": "Donație",
-        "consultation_button": "Consultanță",
-        "collaboration_button": "Colaborare",
-        "different_topic_button": "Subiect diferit",
-        "personal_data_header": "Date personale",
-        "name_placeholder": "Nume",
-        "surname_placeholder": "Prenume",
-        "telephone_placeholder": "Telefon",
-        "message_header": "Mesaj",
-        "message_placeholder": "Mesajul dvs.",
-        "checkmark_label": "Prin trimiterea acestui formular, confirmați că sunteți de acord cu prelucrarea datelor cu caracter personal.",
-        "contact_button_text": "Contactează-ne"
-      }
-    },
-    "NavBar": {
-      "home": "Acasă",
-      "about": {
-        "about_btn": "Despre GAL",
-        "about_us": "Despre Noi",
-        "management": "Conducerea GAL",
-        "documents": "Documente Oficiale"
-      },
-      "news": "Noutăți",
-      "projects": "Proiecte",
-      "authentic_local": {
-        "authentic_btn": "Autentic Local",
-        "local_products": "Produse Locale",
-        "community_services": "Servicii din Comunitate",
-        "tourist_attractions": "Atracții Turistice",
-        "people_and_values": "Oameni și Valori"
-      },
-      "contacts": "Contacte",
-      "resource_map": "Harta resurselor"
-    },
-    "LastNews": {
-      "last_news_header": "Ultimele noutăți",
-      "access_article": "Accesează articol",
-      "see_more_news": "Vezi mai multe noutăți"
-    },
-    "CompletedProjects": {
-      "completed_projects_header": "Proiecte realizate",
-      "see_more_projects": "Vezi mai multe proiecte"
-    }
-  },
-  "aboutUs": {
-    "heroTitle": {
-      "1": "Descrierea Generală a GAL-ului Stejarul Dacilor",
-      "2": "Cum Contribuim și Cine Suntem ca Organizație?"
-    },
-    "members": {
-      "title": "Membrii executivi",
-      "president": "Președinte GAL “Stejarul Dacilor”",
-      "director": "Director GAL “Stejarul Dacilor”",
-      "manager": "Manager GAL “Stejarul Dacilor”",
-      "accountant": "Contabil GAL “Stejarul Dacilor”"
-    },
-    "map": {
-      "name": "Denumirea",
-      "details": "Detalii",
-      "location": "Locație",
-      "sector": "Sector",
-      "unit": "Foj",
-      "marker_selemet": {
-        "name": "Primăria comunei Selemet",
-        "details": "098230243645 - Persoană juridică",
-        "location": "R-UL CIMIȘLIA, S.Selemet",
-        "sector": "Public",
-        "foj": "Unitate random de testare"
-      }
-    },
-    "listAndStatistics": {
-      "title": "Lista și statistica membrilor GAL-ului Stejarul Dacilor",
-      "description": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027.",
-      "resource_map_button": "Harta resurselor",
-      "total_members": "Nr. total membri",
-      "entrepreneurial_sector_members": "Nr. membri din sectorul antreprenorial",
-      "public_sector_members": "Nr. membri din sectorul public",
-      "civic_sector_members": "Nr. membri din sectorul civic"
-    },
-    "miniSection": {
-      "title": "Vrei să afli mai multe despre structura și funcționarea GAL-ului?",
-      "description1": "Descoperă cine sunt oamenii care ghidează activitatea GAL-ului „Stejarul Dacilor” — de la Adunarea Generală până la comisiile executive. Cunoaște structura internă, rolurile și modul în care luăm decizii pentru comunitate.",
-      "description2": "Transparența este esențială. Accesează statutul, strategiile, rapoartele anuale și alte documente-cheie care definesc direcția și angajamentele noastre față de localitățile din regiune.",
-      "management_button": "Conducerea GAL-ului",
-      "documents_button": "Documente Oficiale"
-    },
-    "administration": {
-      "regulations": "Regulamente",
-      "regulation_text": "Programul ALNF de Sprijin pentru Acțiunile în Favoarea Refugiaților este o inițiativă premiată, concepută pentru a sprijini copiii și tinerii proveniți din medii de refugiați prin îndrumări individuale, adaptate nevoilor lor unice.",
-      "regulation_btn": "Accesează Regulament",
-      "statute": "Statut",
-      "statute_text": "Statutul : Asociația Grupului de Acțiune Locală",
-      "statute_btn": "Accesează Statut",
-      "strategy": "Strategie",
-      "strategy_text1": "Strategia de Dezvoltare Locală 2022–2028",
-      "strategy_text2": "Plan strategic de acțiuni 2018 – 2022",
-      "strategy_btn": "Accesează Strategie",
-      "constitution_agreement": "Acord de Constituție",
-      "constitution_agreement_text": "Documentul de Acordul de Constituție al Grupului de Acțiune Locală “Stejarul Dacilor”",
-      "constitution_agreement_btn": "Accesează Acord de Constituție",
-      "annual_report": "Rapoarte anuale",
-      "annual_report_text1": "Raport anual de activitate privind implementarea strategiei de dezvoltare locală 2022-2028",
-      "annual_report_text2": "Raport de activitate pentru anul 2019",
-      "annual_report_btn": "Accesează Raport"
-    }
-  },
+	"index": {
+		"meta": {
+			"title": "GAL",
+			"description": "Index page description"
+		},
+		"title": "Hello world!",
+		"about": "Go to the about page",
+		"heroTitle": {
+			"1": "Grupul de Acțiune Locală Stejarul Dacilor",
+			"2": "Sprijin și Inițiativă pentru Dezvoltare Rurală"
+		},
+		"AboutUs": {
+			"impact_title": "Impactul Asociației",
+			"impact_description": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategia de Dezvoltare Locală 2023−2027.",
+			"button_learn_more": "Află mai multe",
+			"main_headline": "GAL „Stejarul Dacilor” este o asociație locală din raioanele Cimișlia și Căușeni care sprijină dezvoltarea rurală durabilă.",
+			"stat_projects_success": "Proiecte desfășurate cu succes în cadrul perioadei de activitate.",
+			"stat_years_activity": "Anii de activitate și dezvoltare rurală.",
+			"stat_total_population": "Nr. populației totale în cadrul componentelor teritoriale din cele 14 localități ale raioanelor Cimișlia și Căușeni.",
+			"stat_total_members": "Nr. membri total din sectorul public, antreprenorial și civic."
+		},
+		"Breaker": {
+			"motto": "Cultură, tradiție și ospitalitate – toate la un loc, în proiecte realizat cu suflet.",
+			"image_alt": "Grupul de Acțiune Locală ”Stejarul Dacilor”"
+		},
+		"Donation": {
+			"cta_title": "Dorești să ne susții? Contactează-ne!",
+			"territorial_population_info": "Nr. populației totale în cadrul componentei territoriale din cele 14 localități ale raioanelor Cimișlia și Căușeni.",
+			"contact_button_text": "Contactează-ne"
+		},
+		"Footer": {
+			"useful_information": {
+				"under_logo_text": "Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni. Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...",
+				"details_for_contact": "Detalii de contact",
+				"navigation_links": "Link-uri de navigare",
+				"adress": "Adresa: str. 31 August 1989, s. Selemet, r. Cimișlia, Republica Moldova",
+				"home_link": "Acasă",
+				"about_us_link": "Despre Noi",
+				"announcements_link": "Noutăți",
+				"projects_link": "Proiecte",
+				"authentic_local": "Autentic Local",
+				"our_partners": "Parteneri noștrii:",
+				"copyright": "© 2025 Grupul de Acțiune Locală Stejarul Dacilor",
+				"terms_and_conditions": "Termeni & Condiții"
+			},
+			"form_text": {
+				"how_can_we_help_header": "Cum te putem ajuta?",
+				"donation_button": "Donație",
+				"consultation_button": "Consultanță",
+				"collaboration_button": "Colaborare",
+				"different_topic_button": "Subiect diferit",
+				"personal_data_header": "Date personale",
+				"name_placeholder": "Nume",
+				"surname_placeholder": "Prenume",
+				"telephone_placeholder": "Telefon",
+				"message_header": "Mesaj",
+				"message_placeholder": "Mesajul dvs.",
+				"checkmark_label": "Prin trimiterea acestui formular, confirmați că sunteți de acord cu prelucrarea datelor cu caracter personal.",
+				"contact_button_text": "Contactează-ne"
+			}
+		},
+		"NavBar": {
+			"home": "Acasă",
+			"about": {
+				"about_btn": "Despre GAL",
+				"about_us": "Despre Noi",
+				"management": "Conducerea GAL",
+				"documents": "Documente Oficiale"
+			},
+			"news": "Noutăți",
+			"projects": "Proiecte",
+			"authentic_local": {
+				"authentic_btn": "Autentic Local",
+				"local_products": "Produse Locale",
+				"community_services": "Servicii din Comunitate",
+				"tourist_attractions": "Atracții Turistice",
+				"people_and_values": "Oameni și Valori"
+			},
+			"contacts": "Contacte",
+			"resource_map": "Harta resurselor"
+		},
+		"LastNews": {
+			"last_news_header": "Ultimele noutăți",
+			"access_article": "Accesează articol",
+			"see_more_news": "Vezi mai multe noutăți"
+		},
+		"CompletedProjects": {
+			"completed_projects_header": "Proiecte realizate",
+			"see_more_projects": "Vezi mai multe proiecte"
+		}
+	},
+	"aboutUs": {
+		"heroTitle": {
+			"1": "Descrierea Generală a GAL-ului Stejarul Dacilor",
+			"2": "Cum Contribuim și Cine Suntem ca Organizație?"
+		},
+		"members": {
+			"title": "Membrii executivi",
+			"president": "Președinte GAL “Stejarul Dacilor”",
+			"director": "Director GAL “Stejarul Dacilor”",
+			"manager": "Manager GAL “Stejarul Dacilor”",
+			"accountant": "Contabil GAL “Stejarul Dacilor”"
+		},
+		"map": {
+			"name": "Denumirea",
+			"details": "Detalii",
+			"location": "Locație",
+			"sector": "Sector",
+			"unit": "Foj",
+			"marker_selemet": {
+				"name": "Primăria comunei Selemet",
+				"details": "098230243645 - Persoană juridică",
+				"location": "R-UL CIMIȘLIA, S.Selemet",
+				"sector": "Public",
+				"foj": "Unitate random de testare"
+			}
+		},
+		"listAndStatistics": {
+			"title": "Lista și statistica membrilor GAL-ului Stejarul Dacilor",
+			"description": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027.",
+			"resource_map_button": "Harta resurselor",
+			"total_members": "Nr. total membri",
+			"entrepreneurial_sector_members": "Nr. membri din sectorul antreprenorial",
+			"public_sector_members": "Nr. membri din sectorul public",
+			"civic_sector_members": "Nr. membri din sectorul civic"
+		},
+		"miniSection": {
+			"title": "Vrei să afli mai multe despre structura și funcționarea GAL-ului?",
+			"description1": "Descoperă cine sunt oamenii care ghidează activitatea GAL-ului „Stejarul Dacilor” — de la Adunarea Generală până la comisiile executive. Cunoaște structura internă, rolurile și modul în care luăm decizii pentru comunitate.",
+			"description2": "Transparența este esențială. Accesează statutul, strategiile, rapoartele anuale și alte documente-cheie care definesc direcția și angajamentele noastre față de localitățile din regiune.",
+			"management_button": "Conducerea GAL-ului",
+			"documents_button": "Documente Oficiale"
+		},
+		"administration": {
+			"regulations": "Regulamente",
+			"regulation_text": "Programul ALNF de Sprijin pentru Acțiunile în Favoarea Refugiaților este o inițiativă premiată, concepută pentru a sprijini copiii și tinerii proveniți din medii de refugiați prin îndrumări individuale, adaptate nevoilor lor unice.",
+			"regulation_btn": "Accesează Regulament",
+			"statute": "Statut",
+			"statute_text": "Statutul : Asociația Grupului de Acțiune Locală",
+			"statute_btn": "Accesează Statut",
+			"strategy": "Strategie",
+			"strategy_text1": "Strategia de Dezvoltare Locală 2022–2028",
+			"strategy_text2": "Plan strategic de acțiuni 2018 – 2022",
+			"strategy_btn": "Accesează Strategie",
+			"constitution_agreement": "Acord de Constituție",
+			"constitution_agreement_text": "Documentul de Acordul de Constituție al Grupului de Acțiune Locală “Stejarul Dacilor”",
+			"constitution_agreement_btn": "Accesează Acord de Constituție",
+			"annual_report": "Rapoarte anuale",
+			"annual_report_text1": "Raport anual de activitate privind implementarea strategiei de dezvoltare locală 2022-2028",
+			"annual_report_text2": "Raport de activitate pentru anul 2019",
+			"annual_report_btn": "Accesează Raport"
+		}
+	},
 
+	"Pagination": {
+		"previous_page": "Înapoi",
+		"next_page": "Mai departe"
+	},
+	"BlogCategories": {
+		"NEWS": "Noutate",
+		"ENTERPRENEURSHIP": "Antreprenorial",
+		"LOGISTICS": "Logistică",
+		"PUBLIC": "Public"
+	},
+	"Admin": {
+		"logout": "Deconectare",
+		"login": "Autentificare",
+		"username": "Utilizator",
+		"password": "Parolă",
+		"visualization_type": "Tip de vizualizare",
 
+		"create_new_blog": "Creează un articol nou",
+		"edit_blog": "Editează articolul",
+		"delete_blog": "Șterge articolul",
+		"save_blog": "Salvează articolul",
+		"cancel": "Anulează",
 
+		"ToastMessages": {
+			"loginError": "Numele de utilizator sau parola sunt incorecte.",
+			"loginSuccess": "Autentificare reușită.",
+			"failed_to_read_image": "Nu s-a reușit afișarea imaginii.",
+			"failed_to_upload_image": "Eroare la încărcarea imaginii. Te rog încearcă din nou.",
+			"article_created": "Articolul a fost creat cu succes.",
+			"article_creation_failed": "A apărut o eroare la crearea articolului.",
+			"article_updated": "Articolul a fost actualizat cu succes.",
+			"article_update_failed": "A apărut o eroare la actualizarea articolului.",
+			"article_deleted": "Articolul a fost șters cu succes.",
+			"article_deletion_failed": "A apărut o eroare la ștergerea articolului.",
+			"images_deleted": "Imaginile au fost șterse cu succes.",
+			"images_deletion_failed": "A apărut o eroare la ștergerea imaginilor.",
+			"image_prepared": "Imagine pregătită pentru încărcare.",
+			"image_preparation_failed": "Eroare la pregătirea imaginii pentru încărcare.",
 
-
-  "BlogCategories" : {
-    "NEWS" : "Noutate",
-    "ENTERPRENEURSHIP" : "Antreprenorial",
-    "LOGISTICS" : "Logistică",
-    "PUBLIC" : "Public"
-  },
-  "Admin" : {
-    "logout" : "Deconectare",
-    "login" : "Autentificare",
-    "username" : "Utilizator",
-    "password" : "Parolă",
-    "visualization_type" : "Tip de vizualizare",
-
-    "create_new_blog" : "Creează un articol nou",
-    "edit_blog" : "Editează articolul",
-    "delete_blog" : "Șterge articolul",
-    "save_blog" : "Salvează articolul",
-    "cancel" : "Anulează",
-
-
-    "ToastMessages" : {
-      "loginError": "Numele de utilizator sau parola sunt incorecte.",
-      "loginSuccess": "Autentificare reușită.",
-      "failed_to_read_image" : "Nu s-a reușit afișarea imaginii.",
-      "failed_to_upload_image" : "Eroare la încărcarea imaginii. Te rog încearcă din nou.",
-      "article_created" : "Articolul a fost creat cu succes.",
-      "article_creation_failed" : "A apărut o eroare la crearea articolului.",
-      "article_updated" : "Articolul a fost actualizat cu succes.",
-      "article_update_failed" : "A apărut o eroare la actualizarea articolului.",
-      "article_deleted" : "Articolul a fost șters cu succes.",
-      "article_deletion_failed" : "A apărut o eroare la ștergerea articolului.",
-      "images_deleted" : "Imaginile au fost șterse cu succes.",
-      "images_deletion_failed" : "A apărut o eroare la ștergerea imaginilor.",
-      "image_prepared" : "Imagine pregătită pentru încărcare.",
-      "image_preparation_failed" : "Eroare la pregătirea imaginii pentru încărcare.",
-
-      "uploading_slice_1" : "Se încarcă",
-      "uploading_slice_2" : "din",
-      "uploading_slice_3" : "imagini...",
-      "uploading_failed" : "Eroare la încărcarea imaginilor.",
-      "uploading_success" : "Imaginile au fost încărcate cu succes.",
-      "image_format_error_slice_1" : "Formatul imaginii nu este acceptat.",
-      "image_format_error_slice_2" : "Selecteaza un format valid"
-
-    }
-  }
+			"uploading_slice_1": "Se încarcă",
+			"uploading_slice_2": "din",
+			"uploading_slice_3": "imagini...",
+			"uploading_failed": "Eroare la încărcarea imaginilor.",
+			"uploading_success": "Imaginile au fost încărcate cu succes.",
+			"image_format_error_slice_1": "Formatul imaginii nu este acceptat.",
+			"image_format_error_slice_2": "Selecteaza un format valid"
+		}
+	}
 }

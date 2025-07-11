@@ -13,7 +13,7 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 	return (
 		<div className='flex items-center justify-center mt-[4rem] gap-[1rem]'>
 			{currentPage !== 1 && (
-				<Button onClick={() => updatePage(currentPage - 1)} className='px-[1.5rem] h-[2.5rem]  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'>
+				<Button onClick={() => updatePage(currentPage - 1)} className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'>
 					<Image
 						src='/admin_assets/arrow-right.svg'
 						alt='Previous Page'
@@ -34,7 +34,7 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 							key={pageNum}
 							className={`p-0 h-[2.5rem] rounded-[1.25rem] flex items-center justify-center ${
 								currentPage === pageNum
-									? 'bg-green-500 text-white w-[2.5rem]'
+									? 'bg-green-600 hover:bg-green-700 text-white w-[2.5rem]'
 									: 'bg-white text-green-700 w-fit hover:bg-transparent duration-0'
 							}`}
 							onClick={() => updatePage(pageNum)}
@@ -50,7 +50,7 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 						<Button
 							className={`p-0 h-[2.5rem] rounded-[1.25rem] flex items-center justify-center ${
 								currentPage === pagination.totalPages
-									? 'bg-green-500 text-white w-[2.5rem]'
+									? 'bg-green-600 hover:bg-green-700 text-white w-[2.5rem]'
 									: 'bg-white text-green-700 w-fit hover:bg-transparent duration-0'
 							}`}
 							onClick={() => updatePage(pagination.totalPages)}
@@ -62,7 +62,7 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 			</div>
 
 			{currentPage !== pagination.totalPages && (
-				<Button onClick={() => updatePage(currentPage + 1)} className='px-[1.5rem] h-[2.5rem]  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'>
+				<Button onClick={() => updatePage(currentPage + 1)} className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'>
 					<Image
 						src='/admin_assets/arrow-right.svg'
 						alt='Previous Page'

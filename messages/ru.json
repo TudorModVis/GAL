@@ -153,13 +153,10 @@
 		}
 	},
 
-
-
-
-
-
-  
-
+	"Pagination": {
+		"previous_page": "Назад",
+		"next_page": "Далее"
+	},
 	"BlogCategories": {
 		"NEWS": "Новости",
 		"ENTERPRENEURSHIP": "Предпринимательство",

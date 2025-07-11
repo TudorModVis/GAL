@@ -153,11 +153,10 @@
 		}
 	},
 
-
-
-
-
-	
+	"Pagination": {
+		"previous_page": "Previous",
+		"next_page": "Next"
+	},
 	"BlogCategories": {
 		"NEWS": "News",
 		"ENTERPRENEURSHIP": "Entrepreneurship",
