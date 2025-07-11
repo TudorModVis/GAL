@@ -1,6 +1,6 @@
 'use client'
 
-import { Image as Plus } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { useCallback, useEffect } from 'react'
 import { Control, FormState, UseFormRegister, useFieldArray } from 'react-hook-form'
 

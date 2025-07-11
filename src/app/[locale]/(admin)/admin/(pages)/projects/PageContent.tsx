@@ -13,6 +13,10 @@ import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 import { BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
+import { Link } from '@/i18n/navigation'
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
+import { Pathnames } from '@/i18n/routing'
+import { Button } from '@/components/AdminComponents/ui/Button'
 
 export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(2)
@@ -81,6 +85,11 @@ export function PageContent() {
 							<p className='text-gray-600 text-[0.875rem]'>
 								There are no blogs to display at the moment.
 							</p>
+							<Link href={ADMIN_PAGES.CREATE_BLOG as Pathnames}>
+								<Button type='button' className='w-fit px-[2rem] h-[2.5rem] mt-[1rem] font-[400]'>
+									Create one
+								</Button>
+							</Link>
 						</div>
 					</div>
 				)
