@@ -41,7 +41,7 @@ export function PageContent() {
 	return (
 		<div className='mt-[2.5rem]'>
 			<div className='flex justify-end w-full'>
-				<div className='flex max-w-[90.5rem] w-full items-center justify-end gap-[1rem]'>
+				<div className='flex sidebar-req:w-[calc(100vw-20.625rem)] w-full items-center justify-end gap-[1rem]'>
 					<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>
 						{t('visualization_type')}
 					</p>

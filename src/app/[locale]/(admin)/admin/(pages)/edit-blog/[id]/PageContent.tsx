@@ -112,7 +112,7 @@ export function PageContent({ blogId }: Props) {
 	return (
 		<div className='flex justify-end w-full'>
 			<form
-				className='mt-[3rem] max-w-[90.5rem] w-full'
+				className='mt-[3rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<BlogPageNav

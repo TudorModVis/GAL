@@ -30,7 +30,7 @@ export function AdminNav() {
 
 	return (
         <div className='flex justify-end'>
-            <div className='flex max-w-[90.5rem] items-center justify-between w-full'>
+            <div className='flex sidebar-req:w-[calc(100vw-20.625rem)]  items-center justify-between w-full'>
                 {pageSlug !== '' || isSlugLoading ? (
                     <div className='flex items-center gap-[0.25rem]'>
                         <h1 className='text-[1rem] leading-[1.125rem] font-[400] text-gray-600'>{pageTitle}</h1>
