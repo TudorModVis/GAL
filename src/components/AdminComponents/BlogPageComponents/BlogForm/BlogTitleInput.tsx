@@ -8,6 +8,7 @@ import type { IBlogForm } from './blog-form.types'
 import { TypeBlogFormState } from '@/types/blog.types'
 import { Control, FormState, useWatch } from 'react-hook-form'
 import { useEffect } from 'react'
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface BlogTitleInputProps extends IBlogForm {
 	formState: FormState<TypeBlogFormState>
@@ -34,10 +35,10 @@ export function BlogTitleInput({ register, language, formState, control }: BlogT
 		<>
 			<div className='flex justify-between items-center'>
 				<label
-					className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'
+					className='font-bold cursor-text text-green-700 text-[1rem] leading-[1.125rem]'
 					htmlFor='title'
 				>
-					Titlu articol
+					{ ADMIN_FORM_TRANSLATE.titleInput[language].label }
 				</label>
 				<span className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
 					{characterCount}/{BLOG_FORM.MAX_TITLE_LENGTH}
@@ -46,7 +47,7 @@ export function BlogTitleInput({ register, language, formState, control }: BlogT
 			<InputField
 				key={`title-${language}`}
 				hasError={!!hasError}
-				placeholder='Enter title'
+				placeholder={ADMIN_FORM_TRANSLATE.titleInput[language].placeholder}
 				className={`bg-gray-300 mt-[0.5rem] font-bold placeholder:opacity-70`}
 				maxLength={BLOG_FORM.MAX_TITLE_LENGTH}
 				{...register(BLOG_FORM.getTitlePath(language), {

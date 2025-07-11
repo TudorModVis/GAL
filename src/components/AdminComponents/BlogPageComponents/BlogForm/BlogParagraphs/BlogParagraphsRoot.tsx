@@ -7,6 +7,7 @@ import { Control, FormState, UseFormRegister, useFieldArray } from 'react-hook-f
 import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 
 import { BlogParagraph } from './BlogParagraph'
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface Props {
 	register: UseFormRegister<TypeBlogFormState>
@@ -75,7 +76,7 @@ export function BlogParagraphsRoot({
 			>
 				<Plus className='text-green-700 size-[1.25rem]' />
 				<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-					Adaugă paragraf
+					{ ADMIN_FORM_TRANSLATE.addingElements[language].addParagraph }
 				</span>
 			</button>
 		</div>

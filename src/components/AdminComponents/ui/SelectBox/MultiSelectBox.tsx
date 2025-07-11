@@ -8,13 +8,13 @@ import {
 } from '@ariakit/react'
 import { Control, Controller, RegisterOptions } from 'react-hook-form'
 
-import { TypeBlogFormState } from '@/types/blog.types'
+import { BlogsCategoriesEnum, ISection, TypeBlogFormState } from '@/types/blog.types'
 import { TypeStatisticsFormState } from '@/types/statistics.types'
 
 import { cn } from '@/lib/utils'
 
 interface ISelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-	options: string[]
+	options: { value: string; label: string }[]
 	name: keyof TypeBlogFormState | keyof TypeStatisticsFormState
 	control: Control<TypeBlogFormState | TypeStatisticsFormState>
 	placeholder: string
@@ -30,6 +30,10 @@ export const MultiSelectBox = ({
 	placeholder,
 	rules
 }: ISelectProps) => {
+	const getLabelForValue = (selectedValue: string) => {
+		const option = options.find(opt => opt.value === selectedValue)
+		return option ? option.label : selectedValue
+	}
 	return (
 		<Controller
 			name={name as keyof TypeBlogFormState | keyof TypeStatisticsFormState}
@@ -52,7 +56,11 @@ export const MultiSelectBox = ({
 							)}
 						>
 							{arrayValue.length === 0 ? (
-								<span className={`text-green-700 opacity-70 ${hasError && 'border-red-500 text-red-500 placeholder:text-red-500 animate-shake'}`}>{placeholder}</span>
+								<span
+									className={`text-green-700 opacity-70 ${hasError && 'border-red-500 text-red-500 placeholder:text-red-500 animate-shake'}`}
+								>
+									{placeholder}
+								</span>
 							) : (
 								<div className='flex items-center gap-[0.5rem]'>
 									{arrayValue.map((value, index) => (
@@ -60,7 +68,7 @@ export const MultiSelectBox = ({
 											key={index}
 											className='text-green-700 font-[400] text-[0.75rem] leading-[0.875rem] bg-white px-[1rem] py-[0.25rem] rounded-[0.25rem]'
 										>
-											{value.toString()}
+											{getLabelForValue(value.toString())}
 										</span>
 									))}
 								</div>
@@ -74,11 +82,16 @@ export const MultiSelectBox = ({
 						>
 							{options.map(option => (
 								<SelectItem
-									key={option}
-									value={option}
-									className='text-green-700 flex justify-between items-center data-[active-item]:bg-gray-400 rounded-[0.25rem] h-[3rem] px-[0.5rem] transition-colors duration-300 cursor-pointer'
+									key={option.value}
+									value={option.value}
+									className={cn(
+										'text-green-700 flex justify-between items-center rounded-[0.25rem] h-[3rem] px-[0.5rem] transition-colors duration-300 cursor-pointer',
+										arrayValue.includes(option.value as BlogsCategoriesEnum & ISection)
+											? 'bg-gray-400 data-[active-item]:bg-gray-500/50'
+											: 'data-[active-item]:bg-gray-400'
+									)}
 								>
-									{option}
+									{option.label}
 									<SelectItemCheck />
 								</SelectItem>
 							))}

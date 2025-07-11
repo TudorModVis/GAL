@@ -10,6 +10,7 @@ import { RichTextEditor } from '@/components/AdminComponents/ui/RichTextEditor/R
 import { TextAreaField } from '@/components/AdminComponents/ui/TextAreaField'
 
 import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface Props {
 	control: Control<TypeBlogFormState>
@@ -99,11 +100,11 @@ export function BlogSubparagraph({
 			<div className='flex gap-[1.5rem] mt-[3rem] border-t border-gray-500 pt-[0.75rem]'>
 				<div className='flex flex-col max-w-[21.5rem] flex-1 gap-[0.5rem]'>
 					<label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-						Titlu subparagraf
+						{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.title }
 					</label>
 
 					<TextAreaField
-						placeholder='Sumarul proiectului'
+						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.title }
 						className='h-[11rem]'
 						key={`subparagraph-title-${language}`}
 						{...register(`sections.${paragraphIndex}.subsections.${subIndex}.title.${language}`, {
@@ -116,7 +117,7 @@ export function BlogSubparagraph({
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.title`}
 						render={() => (
 							<p className='text-error text-sm'>
-								Romanian, Russian and English titles are required
+								{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.title }
 							</p>
 						)}
 					/>
@@ -124,13 +125,13 @@ export function BlogSubparagraph({
 
 				<div className='flex flex-col max-w-[29rem] flex-1 gap-[0.5rem]'>
 					<label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-						Text coloana #1 subparagraf
+						{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.col1_title }
 					</label>
 					<RichTextEditor
 						key={`summary-col1-${language}`}
 						control={control}
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column1.${language}`}
-						placeholder='Text coloana #1'
+						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.col1_placeholder }
 						rules={{
 							required: true
 						}}
@@ -141,7 +142,7 @@ export function BlogSubparagraph({
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column1`}
 						render={() => (
 							<p className='text-error text-sm'>
-								Subparagraph column 1 is required in all three languages
+								{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.col1_error }
 							</p>
 						)}
 					/>
@@ -149,20 +150,20 @@ export function BlogSubparagraph({
 
 				<div className='flex flex-col max-w-[29rem] flex-1 gap-[0.5rem]'>
 					<label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-						Text coloana #2 subparagraf
+						{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.col2_title }
 					</label>
 					<RichTextEditor
 						key={`summary-col2-${language}`}
 						control={control}
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column2.${language}`}
-						placeholder='Text coloana #2'
+						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.col2_placeholder }
 						className={`${formState.errors.sections?.[paragraphIndex]?.subsections?.[subIndex]?.column2 ? 'border-error text-error placeholder:text-error animate-shake' : ''}`}
 					/>
 					<ErrorMessage
 						errors={formState.errors}
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column2`}
 						render={() => (
-							<p className='text-error text-sm'>All languages must be filled when using column 2</p>
+							<p className='text-error text-sm'>{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.col2_error }</p>
 						)}
 					/>
 				</div>
@@ -171,7 +172,7 @@ export function BlogSubparagraph({
 					className='text-[0.875rem] ml-auto text-error cursor-pointer hover:opacity-70 transition-opacity duration-300'
 					onClick={onRemove}
 				>
-					Remove
+					{ADMIN_FORM_TRANSLATE.addingElements[language].remove}
 				</p>
 			</div>
 
@@ -202,10 +203,10 @@ export function BlogSubparagraph({
 				))}
 				<ErrorMessage
 					errors={formState.errors}
-					name={`sections.${paragraphIndex}.images`}
+					name={`sections.${paragraphIndex}.subsections.${subIndex}.images`}
 					render={() => (
 						<p className='text-error text-sm mt-1'>
-							Remove the image field if you don&apos;t need to upload an image
+							{ ADMIN_FORM_TRANSLATE.addingElements[language].removeImage }
 						</p>
 					)}
 				/>
@@ -217,7 +218,7 @@ export function BlogSubparagraph({
 				>
 					<ImageIcon className='text-green-700 size-[1.125rem]' />
 					<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-						Adaugă imagine
+						{ ADMIN_FORM_TRANSLATE.addingElements[language].addImage }
 					</span>
 				</button>
 			</div>

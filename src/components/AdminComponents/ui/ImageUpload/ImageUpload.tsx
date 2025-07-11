@@ -16,6 +16,7 @@ import { useGenerateImageLink } from '@/hooks/blog/useGenerateImageLink'
 import { isImageValid } from '@/lib/file-upload.utils'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface ImageUploadProps {
 	name: keyof TypeBlogFormState | keyof TypeStatisticsFormState
@@ -171,7 +172,10 @@ export function ImageUpload({
 
 			{isImageLinkPending ? (
 				<div className='text-center'>
-					<p className='text-gray-600'>Processing image...</p>
+					<p className='text-gray-600'>{
+						language === 'ro' ? 'Se încarcă imaginea...' :
+						language === 'en' ? 'Uploading image...' : 'Загрузка изображения...'
+					}</p>
 				</div>
 			) : hasImage ? (
 				<div className='relative w-full h-full'>
@@ -205,10 +209,10 @@ export function ImageUpload({
 					)}
 					<div className='flex items-center gap-[0.5rem]'>
 						<Upload className={`size-[1.25rem] ${hasError ? 'text-error' : 'text-green-700'} `}/>
-						<p className={` text-[1rem] leading-[1.125rem] ${hasError ? 'text-error' : 'text-green-700'}`}>Click to upload image</p>
+						<p className={` text-[1rem] leading-[1.125rem] ${hasError ? 'text-error' : 'text-green-700'}`}>{ ADMIN_FORM_TRANSLATE.mainImageInput[language].placeholder.main }</p>
 					</div>
 					<p className={`text-[0.75rem] leading-[0.875rem] text-center mt-[0.5rem] ${hasError ? 'text-error' : 'text-green-600'}`}>
-						Max size: {BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB}MB
+						{ ADMIN_FORM_TRANSLATE.mainImageInput[language].placeholder.subtext }: {BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB}MB
 					</p>
 				</div>
 			)}

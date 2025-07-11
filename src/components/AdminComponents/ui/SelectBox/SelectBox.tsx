@@ -14,7 +14,7 @@ import { TypeStatisticsFormState } from '@/types/statistics.types'
 import { cn } from '@/lib/utils'
 
 interface ISelectProps {
-	options: string[]
+	options: { value: string; label: string }[]
 	name: keyof TypeBlogFormState | keyof TypeStatisticsFormState
 	control: Control<TypeBlogFormState | TypeStatisticsFormState>
 	placeholder: string
@@ -30,6 +30,12 @@ export const SelectBox = ({
 	placeholder,
 	rules
 }: ISelectProps) => {
+
+	const getLabelForValue = (selectedValue: string) => {
+		const option = options.find(opt => opt.value === selectedValue)
+		return option ? option.label : selectedValue
+	}
+
 	return (
 		<Controller
 			name={name as keyof TypeBlogFormState | keyof TypeStatisticsFormState}
@@ -48,9 +54,13 @@ export const SelectBox = ({
 						)}
 					>
 						{value === '' ? (
-							<span className={`text-green-700 opacity-70 ${!!fieldState.error && 'border-red-500 text-red-500 placeholder:text-red-500 animate-shake'}`}>{placeholder}</span>
+							<span
+								className={`text-green-700 opacity-70 ${!!fieldState.error && 'border-red-500 text-red-500 placeholder:text-red-500 animate-shake'}`}
+							>
+								{placeholder}
+							</span>
 						) : (
-							<span className='text-green-700'>{value as string}</span>
+							<span className='text-green-700'>{getLabelForValue(value as string)}</span>
 						)}
 						<SelectArrow />
 					</Select>
@@ -61,11 +71,11 @@ export const SelectBox = ({
 					>
 						{options.map(option => (
 							<SelectItem
-								key={option}
-								value={option}
+								key={option.value}
+								value={option.value}
 								className='text-green-700 flex justify-between items-center data-[active-item]:bg-gray-400 rounded-[0.25rem] h-[3rem] px-[0.5rem] transition-colors duration-300 cursor-pointer'
 							>
-								{option}
+								{option.label}
 								<SelectItemCheck />
 							</SelectItem>
 						))}

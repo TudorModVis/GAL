@@ -16,6 +16,7 @@ import { BlogMainImageUpload } from './BlogMainImageUpload'
 import { BlogParagraphsRoot } from './BlogParagraphs/BlogParagraphsRoot'
 import { BlogSummaryInput } from './BlogSummaryInput'
 import { BlogTitleInput } from './BlogTitleInput'
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface Props {
 	register: UseFormRegister<TypeBlogFormState>
@@ -101,7 +102,7 @@ export function BlogForm({
 				name='title'
 				render={() => (
 					<p className='text-error text-sm mt-1'>
-						Romanian, Russian and English titles are required
+						{ ADMIN_FORM_TRANSLATE.titleInput[language].error }
 					</p>
 				)}
 			/>
@@ -114,7 +115,7 @@ export function BlogForm({
 			<ErrorMessage
 				errors={formState.errors}
 				name='content_type'
-				render={() => <p className='text-error text-sm mt-1'>Content type is required</p>}
+				render={() => <p className='text-error text-sm mt-1'>{ ADMIN_FORM_TRANSLATE.contentTypeInput[language].error }</p>}
 			/>
 
 			{contentType === BlogsContentTypeEnum.AUTHENTIC_LOCAL && (
@@ -128,7 +129,7 @@ export function BlogForm({
 						errors={formState.errors}
 						name='authentic_local_category'
 						render={() => (
-							<p className='text-error text-sm mt-1'>Authentic local category is required</p>
+							<p className='text-error text-sm mt-1'>{ ADMIN_FORM_TRANSLATE.authenticLocalCategoryInput[language].error }</p>
 						)}
 					/>
 				</>
@@ -142,7 +143,7 @@ export function BlogForm({
 			<ErrorMessage
 				errors={formState.errors}
 				name='categories'
-				render={() => <p className='text-error text-sm mt-1'>At least one category is required</p>}
+				render={() => <p className='text-error text-sm mt-1'>{ ADMIN_FORM_TRANSLATE.categoriesInput[language].error }</p>}
 			/>
 
 			{/* MARK: Main Image Upload */}
@@ -156,7 +157,7 @@ export function BlogForm({
 			<ErrorMessage
 				errors={formState.errors}
 				name='main_image'
-				render={() => <p className='text-error text-sm mt-1'>Main image is required</p>}
+				render={() => <p className='text-error text-sm mt-1'>{ ADMIN_FORM_TRANSLATE.mainImageInput[language].error }</p>}
 			/>
 
 			{/* MARK: Summary Input */}

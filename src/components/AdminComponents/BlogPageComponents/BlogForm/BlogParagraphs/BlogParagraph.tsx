@@ -9,6 +9,7 @@ import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 import { BlogParagraphTitle } from './BlogParagraphTitle'
 import { BlogSubparagraph } from './BlogSubparagraph'
 import { ErrorMessage } from '@hookform/error-message'
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface Props {
 	control: Control<TypeBlogFormState>
@@ -78,7 +79,7 @@ export function BlogParagraph({
 			<ErrorMessage
 				errors={formState.errors}
 				name={`sections.${paragraphIndex}.title`}
-				render={() => <p className='text-error text-sm mt-1'>Romanian, Russian and English titles are required</p>}
+				render={() => <p className='text-error text-sm mt-1'>{ ADMIN_FORM_TRANSLATE.paragraphInput[language].error }</p>}
 			/>
 
 			<div>
@@ -106,7 +107,7 @@ export function BlogParagraph({
 				>
 					<Plus className='text-green-700 size-[1.25rem]' />
 					<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-						Adaugă subparagraf
+						{ ADMIN_FORM_TRANSLATE.addingElements[language].addSubparagraph }
 					</span>
 				</button>
 			</div>
