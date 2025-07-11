@@ -161,6 +161,8 @@
 	--font-manrope: 'Manrope', sans-serif;
 	--font-roboto: 'Roboto', sans-serif;
 
+	--breakpoint-sidebar-req: 111.125rem;
+
 	/* Shake Animation */
 	--animate-shake: shake 0.5s ease-in-out;
 	--animate-shake-fast: shake 0.3s ease-in-out;

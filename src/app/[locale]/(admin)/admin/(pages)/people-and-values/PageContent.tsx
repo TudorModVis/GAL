@@ -1,6 +1,7 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { ThreeColIcon } from '@/components/AdminComponents/Icons/ThreeColIcon'
@@ -12,7 +13,6 @@ import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
-import { useTranslations } from 'next-intl'
 
 export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(2)
@@ -40,17 +40,21 @@ export function PageContent() {
 
 	return (
 		<div className='mt-[2.5rem]'>
-			<div className='flex items-center justify-end gap-[1rem]'>
-				<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>{t('visualization_type')}</p>
-				<div className='flex items-center gap-[0.25rem]'>
-					<TwoColIcon
-						isActive={cols === 2}
-						onClick={() => setCols(2)}
-					/>
-					<ThreeColIcon
-						isActive={cols === 3}
-						onClick={() => setCols(3)}
-					/>
+			<div className='flex justify-end w-full'>
+				<div className='flex max-w-[90.5rem] w-full items-center justify-end gap-[1rem]'>
+					<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>
+						{t('visualization_type')}
+					</p>
+					<div className='flex items-center gap-[0.25rem]'>
+						<TwoColIcon
+							isActive={cols === 2}
+							onClick={() => setCols(2)}
+						/>
+						<ThreeColIcon
+							isActive={cols === 3}
+							onClick={() => setCols(3)}
+						/>
+					</div>
 				</div>
 			</div>
 

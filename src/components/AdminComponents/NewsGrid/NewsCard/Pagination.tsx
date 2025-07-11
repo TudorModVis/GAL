@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 import { IBlogsResponse } from '@/types/blog.types'
@@ -10,10 +11,14 @@ interface Props extends Omit<IBlogsResponse, 'blogs' | 'filters'> {
 }
 
 export function Pagination({ pagination, updatePage, currentPage }: Props) {
+	const t = useTranslations('Pagination')
 	return (
 		<div className='flex items-center justify-center mt-[4rem] gap-[1rem]'>
 			{currentPage !== 1 && (
-				<Button onClick={() => updatePage(currentPage - 1)} className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'>
+				<Button
+					onClick={() => updatePage(currentPage - 1)}
+					className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'
+				>
 					<Image
 						src='/admin_assets/arrow-right.svg'
 						alt='Previous Page'
@@ -22,7 +27,9 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 						className='cursor-pointer size-[1.5rem] rotate-180'
 						draggable={false}
 					/>
-					<p className='text-white font-manrope text-[1rem] leading-[1.125rem]'>Înapoi</p>
+					<p className='text-white font-manrope text-[1rem] leading-[1.125rem]'>
+						{t('previous_page')}
+					</p>
 				</Button>
 			)}
 
@@ -62,7 +69,10 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 			</div>
 
 			{currentPage !== pagination.totalPages && (
-				<Button onClick={() => updatePage(currentPage + 1)} className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'>
+				<Button
+					onClick={() => updatePage(currentPage + 1)}
+					className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'
+				>
 					<Image
 						src='/admin_assets/arrow-right.svg'
 						alt='Previous Page'
@@ -72,7 +82,7 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 						onClick={() => updatePage(currentPage + 1)}
 						draggable={false}
 					/>
-					<p className='text-white font-manrope text-[1rem] leading-[1.125rem]'>Mai departe</p>
+					<p className='text-white font-manrope text-[1rem] leading-[1.125rem]'>{t('next_page')}</p>
 				</Button>
 			)}
 		</div>
