@@ -48,23 +48,25 @@ export function PageContent() {
 	}
 
 	return (
-		<form className='mt-[1.5rem]' onSubmit={handleSubmit(onSubmit)}>
-			<BlogPageNav
-				isPending={isImagesUploadPending || isCreatePending}
-				language={language}
-				setLanguage={setLanguage}
-			/>
+		<div className='flex justify-end w-full'>
+			<form className='mt-[1.5rem] max-w-[90.5rem] w-full' onSubmit={handleSubmit(onSubmit)}>
+				<BlogPageNav
+					isPending={isImagesUploadPending || isCreatePending}
+					language={language}
+					setLanguage={setLanguage}
+				/>
 
-			<BlogForm
-				isPending={isImagesUploadPending || isCreatePending}
-				formState={formState}
-				setValue={setValue}
-				control={control}
-				register={register}
-				language={language}
-				setImagesToUpload={setImagesToUpload}
-				setImagesToDelete={setImagesToDelete}
-			/>
-		</form>
+				<BlogForm
+					isPending={isImagesUploadPending || isCreatePending}
+					formState={formState}
+					setValue={setValue}
+					control={control}
+					register={register}
+					language={language}
+					setImagesToUpload={setImagesToUpload}
+					setImagesToDelete={setImagesToDelete}
+				/>
+			</form>
+		</div>
 	)
 }
