@@ -48,7 +48,7 @@ export function PageContent() {
 	}
 
 	return (
-		<form className='mt-[3rem]' onSubmit={handleSubmit(onSubmit)}>
+		<form className='mt-[1.5rem]' onSubmit={handleSubmit(onSubmit)}>
 			<BlogPageNav
 				isPending={isImagesUploadPending || isCreatePending}
 				language={language}

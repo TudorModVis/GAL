@@ -16,7 +16,7 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, is
 	const t = useTranslations('Admin')
 
 	return (
-		<div className='flex items-center justify-between pb-[1.5rem] relative'>
+		<div className='flex items-center bg-white sticky top-0 left-0 z-[90] justify-between py-[1.5rem]'>
 			<div className='absolute h-[1px] w-screen bg-gray-500 bottom-0 left-1/2 -translate-x-1/2' />
 			<div className='flex items-center'>
 				<LangBtn
