@@ -22,7 +22,7 @@ export function SidebarSubsection({ title, items }: IAdminSidebarSubsection) {
 					<Link
 						href={item.link as Pathnames}
 						key={index}
-						className={`${!!match(item.link)(pathName) ? ' bg-white/10 ' : ' hover:bg-white/10 '} h-[2.5rem] flex items-center justify-between px-[0.5rem] group transition-colors duration-300 text-white text-[1rem] leading-[1.125rem] font-[400]`}
+						className={`${!!match(item.link)(pathName) ? ' bg-white/10 ' : ' hover:bg-white/10 '} h-[2.5rem] flex items-center rounded-[0.125rem] justify-between px-[0.5rem] group transition-colors duration-300 text-white text-[1rem] leading-[1.125rem] font-[400]`}
 					>
 						<p>{item.title[locale]}</p>
 						<Image

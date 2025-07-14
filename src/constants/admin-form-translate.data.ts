@@ -1,25 +1,80 @@
 export const FORM_BLOG_CATEGORIES_TRANSLATE = {
-	NEWS: {
-		ro: 'Noutate',
-		en: 'News',
-		ru: 'Новости'
-	},
-	ENTERPRENEURSHIP: {
-		ro: 'Antreprenoriat',
-		en: 'Entrepreneurship',
-		ru: 'Предпринимательство'
-	},
-	LOGISTICS: {
-		ro: 'Logistică',
-		en: 'Logistics',
-		ru: 'Логистика'
-	},
-	PUBLIC: {
-		ro: 'Public',
-		en: 'Public',
-		ru: 'Общественный'
-	}
-}
+    PROJECTS: {
+        ro: 'Proiecte',
+        en: 'Projects',
+        ru: 'Проекты'
+    },
+    LOCAL_PRODUCTS: {
+        ro: 'Produse Locale',
+        en: 'Local Products',
+        ru: 'Местные Продукты'
+    },
+    SERVICES: {
+        ro: 'Servicii',
+        en: 'Services',
+        ru: 'Услуги'
+    },
+    TOURIST_ATTRACTIONS: {
+        ro: 'Atracții Turistice',
+        en: 'Tourist Attractions',
+        ru: 'Достопримечательности'
+    },
+    PEOPLE_AND_VALUES: {
+        ro: 'Oameni și Valori',
+        en: 'People and Values',
+        ru: 'Люди и Ценности'
+    },
+    CALLS: {
+        ro: 'Apeluri',
+        en: 'Calls',
+        ru: 'Объявления'
+    },
+    EVENTS: {
+        ro: 'Evenimente',
+        en: 'Events',
+        ru: 'События'
+    },
+    AGRICULTURE: {
+        ro: 'Agricultură',
+        en: 'Agriculture',
+        ru: 'Сельское хозяйство'
+    },
+    TOURISM: {
+        ro: 'Turism',
+        en: 'Tourism',
+        ru: 'Туризм'
+    },
+    ENTREPRENEURSHIP: {
+        ro: 'Antreprenoriat',
+        en: 'Entrepreneurship',
+        ru: 'Предпринимательство'
+    },
+    YOUTH: {
+        ro: 'Tineret',
+        en: 'Youth',
+        ru: 'Молодёжь'
+    },
+    CULTURE: {
+        ro: 'Cultură',
+        en: 'Culture',
+        ru: 'Культура'
+    },
+    PUBLIC: {
+        ro: 'Public',
+        en: 'Public',
+        ru: 'Публичный'
+    },
+    ECOLOGY: {
+        ro: 'Ecologie',
+        en: 'Ecology',
+        ru: 'Экология'
+    },
+    PARTNERSHIPS: {
+        ro: 'Parteneriate',
+        en: 'Partnerships',
+        ru: 'Партнёрство'
+    }
+} as const
 
 export const FORM_CONTENT_TYPE_TRANSLATE = {
 	NEWS: {

@@ -88,6 +88,7 @@ export function RichTextEditor({ className, name, control, placeholder, rules }:
 		<div className='flex flex-col gap-[0.25rem]'>
 			<Toolbar editor={editor} />
 			<EditorContent
+				data-lenis-prevent
 				editor={editor}
 				style={{ whiteSpace: 'pre-line' }}
 				className={cn(

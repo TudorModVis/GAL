@@ -13,6 +13,10 @@ import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
 import { blogService } from '@/services/blog.service'
+import { Link } from '@/i18n/navigation'
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
+import { Pathnames } from '@/i18n/routing'
+import { Button } from '@/components/AdminComponents/ui/Button'
 
 export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(2)
@@ -40,19 +44,21 @@ export function PageContent() {
 
 	return (
 		<div className='mt-[2.5rem]'>
-			<div className='flex items-center justify-end gap-[1rem]'>
-				<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>
-					{t('visualization_type')}
-				</p>
-				<div className='flex items-center gap-[0.25rem]'>
-					<TwoColIcon
-						isActive={cols === 2}
-						onClick={() => setCols(2)}
-					/>
-					<ThreeColIcon
-						isActive={cols === 3}
-						onClick={() => setCols(3)}
-					/>
+			<div className='flex justify-end w-full'>
+				<div className='flex sidebar-req:w-[calc(100vw-20.625rem)] w-full items-center justify-end gap-[1rem]'>
+					<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>
+						{t('visualization_type')}
+					</p>
+					<div className='flex items-center gap-[0.25rem]'>
+						<TwoColIcon
+							isActive={cols === 2}
+							onClick={() => setCols(2)}
+						/>
+						<ThreeColIcon
+							isActive={cols === 3}
+							onClick={() => setCols(3)}
+						/>
+					</div>
 				</div>
 			</div>
 
@@ -80,6 +86,14 @@ export function PageContent() {
 							<p className='text-gray-600 text-[0.875rem]'>
 								There are no blogs to display at the moment.
 							</p>
+							<Link href={ADMIN_PAGES.CREATE_BLOG as Pathnames}>
+								<Button
+									type='button'
+									className='w-fit px-[2rem] h-[2.5rem] mt-[1rem] font-[400]'
+								>
+									Create one
+								</Button>
+							</Link>
 						</div>
 					</div>
 				)

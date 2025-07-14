@@ -36,7 +36,7 @@ export function LangSelectBox() {
 				<Ariakit.SelectPopover
 					gutter={4}
 					sameWidth
-					className='bg-gray-300 z-[10] rounded-[0.25rem] overflow-hidden scale-y-0 data-[enter]:scale-y-100 origin-top transition-all duration-300'
+					className='bg-gray-300 z-[1000] rounded-[0.25rem] overflow-hidden scale-y-0 data-[enter]:scale-y-100 origin-top transition-all duration-300'
 				>
 					<Ariakit.SelectItem
 						className={`${locale === 'ro' && 'hidden'} text-green-700 data-[active-item]:bg-gray-400 rounded-[0.25rem] py-[0.25rem] px-[0.5rem] transition-colors duration-300 cursor-pointer`}

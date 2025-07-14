@@ -105,7 +105,7 @@ export function BlogSubparagraph({
 
 					<TextAreaField
 						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.title }
-						className='h-[11rem]'
+						className='h-[11rem] placeholder:opacity-70'
 						key={`subparagraph-title-${language}`}
 						{...register(`sections.${paragraphIndex}.subsections.${subIndex}.title.${language}`, {
 							required: true

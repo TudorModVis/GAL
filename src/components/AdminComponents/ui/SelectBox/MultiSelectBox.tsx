@@ -76,9 +76,10 @@ export const MultiSelectBox = ({
 							<SelectArrow />
 						</Select>
 						<SelectPopover
+							data-lenis-prevent
 							gutter={4}
 							sameWidth
-							className='bg-gray-300 border z-60 border-gray-500 rounded-[0.25rem] overflow-hidden scale-y-0 data-[enter]:scale-y-100 origin-top transition-all duration-300'
+							className='bg-gray-300 max-h-[12rem] styled-scrollbar overflow-y-auto border z-60 border-gray-500 rounded-[0.25rem] overflow-hidden scale-y-0 data-[enter]:scale-y-100 origin-top transition-all duration-300'
 						>
 							{options.map(option => (
 								<SelectItem

@@ -14,7 +14,7 @@ export function AdminSidebar() {
 	}
 
 	return (
-		<div className={`${ open ? 'translate-x-0' : '-translate-x-full' } transition-transform duration-300 fixed top-0 left-0 h-screen border-r border-r-gray-500 bg-green-600 max-w-[16.625rem] w-full z-1000`}>
+		<div className={`${ open ? 'translate-x-0' : '-translate-x-full' } sidebar-req:hidden transition-transform duration-300 fixed top-0 left-0 h-screen border-r border-r-gray-500 bg-green-600 max-w-[16.625rem] w-full z-1000`}>
 			
 			<div
 				onClick={handleOpen}
