@@ -84,7 +84,7 @@ export function NewsCard({ blog, cols }: Props) {
 					<div
 						className={`flex items-center gap-[0.25rem] mt-[2rem] ${cols === 3 && 'justify-between'}`}
 					>
-						<Button className='w-fit font-[400] h-[2.5rem] px-[1rem] bg-green-500 group-hover:bg-white text-white group-hover:text-green-700 transition-colors duration-300'>
+						<Button className='w-fit font-[400] hover:bg-white h-[2.5rem] px-[1rem] bg-green-500 group-hover:bg-white text-white group-hover:text-green-700 transition-colors duration-300'>
 							{t('edit_blog')}
 						</Button>
 						<ArrowIcon className='bg-green-500 group-hover:rotate-0 -rotate-45 group-hover:bg-white [&>svg>path]:fill-white group-hover:[&>svg>path]:fill-green-500 transition-[colors_transform] duration-300' />

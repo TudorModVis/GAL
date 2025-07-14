@@ -170,10 +170,21 @@
 	},
 
 	"BlogCategories": {
-		"NEWS": "News",
-		"ENTERPRENEURSHIP": "Entrepreneurship",
-		"LOGISTICS": "Logistics",
-		"PUBLIC": "Public"
+		"PROJECTS": "Projects",
+		"LOCAL_PRODUCTS": "Local Products",
+		"SERVICES": "Services",
+		"TOURIST_ATTRACTIONS": "Tourist Attractions",
+		"PEOPLE_AND_VALUES": "People and Values",
+		"CALLS": "Calls",
+		"EVENTS": "Events",
+		"AGRICULTURE": "Agriculture",
+		"TOURISM": "Tourism",
+		"ENTREPRENEURSHIP": "Entrepreneurship",
+		"YOUTH": "Youth",
+		"CULTURE": "Culture",
+		"PUBLIC": "Public",
+		"ECOLOGY": "Ecology",
+		"PARTNERSHIPS": "Partnerships"
 	},
 	"Admin": {
 		"logout": "Logout",
@@ -181,6 +192,10 @@
 		"username": "Username",
 		"password": "Password",
 		"visualization_type": "Visualization type",
+		"no_blogs": "No blogs found",
+		"no_blogs_message": "There are no blogs to display at the moment.",
+		"create_one" : "Create one",
+		"save": "Save",
 
 		"create_new_blog": "Create new article",
 		"edit_blog": "Edit article",

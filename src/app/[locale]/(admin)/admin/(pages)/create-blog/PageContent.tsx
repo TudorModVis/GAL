@@ -54,6 +54,7 @@ export function PageContent() {
 					isPending={isImagesUploadPending || isCreatePending}
 					language={language}
 					setLanguage={setLanguage}
+					isCreate
 				/>
 
 				<BlogForm

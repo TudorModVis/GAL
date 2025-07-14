@@ -174,10 +174,21 @@
 		"next_page": "Mai departe"
 	},
 	"BlogCategories": {
-		"NEWS": "Noutate",
-		"ENTERPRENEURSHIP": "Antreprenorial",
-		"LOGISTICS": "Logistică",
-		"PUBLIC": "Public"
+		"PROJECTS": "Proiecte",
+		"LOCAL_PRODUCTS": "Produse Locale",
+		"SERVICES": "Servicii",
+		"TOURIST_ATTRACTIONS": "Atracții Turistice",
+		"PEOPLE_AND_VALUES": "Oameni și Valori",
+		"CALLS": "Apeluri",
+		"EVENTS": "Evenimente",
+		"AGRICULTURE": "Agricultură",
+		"TOURISM": "Turism",
+		"ENTREPRENEURSHIP": "Antreprenoriat",
+		"YOUTH": "Tineret",
+		"CULTURE": "Cultură",
+		"PUBLIC": "Public",
+		"ECOLOGY": "Ecologie",
+		"PARTNERSHIPS": "Parteneriate"
 	},
 	"Admin": {
 		"logout": "Deconectare",
@@ -185,6 +196,10 @@
 		"username": "Utilizator",
 		"password": "Parolă",
 		"visualization_type": "Tip de vizualizare",
+		"no_blogs": "Niciun articol găsit",
+		"no_blogs_message": "Nu există articole de afișat momentan.",
+		"create_one": "Creează unul",
+		"save": "Salvează",
 
 		"create_new_blog": "Creează un articol nou",
 		"edit_blog": "Editează articolul",

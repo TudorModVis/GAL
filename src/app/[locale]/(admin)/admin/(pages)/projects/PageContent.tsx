@@ -81,13 +81,13 @@ export function PageContent() {
 				) : (
 					<div className='h-[calc(100vh-15rem)] grid place-content-center'>
 						<div className='text-center'>
-							<p className='text-green-700 text-[1.25rem] mb-2'>No blogs found</p>
+							<p className='text-green-700 text-[1.25rem] mb-2'>{t('no_blogs')}</p>
 							<p className='text-gray-600 text-[0.875rem]'>
-								There are no blogs to display at the moment.
+								{t('no_blogs_message')}
 							</p>
 							<Link href={ADMIN_PAGES.CREATE_BLOG as Pathnames}>
 								<Button type='button' className='w-fit px-[2rem] h-[2.5rem] mt-[1rem] font-[400]'>
-									Create one
+									{t('create_one')}
 								</Button>
 							</Link>
 						</div>

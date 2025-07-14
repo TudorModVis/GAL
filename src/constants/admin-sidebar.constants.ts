@@ -66,6 +66,14 @@ export const ADMIN_SIDEBAR_ITEMS: IAdminSidebarSubsection[] = [
 					en: 'Official Documents'
 				},
 				link: ADMIN_PAGES.DOCUMENTS
+			},
+			{
+				title: {
+					ro: 'Statistica GAL',
+					ru: 'Статистика GAL',
+					en: 'GAL Statistics'
+				},
+				link: ADMIN_PAGES.STATISTICS
 			}
 		]
 	},
@@ -193,5 +201,17 @@ export const ADMIN_PAGE_HEADERS = {
 			ru: "Редактировать Блог",
 		},
 		slug: ""
+	},
+	statisticsPage: {
+		title: {
+			ro: "Despre GAL",
+			en: "About GAL",
+			ru: "O GAL",
+		},
+		slug: {
+			ro: "Statistica GAL",
+			en: "GAL Statistics",
+			ru: "Статистика GAL",
+		}
 	}
-}
+} as const

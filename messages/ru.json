@@ -174,10 +174,21 @@
 		"next_page": "Далее"
 	},
 	"BlogCategories": {
-		"NEWS": "Новости",
-		"ENTERPRENEURSHIP": "Предпринимательство",
-		"LOGISTICS": "Логистика",
-		"PUBLIC": "Общественный"
+		"PROJECTS": "Проекты",
+		"LOCAL_PRODUCTS": "Местные Продукты",
+		"SERVICES": "Услуги",
+		"TOURIST_ATTRACTIONS": "Достопримечательности",
+		"PEOPLE_AND_VALUES": "Люди и Ценности",
+		"CALLS": "Объявления",
+		"EVENTS": "События",
+		"AGRICULTURE": "Сельское хозяйство",
+		"TOURISM": "Туризм",
+		"ENTREPRENEURSHIP": "Предпринимательство",
+		"YOUTH": "Молодёжь",
+		"CULTURE": "Культура",
+		"PUBLIC": "Публичный",
+		"ECOLOGY": "Экология",
+		"PARTNERSHIPS": "Партнёрство"
 	},
 	"Admin": {
 		"logout": "Выйти",
@@ -185,6 +196,10 @@
 		"username": "Пользователь",
 		"password": "Пароль",
 		"visualization_type": "Тип визуализации",
+		"no_blogs": "Статьи не найдены",
+		"no_blogs_message": "В данный момент нет статей для отображения.",
+		"create_one": "Создать одну",
+		"save": "Сохранить",
 
 		"create_new_blog": "Создать новую статью",
 		"edit_blog": "Редактировать статью",

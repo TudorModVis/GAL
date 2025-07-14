@@ -1,35 +1,21 @@
-"use client"
+'use client'
 
 import { useTranslations } from 'next-intl'
+import { LangBtn } from '../BlogPageComponents/LangBtn'
 import { Button } from '../ui/Button'
 
-import { LangBtn } from './LangBtn'
 import { useRouter } from '@/i18n/navigation'
 
 interface Props {
 	language: 'ro' | 'ru' | 'en'
 	setLanguage: (lang: 'ro' | 'ru' | 'en') => void
 	isPending: boolean
-	onDeleteBlog?: () => void
-	isCreate?: boolean
 }
 
-export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, isCreate }: Props) {
-
-	const t = useTranslations('Admin')
-
+export function StatisticsNav({ language, setLanguage, isPending }: Props) {
 	const router = useRouter()
 
-	const handleDelete = () => {
-		if(isCreate){
-			router.back()
-			return
-		}
-		if (isPending) return
-		if (onDeleteBlog) {
-			onDeleteBlog()
-		}
-	}
+    const t = useTranslations('Admin')
 
 	return (
 		<div className='flex items-center bg-white sticky top-0 left-0 z-[90] justify-between py-[1.5rem]'>
@@ -58,17 +44,17 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, is
 			</div>
 			<div className='flex items-center gap-[2.5rem]'>
 				<p
-					onClick={handleDelete}
+					onClick={() => router.back()}
 					className='text-error text-[1rem] leading-[1.125rem] font-[400] cursor-pointer hover:opacity-70 transition-opacity duration-300'
 				>
-					{isCreate ? t('cancel') : t('delete_blog')}
+					{t('cancel')}
 				</p>
 				<Button
 					disabled={isPending}
 					type='submit'
 					className='w-fit px-[1rem] h-[2.5rem]'
 				>
-					<span className='text-[1rem] leading-[1.125rem] font-[500]'>{t('save_blog')}</span>
+					<span className='text-[1rem] leading-[1.125rem] font-[500]'>{t('save')}</span>
 				</Button>
 			</div>
 		</div>

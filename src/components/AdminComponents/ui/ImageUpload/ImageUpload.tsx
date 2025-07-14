@@ -149,7 +149,7 @@ export function ImageUpload({
 	return (
 		<div
 			className={cn(
-				'w-full hover:opacity-80 relative rounded-[2rem] transition-all duration-300 bg-gray-400 border border-dashed border-gray-500 overflow-hidden flex flex-col items-center justify-center',
+				'w-full hover:opacity-80 relative rounded-[1rem] transition-all duration-300 bg-gray-400 border border-dashed border-gray-500 overflow-hidden flex flex-col items-center justify-center',
 				hasError && 'border-error',
 				isImageLinkPending && 'opacity-50',
 				className

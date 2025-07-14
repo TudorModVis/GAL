@@ -55,6 +55,9 @@ export function usePageTitle() {
 	} else if (pathname.includes(ADMIN_PAGES.EDIT_BLOG)) {
 		pageTitle = ADMIN_PAGE_HEADERS.editBlogPage.title[locale]
 		pageSlug = blogData?.data.title[locale] || ADMIN_PAGE_HEADERS.editBlogPage.slug
+	} else if (pathname.includes(ADMIN_PAGES.STATISTICS)) {
+		pageTitle = ADMIN_PAGE_HEADERS.statisticsPage.title[locale]
+		pageSlug = ADMIN_PAGE_HEADERS.statisticsPage.slug[locale]
 	}
 
 	return {
