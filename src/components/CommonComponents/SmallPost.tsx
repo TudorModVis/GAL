@@ -42,8 +42,8 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 			onClick={handleClick}
 			draggable='false'
 			href={{
-				pathname: '/news/[news_name]',
-				params: { news_name: 'example-news' }
+				pathname: '/news/[news_id]',
+				params: { news_id: 'example-news' }
 			}}
 			className='grid col-span-4 pointer select-none'
 		>
