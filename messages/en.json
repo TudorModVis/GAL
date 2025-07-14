@@ -12,13 +12,13 @@
 		},
 		"AboutUs": {
 			"impact_title": "Association Impact",
-			"impact_description": "The “Stejarul Dacilor” Local Action Group is an association founded in November 2023, bringing together 14 administrative-territorial units from Cimișlia and Căușeni districts, aiming to promote sustainable rural development by implementing the 2023–2027 Local Development Strategy.",
+			"impact_description": "The Local Action Group \"Stejarul Dacilor\" actively contributes to the development of rural communities in the Cimișlia-Căușeni districts by supporting local initiatives. Through the projects we support, we contribute to the economic, social, and cultural development of villages, the valorization of resources, and cooperation between communities. We aim for more prosperous villages, better connected and future-oriented – through active involvement, innovative ideas, and efficient use of resources for the benefit of the people.",
 			"button_learn_more": "Learn More",
 			"main_headline": "LAG “Stejarul Dacilor” is a local association from Cimișlia and Căușeni districts that supports sustainable rural development.",
-			"stat_projects_success": "Projects successfully carried out during the activity period.",
-			"stat_years_activity": "Years of activity and rural development.",
-			"stat_total_population": "Total population within the territorial components of the 14 localities in Cimișlia and Căușeni districts.",
-			"stat_total_members": "Total members from the public, entrepreneurial, and civic sectors."
+			"stat_projects_success": "Successfully implemented projects during the activity period.",
+			"stat_years_activity": "Years of experience in rural development.",
+			"stat_total_population": "Total population within the territorial scope of the LAG.",
+			"stat_total_members": "LAG members from the civic, public, and entrepreneurial sectors."
 		},
 		"Breaker": {
 			"motto": "Culture, tradition, and hospitality – all in one place, in projects created from the heart.",
@@ -26,12 +26,13 @@
 		},
 		"Donation": {
 			"cta_title": "Do you want to support us? Contact us!",
-			"territorial_population_info": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts.",
+			"donation_text1": "The desire to contribute to the common good is reflected in actions.",
+			"donation_text2": "If you are willing to support our initiatives — through donations, know-how, or institutional support — the LAG 'Stejarul Dacilor' team is open to dialogue and collaboration.",
 			"contact_button_text": "Contact us"
 		},
 		"Footer": {
 			"useful_information": {
-				"under_logo_text": "Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts. Total population within the territorial component of the 14 localities in the Cimișlia and Căușeni districts...",
+				"under_logo_text": "Together, we launch initiatives that bring value to our villages – from entrepreneurial ideas and educational projects to promoting local heritage and improving infrastructure.",
 				"details_for_contact": "Contact details",
 				"navigation_links": "Navigation links",
 				"adress": "Address: 31 August 1989 Street, Selemet Village, Cimișlia District, Republic of Moldova",
@@ -73,7 +74,7 @@
 			"authentic_local": {
 				"authentic_btn": "Authentic Local",
 				"local_products": "Local Products",
-				"community_services": "Community Services",
+				"community_services": "Services",
 				"tourist_attractions": "Tourist Attractions",
 				"people_and_values": "People and Values"
 			},
@@ -85,10 +86,25 @@
 			"access_article": "Access article",
 			"see_more_news": "See more news"
 		},
+		"News": {
+			"title": "Stay informed and follow our activities in the region and beyond.",
+			"location": {
+				"0": "Home",
+				"1": "News"
+			},
+			"visualization_header": "What is the impact?",
+			"visualization_text": "The Local Action Group “Stejarul Dacilor” is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the aim of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027."
+		},
 		"CompletedProjects": {
 			"completed_projects_header": "Completed Projects",
 			"see_more_projects": "See more projects"
 		}
+	},
+	"LinkArrow": {
+		"read_article": "Read Article"
+	},
+	"Visialization_type": {
+		"type": "Visualization type"
 	},
 	"aboutUs": {
 		"heroTitle": {
@@ -118,7 +134,7 @@
 		},
 		"listAndStatistics": {
 			"title": "Member Statistics of LAG Stejarul Dacilor",
-			"description": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the goal of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027.",
+			"description": "The Local Action Group 'Stejarul Dacilor' is a local association registered on November 23, 2023, bringing together actors from the public, civic, and entrepreneurial sectors. The LAG promotes sustainable rural development in its coverage area, based on its own Local Development Strategy, developed through a participatory process and tailored to the needs of member communities.",
 			"resource_map_button": "Resource Map",
 			"total_members": "Total number of members",
 			"entrepreneurial_sector_members": "Number of members from the entrepreneurial sector",
@@ -153,10 +169,6 @@
 		}
 	},
 
-	"Pagination": {
-		"previous_page": "Previous",
-		"next_page": "Next"
-	},
 	"BlogCategories": {
 		"NEWS": "News",
 		"ENTERPRENEURSHIP": "Entrepreneurship",

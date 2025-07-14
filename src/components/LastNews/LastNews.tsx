@@ -1,99 +1,56 @@
 'use client'
 
+import { useQuery } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Slider from 'react-slick'
+
+import { IGetParams } from '@/types/blog.types'
 
 import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import Arrow from '../CommonComponents/Arrow'
 import LinkWithArrow from '../CommonComponents/LinkWithArrow'
 import SmallPost from '../CommonComponents/SmallPost'
 
+import { blogService } from '@/services/blog.service'
+
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
-
-const newsData = [
-	{
-		id: 1,
-		image: '/donation_image.png',
-		tags: ['Antreprenorial', 'Noutate'],
-		title: 'ECOMONDO – The Green Technology Expo, cea mai mare...',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 2,
-		image: '/breaker_image.png',
-		tags: ['Noutate', 'Public'],
-		title: 'Responsabilitatea Extinsă a Producătorului și 3 greșeli frecve...',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 3,
-		image: '/donation_image.png',
-		tags: ['Logistică', 'Noutate'],
-		title: 'ECOMONDO – The Green Technology Expo, cea mai mare...',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 4,
-		image: '/breaker_image.png',
-		tags: ['Antreprenorial', 'Noutate'],
-		title: 'Responsabilitatea Extinsă a Producătorului și 3 greșeli frecve...',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 5,
-		image: '/donation_image.png',
-		tags: ['Noutate', 'Public'],
-		title: 'ECOMONDO – The Green Technology Expo, cea mai mare...',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 6,
-		image: '/breaker_image.png',
-		tags: ['Logistică', 'Public'],
-		title: 'A sixth interesting news title for the slider example.',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 7,
-		image: '/donation_image.png',
-		tags: ['Noutate', 'Public'],
-		title: 'ECOMONDO – The Green Technology Expo, cea mai mare...',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 8,
-		image: '/breaker_image.png',
-		tags: ['Logistică', 'Public'],
-		title: 'A sixth interesting news title for the slider example.',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	},
-	{
-		id: 9,
-		image: '/breaker_image.png',
-		tags: ['Logistică', 'Public'],
-		title: 'A sixth interesting news title for the slider example.',
-		description: 'Nr. populației totale în cadrul componenței teritoriale...'
-	}
-]
 
 const LastNews = () => {
 	const tLastNews = useTranslations('index.LastNews')
 	const sliderRef = useRef<Slider>(null)
 	const [currentSlide, setCurrentSlide] = useState(0)
+	const [params, setParams] = useState<IGetParams>({
+		page: 1,
+		limit: 11
+	})
 
-	const newsPages = useMemo(() => {
-		const pages = []
-		for (let i = 0; i < newsData.length; i += 3) {
-			pages.push(newsData.slice(i, i + 3))
-		}
-		return pages
+	useEffect(() => {
+		setParams({
+			page: 1,
+			limit: 11
+		})
 	}, [])
 
+	const { data } = useQuery({
+		queryKey: ['blogs', params],
+		queryFn: () => blogService.getAllBlogs(params)
+	})
+
+	const newsPages = useMemo(() => {
+		if (!data?.data?.blogs) return []
+
+		const pages = []
+		for (let i = 0; i < data.data.blogs.length; i += 3) {
+			pages.push(data.data.blogs.slice(i, i + 3))
+		}
+		return pages
+	}, [data])
+
 	const totalSlides = newsPages.length
-	const mobileTotalSlides = newsData.length
+	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
 	function useIsMobile(breakpoint = 640) {
 		const [isMobile, setIsMobile] = useState(false)
@@ -158,17 +115,10 @@ const LastNews = () => {
 								<div className='grid grid-cols-12 gap-x-6'>
 									{page.map(news => (
 										<div
-											key={news.id}
+											key={news._id}
 											className='col-span-4'
 										>
-											<SmallPost
-												tags={news.tags}
-												imageSrc={news.image}
-												imageAlt={news.title}
-												title={news.title}
-												description={news.description}
-												link={`/news/${news.id}`}
-											/>
+											<SmallPost {...news} />
 										</div>
 									))}
 								</div>
@@ -210,19 +160,12 @@ const LastNews = () => {
 						ref={sliderRef}
 						{...settings}
 					>
-						{newsData.map(project => (
+						{data?.data?.blogs?.map(news => (
 							<div
-								key={project.id}
+								key={news._id}
 								className='pr-4 h-full ml-12'
 							>
-								<SmallPost
-									tags={project.tags}
-									imageSrc={project.image}
-									imageAlt={project.title}
-									title={project.title}
-									description={project.description}
-									link='/'
-								/>
+								<SmallPost {...news} />
 							</div>
 						))}
 					</Slider>

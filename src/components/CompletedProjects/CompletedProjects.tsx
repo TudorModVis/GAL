@@ -1,9 +1,12 @@
 'use client'
 
+import { useQuery } from '@tanstack/react-query'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Slider from 'react-slick'
+
+import { IGetParams } from '@/types/blog.types'
 
 import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import AnimatedLine from '../CommonComponents/AnimatedLine'
@@ -12,81 +15,45 @@ import BigPost from '../CommonComponents/BigPost'
 import LinkWithArrow from '../CommonComponents/LinkWithArrow'
 import SmallPost from '../CommonComponents/SmallPost'
 
+import { blogService } from '@/services/blog.service'
+
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
-
-const completedProjectsData = [
-	{
-		id: 1,
-		image: '/donation_image.png',
-		tags: ['Antreprenorial', 'Noutate'],
-		date: '24.06.2024 - 01.03.2025',
-		title: 'ECOMONDO – The Green Technology Expo, cea mai mare expoziție internațională de...',
-		description:
-			'Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...'
-	},
-	{
-		id: 2,
-		image: '/breaker_image.png',
-		tags: ['Noutate', 'Public'],
-		date: '12.02.2025',
-		title: 'Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...',
-		description:
-			'Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...'
-	},
-	{
-		id: 3,
-		image: '/donation_image.png',
-		tags: ['Antreprenorial', 'Noutate'],
-		date: '24.06.2024 - 01.03.2025',
-		title: 'Biodiversitate și raportarea sustenabilității: de la ODD la ESRS',
-		description:
-			'Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...'
-	},
-	{
-		id: 4,
-		image: '/breaker_image.png',
-		tags: ['Noutate', 'Public'],
-		date: '12.02.2025',
-		title: 'Responsabilitatea Extinsă a Producătorului și 3 greșeli frecvente și cum poți să...',
-		description:
-			'Nr. populației totale în cadrul componenței teritoriale din cele 14 localități ale raionelor Cimișlia și Căușeni...'
-	},
-	{
-		id: 5,
-		image: '/donation_image.png',
-		tags: ['Antreprenorial', 'Noutate'],
-		date: '24.06.2024 - 01.03.2025',
-		title: 'A fifth amazing project title goes here',
-		description:
-			'Description for the fifth project, showcasing more great work and sustainable solutions.'
-	},
-	{
-		id: 6,
-		image: '/breaker_image.png',
-		tags: ['Noutate', 'Public'],
-		date: '12.02.2025',
-		title: 'Sixth project about producer responsibility and common mistakes to avoid.',
-		description:
-			'Detailed description for the sixth project focusing on new public initiatives and producer responsibilities.'
-	}
-]
 
 const CompletedProjects = () => {
 	const tCompletedProjects = useTranslations('index.CompletedProjects')
 	const sliderRef = useRef<Slider>(null)
 	const [currentSlide, setCurrentSlide] = useState(0)
 
-	const projectPages = useMemo(() => {
-		const pages = []
-		for (let i = 0; i < completedProjectsData.length; i += 2) {
-			pages.push(completedProjectsData.slice(i, i + 2))
-		}
-		return pages
+	const [params, setParams] = useState<IGetParams>({
+		page: 1,
+		limit: 11
+		// content_type: BlogsContentTypeEnum.PROJECT
+	})
+
+	useEffect(() => {
+		setParams({
+			page: 1,
+			limit: 11
+		})
 	}, [])
 
+	const { data } = useQuery({
+		queryKey: ['blogs', params],
+		queryFn: () => blogService.getAllBlogs(params)
+	})
+
+	const projectPages = useMemo(() => {
+		if (!data?.data?.blogs) return []
+		const pages = []
+		for (let i = 0; i < data.data.blogs.length; i += 2) {
+			pages.push(data.data.blogs.slice(i, i + 2))
+		}
+		return pages
+	}, [data])
+
 	const totalSlides = projectPages.length
-	const mobileTotalSlides = completedProjectsData.length
+	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
 	function useIsMobile(breakpoint = 640) {
 		const [isMobile, setIsMobile] = useState(false)
@@ -152,18 +119,10 @@ const CompletedProjects = () => {
 								<div className='grid grid-cols-14 sm:grid-cols-12 gap-x-6 sm:w-auto w-[200vw]'>
 									{page.map(project => (
 										<div
-											key={project.id}
+											key={project._id}
 											className='col-span-5 sm:col-span-6'
 										>
-											<BigPost
-												tags={project.tags}
-												imageSrc={project.image}
-												imageAlt={project.title}
-												title={project.title}
-												description={project.description}
-												date={project.date}
-												link='/'
-											/>
+											<BigPost {...project} />
 										</div>
 									))}
 								</div>
@@ -199,25 +158,16 @@ const CompletedProjects = () => {
 						customStyles='text-3xl font-bold text-forest-900 mb-8'
 						text='Proiecte realizate'
 					/>
-
 					<Slider
 						ref={sliderRef}
 						{...settings}
 					>
-						{completedProjectsData.map(project => (
+						{data?.data?.blogs?.map(project => (
 							<div
-								key={project.id}
+								key={project._id}
 								className='pr-4 h-full ml-12'
 							>
-								<SmallPost
-									tags={project.tags}
-									imageSrc={project.image}
-									imageAlt={project.title}
-									title={project.title}
-									description={project.description}
-									date={project.date}
-									link='/'
-								/>
+								<SmallPost {...project} />
 							</div>
 						))}
 					</Slider>

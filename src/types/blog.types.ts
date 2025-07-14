@@ -1,12 +1,12 @@
 import type { IMultiLangText } from './shared/text.types'
 
 export interface IGetParams {
-    q?: string
-    content_type?: BlogsContentTypeEnum
-    category?: BlogsCategoriesEnum
+	q?: string
+	content_type?: BlogsContentTypeEnum
+	category?: BlogsCategoriesEnum
 	authentic_local_category?: AuthenticLocalCategoriesEnum
-    page?: number
-    limit?: number
+	page?: number
+	limit?: number
 }
 
 export enum BlogsCategoriesEnum {
@@ -23,10 +23,10 @@ export enum BlogsContentTypeEnum {
 }
 
 export enum AuthenticLocalCategoriesEnum {
-    LOCAL_PRODUCTS = "LOCAL_PRODUCTS",
-    SERVICES = "SERVICES",
-    TOURIST_ATTRACTIONS = "TOURIST_ATTRACTIONS",
-    PEOPLE_AND_VALUES = "PEOPLE_AND_VALUES",
+	LOCAL_PRODUCTS = 'LOCAL_PRODUCTS',
+	SERVICES = 'SERVICES',
+	TOURIST_ATTRACTIONS = 'TOURIST_ATTRACTIONS',
+	PEOPLE_AND_VALUES = 'PEOPLE_AND_VALUES'
 }
 
 export interface ISummary {
