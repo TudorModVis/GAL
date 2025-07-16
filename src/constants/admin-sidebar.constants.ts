@@ -139,12 +139,16 @@ export const ADMIN_PAGE_HEADERS = {
         slug: ""
     },
     administrationPage: {
-        title: {
+		title: {
+			ro: "Despre GAL",
+			en: "About GAL",
+			ru: "O GAL",
+		},
+        slug: {
             ro: "Conducerea GAL",
             en: "GAL Management",
             ru: "Руководство GAL",
-        },
-        slug: ""
+        }
     },
     documentsPage: {
         title: {

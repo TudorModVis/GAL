@@ -3,37 +3,30 @@ import { Control } from 'react-hook-form'
 import { ImageToUpload } from '@/types/blog.types'
 
 import { ImageUpload } from '../../ui/ImageUpload/ImageUpload'
-import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
-import { TypeStatisticsFormState } from '@/types/statistics.types'
+import { TypeManagementFormState } from '@/types/management.types'
 
-interface IStatisticsMainImageProps {
+interface IManagementMainImageProps {
     language: 'ro' | 'ru' | 'en'
-    control: Control<TypeStatisticsFormState>
+    control: Control<TypeManagementFormState>
     addImageToUpload: (image: ImageToUpload) => void
     addImageToDelete: (imageUrl: string) => void
     removeImageFromUpload: (uploadUrl: string) => void
 }
 
-export function StatisticsMainImageUpload({
+export function ManagementMainImageUpload({
     language,
     control,
     addImageToUpload,
     addImageToDelete,
     removeImageFromUpload
-}: IStatisticsMainImageProps) {
+}: IManagementMainImageProps) {
     return (
         <>
-            <div className='flex justify-between items-center mt-[3rem]'>
-                <label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-                    {ADMIN_STATISTICS_TRANSLATE.mainImageInput[language].label}
-                </label>
-            </div>
-
             <ImageUpload
                 language={language}
-                name='image'
+                name='main_image'
                 control={control}
-                className='mt-[0.5rem]'
+                className='mt-[6rem]'
                 addImageToUpload={addImageToUpload}
                 addImageToDelete={addImageToDelete}
                 removeImageFromUpload={removeImageFromUpload}

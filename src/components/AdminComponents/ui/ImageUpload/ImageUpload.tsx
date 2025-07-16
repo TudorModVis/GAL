@@ -1,12 +1,17 @@
 'use client'
 
 import { Upload, X } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Control, RegisterOptions, useController } from 'react-hook-form'
 import { toast } from 'sonner'
 
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
+
 import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
+import { TypeDocumentsFormState } from '@/types/documents.types'
+import { TypeManagementFormState } from '@/types/management.types'
 import { TypeStatisticsFormState } from '@/types/statistics.types'
 
 import { BLOG_FORM } from '@/config/blog-form.config'
@@ -15,12 +20,14 @@ import { useGenerateImageLink } from '@/hooks/blog/useGenerateImageLink'
 
 import { isImageValid } from '@/lib/file-upload.utils'
 import { cn } from '@/lib/utils'
-import { useTranslations } from 'next-intl'
-import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface ImageUploadProps {
-	name: keyof TypeBlogFormState | keyof TypeStatisticsFormState
-	control: Control<TypeBlogFormState | TypeStatisticsFormState>
+	name:
+		| keyof TypeBlogFormState
+		| keyof TypeStatisticsFormState
+		| keyof TypeManagementFormState
+		| keyof TypeDocumentsFormState
+	control: Control<TypeBlogFormState> | Control<TypeStatisticsFormState> | Control<TypeManagementFormState> | Control<TypeDocumentsFormState>
 	rules?: RegisterOptions
 	className?: string
 	height?: string
@@ -46,7 +53,7 @@ export function ImageUpload({
 	removeImageFromUpload,
 	onRemove
 }: ImageUploadProps) {
-	const t = useTranslations("Admin.ToastMessages")
+	const t = useTranslations('Admin.ToastMessages')
 	const fileInputRef = useRef<HTMLInputElement>(null)
 	const [selectedFile, setSelectedFile] = useState<File | null>(null)
 	const [previewUrl, setPreviewUrl] = useState<string>('')
@@ -58,9 +65,8 @@ export function ImageUpload({
 		field: { value, onChange },
 		fieldState
 	} = useController({
-		name: name as keyof TypeBlogFormState,
-		control,
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		name: name as any,
+		control: control as any,
 		rules: rules as any
 	})
 
@@ -167,15 +173,18 @@ export function ImageUpload({
 				onError={() => {
 					toast.error(t('failed_to_upload_image'))
 				}}
-				disabled={isImageLinkPending}
+				disabled={isImageLinkPending || hasImage}
 			/>
 
 			{isImageLinkPending ? (
 				<div className='text-center'>
-					<p className='text-gray-600'>{
-						language === 'ro' ? 'Se încarcă imaginea...' :
-						language === 'en' ? 'Uploading image...' : 'Загрузка изображения...'
-					}</p>
+					<p className='text-gray-600'>
+						{language === 'ro'
+							? 'Se încarcă imaginea...'
+							: language === 'en'
+								? 'Uploading image...'
+								: 'Загрузка изображения...'}
+					</p>
 				</div>
 			) : hasImage ? (
 				<div className='relative w-full h-full'>
@@ -183,7 +192,7 @@ export function ImageUpload({
 						src={displayImageUrl as string}
 						alt='Uploaded Image'
 						fill
-						className='w-full h-full object-cover hover:opacity-80 transition-opacity duration-300'
+						className='w-full h-full object-contain hover:opacity-80 transition-opacity duration-300'
 					/>
 
 					<button
@@ -208,11 +217,18 @@ export function ImageUpload({
 						/>
 					)}
 					<div className='flex items-center gap-[0.5rem]'>
-						<Upload className={`size-[1.25rem] ${hasError ? 'text-error' : 'text-green-700'} `}/>
-						<p className={` text-[1rem] leading-[1.125rem] ${hasError ? 'text-error' : 'text-green-700'}`}>{ ADMIN_FORM_TRANSLATE.mainImageInput[language].placeholder.main }</p>
+						<Upload className={`size-[1.25rem] ${hasError ? 'text-error' : 'text-green-700'} `} />
+						<p
+							className={` text-[1rem] leading-[1.125rem] ${hasError ? 'text-error' : 'text-green-700'}`}
+						>
+							{ADMIN_FORM_TRANSLATE.mainImageInput[language].placeholder.main}
+						</p>
 					</div>
-					<p className={`text-[0.75rem] leading-[0.875rem] text-center mt-[0.5rem] ${hasError ? 'text-error' : 'text-green-600'}`}>
-						{ ADMIN_FORM_TRANSLATE.mainImageInput[language].placeholder.subtext }: {BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB}MB
+					<p
+						className={`text-[0.75rem] leading-[0.875rem] text-center mt-[0.5rem] ${hasError ? 'text-error' : 'text-green-600'}`}
+					>
+						{ADMIN_FORM_TRANSLATE.mainImageInput[language].placeholder.subtext}:{' '}
+						{BLOG_FORM.MAX_IMAGE_FILE_SIZE_IN_MB}MB
 					</p>
 				</div>
 			)}

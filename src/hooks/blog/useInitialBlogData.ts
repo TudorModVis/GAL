@@ -62,5 +62,5 @@ export function useInitialBlogData(id: string, reset: UseFormReset<TypeBlogFormS
                 }))
             })
         }
-    }, [isSuccess])
+    }, [isSuccess, data, reset])
 }

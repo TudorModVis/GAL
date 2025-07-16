@@ -12,6 +12,7 @@ import { Spinner } from '../../ui/Spinner/Spinner'
 import { StatisticsTitleInput } from './StatisticsTitleInput'
 import { StatisticsMainImageUpload } from './StatisticsMainImageUpload'
 import { GalStatistics } from './GalStatistics/GalStatistics'
+import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
 
 interface Props {
 	register: UseFormRegister<TypeStatisticsFormState>
@@ -79,7 +80,7 @@ export function StatisticsForm({
 			<ErrorMessage
 				errors={formState.errors}
 				name='title'
-				render={() => <p className='text-error text-sm mt-1'>Title error</p>}
+				render={() => <p className='text-error text-sm mt-1'>{ ADMIN_STATISTICS_TRANSLATE.titleInput[language].error }</p>}
 			/>
 
 			<StatisticsMainImageUpload
@@ -95,7 +96,7 @@ export function StatisticsForm({
 				name='image'
 				render={() => (
 					<p className='text-error text-sm mt-1'>
-						Image error
+						{ ADMIN_STATISTICS_TRANSLATE.mainImageInput[language].error }
 					</p>
 				)}
 			/>

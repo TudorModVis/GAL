@@ -37,4 +37,16 @@ export interface IDocumentsResponse {
 	updatedAt: string
 }
 
+export interface IFileLinkResponse {
+	success: boolean
+	uploadUrl: string
+	publicUrl: string
+	key: string
+}
+
+export interface IFileToUpload {
+	uploadUrl: string
+	file: File
+}
+
 export type TypeDocumentsFormState = Partial<Omit<IDocumentsResponse, '_id' | 'createdAt' | 'updatedAt'>>

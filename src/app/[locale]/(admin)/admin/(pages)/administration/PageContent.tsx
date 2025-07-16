@@ -4,16 +4,18 @@ import { useLocale } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { StatisticsForm } from '@/components/AdminComponents/StatisticsPageComponents/StatisticsForm/StatisticsForm'
-import { StatisticsNav } from '@/components/AdminComponents/StatisticsPageComponents/StatisticsNav'
+import { ManagementForm } from '@/components/AdminComponents/ManagementPageComponents/ManagementForm/ManagementForm'
+import { StatisticsNav as ManagementNav } from '@/components/AdminComponents/StatisticsPageComponents/StatisticsNav'
 
 import { ImageToUpload } from '@/types/blog.types'
-import { TypeStatisticsFormState } from '@/types/statistics.types'
+import { TypeManagementFormState } from '@/types/management.types'
 
 import { useDeleteImages } from '@/hooks/blog/useDeleteImages'
 import { useUploadImages } from '@/hooks/blog/useUploadImages'
-import { useInitialStatisticsData } from '@/hooks/statistics/useInitialStatisticsData'
-import { useUpdateStatistics } from '@/hooks/statistics/useUpdateStatistics'
+import { useInitialManagementData } from '@/hooks/management/useInitialManagementData'
+import { useUpdateManagement } from '@/hooks/management/useUpdateManagement'
+
+import { cleanManagementFormData } from '@/lib/form-data-cleaner.utils'
 
 export function PageContent() {
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
@@ -24,17 +26,18 @@ export function PageContent() {
 
 	const { uploadImages, isImagesUploadPending } = useUploadImages()
 	const { deleteImages, isDeletePending } = useDeleteImages()
-	const { updateStatistics, isUpdatePending } = useUpdateStatistics()
+	const { updateManagement, isUpdatePending } = useUpdateManagement()
 
-	const { register, handleSubmit, control, formState, reset } = useForm<TypeStatisticsFormState>({
+	const { handleSubmit, control, formState, reset } = useForm<TypeManagementFormState>({
 		mode: 'onSubmit',
 		reValidateMode: 'onChange'
 	})
 
-	useInitialStatisticsData(reset)
+	useInitialManagementData(reset)
 
-	const onSubmit = (data: TypeStatisticsFormState) => {
-		updateStatistics(data, {
+	const onSubmit = (data: TypeManagementFormState) => {
+		const cleanedData = cleanManagementFormData(data)
+		updateManagement(cleanedData, {
 			onSuccess: () => {
 				if (imagesToUpload.length > 0) {
 					uploadImages(imagesToUpload, {
@@ -66,17 +69,16 @@ export function PageContent() {
 				className='mt-[3rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<StatisticsNav
+				<ManagementNav
 					language={language}
 					setLanguage={setLanguage}
 					isPending={isDeletePending || isImagesUploadPending || isUpdatePending}
 				/>
 
-				<StatisticsForm
+				<ManagementForm
 					isPending={isImagesUploadPending || isUpdatePending || isDeletePending}
 					formState={formState}
 					control={control}
-					register={register}
 					language={language}
 					setImagesToUpload={setImagesToUpload}
 					setImagesToDelete={setImagesToDelete}

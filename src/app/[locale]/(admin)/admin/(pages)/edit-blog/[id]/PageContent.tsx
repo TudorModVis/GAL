@@ -9,16 +9,17 @@ import { BlogPageNav } from '@/components/AdminComponents/BlogPageComponents/Blo
 
 import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
+
 import { useDeleteBlog } from '@/hooks/blog/useDeleteBlog'
 import { useDeleteImages } from '@/hooks/blog/useDeleteImages'
 import { useInitialBlogData } from '@/hooks/blog/useInitialBlogData'
 import { useUpdateBlog } from '@/hooks/blog/useUpdateBlog'
 import { useUploadImages } from '@/hooks/blog/useUploadImages'
 
-import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
 import { useRouter } from '@/i18n/navigation'
-import { ADMIN_PAGES } from '@/config/admin-pages.config'
 import { Pathnames } from '@/i18n/routing'
+import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
 
 interface Props {
 	blogId: string
@@ -48,23 +49,28 @@ export function PageContent({ blogId }: Props) {
 	const onSubmit = (data: TypeBlogFormState) => {
 		const cleanedData = cleanBlogFormData(data)
 
-		if (imagesToUpload.length === 0 && imagesToDelete.length === 0) {
-			updateBlog(cleanedData)
-			return
-		}
-		uploadImages(imagesToUpload, {
+		updateBlog(cleanedData, {
 			onSuccess: () => {
-				if (imagesToDelete.length === 0) {
-					updateBlog(cleanedData)
-					setImagesToUpload([])
-					return
+				if (imagesToUpload.length > 0) {
+					uploadImages(imagesToUpload, {
+						onSuccess: () => {
+							setImagesToUpload([])
+							if (imagesToDelete.length > 0) {
+								deleteImages(imagesToDelete, {
+									onSuccess: () => {
+										setImagesToDelete([])
+									}
+								})
+							}
+						}
+					})
+				} else if (imagesToDelete.length > 0) {
+					deleteImages(imagesToDelete, {
+						onSuccess: () => {
+							setImagesToDelete([])
+						}
+					})
 				}
-				deleteImages(imagesToDelete, {
-					onSuccess: () => {
-						updateBlog(cleanedData)
-						setImagesToUpload([])
-					}
-				})
 			}
 		})
 	}

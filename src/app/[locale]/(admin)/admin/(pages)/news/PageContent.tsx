@@ -20,7 +20,7 @@ import { Button } from '@/components/AdminComponents/ui/Button'
 import { Pathnames } from '@/i18n/routing'
 
 export function PageContent() {
-	const [cols, setCols] = useState<2 | 3>(2)
+	const [cols, setCols] = useState<2 | 3>(3)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
 		limit: 11
