@@ -1,8 +1,8 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FieldErrors, useForm } from 'react-hook-form'
 
 import { BlogForm } from '@/components/AdminComponents/BlogPageComponents/BlogForm/BlogForm'
 import { BlogPageNav } from '@/components/AdminComponents/BlogPageComponents/BlogPageNav'
@@ -17,6 +17,7 @@ import { useUploadImages } from '@/hooks/blog/useUploadImages'
 import { useRouter } from '@/i18n/navigation'
 import { Pathnames } from '@/i18n/routing'
 import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
+import { toast } from 'sonner'
 
 export function PageContent() {
 	const router = useRouter()
@@ -53,11 +54,19 @@ export function PageContent() {
 		})
 	}
 
+	const t = useTranslations('Admin.ToastMessages')
+
+	const onInvalid = (errors: FieldErrors<TypeBlogFormState>) => {
+		if (Object.keys(errors).length > 0) {
+			toast.error(t('please_fill_in_all_required_fields_correctly'))
+		}
+	}
+
 	return (
 		<div className='flex justify-end w-full'>
 			<form
 				className='mt-[1.5rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit(onSubmit, onInvalid)}
 			>
 				<BlogPageNav
 					isPending={isImagesUploadPending || isCreatePending}

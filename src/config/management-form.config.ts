@@ -2,7 +2,7 @@ import { Path } from 'react-hook-form'
 
 import { TypeManagementFormState } from '@/types/management.types'
 
-class MANAGEMENT_FORM_CONFIG {
+class MANAGEMENT_FORM_CONFIG { 
 	getPresidentPaths = (
 		lang: 'ro' | 'ru' | 'en'
 	): {

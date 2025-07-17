@@ -4,7 +4,7 @@ import { useGetManagement } from "./useGetManagement";
 import { TypeManagementFormState } from "@/types/management.types";
 
 export function useInitialManagementData(reset: UseFormReset<TypeManagementFormState>) {
-  const { management, isSuccess } = useGetManagement()
+  const { management, isSuccess, isLoading } = useGetManagement()
 
     useEffect(() => {
             if(isSuccess && management){
@@ -81,4 +81,6 @@ export function useInitialManagementData(reset: UseFormReset<TypeManagementFormS
                 })
             }
     }, [isSuccess, management, reset])
+
+    return { isLoading }
 }

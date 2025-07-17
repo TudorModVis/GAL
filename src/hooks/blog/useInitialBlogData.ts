@@ -6,7 +6,7 @@ import { UseFormReset } from "react-hook-form"
 
 export function useInitialBlogData(id: string, reset: UseFormReset<TypeBlogFormState>) {
 
-    const { data, isSuccess } = useQuery({
+    const { data, isSuccess, isLoading } = useQuery({
         queryKey: ['blog', id],
         queryFn: () => blogService.getBlogById(id)
     })
@@ -63,4 +63,6 @@ export function useInitialBlogData(id: string, reset: UseFormReset<TypeBlogFormS
             })
         }
     }, [isSuccess, data, reset])
+
+    return { isLoading }
 }

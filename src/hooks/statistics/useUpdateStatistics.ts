@@ -18,7 +18,7 @@ export function useUpdateStatistics() {
 			queryClient.invalidateQueries({ queryKey: ['statistics'] })
 		},
 		onError: () => {
-			toast.error("Failed to update statistics")
+			toast.error(t('statistics_update_failed'))
 		}
 	})
 

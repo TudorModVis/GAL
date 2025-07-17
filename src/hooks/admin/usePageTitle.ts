@@ -36,7 +36,7 @@ export function usePageTitle() {
 		pageSlug = ADMIN_PAGE_HEADERS.administrationPage.slug[locale]
 	} else if (pathname.includes(ADMIN_PAGES.DOCUMENTS)) {
 		pageTitle = ADMIN_PAGE_HEADERS.documentsPage.title[locale]
-		pageSlug = ADMIN_PAGE_HEADERS.documentsPage.slug
+		pageSlug = ADMIN_PAGE_HEADERS.documentsPage.slug[locale]
 	} else if (pathname.includes(ADMIN_PAGES.LOCAL_PRODUCTS)) {
 		pageTitle = ADMIN_PAGE_HEADERS.localProductsPage.title[locale]
 		pageSlug = ADMIN_PAGE_HEADERS.localProductsPage.slug

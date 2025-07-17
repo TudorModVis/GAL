@@ -9,7 +9,7 @@ import { ThreeColIcon } from '@/components/AdminComponents/Icons/ThreeColIcon'
 import { TwoColIcon } from '@/components/AdminComponents/Icons/TwoColIcon'
 import { Pagination } from '@/components/AdminComponents/NewsGrid/NewsCard/Pagination'
 import { NewsGrid } from '@/components/AdminComponents/NewsGrid/NewsGrid'
-import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
+// import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 
 import { IGetParams } from '@/types/blog.types'
 
@@ -18,12 +18,13 @@ import { ADMIN_PAGES } from '@/config/admin-pages.config'
 import { blogService } from '@/services/blog.service'
 import { Button } from '@/components/AdminComponents/ui/Button'
 import { Pathnames } from '@/i18n/routing'
+import { SkeletonGrid } from '@/components/AdminComponents/NewsGrid/SkeletonGrid'
 
 export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(3)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
-		limit: 11
+		limit: 2
 	})
 
 	const { data, isLoading } = useQuery({
@@ -62,9 +63,10 @@ export function PageContent() {
 			</div>
 
 			{isLoading ? (
-				<div className='w-full h-[calc(100vh-15rem)] grid place-content-center'>
-					<Spinner />
-				</div>
+				// <div className='w-full h-[calc(100vh-15rem)] grid place-content-center'>
+				// 	<Spinner />
+				// </div>
+				<SkeletonGrid colsNumber={cols} numberOfSkeletons={params.limit} />
 			) : data ? (
 				data.data.blogs.length > 0 ? (
 					<>
@@ -98,7 +100,7 @@ export function PageContent() {
 				)
 			) : (
 				<div className='h-[calc(100vh-15rem)] grid place-content-center'>
-					<p className='text-green-700 text-[1.25rem] text-center'>Failed to load data</p>
+					<p className='text-green-700 text-[1.25rem] text-center'>{t('data_load_failed')}</p>
 				</div>
 			)}
 		</div>

@@ -4,7 +4,7 @@ import { TypeDocumentsFormState } from "@/types/documents.types";
 import { useGetDocuments } from "./useGetDocuments";
 
 export function useInitialDocumentsData(reset: UseFormReset<TypeDocumentsFormState>) {
-  const { documents, isSuccess } = useGetDocuments()
+  const { documents, isSuccess, isLoading } = useGetDocuments()
 
     useEffect(() => {
             if(isSuccess && documents){
@@ -53,4 +53,6 @@ export function useInitialDocumentsData(reset: UseFormReset<TypeDocumentsFormSta
                 })
             }
     }, [isSuccess, documents, reset])
+
+    return { isLoading }
 }

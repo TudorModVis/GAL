@@ -42,10 +42,8 @@ export function RichTextEditor({ className, name, control, placeholder, rules }:
 		field: { value, onChange },
 		fieldState
 	} = useController({
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		name: name as any,
 		control: control as Control<TypeBlogFormState | TypeStatisticsFormState | TypeManagementFormState | TypeDocumentsFormState>,
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		rules: rules as any,
 		defaultValue: ''
 	})

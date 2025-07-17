@@ -1,8 +1,8 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FieldErrors, useForm } from 'react-hook-form'
 
 import { ManagementForm } from '@/components/AdminComponents/ManagementPageComponents/ManagementForm/ManagementForm'
 import { StatisticsNav as ManagementNav } from '@/components/AdminComponents/StatisticsPageComponents/StatisticsNav'
@@ -16,6 +16,7 @@ import { useInitialManagementData } from '@/hooks/management/useInitialManagemen
 import { useUpdateManagement } from '@/hooks/management/useUpdateManagement'
 
 import { cleanManagementFormData } from '@/lib/form-data-cleaner.utils'
+import { toast } from 'sonner'
 
 export function PageContent() {
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
@@ -33,7 +34,7 @@ export function PageContent() {
 		reValidateMode: 'onChange'
 	})
 
-	useInitialManagementData(reset)
+	const { isLoading } = useInitialManagementData(reset)
 
 	const onSubmit = (data: TypeManagementFormState) => {
 		const cleanedData = cleanManagementFormData(data)
@@ -63,20 +64,28 @@ export function PageContent() {
 		})
 	}
 
+	const t = useTranslations('Admin.ToastMessages')
+
+	const onInvalid = (errors: FieldErrors<TypeManagementFormState>) => {
+		if (Object.keys(errors).length > 0) {
+			toast.error(t('please_fill_in_all_required_fields_correctly'))
+		}
+	}
+
 	return (
 		<div className='flex justify-end w-full'>
 			<form
 				className='mt-[3rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit(onSubmit, onInvalid)}
 			>
 				<ManagementNav
 					language={language}
 					setLanguage={setLanguage}
-					isPending={isDeletePending || isImagesUploadPending || isUpdatePending}
+					isPending={isDeletePending || isImagesUploadPending || isUpdatePending || isLoading}
 				/>
 
 				<ManagementForm
-					isPending={isImagesUploadPending || isUpdatePending || isDeletePending}
+					isPending={isImagesUploadPending || isUpdatePending || isDeletePending || isLoading}
 					formState={formState}
 					control={control}
 					language={language}

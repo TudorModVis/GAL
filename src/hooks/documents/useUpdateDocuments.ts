@@ -18,7 +18,7 @@ export function useUpdateDocuments() {
 			queryClient.invalidateQueries({ queryKey: ['documents'] })
 		},
 		onError: () => {
-			toast.error('Failed to update management')
+			toast.error(t('documents_update_failed'))
 		}
 	})
 
