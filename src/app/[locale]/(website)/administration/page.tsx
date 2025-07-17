@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import AnimatedHeader from '@/components/CommonComponents/AnimatedHeader'
 import AnimatedLine from '@/components/CommonComponents/AnimatedLine'
 import AnimatedText from '@/components/CommonComponents/AnimatedText'
-import InfoSection from '@/components/CommonComponents/InfoSection'
 
 export async function generateMetadata() {
 	const t = await getTranslations('index.meta')
@@ -18,11 +17,12 @@ export default async function AboutUsPage({ params }: { params: Promise<{ locale
 	const { locale } = await params
 	setRequestLocale(locale)
 
-	// const t = await getTranslations("aboutUs");
+	// const tCategories = await getTranslations('BlogCategories')
+
 	return (
 		<>
 			<main className='relative mb-[100vh] bg-sand-50'>
-				<InfoSection
+				{/* <InfoSection
 					tags={[
 						'Președintele',
 						'Organul Executiv',
@@ -36,7 +36,7 @@ export default async function AboutUsPage({ params }: { params: Promise<{ locale
 					location={['Acasă', 'Despre GAL', 'Conducerea GAL-ului']}
 					imageSrc='/management_img.png'
 					imageAlt='Test'
-				/>
+				/> */}
 				<section className='w-screen h-fit flex flex-col'>
 					<div className='grid grid-cols-full w-full relative'>
 						<AnimatedHeader

@@ -46,7 +46,7 @@ const Page = () => {
 
 	const location: Breadcrumb[] = [
 		{ text: locRaw['0'] ?? 'Home', link: '/' },
-		{ text: locRaw['1'] ?? 'News', link: '/news' },
+		{ text: locRaw['1'] ?? 'Projects', link: '/projects' },
 		{ text: blog.title[locale] }
 	]
 

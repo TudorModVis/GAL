@@ -40,9 +40,12 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	useEffect(() => {
 		setParams({
 			page: 1,
-			limit: 11
+			limit: 11,
+			...(props.type !== 'NEWS' && {
+				content_type: props.type as BlogsContentTypeEnum
+			})
 		})
-	}, [])
+	}, [props.type])
 
 	const { data, isLoading } = useQuery({
 		queryKey: ['blogs', params],

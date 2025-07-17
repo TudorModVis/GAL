@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import AnimatedLine from '@/components/CommonComponents/AnimatedLine'
 import AnimatedText from '@/components/CommonComponents/AnimatedText'
-import InfoSection from '@/components/CommonComponents/InfoSection'
 
 import { Link } from '@/i18n/navigation'
 
@@ -23,14 +22,14 @@ export default async function Administration({ params }: { params: Promise<{ loc
 	return (
 		<>
 			<main className='relative w-full h-fit mb-[100vh] bg-sand-50'>
-				<InfoSection
+				{/* <InfoSection
 					tags={['Regulamente', 'Status', 'Strategie', 'Acord de Constituție', 'Rapoarte Anuale']}
 					headerText='Documente Oficiale'
 					lastActualization='23.03.2025'
 					location={['Acasă', 'Despre GAL', 'Documente Oficiale']}
 					imageSrc='/official_docs_img.png'
 					imageAlt='Test'
-				/>
+				/> */}
 				<section className='w-screen h-fit flex flex-col'>
 					<div className='grid grid-cols-full relative w-full'>
 						<AnimatedLine customStyles='col-span-full mb-2' />

@@ -95,6 +95,15 @@
 			"visualization_header": "Care este impactul?",
 			"visualization_text": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027."
 		},
+		"Projects": {
+			"title": "Proiecte care transformă ideile în realitate și inspiră o comunitate întreagă.",
+			"location": {
+				"0": "Acasă",
+				"1": "Proiecte"
+			},
+			"visualization_header": "Care este impactul?",
+			"visualization_text": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027."
+		},
 		"CompletedProjects": {
 			"completed_projects_header": "Proiecte realizate",
 			"see_more_projects": "Vezi mai multe proiecte"
@@ -206,7 +215,7 @@
 		"delete_blog": "Șterge articolul",
 		"save_blog": "Salvează articolul",
 		"cancel": "Anulează",
-		"data_load_failed" : "Nu s-au putut încărca datele. Te rog încearcă din nou.",
+		"data_load_failed": "Nu s-au putut încărca datele. Te rog încearcă din nou.",
 
 		"ToastMessages": {
 			"loginError": "Numele de utilizator sau parola sunt incorecte.",

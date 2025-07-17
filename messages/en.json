@@ -95,6 +95,15 @@
 			"visualization_header": "What is the impact?",
 			"visualization_text": "The Local Action Group “Stejarul Dacilor” is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the aim of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027."
 		},
+		"Projects": {
+			"title": "Projects that turn ideas into reality and inspire an entire community.",
+			"location": {
+				"0": "Home",
+				"1": "Projects"
+			},
+			"visualization_header": "What is the impact?",
+			"visualization_text": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, aiming to promote sustainable rural development by implementing the 2023–2027 Local Development Strategy."
+		},
 		"CompletedProjects": {
 			"completed_projects_header": "Completed Projects",
 			"see_more_projects": "See more projects"
