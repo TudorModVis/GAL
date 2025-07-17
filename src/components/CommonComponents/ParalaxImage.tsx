@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 
 interface ParalaxImageProps {
-	source: string
+	source: string | undefined
 	altText: string
 }
 
@@ -28,7 +28,7 @@ const ParalaxImage: React.FC<ParalaxImageProps> = ({ source, altText }) => {
 
 	const isMobile = useIsMobile()
 
-	const y = useTransform(scrollYProgress, [0, 1], isMobile ? ['-15%', '15%'] : ['-30%', '30%'])
+	const y = useTransform(scrollYProgress, [0, 1], isMobile ? ['-15%', '15%'] : ['-20%', '20%'])
 
 	return (
 		<div
@@ -38,7 +38,8 @@ const ParalaxImage: React.FC<ParalaxImageProps> = ({ source, altText }) => {
 			<motion.img
 				src={source}
 				alt={altText}
-				className='absolute w-full h-[130%] object-cover -top-[15%]'
+				// trebuie de vazut inca cum sa fac ca imaginile sa ajunga
+				className='absolute w-full h-[120%] object-cover -top-[15%]'
 				style={{ y }}
 			/>
 		</div>

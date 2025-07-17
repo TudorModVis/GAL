@@ -106,9 +106,10 @@ const CompletedProjects = () => {
 					</div>
 				</div>
 
-				<div className='col-span-full overflow-hidden'>
+				<div className='col-span-full overflow-hidden -mx-4'>
 					<Slider
 						ref={sliderRef}
+						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
 						{projectPages.map((page, pageIndex) => (
@@ -116,11 +117,11 @@ const CompletedProjects = () => {
 								key={pageIndex}
 								className='outline-none'
 							>
-								<div className='grid grid-cols-14 sm:grid-cols-12 gap-x-6 sm:w-auto w-[200vw]'>
+								<div className='grid grid-cols-12 gap-x-6 w-auto'>
 									{page.map(project => (
 										<div
 											key={project._id}
-											className='col-span-5 sm:col-span-6'
+											className='col-span-6'
 										>
 											<BigPost {...project} />
 										</div>
@@ -188,8 +189,8 @@ const CompletedProjects = () => {
 								href='/'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50 sm:fill-forest-900'
 								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:text-sand-50 sm:[&>div]:text-forest-900 sm:[&>div]:bg-sand-50 gap 
-																 [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+																	[&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:text-sand-50 sm:[&>div]:text-forest-900 sm:[&>div]:bg-sand-50 gap 
+																	[&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
 							/>
 						</div>
 					</div>

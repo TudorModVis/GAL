@@ -25,7 +25,7 @@ export default async function News({ params }: { params: Promise<{ locale: strin
 					tags={['Produse Locale']}
 					headerText={t('title')}
 					location={Object.values(t.raw('location'))}
-					imageSrc='/donation_image.png'
+					imageSrc='/news_image.png'
 					imageAlt='Test'
 				/>
 				<Visualization

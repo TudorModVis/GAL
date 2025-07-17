@@ -1,4 +1,5 @@
 import InfoSection from "@/components/CommonComponents/InfoSection";
+import Visualization from "@/components/CommonComponents/Visualization";
 // import Visualization from "@/components/CommonComponents/Visualization";
 import Donation from "@/components/Donation/Donation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -31,10 +32,11 @@ export default async function Projects({
           imageSrc="/donation_image.png"
           imageAlt="Test"
         />
-        {/* <Visualization
-          header="Care este impactul?"
-          description="Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027."
-        /> */}
+				<Visualization
+					header={t('visualization_header')}
+					description={t('visualization_text')}
+					type='NEWS'
+				/>
         <Donation />
       </main>
     </>

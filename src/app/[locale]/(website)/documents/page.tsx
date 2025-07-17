@@ -28,7 +28,7 @@ export default async function Administration({ params }: { params: Promise<{ loc
 					headerText='Documente Oficiale'
 					lastActualization='23.03.2025'
 					location={['Acasă', 'Despre GAL', 'Documente Oficiale']}
-					imageSrc='/donation_image.png'
+					imageSrc='/official_docs_img.png'
 					imageAlt='Test'
 				/>
 				<section className='w-screen h-fit flex flex-col'>

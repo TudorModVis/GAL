@@ -102,9 +102,10 @@ const LastNews = () => {
 					</div>
 				</div>
 
-				<div className='col-span-full overflow-hidden'>
+				<div className='col-span-full overflow-hidden -mx-4'>
 					<Slider
 						ref={sliderRef}
+						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
 						{newsPages.map((page, pageIndex) => (

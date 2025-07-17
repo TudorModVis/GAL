@@ -12,6 +12,7 @@ import AnimatedText from './AnimatedText'
 import BigPost from './BigPost'
 import ColumnIcon from './ColumnIcon'
 import GridIcon from './GridIcon'
+import PostSkeleton from './PostSkeleton'
 import SmallPost from './SmallPost'
 import { blogService } from '@/services/blog.service'
 
@@ -39,8 +40,7 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	useEffect(() => {
 		setParams({
 			page: 1,
-			limit: 11,
-			content_type: props.type as BlogsContentTypeEnum
+			limit: 11
 		})
 	}, [])
 
@@ -87,7 +87,7 @@ const Visualization: React.FC<VisualisationProps> = props => {
 				</div>
 			</div>
 			{isLoading ? (
-				<div className='w-full grid place-content-center'>Se încarcă...</div>
+				<PostSkeleton />
 			) : data ? (
 				<motion.div className='col-span-full grid grid-cols-12 gap-6'>
 					<AnimatePresence mode='wait'>

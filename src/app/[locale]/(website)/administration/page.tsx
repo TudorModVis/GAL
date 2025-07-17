@@ -34,7 +34,7 @@ export default async function AboutUsPage({ params }: { params: Promise<{ locale
 					headerText='Conducerea GAL-ului'
 					lastActualization='23.03.2025'
 					location={['Acasă', 'Despre GAL', 'Conducerea GAL-ului']}
-					imageSrc='/donation_image.png'
+					imageSrc='/management_img.png'
 					imageAlt='Test'
 				/>
 				<section className='w-screen h-fit flex flex-col'>
