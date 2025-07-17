@@ -207,9 +207,56 @@
 		"save_blog": "Сохранить статью",
 		"cancel": "Отменить",
 
+		"data_load_failed": "Не удалось загрузить данные. Пожалуйста, попробуйте еще раз.",
+
 		"ToastMessages": {
-			"loginError": "Неправильное имя пользователя или пароль.",
-			"loginSuccess": "Вход выполнен успешно."
+			"loginError": "Неверное имя пользователя или пароль.",
+			"loginSuccess": "Вход выполнен успешно.",
+			"failed_to_read_image": "Не удалось отобразить изображение.",
+			"failed_to_upload_image": "Ошибка при загрузке изображения. Пожалуйста, попробуйте еще раз.",
+			"article_created": "Статья успешно создана.",
+			"article_creation_failed": "Произошла ошибка при создании статьи.",
+			"article_updated": "Статья успешно обновлена.",
+			"article_update_failed": "Произошла ошибка при обновлении статьи.",
+			"article_deleted": "Статья успешно удалена.",
+			"article_deletion_failed": "Произошла ошибка при удалении статьи.",
+			"images_deleted": "Изображения успешно удалены.",
+			"images_deletion_failed": "Произошла ошибка при удалении изображений.",
+			"image_prepared": "Изображение подготовлено к загрузке.",
+			"image_preparation_failed": "Ошибка при подготовке изображения к загрузке.",
+
+			"file_input_error": "Произошла ошибка при загрузке файла.",
+			"files_deleted": "Файлы успешно удалены.",
+			"files_deletion_failed": "Произошла ошибка при удалении файлов.",
+			"file_prepared": "Файл подготовлен к загрузке.",
+			"file_preparation_failed": "Ошибка при подготовке файла к загрузке.",
+
+			"documents_updated": "Документы успешно обновлены.",
+			"documents_update_failed": "Произошла ошибка при обновлении документов.",
+
+			"management_updated": "Информация о руководстве успешно обновлена.",
+			"management_update_failed": "Произошла ошибка при обновлении информации о руководстве.",
+
+			"statistics_updated": "Статистика успешно обновлена.",
+			"statistics_update_failed": "Произошла ошибка при обновлении статистики.",
+
+			"uploading_slice_1": "Загрузка",
+			"uploading_slice_2": "из",
+			"uploading_slice_3": "изображений...",
+			"uploading_failed": "Ошибка при загрузке изображений.",
+			"uploading_success": "Изображения успешно загружены.",
+			"image_format_error_slice_1": "Формат изображения не поддерживается.",
+			"image_format_error_slice_2": "Выберите допустимый формат",
+
+			"files_uploading_slice_1": "Загрузка",
+			"files_uploading_slice_2": "из",
+			"files_uploading_slice_3": "файлов...",
+			"files_uploading_failed": "Ошибка при загрузке файлов.",
+			"files_uploading_success": "Файлы успешно загружены.",
+			"files_image_format_error_slice_1": "Формат файла не поддерживается.",
+			"files_image_format_error_slice_2": "Выберите допустимый формат",
+
+			"please_fill_in_all_required_fields_correctly": "Ошибка в форме. Пожалуйста, заполните все поля правильно."
 		}
 	}
 }

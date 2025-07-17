@@ -1,8 +1,8 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FieldErrors, useForm } from 'react-hook-form'
 
 import { StatisticsForm } from '@/components/AdminComponents/StatisticsPageComponents/StatisticsForm/StatisticsForm'
 import { StatisticsNav } from '@/components/AdminComponents/StatisticsPageComponents/StatisticsNav'
@@ -14,6 +14,7 @@ import { useDeleteImages } from '@/hooks/blog/useDeleteImages'
 import { useUploadImages } from '@/hooks/blog/useUploadImages'
 import { useInitialStatisticsData } from '@/hooks/statistics/useInitialStatisticsData'
 import { useUpdateStatistics } from '@/hooks/statistics/useUpdateStatistics'
+import { toast } from 'sonner'
 
 export function PageContent() {
 	const locale = useLocale() as 'ro' | 'ru' | 'en'
@@ -31,45 +32,57 @@ export function PageContent() {
 		reValidateMode: 'onChange'
 	})
 
-	useInitialStatisticsData(reset)
+	const { isLoading } = useInitialStatisticsData(reset)
 
 	const onSubmit = (data: TypeStatisticsFormState) => {
-		if (imagesToUpload.length === 0 && imagesToDelete.length === 0) {
-			updateStatistics(data)
-			return
-		}
-
-		uploadImages(imagesToUpload, {
+		updateStatistics(data, {
 			onSuccess: () => {
-				if (imagesToDelete.length === 0) {
-					updateStatistics(data)
-					setImagesToUpload([])
-					return
+				if (imagesToUpload.length > 0) {
+					uploadImages(imagesToUpload, {
+						onSuccess: () => {
+							setImagesToUpload([])
+							if (imagesToDelete.length > 0) {
+								deleteImages(imagesToDelete, {
+									onSuccess: () => {
+										setImagesToDelete([])
+									}
+								})
+							}
+						}
+					})
+				} else if (imagesToDelete.length > 0) {
+					deleteImages(imagesToDelete, {
+						onSuccess: () => {
+							setImagesToDelete([])
+						}
+					})
 				}
-				deleteImages(imagesToDelete, {
-					onSuccess: () => {
-						updateStatistics(data)
-						setImagesToUpload([])
-					}
-				})
 			}
 		})
+	}
+
+	const t = useTranslations('Admin.ToastMessages')
+
+	const onInvalid = (errors: FieldErrors<TypeStatisticsFormState>) => {
+		if (Object.keys(errors).length > 0) {
+			toast.error(t('please_fill_in_all_required_fields_correctly'))
+		}
 	}
 
 	return (
 		<div className='flex justify-end w-full'>
 			<form
 				className='mt-[3rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit(onSubmit, onInvalid)}
 			>
 				<StatisticsNav
 					language={language}
 					setLanguage={setLanguage}
-					isPending={isDeletePending || isImagesUploadPending || isUpdatePending}
+					isPending={isDeletePending || isImagesUploadPending || isUpdatePending || isLoading}
 				/>
 
 				<StatisticsForm
-					isPending={isImagesUploadPending || isUpdatePending || isDeletePending}
+					isPending={isImagesUploadPending || isUpdatePending || isDeletePending || isLoading}
 					formState={formState}
 					control={control}
 					register={register}

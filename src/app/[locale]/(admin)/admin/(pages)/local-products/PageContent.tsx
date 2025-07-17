@@ -8,18 +8,20 @@ import { ThreeColIcon } from '@/components/AdminComponents/Icons/ThreeColIcon'
 import { TwoColIcon } from '@/components/AdminComponents/Icons/TwoColIcon'
 import { Pagination } from '@/components/AdminComponents/NewsGrid/NewsCard/Pagination'
 import { NewsGrid } from '@/components/AdminComponents/NewsGrid/NewsGrid'
-import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
+import { Button } from '@/components/AdminComponents/ui/Button'
+// import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
-import { blogService } from '@/services/blog.service'
-import { Link } from '@/i18n/navigation'
 import { ADMIN_PAGES } from '@/config/admin-pages.config'
+
+import { Link } from '@/i18n/navigation'
 import { Pathnames } from '@/i18n/routing'
-import { Button } from '@/components/AdminComponents/ui/Button'
+import { blogService } from '@/services/blog.service'
+import { SkeletonGrid } from '@/components/AdminComponents/NewsGrid/SkeletonGrid'
 
 export function PageContent() {
-	const [cols, setCols] = useState<2 | 3>(2)
+	const [cols, setCols] = useState<2 | 3>(3)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
 		limit: 11,
@@ -63,9 +65,13 @@ export function PageContent() {
 			</div>
 
 			{isLoading ? (
-				<div className='w-full h-[calc(100vh-15rem)] grid place-content-center'>
-					<Spinner />
-				</div>
+				// <div className='w-full h-[calc(100vh-15rem)] grid place-content-center'>
+				// 	<Spinner />
+				// </div>
+				<SkeletonGrid
+					colsNumber={cols}
+					numberOfSkeletons={params.limit}
+				/>
 			) : data ? (
 				data.data.blogs.length > 0 ? (
 					<>
@@ -83,9 +89,7 @@ export function PageContent() {
 					<div className='h-[calc(100vh-15rem)] grid place-content-center'>
 						<div className='text-center'>
 							<p className='text-green-700 text-[1.25rem] mb-2'>{t('no_blogs')}</p>
-							<p className='text-gray-600 text-[0.875rem]'>
-								{t('no_blogs_message')}
-							</p>
+							<p className='text-gray-600 text-[0.875rem]'>{t('no_blogs_message')}</p>
 							<Link href={ADMIN_PAGES.CREATE_BLOG as Pathnames}>
 								<Button
 									type='button'
@@ -99,7 +103,7 @@ export function PageContent() {
 				)
 			) : (
 				<div className='h-[calc(100vh-15rem)] grid place-content-center'>
-					<p className='text-green-700 text-[1.25rem] text-center'>Failed to load data</p>
+					<p className='text-green-700 text-[1.25rem] text-center'>{t('data_load_failed')}</p>
 				</div>
 			)}
 		</div>

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { UseFormReset } from "react-hook-form";
 
 export function useInitialStatisticsData(reset: UseFormReset<TypeStatisticsFormState>) {
-  const { data, isSuccess } = useQuery({
+  const { data, isSuccess, isLoading } = useQuery({
         queryKey: ['statistics'],
         queryFn: () => statisticsService.getStatistics()
     })
@@ -30,4 +30,6 @@ export function useInitialStatisticsData(reset: UseFormReset<TypeStatisticsFormS
                 })
             }
     }, [isSuccess, data, reset])
+
+    return { isLoading }
 }

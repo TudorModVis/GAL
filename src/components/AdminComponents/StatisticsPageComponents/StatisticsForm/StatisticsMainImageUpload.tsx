@@ -1,12 +1,14 @@
 import { Control } from 'react-hook-form'
 
-import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
+import { ImageToUpload } from '@/types/blog.types'
 
 import { ImageUpload } from '../../ui/ImageUpload/ImageUpload'
+import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
+import { TypeStatisticsFormState } from '@/types/statistics.types'
 
 interface IStatisticsMainImageProps {
     language: 'ro' | 'ru' | 'en'
-    control: Control<TypeBlogFormState>
+    control: Control<TypeStatisticsFormState>
     addImageToUpload: (image: ImageToUpload) => void
     addImageToDelete: (imageUrl: string) => void
     removeImageFromUpload: (uploadUrl: string) => void
@@ -23,7 +25,7 @@ export function StatisticsMainImageUpload({
         <>
             <div className='flex justify-between items-center mt-[3rem]'>
                 <label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-                    Image title
+                    {ADMIN_STATISTICS_TRANSLATE.mainImageInput[language].label}
                 </label>
             </div>
 

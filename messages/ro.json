@@ -206,6 +206,7 @@
 		"delete_blog": "Șterge articolul",
 		"save_blog": "Salvează articolul",
 		"cancel": "Anulează",
+		"data_load_failed" : "Nu s-au putut încărca datele. Te rog încearcă din nou.",
 
 		"ToastMessages": {
 			"loginError": "Numele de utilizator sau parola sunt incorecte.",
@@ -223,13 +224,38 @@
 			"image_prepared": "Imagine pregătită pentru încărcare.",
 			"image_preparation_failed": "Eroare la pregătirea imaginii pentru încărcare.",
 
+			"file_input_error": "A apărut o eroare la încărcarea fișierului.",
+			"files_deleted": "Fișierele au fost șterse cu succes.",
+			"files_deletion_failed": "A apărut o eroare la ștergerea fișierelor.",
+			"file_prepared": "Fișier pregătit pentru încărcare.",
+			"file_preparation_failed": "Eroare la pregătirea fișierului pentru încărcare.",
+
+			"documents_updated": "Documentele au fost actualizate cu succes.",
+			"documents_update_failed": "A apărut o eroare la actualizarea documentelor.",
+
+			"management_updated": "Informațiile de conducere au fost actualizate cu succes.",
+			"management_update_failed": "A apărut o eroare la actualizarea informațiilor de conducere.",
+
+			"statistics_updated": "Statistica a fost actualizată cu succes.",
+			"statistics_update_failed": "A apărut o eroare la actualizarea statisticicii.",
+
 			"uploading_slice_1": "Se încarcă",
 			"uploading_slice_2": "din",
 			"uploading_slice_3": "imagini...",
 			"uploading_failed": "Eroare la încărcarea imaginilor.",
 			"uploading_success": "Imaginile au fost încărcate cu succes.",
 			"image_format_error_slice_1": "Formatul imaginii nu este acceptat.",
-			"image_format_error_slice_2": "Selecteaza un format valid"
+			"image_format_error_slice_2": "Selecteaza un format valid",
+
+			"files_uploading_slice_1": "Se încarcă",
+			"files_uploading_slice_2": "din",
+			"files_uploading_slice_3": "fișiere...",
+			"files_uploading_failed": "Eroare la încărcarea fișierelor.",
+			"files_uploading_success": "Fișierele au fost încărcate cu succes.",
+			"files_image_format_error_slice_1": "Formatul fișierului nu este acceptat.",
+			"files_image_format_error_slice_2": "Selecteaza un format valid",
+
+			"please_fill_in_all_required_fields_correctly": "Eroare în formular. Completează toate câmpurile corect."
 		}
 	}
 }

@@ -16,6 +16,8 @@ import { useEffect } from 'react'
 import { Control, RegisterOptions, useController } from 'react-hook-form'
 
 import { TypeBlogFormState } from '@/types/blog.types'
+import { TypeDocumentsFormState } from '@/types/documents.types'
+import { TypeManagementFormState } from '@/types/management.types'
 import { TypeStatisticsFormState } from '@/types/statistics.types'
 
 import { Toolbar } from './Toolbar'
@@ -26,7 +28,11 @@ import './text-editor.styles.css'
 interface Props {
 	className?: string
 	name: string
-	control: Control<TypeBlogFormState | TypeStatisticsFormState>
+	control:
+		| Control<TypeBlogFormState>
+		| Control<TypeStatisticsFormState>
+		| Control<TypeManagementFormState>
+		| Control<TypeDocumentsFormState>
 	placeholder: string
 	rules?: RegisterOptions
 }
@@ -36,9 +42,8 @@ export function RichTextEditor({ className, name, control, placeholder, rules }:
 		field: { value, onChange },
 		fieldState
 	} = useController({
-		name: name as keyof TypeBlogFormState | keyof TypeStatisticsFormState,
-		control,
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		name: name as any,
+		control: control as Control<TypeBlogFormState | TypeStatisticsFormState | TypeManagementFormState | TypeDocumentsFormState>,
 		rules: rules as any,
 		defaultValue: ''
 	})
@@ -71,7 +76,7 @@ export function RichTextEditor({ className, name, control, placeholder, rules }:
 			attributes: {
 				class: cn(
 					'styled-scrollbar w-full h-full overflow-y-auto p-[1.5rem] text-green-700 text-[1rem] leading-[1.125rem] font-[400] focus:outline-none',
-					fieldState.error && 'error-state' // Add error-state class when there's an error
+					fieldState.error && 'error-state'
 				),
 				'data-placeholder': placeholder
 			}

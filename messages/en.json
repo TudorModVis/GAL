@@ -194,7 +194,7 @@
 		"visualization_type": "Visualization type",
 		"no_blogs": "No blogs found",
 		"no_blogs_message": "There are no blogs to display at the moment.",
-		"create_one" : "Create one",
+		"create_one": "Create one",
 		"save": "Save",
 
 		"create_new_blog": "Create new article",
@@ -203,9 +203,56 @@
 		"save_blog": "Save article",
 		"cancel": "Cancel",
 
+		"data_load_failed": "Failed to load data. Please try again.",
+
 		"ToastMessages": {
-			"loginError": "Username or password is incorrect.",
-			"loginSuccess": "Login successful."
+			"loginError": "Incorrect username or password.",
+			"loginSuccess": "Login successful.",
+			"failed_to_read_image": "Failed to display the image.",
+			"failed_to_upload_image": "Error uploading image. Please try again.",
+			"article_created": "Article created successfully.",
+			"article_creation_failed": "An error occurred while creating the article.",
+			"article_updated": "Article updated successfully.",
+			"article_update_failed": "An error occurred while updating the article.",
+			"article_deleted": "Article deleted successfully.",
+			"article_deletion_failed": "An error occurred while deleting the article.",
+			"images_deleted": "Images deleted successfully.",
+			"images_deletion_failed": "An error occurred while deleting images.",
+			"image_prepared": "Image prepared for upload.",
+			"image_preparation_failed": "Error preparing image for upload.",
+
+			"file_input_error": "An error occurred while uploading the file.",
+			"files_deleted": "Files deleted successfully.",
+			"files_deletion_failed": "An error occurred while deleting files.",
+			"file_prepared": "File prepared for upload.",
+			"file_preparation_failed": "Error preparing file for upload.",
+
+			"documents_updated": "Documents updated successfully.",
+			"documents_update_failed": "An error occurred while updating documents.",
+
+			"management_updated": "Management information updated successfully.",
+			"management_update_failed": "An error occurred while updating management information.",
+
+			"statistics_updated": "Statistics updated successfully.",
+			"statistics_update_failed": "An error occurred while updating statistics.",
+
+			"uploading_slice_1": "Uploading",
+			"uploading_slice_2": "of",
+			"uploading_slice_3": "images...",
+			"uploading_failed": "Error uploading images.",
+			"uploading_success": "Images uploaded successfully.",
+			"image_format_error_slice_1": "Image format not supported.",
+			"image_format_error_slice_2": "Select a valid format",
+
+			"files_uploading_slice_1": "Uploading",
+			"files_uploading_slice_2": "of",
+			"files_uploading_slice_3": "files...",
+			"files_uploading_failed": "Error uploading files.",
+			"files_uploading_success": "Files uploaded successfully.",
+			"files_image_format_error_slice_1": "File format not supported.",
+			"files_image_format_error_slice_2": "Select a valid format",
+
+			"please_fill_in_all_required_fields_correctly": "Form error. Please fill in all required fields correctly."
 		}
 	}
 }

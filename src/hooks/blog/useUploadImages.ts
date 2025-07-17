@@ -22,7 +22,7 @@ export function useUploadImages() {
 
 			toast.loading(` ${t('uploading_slice_1')} 0 ${t('uploading_slice_2')} ${totalCount} ${t('uploading_slice_3')}...`, {
 				id: 'upload-progress'
-			})
+			}) 
 
 			const uploadPromises = uploads.map(async ({ uploadUrl, file }) => {
 				try {

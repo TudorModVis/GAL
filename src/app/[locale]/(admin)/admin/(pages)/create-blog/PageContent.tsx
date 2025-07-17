@@ -1,19 +1,23 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FieldErrors, useForm } from 'react-hook-form'
 
 import { BlogForm } from '@/components/AdminComponents/BlogPageComponents/BlogForm/BlogForm'
 import { BlogPageNav } from '@/components/AdminComponents/BlogPageComponents/BlogPageNav'
 
 import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
-import { useUploadImages } from '@/hooks/blog/useUploadImages'
+
+import { ADMIN_PAGES } from '@/config/admin-pages.config'
+
 import { useCreateBlog } from '@/hooks/blog/useCreateBlog'
-import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
+import { useUploadImages } from '@/hooks/blog/useUploadImages'
+
 import { useRouter } from '@/i18n/navigation'
 import { Pathnames } from '@/i18n/routing'
-import { ADMIN_PAGES } from '@/config/admin-pages.config'
+import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
+import { toast } from 'sonner'
 
 export function PageContent() {
 	const router = useRouter()
@@ -27,29 +31,43 @@ export function PageContent() {
 	const { uploadImages, isImagesUploadPending } = useUploadImages()
 	const { createBlog, isCreatePending } = useCreateBlog()
 
-	const { register, handleSubmit, control, setValue, formState } =
-		useForm<TypeBlogFormState>({
-			mode: 'onSubmit',
-			reValidateMode: 'onChange'
-		})
+	const { register, handleSubmit, control, setValue, formState } = useForm<TypeBlogFormState>({
+		mode: 'onSubmit',
+		reValidateMode: 'onChange'
+	})
 
 	const onSubmit = (data: TypeBlogFormState) => {
 		const cleanedData = cleanBlogFormData(data)
-		uploadImages(imagesToUpload, {
-			onSuccess: () => {
-				createBlog(cleanedData, {
-					onSuccess: (data) => {
-						router.push(ADMIN_PAGES.getBlogEditPage(data.data._id) as Pathnames)
-					}
-				})
-				setImagesToUpload([])
+		createBlog(cleanedData, {
+			onSuccess: response => {
+				if (imagesToUpload.length > 0) {
+					uploadImages(imagesToUpload, {
+						onSuccess: () => {
+							setImagesToUpload([])
+							router.push(ADMIN_PAGES.getBlogEditPage(response.data._id) as Pathnames)
+						}
+					})
+				} else {
+					router.push(ADMIN_PAGES.getBlogEditPage(response.data._id) as Pathnames)
+				}
 			}
 		})
 	}
 
+	const t = useTranslations('Admin.ToastMessages')
+
+	const onInvalid = (errors: FieldErrors<TypeBlogFormState>) => {
+		if (Object.keys(errors).length > 0) {
+			toast.error(t('please_fill_in_all_required_fields_correctly'))
+		}
+	}
+
 	return (
 		<div className='flex justify-end w-full'>
-			<form className='mt-[1.5rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full' onSubmit={handleSubmit(onSubmit)}>
+			<form
+				className='mt-[1.5rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
+				onSubmit={handleSubmit(onSubmit, onInvalid)}
+			>
 				<BlogPageNav
 					isPending={isImagesUploadPending || isCreatePending}
 					language={language}

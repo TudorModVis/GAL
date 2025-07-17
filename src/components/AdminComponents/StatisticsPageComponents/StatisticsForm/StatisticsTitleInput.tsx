@@ -8,6 +8,7 @@ import { TypeStatisticsFormState } from '@/types/statistics.types'
 import { STATISTICS_FORM } from '@/config/statistics-form.config'
 
 import { InputField } from '../../ui/InputField'
+import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
 
 interface StatisticsTitleInputProps {
 	formState: FormState<TypeStatisticsFormState>
@@ -31,13 +32,14 @@ export function StatisticsTitleInput({ register, language, formState }: Statisti
 					className='font-bold cursor-text text-green-700 text-[1rem] leading-[1.125rem]'
 					htmlFor='title'
 				>
-					Field title
+					{ADMIN_STATISTICS_TRANSLATE.titleInput[language].label}
+					{hasError && <span className='text-error'> *</span>}
 				</label>
 			</div>
 			<InputField
 				key={`title-${language}`}
 				hasError={!!hasError}
-				placeholder='Placeholder'
+				placeholder={ADMIN_STATISTICS_TRANSLATE.titleInput[language].placeholder}
 				className={`bg-gray-300 mt-[0.5rem] font-bold placeholder:opacity-70`}
 				{...register(STATISTICS_FORM.getTitlePath(language), {
 					minLength: 1,

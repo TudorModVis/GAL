@@ -120,98 +120,105 @@ export const ADMIN_SIDEBAR_ITEMS: IAdminSidebarSubsection[] = [
 	}
 ]
 
-
 export const ADMIN_PAGE_HEADERS = {
-    newsPage: {
-        title: {
-            ro: "Noutăți",
-            en: "News",
-            ru: "Новости",
-        },
-        slug: ""
-    },
-    projectsPage: {
-        title: {
-            ro: "Proiecte",
-            en: "Projects",
-            ru: "Проекты",
-        },
-        slug: ""
-    },
-    administrationPage: {
-        title: {
-            ro: "Conducerea GAL",
-            en: "GAL Management",
-            ru: "Руководство GAL",
-        },
-        slug: ""
-    },
-    documentsPage: {
-        title: {
-            ro: "Documente Oficiale",
-            en: "Official Documents",
-            ru: "Документы",
-        },
-        slug: ""
-    },
-    localProductsPage: {
-        title: {
-            ro: "Produse Locale",
-            en: "Local Products",
-            ru: "Местные Продукты",
-        },
-        slug: ""
-    },
-    communityServicesPage: {
-        title: {
-            ro: "Servicii din Comunitate",
-            en: "Community Services",
-            ru: "Услуги сообщества",
-        },
-        slug: ""
-    },
-    touristAttractionsPage: {
-        title: {
-            ro: "Atracții Turistice",
-            en: "Tourist Attractions",
-            ru: "Достопримечательности",
-        },
-        slug: ""
-    },
-    peopleAndValuesPage: {
-        title: {
-            ro: "Oameni și Valori",
-            en: "People and Values",
-            ru: "Люди и Ценности",
-        },
-        slug: ""
-    },
+	newsPage: {
+		title: {
+			ro: 'Noutăți',
+			en: 'News',
+			ru: 'Новости'
+		},
+		slug: ''
+	},
+	projectsPage: {
+		title: {
+			ro: 'Proiecte',
+			en: 'Projects',
+			ru: 'Проекты'
+		},
+		slug: ''
+	},
+	administrationPage: {
+		title: {
+			ro: 'Despre GAL',
+			en: 'About GAL',
+			ru: 'O GAL'
+		},
+		slug: {
+			ro: 'Conducerea GAL',
+			en: 'GAL Management',
+			ru: 'Руководство GAL'
+		}
+	},
+	documentsPage: {
+		title: {
+			ro: 'Despre GAL',
+			en: 'About GAL',
+			ru: 'O GAL'
+		},
+		slug: {
+			ro: 'Documente Oficiale',
+			en: 'Official Documents',
+			ru: 'Документы'
+		}
+	},
+	localProductsPage: {
+		title: {
+			ro: 'Produse Locale',
+			en: 'Local Products',
+			ru: 'Местные Продукты'
+		},
+		slug: ''
+	},
+	communityServicesPage: {
+		title: {
+			ro: 'Servicii din Comunitate',
+			en: 'Community Services',
+			ru: 'Услуги сообщества'
+		},
+		slug: ''
+	},
+	touristAttractionsPage: {
+		title: {
+			ro: 'Atracții Turistice',
+			en: 'Tourist Attractions',
+			ru: 'Достопримечательности'
+		},
+		slug: ''
+	},
+	peopleAndValuesPage: {
+		title: {
+			ro: 'Oameni și Valori',
+			en: 'People and Values',
+			ru: 'Люди и Ценности'
+		},
+		slug: ''
+	},
 	createBlogPage: {
 		title: {
-			ro: "Creare Blog",
-			en: "Create Blog",
-			ru: "Создать Блог",
+			ro: 'Creare Blog',
+			en: 'Create Blog',
+			ru: 'Создать Блог'
 		},
-		slug: ""
+		slug: ''
 	},
 	editBlogPage: {
 		title: {
-			ro: "Editare Blog",
-			en: "Edit Blog",
-			ru: "Редактировать Блог",
+			ro: 'Editare Blog',
+			en: 'Edit Blog',
+			ru: 'Редактировать Блог'
 		},
-		slug: ""
+		slug: ''
 	},
 	statisticsPage: {
 		title: {
-			ro: "Despre GAL",
-			en: "About GAL",
-			ru: "O GAL",
+			ro: 'Despre GAL',
+			en: 'About GAL',
+			ru: 'O GAL'
 		},
 		slug: {
-			ro: "Statistica GAL",
-			en: "GAL Statistics",
-			ru: "Статистика GAL",
+			ro: 'Statistica GAL',
+			en: 'GAL Statistics',
+			ru: 'Статистика GAL'
 		}
 	}
 } as const
