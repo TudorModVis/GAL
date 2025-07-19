@@ -10,7 +10,6 @@ import { IMultiLangText } from '@/types/shared/text.types'
 
 import AnimatedHeader from './AnimatedHeader'
 import LinkWithArrow from './LinkWithArrow'
-import type { LinkProps } from '@/i18n/navigation'
 import { Link } from '@/i18n/navigation'
 
 const bgClasses = ['bg-forest-800', 'bg-forest-700', 'bg-forest-600']
@@ -46,9 +45,7 @@ const BigPost: React.FC<IBlogResponse> = props => {
 		return `${day}.${month}.${year}`
 	}
 
-	type Href = LinkProps['href']
-
-	const getPathname = (type: BlogsContentTypeEnum): Href => {
+	const getPathname = (type: BlogsContentTypeEnum) => {
 		switch (type) {
 			case 'NEWS':
 				return {
