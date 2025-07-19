@@ -104,6 +104,55 @@
 			"visualization_header": "Care este impactul?",
 			"visualization_text": "Grupul de Acțiune Locală „Stejarul Dacilor” este o asociație constituită în noiembrie 2023, care reunește 14 unități administrativ-teritoriale din raioanele Cimișlia și Căușeni, având scopul de a promova dezvoltarea rurală durabilă implementând Strategiei de Dezvoltare Locală 2023–2027."
 		},
+		"AuthenticLocal": {
+			"title": "Autentic Local General text",
+			"location": {
+				"0": "Acasă",
+				"1": "Autentic Local"
+			},
+			"visualization_header": "Descoperă bogăția comunităților noastre",
+			"visualization_text": "În spatele fiecărei localități din regiunea noastră se ascund povești, oameni, tradiții și inițiative care dau sens și valoare vieții de zi cu zi. Această secțiune este dedicată promovării resurselor locale autentice – de la produse realizate cu grijă în gospodării, la servicii oferite de mici antreprenori, locuri care merită vizitate și oameni care păstrează viu spiritul comunității."
+		},
+		"LocalProducts": {
+			"title": "Produse Locale Text",
+			"location": {
+				"0": "Acasă",
+				"1": "Autentic Local",
+				"2": "Produse Locale"
+			},
+			"visualization_header": "Bunuri autentice create local",
+			"visualization_text": "Aici găsești produse realizate cu grijă, pasiune și pricepere de către meșteșugarii, producătorii și antreprenorii din satele membre ale GAL „Stejarul Dacilor”. Fie că vorbim de obiecte lucrate manual, conserve tradiționale, produse artizanale sau articole de artă populară, fiecare bun spune o poveste locală, poartă o identitate și susține o economie rurală vie și durabilă. Promovăm ceea ce e autentic, de calitate, născut din tradiție și inovație locală."
+		},
+		"Services": {
+			"title": "Servicii Text",
+			"location": {
+				"0": "Acasă",
+				"1": "Autentic Local",
+				"2": "Servicii"
+			},
+			"visualization_header": "Ce oferă satele noastre: de la gust la experiență",
+			"visualization_text": "Dincolo de peisajele pitorești și ospitalitatea autentică, localitățile GAL ascund o rețea diversificată de servicii și activități care contribuie la calitatea vieții și dezvoltarea durabilă. Vă invităm să descoperiți exemple concrete de servicii locale – de la ateliere meșteșugărești și centre educaționale, până la agropensiuni, activități turistice, inițiative sociale sau mică producție artizanală."
+		},
+		"PeopleAndValues": {
+			"title": "Oameni și Valori text",
+			"location": {
+				"0": "Acasă",
+				"1": "Autentic Local",
+				"2": "Oameni și Valori"
+			},
+			"visualization_header": "Oameni care construiesc prin fapte viitorul comunității",
+			"visualization_text": "Aici prezentăm oameni care inspiră prin exemplul propriu. Fiecare dintre ei contribuie, prin munca și vocația sa, la dezvoltarea unei comunități vii, demne și conectate la valorile care ne unesc: solidaritate, respect față de tradiție și curajul de a schimba lucrurile în bine."
+		},
+		"TouristAttractions": {
+			"title": "Atracții Turistice text",
+			"location": {
+				"0": "Acasă",
+				"1": "Autentic Local",
+				"2": "Atracții Turistice"
+			},
+			"visualization_header": "Destinații locale, tradiții și istorie",
+			"visualization_text": "Această rubrică prezintă locurile și experiențele care definesc identitatea regiunii, de la atracții naturale și monumente de patrimoniu, până la festivaluri, gastronomie locală și inițiative turistice de familie. Turismul rural prinde viață prin oameni și locuri care păstrează viu spiritul autentic al satului."
+		},
 		"CompletedProjects": {
 			"completed_projects_header": "Proiecte realizate",
 			"see_more_projects": "Vezi mai multe proiecte"

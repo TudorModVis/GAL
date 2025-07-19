@@ -302,13 +302,13 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 									{/* Add your 4 "Authentic Local" links here */}
 									<li className='pb-2 pt-6'>
 										<Link
-											href='/localProducts'
+											href='/authentic-local/local-products'
 											className='w-full flex items-center justify-between'
 											onClick={() => setIsOpen(false)}
 										>
 											<span>{tNav('authentic_local.local_products')}</span>
 											<span
-												className={`size-7 ${pathname == '/localProducts' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+												className={`size-7 ${pathname == '/authentic-local/local-products' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 											>
 												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 											</span>
@@ -316,13 +316,13 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 									</li>
 									<li className='py-2'>
 										<Link
-											href='/communityServices'
+											href='/authentic-local/services'
 											className='w-full flex items-center justify-between'
 											onClick={() => setIsOpen(false)}
 										>
 											<span>{tNav('authentic_local.community_services')}</span>
 											<span
-												className={`size-7 ${pathname == '/communityServices' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+												className={`size-7 ${pathname == '/authentic-local/services' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 											>
 												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 											</span>
@@ -330,13 +330,13 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 									</li>
 									<li className='py-2'>
 										<Link
-											href='/touristAttractions'
+											href='/authentic-local/tourist-attractions'
 											className='w-full flex items-center justify-between'
 											onClick={() => setIsOpen(false)}
 										>
 											<span>{tNav('authentic_local.tourist_attractions')}</span>
 											<span
-												className={`size-7 ${pathname == '/touristAttractions' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+												className={`size-7 ${pathname == '/authentic-local/tourist-attractions' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 											>
 												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 											</span>
@@ -344,13 +344,13 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 									</li>
 									<li className='py-2'>
 										<Link
-											href='/peopleAndValues'
+											href='/authentic-local/people-and-values'
 											className='w-full flex items-center justify-between'
 											onClick={() => setIsOpen(false)}
 										>
 											<span>{tNav('authentic_local.people_and_values')}</span>
 											<span
-												className={`size-7 ${pathname == '/peopleAndValues' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
+												className={`size-7 ${pathname == '/authentic-local/people-and-values' ? 'bg-forest-800' : ''} flex items-center justify-center rounded-full`}
 											>
 												<Arrow arrowCustomStyle='fill-sand-50 size-3' />
 											</span>

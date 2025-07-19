@@ -10,6 +10,7 @@ import { IMultiLangText } from '@/types/shared/text.types'
 
 import AnimatedHeader from './AnimatedHeader'
 import LinkWithArrow from './LinkWithArrow'
+import type { LinkProps } from '@/i18n/navigation'
 import { Link } from '@/i18n/navigation'
 
 const bgClasses = ['bg-forest-800', 'bg-forest-700', 'bg-forest-600']
@@ -45,29 +46,54 @@ const BigPost: React.FC<IBlogResponse> = props => {
 		return `${day}.${month}.${year}`
 	}
 
-	const getPathname = (type: BlogsContentTypeEnum) => {
+	type Href = LinkProps['href']
+
+	const getPathname = (type: BlogsContentTypeEnum): Href => {
 		switch (type) {
 			case 'NEWS':
 				return {
-					// Pass the KEY from routing.ts
-					pathname: '/news/[news_id]' as const,
+					pathname: '/news/[news_id]',
 					params: { news_id: props._id }
-				}
+				} as const
+
 			case 'PROJECT':
 				return {
-					// Pass the KEY from routing.ts
-					pathname: '/projects/[projects_id]' as const,
+					pathname: '/projects/[projects_id]',
 					params: { projects_id: props._id }
-				}
+				} as const
+
 			case 'AUTHENTIC_LOCAL':
-				return {
-					// Pass the CORRECTED KEY from routing.ts
-					pathname: '/authentic-local/[authentic_local_id]' as const,
-					// Use the CORRECTED param name
-					params: { authentic_local_id: props._id }
+				switch (props.authentic_local_category) {
+					case 'LOCAL_PRODUCTS':
+						return {
+							pathname: '/authentic-local/local-products/[local_products_id]',
+							params: { local_products_id: props._id }
+						} as const
+
+					case 'SERVICES':
+						return {
+							pathname: '/authentic-local/services/[services_id]',
+							params: { services_id: props._id }
+						} as const
+
+					case 'TOURIST_ATTRACTIONS':
+						return {
+							pathname: '/authentic-local/tourist-attractions/[tourist_attractions_id]',
+							params: { tourist_attractions_id: props._id }
+						} as const
+
+					case 'PEOPLE_AND_VALUES':
+						return {
+							pathname: '/authentic-local/people-and-values/[people_and_values_id]',
+							params: { people_and_values_id: props._id }
+						} as const
+
+					default:
+						return '/authentic-local' as const
 				}
+
 			default:
-				return '/'
+				return '/' as const
 		}
 	}
 

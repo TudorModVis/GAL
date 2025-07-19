@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useState } from 'react'
 
-import { BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
+import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
 import AnimatedLine from './AnimatedLine'
 import AnimatedText from './AnimatedText'
@@ -20,6 +20,7 @@ interface VisualisationProps {
 	header: string
 	description: string
 	type: string
+	authenticType?: string
 }
 
 const itemVariants = {
@@ -34,13 +35,15 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
 		limit: 11,
-		content_type: props.type as BlogsContentTypeEnum
+		content_type: props.type as BlogsContentTypeEnum,
+		authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum
 	})
 
 	useEffect(() => {
 		setParams({
 			page: 1,
 			limit: 11,
+			authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum,
 			...(props.type !== 'NEWS' && {
 				content_type: props.type as BlogsContentTypeEnum
 			})
@@ -63,9 +66,9 @@ const Visualization: React.FC<VisualisationProps> = props => {
 			/>
 			<AnimatedText
 				text={props.description}
-				customStyles='col-span-4 col-start-4'
+				customStyles='col-span-4 col-start-4 mb-24'
 			/>
-			<div className='col-span-2 col-start-11 flex flex-col mb-24'>
+			<div className='col-span-2 col-start-11 flex flex-col'>
 				<AnimatedText
 					text={t('type')}
 					customStyles='text-right font-bold'

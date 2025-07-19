@@ -104,6 +104,55 @@
 			"visualization_header": "What is the impact?",
 			"visualization_text": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, aiming to promote sustainable rural development by implementing the 2023–2027 Local Development Strategy."
 		},
+		"AuthenticLocal": {
+			"title": "Authentic Local General Text",
+			"location": {
+				"0": "Home",
+				"1": "Authentic Local"
+			},
+			"visualization_header": "Discover the Richness of Our Communities",
+			"visualization_text": "Behind every locality in our region lie stories, people, traditions, and initiatives that give meaning and value to everyday life. This section is dedicated to promoting authentic local resources – from carefully crafted homemade products to services provided by small entrepreneurs, places worth visiting, and people who keep the spirit of the community alive."
+		},
+		"LocalProducts": {
+			"title": "Local Products Text",
+			"location": {
+				"0": "Home",
+				"1": "Authentic Local",
+				"2": "Local Products"
+			},
+			"visualization_header": "Authentic Locally Crafted Goods",
+			"visualization_text": "Here you’ll find products crafted with care, passion, and skill by artisans, producers, and entrepreneurs from the villages belonging to the LAG “Stejarul Dacilor.” Whether it’s handmade items, traditional preserves, artisanal products, or folk art pieces, each item tells a local story, carries an identity, and supports a vibrant and sustainable rural economy. We promote what is authentic, high‑quality, born from tradition and local innovation."
+		},
+		"Services": {
+			"title": "Text Services",
+			"location": {
+				"0": "Home",
+				"1": "Authentic Local",
+				"2": "Services"
+			},
+			"PeopleAndValues": {
+				"title": "People and Values text",
+				"location": {
+					"0": "Home",
+					"1": "Authentic Local",
+					"2": "People and Values"
+				},
+				"visualization_header": "People who build the community’s future through actions",
+				"visualization_text": "Here we showcase people who inspire by their own example. Each of them contributes, through their work and vocation, to the development of a vibrant, dignified community connected by the values that unite us: solidarity, respect for tradition, and the courage to make a positive change."
+			},
+			"visualization_header": "What our villages offer: from taste to experience",
+			"visualization_text": "Beyond the picturesque landscapes and authentic hospitality, the GAL localities hide a diversified network of services and activities that contribute to quality of life and sustainable development. We invite you to discover concrete examples of local services – from craft workshops and educational centers to agritourism guesthouses, tourist activities, social initiatives, or small-scale artisanal production."
+		},
+		"TouristAttractions": {
+			"title": "Tourist Attractions text",
+			"location": {
+				"0": "Home",
+				"1": "Authentic Local",
+				"2": "Tourist Attractions"
+			},
+			"visualization_header": "Local destinations, traditions, and history",
+			"visualization_text": "This section showcases the places and experiences that define the region’s identity, from natural attractions and heritage monuments to festivals, local cuisine, and family-run tourism initiatives. Rural tourism comes to life through the people and places that preserve the authentic spirit of the village."
+		},
 		"CompletedProjects": {
 			"completed_projects_header": "Completed Projects",
 			"see_more_projects": "See more projects"

@@ -171,7 +171,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 								<LinkWithArrow
 									onMouseEnter={() => setHoveredSubMenu('produse_locale')}
 									text={tNav('authentic_local.local_products')}
-									href='/localProducts'
+									href='/authentic-local/local-products'
 									arrowProps='group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3'
 									customStyle='w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5'
 								/>
@@ -179,7 +179,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 								<LinkWithArrow
 									onMouseEnter={() => setHoveredSubMenu('servicii_din_comunitate')}
 									text={tNav('authentic_local.community_services')}
-									href='/communityServices'
+									href='/authentic-local/services'
 									arrowProps='group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3'
 									customStyle='w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5'
 								/>
@@ -187,7 +187,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 								<LinkWithArrow
 									onMouseEnter={() => setHoveredSubMenu('atractii_turistice')}
 									text={tNav('authentic_local.tourist_attractions')}
-									href='/touristAttractions'
+									href='/authentic-local/tourist-attractions'
 									arrowProps='group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3'
 									customStyle='w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5'
 								/>
@@ -195,7 +195,7 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 								<LinkWithArrow
 									onMouseEnter={() => setHoveredSubMenu('oameni_si_valori')}
 									text={tNav('authentic_local.people_and_values')}
-									href='/peopleAndValues'
+									href='/authentic-local/people-and-values'
 									arrowProps='group-hover/link:rotate-0 group-hover/link:fill-sand-50 -rotate-45 fill-forest-900 w-3 h-3'
 									customStyle='w-full flex items-center justify-between [&>div]:rounded-full [&>div:nth-child(2)]:p-2 [&>div:nth-child(2)]:group-hover/link:bg-forest-700 [&>div:nth-child(1)]:px-2 [&>div:nth-child(1)]:py-2.5'
 								/>
@@ -204,9 +204,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 						<motion.div className='relative col-span-4 col-start-8 mb-6'>
 							{hoveredSubMenu === 'despre_noi' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/news_image.png'
+									alt='news image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
@@ -215,9 +215,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 							)}
 							{hoveredSubMenu === 'conducerea_gal' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/administration_image.png'
+									alt='administration image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
@@ -226,9 +226,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 							)}
 							{hoveredSubMenu === 'documente_oficiale' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/documents_image.png'
+									alt='documents image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
@@ -237,9 +237,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 							)}
 							{hoveredSubMenu === 'produse_locale' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/localProducts_image.png'
+									alt='Local Products image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
@@ -248,9 +248,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 							)}
 							{hoveredSubMenu === 'servicii_din_comunitate' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/services_image.png'
+									alt='Services Image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
@@ -259,9 +259,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 							)}
 							{hoveredSubMenu === 'atractii_turistice' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/touristAttractions_image.png'
+									alt='tourist attractions image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
@@ -270,9 +270,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 							)}
 							{hoveredSubMenu === 'oameni_si_valori' && (
 								<motion.img
-									src='/donation_image.png'
-									alt='image'
-									className='rounded-lg w-full h-full'
+									src='/peopleAndValue_image.png'
+									alt='People and Values Image'
+									className='rounded-lg w-full h-full object-cover'
 									variants={dropDownVariants}
 									initial='initial'
 									animate='hover'
