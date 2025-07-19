@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-import { IBlogResponse } from '@/types/blog.types'
+import { BlogsContentTypeEnum, IBlogResponse } from '@/types/blog.types'
 import { IMultiLangText } from '@/types/shared/text.types'
 
 import AnimatedHeader from './AnimatedHeader'
@@ -35,16 +35,62 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 		}
 	}
 
+	const getPathname = (type: BlogsContentTypeEnum) => {
+		switch (type) {
+			case 'NEWS':
+				return {
+					pathname: '/news/[news_id]',
+					params: { news_id: props._id }
+				} as const
+
+			case 'PROJECT':
+				return {
+					pathname: '/projects/[projects_id]',
+					params: { projects_id: props._id }
+				} as const
+
+			case 'AUTHENTIC_LOCAL':
+				switch (props.authentic_local_category) {
+					case 'LOCAL_PRODUCTS':
+						return {
+							pathname: '/authentic-local/local-products/[local_products_id]',
+							params: { local_products_id: props._id }
+						} as const
+
+					case 'SERVICES':
+						return {
+							pathname: '/authentic-local/services/[services_id]',
+							params: { services_id: props._id }
+						} as const
+
+					case 'TOURIST_ATTRACTIONS':
+						return {
+							pathname: '/authentic-local/tourist-attractions/[tourist_attractions_id]',
+							params: { tourist_attractions_id: props._id }
+						} as const
+
+					case 'PEOPLE_AND_VALUES':
+						return {
+							pathname: '/authentic-local/people-and-values/[people_and_values_id]',
+							params: { people_and_values_id: props._id }
+						} as const
+
+					default:
+						return '/authentic-local' as const
+				}
+
+			default:
+				return '/' as const
+		}
+	}
+
 	return (
 		<Link
 			onMouseDown={handleMouseDown}
 			onMouseMove={handleMouseMove}
 			onClick={handleClick}
 			draggable='false'
-			href={{
-				pathname: '/news/[news_id]',
-				params: { news_id: 'example-news' }
-			}}
+			href={getPathname(props.content_type)}
 			className='grid col-span-4 pointer select-none'
 		>
 			<div className='bg-sand-50 my-3 custom-shadow relative flex h-[483px] sm:h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group'>
