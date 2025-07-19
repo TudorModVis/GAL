@@ -17,17 +17,17 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 			{currentPage !== 1 && (
 				<Button
 					onClick={() => updatePage(currentPage - 1)}
-					className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'
+					className='px-[1rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[1rem] w-fit'
 				>
 					<Image
 						src='/admin_assets/arrow-right.svg'
 						alt='Previous Page'
 						width={24}
 						height={24}
-						className='cursor-pointer size-[1.5rem] rotate-180'
+						className='cursor-pointer size-[1rem] rotate-180'
 						draggable={false}
 					/>
-					<p className='text-white font-manrope text-[1rem] leading-[1.125rem]'>
+					<p className='text-white font-manrope font-[500] text-[1rem] leading-[1.125rem]'>
 						{t('previous_page')}
 					</p>
 				</Button>
@@ -39,7 +39,7 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 					return (
 						<Button
 							key={pageNum}
-							className={`p-0 h-[2.5rem] rounded-[1.25rem] flex items-center justify-center ${
+							className={`p-0 h-[2.5rem] text-[1rem] leading-[1.125rem] font-bold font-manrope rounded-[1.25rem] flex items-center justify-center ${
 								currentPage === pageNum
 									? 'bg-green-600 hover:bg-green-700 text-white w-[2.5rem]'
 									: 'bg-white text-green-700 w-fit hover:bg-transparent duration-0'
@@ -53,9 +53,9 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 
 				{pagination.totalPages > 3 && (
 					<>
-						<span className='text-green-700 w-fit text-center'>...</span>
+						<span className='text-green-700 w-fit text-[1rem] leading-[1.125rem] font-bold font-manrope text-center'>...</span>
 						<Button
-							className={`p-0 h-[2.5rem] rounded-[1.25rem] flex items-center justify-center ${
+							className={`p-0 h-[2.5rem] rounded-[1.25rem] text-[1rem] leading-[1.125rem] font-bold font-manrope flex items-center justify-center ${
 								currentPage === pagination.totalPages
 									? 'bg-green-600 hover:bg-green-700 text-white w-[2.5rem]'
 									: 'bg-white text-green-700 w-fit hover:bg-transparent duration-0'
@@ -71,18 +71,18 @@ export function Pagination({ pagination, updatePage, currentPage }: Props) {
 			{currentPage !== pagination.totalPages && (
 				<Button
 					onClick={() => updatePage(currentPage + 1)}
-					className='px-[1.5rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[0.5rem] w-fit'
+					className='px-[1rem] h-[2.5rem] bg-green-600 hover:bg-green-700  rounded-[1.25rem] flex items-center justify-center gap-[1rem] w-fit'
 				>
+					<p className='text-white font-manrope text-[1rem] font-[500] leading-[1.125rem]'>{t('next_page')}</p>
 					<Image
 						src='/admin_assets/arrow-right.svg'
 						alt='Previous Page'
-						width={24}
-						height={24}
-						className='cursor-pointer size-[1.5rem]'
+						width={16}
+						height={16}
+						className='cursor-pointer size-[1rem]'
 						onClick={() => updatePage(currentPage + 1)}
 						draggable={false}
 					/>
-					<p className='text-white font-manrope text-[1rem] leading-[1.125rem]'>{t('next_page')}</p>
 				</Button>
 			)}
 		</div>

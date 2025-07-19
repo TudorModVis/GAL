@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import debounce from 'lodash.debounce'
 import { useCallback, useState } from 'react'
 
-import { blogService } from '@/services/blog.service'
+import { searchService } from '@/services/search.service'
 
 export function useSearchDebounce() {
 	const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
@@ -14,14 +14,11 @@ export function useSearchDebounce() {
 		[]
 	)
 
-	const {data, isLoading, refetch, isError, isSuccess} = useQuery({
-		queryKey: ['blogs', 'search', debouncedSearchTerm],
-		queryFn: () =>
-			blogService.getAllBlogs({
-				q: debouncedSearchTerm
-			}),
+	const { data, isLoading, refetch, isError, isSuccess } = useQuery({
+		queryKey: ['search', debouncedSearchTerm],
+		queryFn: () => searchService.search(debouncedSearchTerm),
 		staleTime: 5 * 60 * 1000,
-		enabled: !!debouncedSearchTerm.trim()
+		// enabled: !!debouncedSearchTerm.trim()
 	})
 
 	const search = useCallback(
@@ -32,11 +29,11 @@ export function useSearchDebounce() {
 	)
 
 	return {
-        search,
-        data,
-        isLoading,
-        isError,
-        isSuccess,
-        refetch
-    }
+		search,
+		data,
+		isLoading,
+		isError,
+		isSuccess,
+		refetch
+	}
 }
