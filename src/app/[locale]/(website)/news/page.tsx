@@ -19,7 +19,7 @@ export default async function Projects({ params }: { params: Promise<{ locale: s
 	const t = await getTranslations('index.News')
 	const tCategories = await getTranslations('BlogCategories')
 
-	const tagKey = ['LOCAL_PRODUCTS']
+	const tagKey = ['PROJECTS', 'LOCAL_PRODUCTS', 'SERVICES', 'TOURIST_ATTRACTIONS', 'PEOPLE_AND_VALUES', 'CALLS', 'EVENTS', 'AGRICULTURE', 'TOURISM', 'ENTREPRENEURSHIP', 'YOUTH', 'CULTURE', 'PUBLIC', 'ECOLOGY', 'PARTNERSHIPS']
 	const tags: string[] = Array.isArray(tagKey)
 		? tagKey.map(k => tCategories(k))
 		: [tCategories(tagKey)]

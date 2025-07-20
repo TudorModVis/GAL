@@ -27,10 +27,10 @@ interface AuthenticHeaderProps {
 const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 	const actualization =
 		props.locale === 'ro'
-			? 'Ultima actualizare'
+			? 'Data publicării'
 			: props.locale === 'ru'
-				? 'Последнее обновление'
-				: 'Last updated'
+				? 'Дата публикации'
+				: 'Publication date'
 
 	return (
 		<section className='w-screen h-fit grid grid-cols-donation relative text-forest-900 align-content-start pt-24 mb-40'>

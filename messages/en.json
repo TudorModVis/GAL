@@ -153,6 +153,153 @@
 			"visualization_header": "Local destinations, traditions, and history",
 			"visualization_text": "This section showcases the places and experiences that define the region’s identity, from natural attractions and heritage monuments to festivals, local cuisine, and family-run tourism initiatives. Rural tourism comes to life through the people and places that preserve the authentic spirit of the village."
 		},
+		"Documents": {
+			"title": "Official Documents",
+			"location": {
+				"0": "Home",
+				"1": "About GAL",
+				"2": "Official Documents"
+			},
+			"regulations": "Regulations",
+			"regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and young people from refugee backgrounds through personalized guidance tailored to their unique needs.",
+			"regulation_btn": "Access Regulation",
+			"statute": "Statute",
+			"statute_text": "Statute: Association of the Local Action Group",
+			"statute_btn": "Access Statute",
+			"strategy": "Strategy",
+			"strategy_text1": "Local Development Strategy 2022–2028",
+			"strategy_text2": "Strategic Action Plan 2018 – 2022",
+			"strategy_btn": "Access Strategy",
+			"constitution_agreement": "Constitution Agreement",
+			"constitution_agreement_text": "The Constitution Agreement Document of the Local Action Group 'Stejarul Dacilor'",
+			"constitution_agreement_btn": "Access Constitution Agreement",
+			"annual_report": "Annual Reports",
+			"annual_report_text1": "Annual activity report on the implementation of the 2022–2028 local development strategy",
+			"annual_report_text2": "Activity report for the year 2019",
+			"annual_report_btn": "Access Report"
+		},
+		"Administration": {
+			"title": "LAG Management",
+			"location": {
+				"0": "Home",
+				"1": "About LAG",
+				"2": "LAG Management"
+			},
+
+			"president": {
+				"header": "President",
+				"detailsLabel": "Details",
+				"members": [
+					"Valeriu Guțu – mayor of Ciorești commune",
+					"Lilian Botnaru – mayor of Lozova commune",
+					"Rodica Butnaru – mayor of Milceușeni commune",
+					"Nicanor Ciochină – mayor of Boldurești commune",
+					"Vasile Tofan – mayor of Vorniceni village",
+					"Valentina Necula – head of PF \"Necula Valentina\"",
+					"Marina Dubac – founder of PF \"Lazariuc Marina Vladimir\"",
+					"Constantin Cataraga – founder of IE \"Cataraga Constantin\"",
+					"Aurelia Coda – SRL \"IVENTI\"",
+					"Grigore Stamati – chair of NGO \"Rădăcinile Ciuteștilor\"",
+					"Ilie Sicinava – chair of NGO \"Water Users Bălănești\""
+				]
+			},
+
+			"executiveBody": {
+				"header": "Executive Body",
+				"detailsLabel": "Details",
+				"members": [
+					"Valeriu Guțu – mayor of Ciorești commune",
+					"Lilian Botnaru – mayor of Lozova commune",
+					"Rodica Butnaru – mayor of Milceușeni commune",
+					"Nicanor Ciochină – mayor of Boldurești commune",
+					"Vasile Tofan – mayor of Vorniceni village",
+					"Valentina Necula – head of PF \"Necula Valentina\"",
+					"Marina Dubac – founder of PF \"Lazariuc Marina Vladimir\"",
+					"Constantin Cataraga – founder of IE \"Cataraga Constantin\"",
+					"Aurelia Coda – SRL \"IVENTI\"",
+					"Grigore Stamati – chair of NGO \"Rădăcinile Ciuteștilor\"",
+					"Ilie Sicinava – chair of NGO \"Water Users Bălănești\""
+				]
+			},
+
+			"generalAssembly": {
+				"header": "General Assembly",
+				"subheader": "Register of LAG Members",
+				"members": [
+					"1. <b>Valeriu Spînu –</b> Town Hall of Codreni commune, mayor, IDNO/IDNP: 1007601005903",
+					"2. <b>Anatolie Spînu –</b> Town Hall of Batîr village, mayor, IDNO/IDNP: 1007601005899",
+					"3. <b>Sergiu Pîrlog –</b> Town Hall of Ciuflești village, mayor, IDNO/IDNP: 1007601005198",
+					"4. <b>Svetlana Ciobanu –</b> Town Hall of Ecaterinovca commune, mayor, IDNO/IDNP: 1007601008845",
+					"5. <b>Iurie Faureanu –</b> Town Hall of Porumbrei commune, mayor, IDNO/IDNP: 1007601005925",
+					"6. <b>Vladimir Cucereavîi –</b> Town Hall of Taraclia village, mayor, IDNO/IDNP: 1007601003792",
+					"7. <b>Ion Cojocaru –</b> Town Hall of Sagaidac village, mayor, IDNO/IDNP: 1007601005660",
+					"8. <b>Tatiana Badan –</b> Town Hall of Selemet village, mayor, IDNO/IDNP: 1007601008801",
+					"9. <b>Marin Bumbu –</b> Town Hall of Satul Nou village, mayor, IDNO/IDNP: 1007601008926",
+					"10. <b>Alexandru Ghenciu –</b> Town Hall of Suric village, mayor, IDNO/IDNP: 1007601008694",
+					"11. <b>Alexandru Sturza –</b> Town Hall of Mihailovca village, mayor, IDNO/IDNP: 1007601008834",
+					"12. <b>Ion Lungu –</b> PF \"Lungu Ion Nicolae\" (Porumbrei), head, IDNO/IDNP: 34955440",
+					"13. <b>Galina Strogoțeanu –</b> PF \"Gaibu Serghei Fiodor\", employee, IDNO/IDNP: 34613445",
+					"14. <b>Ion Ghenciu –</b> PF \"Ghenciu Ion Tudor\", head, IDNO/IDNP: 34983448",
+					"15. <b>Vitalie Juganari –</b> PF \"Juganari Vitalie Ion\", head, IDNO/IDNP: 34829445",
+					"16. <b>Nadejda Cojocaru –</b> IE \"Cojocari Ion\", employee, IDNO/IDNP: 1003605150881",
+					"17. <b>Larisa Jaloba –</b> IE \"CRIZANTEMĂ‑JALOBA\", administrator, IDNO/IDNP: 1005605000980",
+					"18. <b>Tatiana Spînu –</b> IE \"Spînu Valeriu\", administrator, IDNO/IDNP: 1003605151224",
+					"19. <b>Andrei Munteanu –</b> SRL \"Alexpromun\", administrator, IDNO/IDNP: 1007605001877",
+					"20. <b>Cristina Grițcan –</b> SRL \"Alun Iacobaș\", merchandiser, IDNO/IDNP: 1014608001155",
+					"21. <b>Mircea Talmaci –</b> SRL \"Agrocimtal\", administrator, IDNO/IDNP: 1017605002462",
+					"22. <b>Nicolae Prodius –</b> SRL \"Rodinic‑Service\", administrator, IDNO/IDNP: 1004605006619",
+					"23. <b>Elena Sturza –</b> SRL \"UNIVECAS\", administrator, IDNO/IDNP: 1014605002520",
+					"24. <b>Oxana Țurcanu –</b> NGO \"Baștina\", administrator, IDNO/IDNP: 1020620007396",
+					"25. <b>Pelaghia Traci –</b> NGO \"Plai Natal\", member, IDNO/IDNP: 1017620004016",
+					"26. <b>Maria Onu –</b> NGO \"Pro Ecaterinovca\", administrator, IDNO/IDNP: 1021620000877",
+					"27. <b>Inga Botea –</b> NGO \"Renaștere\", accountant, IDNO/IDNP: 1020620008441",
+					"28. <b>Lilia Harati –</b> NGO \"Struguraș\", member, IDNO/IDNP: 1021620001427",
+					"29. <b>Victoria Melnic –</b> NGO \"Speranța Viitorului\", administrator, IDNO/IDNP: 1021620004026"
+				]
+			},
+
+			"boardOfDirectors": {
+				"header": "Board of Directors",
+				"subheader": "Register of Board Members",
+				"members": [
+					"1. <b>Tatiana Badan –</b> Town Hall of Selemet village, mayor",
+					"2. <b>Vladimir Cucereavîi –</b> Town Hall of Taraclia village, mayor",
+					"3. <b>Lilia Harati –</b> NGO \"Struguraș\", member",
+					"4. <b>Sergiu Pîrlog –</b> Town Hall of Ciuflești village, mayor",
+					"5. <b>Mircea Talmaci –</b> SRL \"Agrocimtal\", administrator"
+				]
+			},
+
+			"selectionCommittee": {
+				"header": "Selection Committee",
+				"subheader": "Register of Committee Members",
+				"members": [
+					"1. <b>Tatiana Badan –</b> Town Hall of Selemet village, mayor",
+					"2. <b>Efim Strogoteanu –</b> PF \"Gaibu Serghei Fiodor\", employee",
+					"3. <b>Inga Botea –</b> NGO \"Renaștere\", accountant",
+					"4. <b>Ion Ghenciu –</b> PF \"Ghenciu Ion Tudor\", head",
+					"5. <b>Valeriu Spînu –</b> Town Hall of Codreni commune, mayor",
+					"6. <b>Victoria Melnic –</b> NGO \"Speranța Viitorului\", administrator",
+					"7. <b>Nicolae Prodius –</b> SRL \"Rodinic‑Service\", administrator"
+				],
+				"substitutesHeader": "Substitutes",
+				"substitutes": [
+					"1. <b>Andrei Munteanu –</b> SRL \"Alexpromun\", administrator",
+					"2. <b>Iurie Faureanu –</b> Town Hall of Porumbrei commune, mayor",
+					"3. <b>Maria Onu –</b> NGO \"Pro Ecaterinovca\", administrator"
+				]
+			},
+
+			"auditCommission": {
+				"header": "Audit Commission",
+				"subheader": "Register of Commission Members",
+				"members": [
+					"1. <b>Svetlana Ciobanu –</b> Town Hall of Ecaterinovca commune",
+					"2. <b>Pelaghia Traci –</b> NGO \"Plai Natal\"",
+					"3. <b>Oxana Țurcanu –</b> NGO \"Baștina\""
+				]
+			}
+		},
 		"CompletedProjects": {
 			"completed_projects_header": "Completed Projects",
 			"see_more_projects": "See more projects"
@@ -205,25 +352,6 @@
 			"description2": "Transparency is essential. Access the statute, strategies, annual reports, and other key documents that define our direction and commitments towards the localities in the region.",
 			"management_button": "LAG Leadership",
 			"documents_button": "Official Documents"
-		},
-		"administration": {
-			"regulations": "Regulations",
-			"regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and young people from refugee backgrounds through personalized guidance tailored to their unique needs.",
-			"regulation_btn": "Access Regulation",
-			"statute": "Statute",
-			"statute_text": "Statute: Association of the Local Action Group",
-			"statute_btn": "Access Statute",
-			"strategy": "Strategy",
-			"strategy_text1": "Local Development Strategy 2022–2028",
-			"strategy_text2": "Strategic Action Plan 2018 – 2022",
-			"strategy_btn": "Access Strategy",
-			"constitution_agreement": "Constitution Agreement",
-			"constitution_agreement_text": "The Constitution Agreement Document of the Local Action Group 'Stejarul Dacilor'",
-			"constitution_agreement_btn": "Access Constitution Agreement",
-			"annual_report": "Annual Reports",
-			"annual_report_text1": "Annual activity report on the implementation of the 2022–2028 local development strategy",
-			"annual_report_text2": "Activity report for the year 2019",
-			"annual_report_btn": "Access Report"
 		}
 	},
 
@@ -242,7 +370,18 @@
 		"CULTURE": "Culture",
 		"PUBLIC": "Public",
 		"ECOLOGY": "Ecology",
-		"PARTNERSHIPS": "Partnerships"
+		"PARTNERSHIPS": "Partnerships",
+		"REGULATIONS": "Regulations",
+		"STATUTE": "Statute",
+		"STRATEGY": "Strategy",
+		"CONSTITUTION_AGREEMENT": "Constitution Agreement",
+		"ANNUAL_REPORT": "Annual Reports",
+		"PRESIDENT": "President",
+		"EXECUTIVE_BODY": "Executive Body",
+		"GENERAL_ASSEMBLY": "General Assembly",
+		"BOARD_OF_DIRECTORS": "Board of Directors",
+		"SELECTION_COMMITTEE": "Selection Committee",
+		"AUDIT_COMMISSION": "Audit Commission"
 	},
 	"Admin": {
 		"logout": "Logout",

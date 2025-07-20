@@ -28,7 +28,7 @@ const ParalaxImage: React.FC<ParalaxImageProps> = ({ source, altText }) => {
 
 	const isMobile = useIsMobile()
 
-	const y = useTransform(scrollYProgress, [0, 1], isMobile ? ['-15%', '15%'] : ['-20%', '20%'])
+	const y = useTransform(scrollYProgress, [0, 1], isMobile ? ['-15%', '15%'] : ['-10%', '10%'])
 
 	return (
 		<div

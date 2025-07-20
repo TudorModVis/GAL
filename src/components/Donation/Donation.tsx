@@ -40,6 +40,7 @@ const Donation = () => {
 					src='/donation_image.png'
 					alt='Donation Image'
 					className='object-cover'
+					quality={100}
 					fill={true}
 				/>
 			</div>

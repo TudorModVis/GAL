@@ -58,7 +58,7 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	const t = useTranslations('Visialization_type')
 
 	return (
-		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900 mt-40'>
+		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900'>
 			<AnimatedLine customStyles='col-span-full mb-2' />
 			<AnimatedText
 				text={props.header}
@@ -75,20 +75,20 @@ const Visualization: React.FC<VisualisationProps> = props => {
 				/>
 				<div className='flex justify-end gap-1 mt-2'>
 					<button
-						onClick={() => setVisualisationType(false)}
-						className={`size-10 transition duration-300 small-custom-shadow relative ${
-							visualisationType ? 'bg-stone-50' : 'bg-forest-800'
-						} rounded-full cursor-pointer flex justify-center items-center`}
-					>
-						<ColumnIcon color={visualisationType ? 'fill-forest-800' : 'fill-stone-50'} />
-					</button>
-					<button
 						onClick={() => setVisualisationType(true)}
 						className={`size-10 transition duration-300 small-custom-shadow relative ${
-							visualisationType ? 'bg-forest-800' : 'bg-stone-50'
+							!visualisationType ? 'bg-stone-50' : 'bg-forest-800'
 						} rounded-full cursor-pointer flex justify-center items-center`}
 					>
-						<GridIcon color={visualisationType ? 'fill-stone-50' : 'fill-forest-800'} />
+						<ColumnIcon color={!visualisationType ? 'fill-forest-800' : 'fill-stone-50'} />
+					</button>
+					<button
+						onClick={() => setVisualisationType(false)}
+						className={`size-10 transition duration-300 small-custom-shadow relative ${
+							!visualisationType ? 'bg-forest-800' : 'bg-stone-50'
+						} rounded-full cursor-pointer flex justify-center items-center`}
+					>
+						<GridIcon color={!visualisationType ? 'fill-stone-50' : 'fill-forest-800'} />
 					</button>
 				</div>
 			</div>

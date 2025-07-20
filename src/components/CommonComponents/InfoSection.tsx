@@ -27,15 +27,15 @@ interface InfoSectionProps {
 const InfoSection: React.FC<InfoSectionProps> = props => {
 	const actualization =
 		props.locale === 'ro'
-			? 'Ultima actualizare'
+			? 'Data publicării'
 			: props.locale === 'ru'
-				? 'Последнее обновление'
-				: 'Last updated'
+				? 'Дата публикации'
+				: 'Publication date'
 
 	return (
 		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900 align-content-start pt-24'>
 			<div className='col-span-9 flex flex-col mt-24'>
-				<div className='flex gap-2 text-sand-50 items-center'>
+				<div className='flex gap-2 text-sand-50 items-center flex-wrap'>
 					{props.tags.map((tag, index) => (
 						<span
 							key={index}

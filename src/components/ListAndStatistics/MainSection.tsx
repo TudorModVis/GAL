@@ -1,5 +1,6 @@
 'use client'
 
+import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import React from 'react'
@@ -13,6 +14,7 @@ import LinkWithArrow from '../CommonComponents/LinkWithArrow'
 
 import MapPlaceholder from './MapPlaceholder'
 import MiniSection from './MiniSection'
+import { statisticsService } from '@/services/statistics.service'
 
 const MainSection = () => {
 	const MapWithNoSSR = useMemo(
@@ -23,6 +25,13 @@ const MainSection = () => {
 			}),
 		[]
 	)
+
+	const { data } = useQuery({
+		queryKey: ['statistics'],
+		queryFn: () => statisticsService.getStatistics()
+	})
+
+	const statistics = data?.data
 
 	const tListAndStatistics = useTranslations('aboutUs.listAndStatistics')
 	return (
@@ -59,7 +68,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={29}
+								to={parseInt(statistics?.total_members ?? '0', 10)}
 							/>
 						</div>
 						<div className='sm:col-span-3 col-span-full'>
@@ -70,7 +79,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={12}
+								to={parseInt(statistics?.business_members ?? '0', 10)}
 							/>
 						</div>
 						<div className='sm:col-span-3 col-span-full'>
@@ -81,7 +90,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={11}
+								to={parseInt(statistics?.public_members ?? '0', 10)}
 							/>
 						</div>
 						<div className='sm:col-span-3 col-span-full sm:mb-0 mb-20'>
@@ -92,7 +101,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={6}
+								to={parseInt(statistics?.civic_members ?? '0', 10)}
 							/>
 						</div>
 					</div>
