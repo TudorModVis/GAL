@@ -66,7 +66,6 @@ const Documents = () => {
 			/>
 
 			<section className='w-screen h-fit flex flex-col'>
-				{/* Regulations */}
 				<div className='grid grid-cols-full relative w-full'>
 					<AnimatedLine customStyles='col-span-full mb-2' />
 					<AnimatedText
@@ -88,7 +87,6 @@ const Documents = () => {
 					</div>
 				</div>
 
-				{/* Statute */}
 				<div className='grid grid-cols-full relative w-full'>
 					<AnimatedLine customStyles='col-span-full mb-2' />
 					<AnimatedText
@@ -110,7 +108,6 @@ const Documents = () => {
 					</div>
 				</div>
 
-				{/* Strategy */}
 				<div className='grid grid-cols-full relative w-full'>
 					<AnimatedLine customStyles='col-span-full mb-2' />
 					<AnimatedText
@@ -145,7 +142,6 @@ const Documents = () => {
 					</div>
 				</div>
 
-				{/* Constitution Agreement */}
 				<div className='grid grid-cols-full relative w-full'>
 					<AnimatedLine customStyles='col-span-full mb-2' />
 					<AnimatedText
@@ -167,7 +163,6 @@ const Documents = () => {
 					</div>
 				</div>
 
-				{/* Annual Report */}
 				<div className='grid grid-cols-full relative w-full'>
 					<AnimatedLine customStyles='col-span-full mb-2' />
 					<AnimatedText

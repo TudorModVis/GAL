@@ -193,6 +193,10 @@
 		}
 	}
 
+	.shakeClass {
+		animation: shake 0.3s ease-in-out;
+	}
+
 	.scroll-bar-custom::-webkit-scrollbar-track {
 		background-color: #f1f1f1;
 	}
@@ -229,7 +233,6 @@
 		margin: 0 auto;
 		padding: 0 2rem;
 	}
-	
 
 	.leaflet-popup-content {
 		margin: 0 !important;

@@ -83,7 +83,7 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 						{props.tags.map((tag, index) => (
 							<span
 								key={index}
-								className='bg-forest-800 px-3 py-1 rounded-sm mr-2 mb-2 text-nowrap'
+								className='bg-forest-800 px-4 text-xs py-1 rounded-sm text-nowrap'
 							>
 								{tag}
 							</span>

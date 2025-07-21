@@ -39,7 +39,7 @@ const InfoSection: React.FC<InfoSectionProps> = props => {
 					{props.tags.map((tag, index) => (
 						<span
 							key={index}
-							className='bg-forest-800 px-3 py-1 rounded-sm mr-2 mb-2 text-nowrap'
+							className='bg-forest-800 px-4 py-1 rounded-sm mb-2 text-xs text-nowrap'
 						>
 							{tag}
 						</span>

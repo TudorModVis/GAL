@@ -1,38 +1,38 @@
 {
 	"index": {
 		"meta": {
-			"title": "GAL",
+			"title": "LAG",
 			"description": "Index page description"
 		},
 		"title": "Hello world!",
 		"about": "Go to the about page",
 		"heroTitle": {
-			"1": "Stejarul Dacilor Local Action Group",
+			"1": "Local Action Group Oak of the Dacians",
 			"2": "Support and Initiative for Rural Development"
 		},
 		"AboutUs": {
-			"impact_title": "Association Impact",
-			"impact_description": "The Local Action Group \"Stejarul Dacilor\" actively contributes to the development of rural communities in the Cimișlia-Căușeni districts by supporting local initiatives. Through the projects we support, we contribute to the economic, social, and cultural development of villages, the valorization of resources, and cooperation between communities. We aim for more prosperous villages, better connected and future-oriented – through active involvement, innovative ideas, and efficient use of resources for the benefit of the people.",
-			"button_learn_more": "Learn More",
-			"main_headline": "LAG “Stejarul Dacilor” is a local association from Cimișlia and Căușeni districts that supports sustainable rural development.",
-			"stat_projects_success": "Successfully implemented projects during the activity period.",
+			"impact_title": "Impact of the Association",
+			"impact_description": "The Local Action Group Oak of the Dacians actively contributes to the development of rural communities in the Cimișlia-Căușeni districts by supporting local initiatives. Through the projects we back, we contribute to the economic, social, and cultural development of villages, the valorization of resources, and cooperation between communities. We aim for more prosperous, well-connected, and forward-looking villages—through active involvement, innovative ideas, and the efficient use of resources for the benefit of the people.",
+			"button_learn_more": "Learn more",
+			"main_headline": "LAG “Oak of the Dacians” is a local association in the Cimișlia and Căușeni districts that supports sustainable rural development.",
+			"stat_projects_success": "Successfully carried out projects during the period of activity.",
 			"stat_years_activity": "Years of experience in rural development.",
-			"stat_total_population": "Total population within the territorial scope of the LAG.",
+			"stat_total_population": "Total population within the territorial composition of the LAG.",
 			"stat_total_members": "LAG members from the civic, public, and entrepreneurial sectors."
 		},
 		"Breaker": {
-			"motto": "Culture, tradition, and hospitality – all in one place, in projects created from the heart.",
-			"image_alt": "Local Action Group ”Stejarul Dacilor”"
+			"motto": "Culture, tradition, and hospitality—all in one place, in projects made with soul.",
+			"image_alt": "Local Action Group “Oak of the Dacians”"
 		},
 		"Donation": {
-			"cta_title": "Do you want to support us? Contact us!",
-			"donation_text1": "The desire to contribute to the common good is reflected in actions.",
-			"donation_text2": "If you are willing to support our initiatives — through donations, know-how, or institutional support — the LAG 'Stejarul Dacilor' team is open to dialogue and collaboration.",
+			"cta_title": "Would you like to support us? Contact us!",
+			"donation_text1": "The desire to contribute to the common good is reflected in deeds.",
+			"donation_text2": "If you are willing to support our initiatives—through donations, know-how, or institutional support—the LAG “Oak of the Dacians” team is open to dialogue and collaboration.",
 			"contact_button_text": "Contact us"
 		},
 		"Footer": {
 			"useful_information": {
-				"under_logo_text": "Together, we launch initiatives that bring value to our villages – from entrepreneurial ideas and educational projects to promoting local heritage and improving infrastructure.",
+				"under_logo_text": "Together we set in motion initiatives that bring value to our villages—from entrepreneurial ideas and educational projects to local heritage promotion and infrastructure improvement.",
 				"details_for_contact": "Contact details",
 				"navigation_links": "Navigation links",
 				"adress": "Address: 31 August 1989 Street, Selemet Village, Cimișlia District, Republic of Moldova",
@@ -42,7 +42,7 @@
 				"projects_link": "Projects",
 				"authentic_local": "Authentic Local",
 				"our_partners": "Our partners:",
-				"copyright": "© 2025 Local Action Group Stejarul Dacilor",
+				"copyright": "© 2025 Local Action Group Oak of the Dacians",
 				"terms_and_conditions": "Terms & Conditions"
 			},
 			"form_text": {
@@ -52,21 +52,22 @@
 				"collaboration_button": "Collaboration",
 				"different_topic_button": "Different topic",
 				"personal_data_header": "Personal data",
-				"name_placeholder": "Name",
-				"surname_placeholder": "Surname",
+				"name_placeholder": "First name",
+				"surname_placeholder": "Last name",
 				"telephone_placeholder": "Phone",
 				"message_header": "Message",
-				"message_placeholder": "Your message.",
+				"message_placeholder": "Your message",
 				"checkmark_label": "By submitting this form, you confirm that you agree to the processing of personal data.",
-				"contact_button_text": "Contact us"
+				"contact_button_text": "Contact us",
+				"loading": "Sending"
 			}
 		},
 		"NavBar": {
 			"home": "Home",
 			"about": {
-				"about_btn": "About GAL",
+				"about_btn": "About LAG",
 				"about_us": "About Us",
-				"management": "GAL Management",
+				"management": "LAG Leadership",
 				"documents": "Official Documents"
 			},
 			"news": "News",
@@ -87,13 +88,13 @@
 			"see_more_news": "See more news"
 		},
 		"News": {
-			"title": "Stay informed and follow our activities in the region and beyond.",
+			"title": "Stay informed and follow our activity on and beyond the territory.",
 			"location": {
 				"0": "Home",
 				"1": "News"
 			},
-			"visualization_header": "What is the impact?",
-			"visualization_text": "The Local Action Group “Stejarul Dacilor” is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, with the aim of promoting sustainable rural development by implementing the Local Development Strategy 2023–2027."
+			"visualization_header": "News about projects, events, carried out actions, and more",
+			"visualization_text": "Here we publish the most important news and updates from the activity of LAG “Oak of the Dacians”: open calls, local events, trainings, collaborations, civic initiatives, and promotion of successes in the territory. Stay informed and involved in everything that matters in our region!"
 		},
 		"Projects": {
 			"title": "Projects that turn ideas into reality and inspire an entire community.",
@@ -101,202 +102,196 @@
 				"0": "Home",
 				"1": "Projects"
 			},
-			"visualization_header": "What is the impact?",
-			"visualization_text": "The Local Action Group 'Stejarul Dacilor' is an association established in November 2023, bringing together 14 administrative-territorial units from the Cimișlia and Căușeni districts, aiming to promote sustainable rural development by implementing the 2023–2027 Local Development Strategy."
+			"visualization_header": "Initiatives that bring change to rural communities",
+			"visualization_text": "Each project contributes to a more sustainable, equitable, and active rural environment. Projects supported by the LAG respond concretely to local needs: modernization of public institutions, support for entrepreneurs, environmental protection, cultural activities, and youth engagement."
 		},
 		"AuthenticLocal": {
-			"title": "Authentic Local General Text",
+			"title": "Discover the authenticity of the region through local products, attractions, people, and community services.",
 			"location": {
 				"0": "Home",
 				"1": "Authentic Local"
 			},
-			"visualization_header": "Discover the Richness of Our Communities",
-			"visualization_text": "Behind every locality in our region lie stories, people, traditions, and initiatives that give meaning and value to everyday life. This section is dedicated to promoting authentic local resources – from carefully crafted homemade products to services provided by small entrepreneurs, places worth visiting, and people who keep the spirit of the community alive."
+			"visualization_header": "Discover the richness of our communities",
+			"visualization_text": "Behind each village in our region lie stories, people, traditions, and initiatives that give meaning and value to everyday life. This section is dedicated to promoting authentic local resources—from carefully crafted household products to services offered by small entrepreneurs, must-see places, and people who keep the community spirit alive."
 		},
 		"LocalProducts": {
-			"title": "Local Products Text",
+			"title": "Discover local products with history, taste, and soul from our region.",
 			"location": {
 				"0": "Home",
 				"1": "Authentic Local",
 				"2": "Local Products"
 			},
-			"visualization_header": "Authentic Locally Crafted Goods",
-			"visualization_text": "Here you’ll find products crafted with care, passion, and skill by artisans, producers, and entrepreneurs from the villages belonging to the LAG “Stejarul Dacilor.” Whether it’s handmade items, traditional preserves, artisanal products, or folk art pieces, each item tells a local story, carries an identity, and supports a vibrant and sustainable rural economy. We promote what is authentic, high‑quality, born from tradition and local innovation."
+			"visualization_header": "Authentic goods created locally",
+			"visualization_text": "Here you will find products crafted with care, passion, and skill by artisans, producers, and entrepreneurs from the villages that are members of LAG “Oak of the Dacians.” Whether handcrafted items, traditional preserves, artisanal products, or folk art pieces, each good tells a local story, carries identity, and supports a vibrant and sustainable rural economy. We promote what is authentic, high-quality, born from local tradition and innovation."
 		},
 		"Services": {
-			"title": "Text Services",
+			"title": "Local resources and services that support regional development.",
 			"location": {
 				"0": "Home",
 				"1": "Authentic Local",
 				"2": "Services"
 			},
-			"PeopleAndValues": {
-				"title": "People and Values text",
-				"location": {
-					"0": "Home",
-					"1": "Authentic Local",
-					"2": "People and Values"
-				},
-				"visualization_header": "People who build the community’s future through actions",
-				"visualization_text": "Here we showcase people who inspire by their own example. Each of them contributes, through their work and vocation, to the development of a vibrant, dignified community connected by the values that unite us: solidarity, respect for tradition, and the courage to make a positive change."
-			},
 			"visualization_header": "What our villages offer: from taste to experience",
-			"visualization_text": "Beyond the picturesque landscapes and authentic hospitality, the GAL localities hide a diversified network of services and activities that contribute to quality of life and sustainable development. We invite you to discover concrete examples of local services – from craft workshops and educational centers to agritourism guesthouses, tourist activities, social initiatives, or small-scale artisanal production."
+			"visualization_text": "Beyond picturesque landscapes and authentic hospitality, LAG localities hide a diverse network of services and activities that contribute to quality of life and sustainable development. We invite you to discover concrete examples of local services—from craft workshops and educational centers to agro-guesthouses, tourist activities, social initiatives, or small-scale artisanal production."
+		},
+		"PeopleAndValues": {
+			"title": "People who inspire through deeds, values, and local involvement.",
+			"location": {
+				"0": "Home",
+				"1": "Authentic Local",
+				"2": "People and Values"
+			},
+			"visualization_header": "People who build the future of the community through actions",
+			"visualization_text": "Here we present people who inspire by example. Each of them contributes, through their work and vocation, to the development of a living, dignified community connected to the values that unite us: solidarity, respect for tradition, and the courage to make positive changes."
 		},
 		"TouristAttractions": {
-			"title": "Tourist Attractions text",
+			"title": "Discover the representative places of the region—tradition, nature, and heritage.",
 			"location": {
 				"0": "Home",
 				"1": "Authentic Local",
 				"2": "Tourist Attractions"
 			},
 			"visualization_header": "Local destinations, traditions, and history",
-			"visualization_text": "This section showcases the places and experiences that define the region’s identity, from natural attractions and heritage monuments to festivals, local cuisine, and family-run tourism initiatives. Rural tourism comes to life through the people and places that preserve the authentic spirit of the village."
+			"visualization_text": "This section presents the places and experiences that define the identity of the region, from natural attractions and heritage monuments to festivals, local cuisine, and family-run tourist initiatives. Rural tourism comes to life through the people and places that keep the authentic village spirit alive."
 		},
 		"Documents": {
 			"title": "Official Documents",
 			"location": {
 				"0": "Home",
-				"1": "About GAL",
+				"1": "About LAG",
 				"2": "Official Documents"
 			},
 			"regulations": "Regulations",
-			"regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and young people from refugee backgrounds through personalized guidance tailored to their unique needs.",
-			"regulation_btn": "Access Regulation",
+			"regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and youth from refugee backgrounds through individualized guidance tailored to their unique needs.",
+			"regulation_btn": "View Regulations",
 			"statute": "Statute",
-			"statute_text": "Statute: Association of the Local Action Group",
-			"statute_btn": "Access Statute",
+			"statute_text": "Statute: Local Action Group Association",
+			"statute_btn": "View Statute",
 			"strategy": "Strategy",
 			"strategy_text1": "Local Development Strategy 2022–2028",
-			"strategy_text2": "Strategic Action Plan 2018 – 2022",
-			"strategy_btn": "Access Strategy",
+			"strategy_text2": "Strategic Action Plan 2018–2022",
+			"strategy_btn": "View Strategy",
 			"constitution_agreement": "Constitution Agreement",
-			"constitution_agreement_text": "The Constitution Agreement Document of the Local Action Group 'Stejarul Dacilor'",
-			"constitution_agreement_btn": "Access Constitution Agreement",
+			"constitution_agreement_text": "Constitution Agreement Document of the Local Action Group “Oak of the Dacians”",
+			"constitution_agreement_btn": "View Agreement",
 			"annual_report": "Annual Reports",
-			"annual_report_text1": "Annual activity report on the implementation of the 2022–2028 local development strategy",
-			"annual_report_text2": "Activity report for the year 2019",
-			"annual_report_btn": "Access Report"
+			"annual_report_text1": "Annual activity report on the implementation of the local development strategy 2022-2028",
+			"annual_report_text2": "2019 activity report",
+			"annual_report_btn": "View Report"
 		},
 		"Administration": {
-			"title": "LAG Management",
+			"title": "LAG Leadership",
 			"location": {
 				"0": "Home",
 				"1": "About LAG",
-				"2": "LAG Management"
+				"2": "LAG Leadership"
 			},
-
 			"president": {
 				"header": "President",
 				"detailsLabel": "Details",
 				"members": [
-					"Valeriu Guțu – mayor of Ciorești commune",
-					"Lilian Botnaru – mayor of Lozova commune",
-					"Rodica Butnaru – mayor of Milceușeni commune",
-					"Nicanor Ciochină – mayor of Boldurești commune",
-					"Vasile Tofan – mayor of Vorniceni village",
-					"Valentina Necula – head of PF \"Necula Valentina\"",
-					"Marina Dubac – founder of PF \"Lazariuc Marina Vladimir\"",
-					"Constantin Cataraga – founder of IE \"Cataraga Constantin\"",
-					"Aurelia Coda – SRL \"IVENTI\"",
-					"Grigore Stamati – chair of NGO \"Rădăcinile Ciuteștilor\"",
-					"Ilie Sicinava – chair of NGO \"Water Users Bălănești\""
+					"Valeriu Guțu, Mayor of Ciorăști Village",
+					"Lilian Botnaru, Mayor of Lozova Village",
+					"Rodica Butnaru, Mayor of Mîlcești Village",
+					"Nicanor Ciochină, Mayor of Boldurești Village",
+					"Vasile Tofan, Mayor of Vorniceni Village",
+					"Necula Valentina, Head of GT Necula Valentina",
+					"Dubac Marina, Founder of GT Lazariuc Marina Vladimir",
+					"Cataraga Constantin, Founder of II Cataraga Constantin",
+					"Coda Aurelia, SRL IVENTI",
+					"Stamati Grigore, President of AO Roots of Ciutești",
+					"Ilie Sicinava, President of Water Users Association Bălănești"
 				]
 			},
-
 			"executiveBody": {
 				"header": "Executive Body",
 				"detailsLabel": "Details",
 				"members": [
-					"Valeriu Guțu – mayor of Ciorești commune",
-					"Lilian Botnaru – mayor of Lozova commune",
-					"Rodica Butnaru – mayor of Milceușeni commune",
-					"Nicanor Ciochină – mayor of Boldurești commune",
-					"Vasile Tofan – mayor of Vorniceni village",
-					"Valentina Necula – head of PF \"Necula Valentina\"",
-					"Marina Dubac – founder of PF \"Lazariuc Marina Vladimir\"",
-					"Constantin Cataraga – founder of IE \"Cataraga Constantin\"",
-					"Aurelia Coda – SRL \"IVENTI\"",
-					"Grigore Stamati – chair of NGO \"Rădăcinile Ciuteștilor\"",
-					"Ilie Sicinava – chair of NGO \"Water Users Bălănești\""
+					"Valeriu Guțu, Mayor of Ciorăști Village",
+					"Lilian Botnaru, Mayor of Lozova Village",
+					"Rodica Butnaru, Mayor of Mîlcești Village",
+					"Nicanor Ciochină, Mayor of Boldurești Village",
+					"Vasile Tofan, Mayor of Vorniceni Village",
+					"Necula Valentina, Head of GT Necula Valentina",
+					"Dubac Marina, Founder of GT Lazariuc Marina Vladimir",
+					"Cataraga Constantin, Founder of II Cataraga Constantin",
+					"Coda Aurelia, SRL IVENTI",
+					"Stamati Grigore, President of AO Roots of Ciutești",
+					"Ilie Sicinava, President of Water Users Association Bălănești"
 				]
 			},
-
 			"generalAssembly": {
 				"header": "General Assembly",
-				"subheader": "Register of LAG Members",
+				"subheader": "Registry of LAG Members",
 				"members": [
-					"1. <b>Valeriu Spînu –</b> Town Hall of Codreni commune, mayor, IDNO/IDNP: 1007601005903",
-					"2. <b>Anatolie Spînu –</b> Town Hall of Batîr village, mayor, IDNO/IDNP: 1007601005899",
-					"3. <b>Sergiu Pîrlog –</b> Town Hall of Ciuflești village, mayor, IDNO/IDNP: 1007601005198",
-					"4. <b>Svetlana Ciobanu –</b> Town Hall of Ecaterinovca commune, mayor, IDNO/IDNP: 1007601008845",
-					"5. <b>Iurie Faureanu –</b> Town Hall of Porumbrei commune, mayor, IDNO/IDNP: 1007601005925",
-					"6. <b>Vladimir Cucereavîi –</b> Town Hall of Taraclia village, mayor, IDNO/IDNP: 1007601003792",
-					"7. <b>Ion Cojocaru –</b> Town Hall of Sagaidac village, mayor, IDNO/IDNP: 1007601005660",
-					"8. <b>Tatiana Badan –</b> Town Hall of Selemet village, mayor, IDNO/IDNP: 1007601008801",
-					"9. <b>Marin Bumbu –</b> Town Hall of Satul Nou village, mayor, IDNO/IDNP: 1007601008926",
-					"10. <b>Alexandru Ghenciu –</b> Town Hall of Suric village, mayor, IDNO/IDNP: 1007601008694",
-					"11. <b>Alexandru Sturza –</b> Town Hall of Mihailovca village, mayor, IDNO/IDNP: 1007601008834",
-					"12. <b>Ion Lungu –</b> PF \"Lungu Ion Nicolae\" (Porumbrei), head, IDNO/IDNP: 34955440",
-					"13. <b>Galina Strogoțeanu –</b> PF \"Gaibu Serghei Fiodor\", employee, IDNO/IDNP: 34613445",
-					"14. <b>Ion Ghenciu –</b> PF \"Ghenciu Ion Tudor\", head, IDNO/IDNP: 34983448",
-					"15. <b>Vitalie Juganari –</b> PF \"Juganari Vitalie Ion\", head, IDNO/IDNP: 34829445",
-					"16. <b>Nadejda Cojocaru –</b> IE \"Cojocari Ion\", employee, IDNO/IDNP: 1003605150881",
-					"17. <b>Larisa Jaloba –</b> IE \"CRIZANTEMĂ‑JALOBA\", administrator, IDNO/IDNP: 1005605000980",
-					"18. <b>Tatiana Spînu –</b> IE \"Spînu Valeriu\", administrator, IDNO/IDNP: 1003605151224",
-					"19. <b>Andrei Munteanu –</b> SRL \"Alexpromun\", administrator, IDNO/IDNP: 1007605001877",
-					"20. <b>Cristina Grițcan –</b> SRL \"Alun Iacobaș\", merchandiser, IDNO/IDNP: 1014608001155",
-					"21. <b>Mircea Talmaci –</b> SRL \"Agrocimtal\", administrator, IDNO/IDNP: 1017605002462",
-					"22. <b>Nicolae Prodius –</b> SRL \"Rodinic‑Service\", administrator, IDNO/IDNP: 1004605006619",
-					"23. <b>Elena Sturza –</b> SRL \"UNIVECAS\", administrator, IDNO/IDNP: 1014605002520",
-					"24. <b>Oxana Țurcanu –</b> NGO \"Baștina\", administrator, IDNO/IDNP: 1020620007396",
-					"25. <b>Pelaghia Traci –</b> NGO \"Plai Natal\", member, IDNO/IDNP: 1017620004016",
-					"26. <b>Maria Onu –</b> NGO \"Pro Ecaterinovca\", administrator, IDNO/IDNP: 1021620000877",
-					"27. <b>Inga Botea –</b> NGO \"Renaștere\", accountant, IDNO/IDNP: 1020620008441",
-					"28. <b>Lilia Harati –</b> NGO \"Struguraș\", member, IDNO/IDNP: 1021620001427",
-					"29. <b>Victoria Melnic –</b> NGO \"Speranța Viitorului\", administrator, IDNO/IDNP: 1021620004026"
+					"1. <b>Valeriu Spînu,</b> Codreni Commune Hall, mayor, IDNO/IDNP: 1007601005903",
+					"2. <b>Anatolie Spînu,</b> Batîr Village Hall, mayor, IDNO/IDNP: 1007601005899",
+					"3. <b>Sergiu Pîrlog,</b> Ciuflești Village Hall, mayor, IDNO/IDNP: 1007601005198",
+					"4. <b>Svetlana Ciobanu,</b> Ecaterinovca Commune Hall, mayor, IDNO/IDNP: 1007601008845",
+					"5. <b>Iurie Faureanu,</b> Porumbrei Commune Hall, mayor, IDNO/IDNP: 1007601005925",
+					"6. <b>Vladimir Cucereavîi,</b> Taraclia Village Hall, mayor, IDNO/IDNP: 1007601003792",
+					"7. <b>Ion Cojocaru,</b> Sagaidac Village Hall, mayor, IDNO/IDNP: 1007601005660",
+					"8. <b>Tatiana Badan,</b> Selemet Village Hall, mayor, IDNO/IDNP: 1007601008801",
+					"9. <b>Marin Bumbu,</b> Satul Nou Village Hall, mayor, IDNO/IDNP: 1007601008926",
+					"10. <b>Alexandru Ghenciu,</b> Suric Village Hall, mayor, IDNO/IDNP: 1007601008694",
+					"11. <b>Alexandru Sturza,</b> Mihailovca Village Hall, mayor, IDNO/IDNP: 1007601008834",
+					"12. <b>Ion Lungu,</b> GT “Ion Nicolae Lungu” Porumbrei, head, IDNO/IDNP: 34955440",
+					"13. <b>Galina Strogoțeanu,</b> GT “Serghhei Fiodor Gaibu”, employee, IDNO/IDNP: 34613445",
+					"14. <b>Ion Ghenciu,</b> GT “Ion Tudor Ghenciu”, head, IDNO/IDNP: 34983448",
+					"15. <b>Vitalie Juganari,</b> GT “Vitalie Ion Juganari”, head, IDNO/IDNP: 34829445",
+					"16. <b>Nadejda Cojocaru,</b> II “Ion Cojocari”, employee, IDNO/IDNP: 1003605150881",
+					"17. <b>Larisa Jaloba,</b> II “CRIZANTEMĂ-JALOBA”, administrator, IDNO/IDNP: 1005605000980",
+					"18. <b>Tatiana Spînu,</b> II “Valeriu Spînu”, administrator, IDNO/IDNP: 1003605151224",
+					"19. <b>Andrei Munteanu,</b> SRL “Alexpromun”, administrator, IDNO/IDNP: 1007605001877",
+					"20. <b>Cristina Grițcan,</b> SRL “Alun Iacobaș”, merchandiser, IDNO/IDNP: 1014608001155",
+					"21. <b>Mircea Talmaci,</b> SRL “Agrocimtal”, administrator, IDNO/IDNP: 1017605002462",
+					"22. <b>Nicolae Prodius,</b> SRL “Rodinic-Service”, administrator, IDNO/IDNP: 1004605006619",
+					"23. <b>Elena Sturza,</b> SRL “UNIVECAS”, administrator, IDNO/IDNP: 1014605002520",
+					"24. <b>Oxana Țurcanu,</b> AO “Baștina”, administrator, IDNO/IDNP: 1020620007396",
+					"25. <b>Pelaghia Traci,</b> AO “Plai Natal”, member, IDNO/IDNP: 1017620004016",
+					"26. <b>Maria Onu,</b> AO “Pro Ecaterinovca”, administrator, IDNO/IDNP: 1021620000877",
+					"27. <b>Inga Botea,</b> AO “Renaștere”, accountant, IDNO/IDNP: 1020620008441",
+					"28. <b>Lilia Harati,</b> AO “Struguraș”, member, IDNO/IDNP: 1021620001427",
+					"29. <b>Victoria Melnic,</b> AO “Speranța Viitorului”, administrator, IDNO/IDNP: 1021620004026"
 				]
 			},
-
 			"boardOfDirectors": {
 				"header": "Board of Directors",
-				"subheader": "Register of Board Members",
+				"subheader": "Registry of Board Members",
 				"members": [
-					"1. <b>Tatiana Badan –</b> Town Hall of Selemet village, mayor",
-					"2. <b>Vladimir Cucereavîi –</b> Town Hall of Taraclia village, mayor",
-					"3. <b>Lilia Harati –</b> NGO \"Struguraș\", member",
-					"4. <b>Sergiu Pîrlog –</b> Town Hall of Ciuflești village, mayor",
-					"5. <b>Mircea Talmaci –</b> SRL \"Agrocimtal\", administrator"
+					"1. <b>Tatiana Badan,</b> Selemet Village Hall, mayor",
+					"2. <b>Vladimir Cucereavâi,</b> Taraclia Village Hall, mayor",
+					"3. <b>Lilia Harati,</b> AO “Struguraș”, member",
+					"4. <b>Sergiu Pârlog,</b> Ciuflești Village Hall, mayor",
+					"5. <b>Mircea Talmaci,</b> SRL “Agrocimtal”, administrator"
 				]
 			},
-
 			"selectionCommittee": {
 				"header": "Selection Committee",
-				"subheader": "Register of Committee Members",
+				"subheader": "Registry of Selection Committee Members",
 				"members": [
-					"1. <b>Tatiana Badan –</b> Town Hall of Selemet village, mayor",
-					"2. <b>Efim Strogoteanu –</b> PF \"Gaibu Serghei Fiodor\", employee",
-					"3. <b>Inga Botea –</b> NGO \"Renaștere\", accountant",
-					"4. <b>Ion Ghenciu –</b> PF \"Ghenciu Ion Tudor\", head",
-					"5. <b>Valeriu Spînu –</b> Town Hall of Codreni commune, mayor",
-					"6. <b>Victoria Melnic –</b> NGO \"Speranța Viitorului\", administrator",
-					"7. <b>Nicolae Prodius –</b> SRL \"Rodinic‑Service\", administrator"
+					"1. <b>Tatiana Badan,</b> Selemet Village Hall, mayor",
+					"2. <b>Efim Strogoțeanu,</b> GT “Serghhei Fiodor Gaibu”, employee",
+					"3. <b>Inga Botea,</b> AO “Renașterea”, accountant",
+					"4. <b>Ion Ghenciu,</b> GT “Ion Tudor Ghenciu”, head",
+					"5. <b>Valeriu Spînu,</b> Codreni Village Hall, mayor",
+					"6. <b>Victoria Melnic,</b> AO “Speranța Viitorului”, administrator",
+					"7. <b>Nicolae Prodius,</b> SRL “Rodinic-Service”, administrator"
 				],
-				"substitutesHeader": "Substitutes",
+				"substitutesHeader": "Substitute Members",
 				"substitutes": [
-					"1. <b>Andrei Munteanu –</b> SRL \"Alexpromun\", administrator",
-					"2. <b>Iurie Faureanu –</b> Town Hall of Porumbrei commune, mayor",
-					"3. <b>Maria Onu –</b> NGO \"Pro Ecaterinovca\", administrator"
+					"1. <b>Andrei Munteanu,</b> SRL “Alexpromun”, administrator",
+					"2. <b>Iurie Faureanu,</b> Porumbrei Village Hall, mayor",
+					"3. <b>Maria Onu,</b> AO “Pro Ecaterinovca”, administrator"
 				]
 			},
-
 			"auditCommission": {
 				"header": "Audit Commission",
-				"subheader": "Register of Commission Members",
+				"subheader": "Registry of Audit Commission Members",
 				"members": [
-					"1. <b>Svetlana Ciobanu –</b> Town Hall of Ecaterinovca commune",
-					"2. <b>Pelaghia Traci –</b> NGO \"Plai Natal\"",
-					"3. <b>Oxana Țurcanu –</b> NGO \"Baștina\""
+					"1. <b>Svetlana Ciobanu,</b> Ecaterinovca Commune Hall",
+					"2. <b>Pelaghia Traci,</b> AO “Plai Natal”",
+					"3. <b>Oxana Țurcanu,</b> AO “Baștina”"
 				]
 			}
 		},
@@ -306,22 +301,22 @@
 		}
 	},
 	"LinkArrow": {
-		"read_article": "Read Article"
+		"read_article": "Access article"
 	},
 	"Visialization_type": {
 		"type": "Visualization type"
 	},
 	"aboutUs": {
 		"heroTitle": {
-			"1": "General Description of the LAG Stejarul Dacilor",
-			"2": "How We Contribute and Who We Are as an Organization"
+			"1": "General Description of LAG Oak of the Dacians",
+			"2": "How We Contribute and Who We Are as an Organization?"
 		},
 		"members": {
-			"title": "Executive members",
-			"president": "President of LAG “Stejarul Dacilor”",
-			"director": "Director of LAG “Stejarul Dacilor”",
-			"manager": "Manager of LAG “Stejarul Dacilor”",
-			"accountant": "Accountant of LAG “Stejarul Dacilor”"
+			"title": "Executive Members",
+			"president": "President of LAG “Oak of the Dacians”",
+			"director": "Director of LAG “Oak of the Dacians”",
+			"manager": "Manager of LAG “Oak of the Dacians”",
+			"accountant": "Accountant of LAG “Oak of the Dacians”"
 		},
 		"map": {
 			"name": "Name",
@@ -330,7 +325,7 @@
 			"sector": "Sector",
 			"unit": "Unit",
 			"marker_selemet": {
-				"name": "Selemet Commune City Hall",
+				"name": "Selemet Commune Hall",
 				"details": "098230243645 - Legal entity",
 				"location": "Cimișlia District, Selemet Village",
 				"sector": "Public",
@@ -338,8 +333,8 @@
 			}
 		},
 		"listAndStatistics": {
-			"title": "Member Statistics of LAG Stejarul Dacilor",
-			"description": "The Local Action Group 'Stejarul Dacilor' is a local association registered on November 23, 2023, bringing together actors from the public, civic, and entrepreneurial sectors. The LAG promotes sustainable rural development in its coverage area, based on its own Local Development Strategy, developed through a participatory process and tailored to the needs of member communities.",
+			"title": "List and Statistics of LAG Oak of the Dacians Members",
+			"description": "The Local Action Group “Oak of the Dacians” is a local association registered on November 23, 2023, bringing together actors from the public, civic, and entrepreneurial sectors. The LAG promotes sustainable rural development in its coverage area based on its own Local Development Strategy, elaborated participatorily and adapted to the needs of member communities.",
 			"resource_map_button": "Resource Map",
 			"total_members": "Total number of members",
 			"entrepreneurial_sector_members": "Number of members from the entrepreneurial sector",
@@ -347,14 +342,36 @@
 			"civic_sector_members": "Number of members from the civic sector"
 		},
 		"miniSection": {
-			"title": "Do you want to learn more about the structure and functioning of the LAG?",
-			"description1": "Discover who the people are that guide the activity of the “Stejarul Dacilor” LAG — from the General Assembly to the executive committees. Get to know the internal structure, the roles, and the way we make decisions for the community.",
-			"description2": "Transparency is essential. Access the statute, strategies, annual reports, and other key documents that define our direction and commitments towards the localities in the region.",
+			"title": "Would you like to learn more about the structure and functioning of the LAG?",
+			"description1": "Discover who the people are that guide the activity of LAG “Oak of the Dacians”—from the General Assembly to the executive committees. Learn about the internal structure, roles, and how we make decisions for the community.",
+			"description2": "Transparency is essential. Access the statute, strategies, annual reports, and other key documents that define our direction and commitments to the localities in the region.",
 			"management_button": "LAG Leadership",
 			"documents_button": "Official Documents"
+		},
+		"administration": {
+			"regulations": "Regulations",
+			"regulation_text": "The ALNF Support Program for Actions in Favor of Refugees is an award-winning initiative designed to support children and youth from refugee backgrounds through individualized guidance tailored to their unique needs.",
+			"regulation_btn": "View Regulations",
+			"statute": "Statute",
+			"statute_text": "Statute: Local Action Group Association",
+			"statute_btn": "View Statute",
+			"strategy": "Strategy",
+			"strategy_text1": "Local Development Strategy 2022–2028",
+			"strategy_text2": "Strategic Action Plan 2018–2022",
+			"strategy_btn": "View Strategy",
+			"constitution_agreement": "Constitution Agreement",
+			"constitution_agreement_text": "Constitution Agreement Document of the Local Action Group “Oak of the Dacians”",
+			"constitution_agreement_btn": "View Agreement",
+			"annual_report": "Annual Reports",
+			"annual_report_text1": "Annual activity report on the implementation of the local development strategy 2022-2028",
+			"annual_report_text2": "2019 activity report",
+			"annual_report_btn": "View Report"
 		}
 	},
-
+	"Pagination": {
+		"previous_page": "Previous",
+		"next_page": "Next"
+	},
 	"BlogCategories": {
 		"PROJECTS": "Projects",
 		"LOCAL_PRODUCTS": "Local Products",
@@ -375,7 +392,7 @@
 		"STATUTE": "Statute",
 		"STRATEGY": "Strategy",
 		"CONSTITUTION_AGREEMENT": "Constitution Agreement",
-		"ANNUAL_REPORT": "Annual Reports",
+		"ANNUAL_REPORT": "Annual Report",
 		"PRESIDENT": "President",
 		"EXECUTIVE_BODY": "Executive Body",
 		"GENERAL_ASSEMBLY": "General Assembly",
