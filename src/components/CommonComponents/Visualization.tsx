@@ -57,8 +57,6 @@ const Visualization: React.FC<VisualisationProps> = props => {
 		queryFn: () => blogService.getAllBlogs(params)
 	})
 
-	console.log('Data fetched:', data)
-
 	const t = useTranslations('Visialization_type')
 
 	return (
