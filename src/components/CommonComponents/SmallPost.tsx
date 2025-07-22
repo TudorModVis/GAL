@@ -11,8 +11,6 @@ import AnimatedHeader from './AnimatedHeader'
 import LinkWithArrow from './LinkWithArrow'
 import { Link } from '@/i18n/navigation'
 
-const bgClasses = ['bg-forest-800', 'bg-forest-700', 'bg-forest-600']
-
 const SmallPost: React.FC<IBlogResponse> = props => {
 	const [isDragging, setIsDragging] = useState(false)
 	type Locale = keyof IMultiLangText
