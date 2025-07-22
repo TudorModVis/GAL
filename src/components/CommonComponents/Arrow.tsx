@@ -7,7 +7,7 @@ interface ArrowProps {
 const Arrow: React.FC<ArrowProps> = (props) => {
   return (
     <svg
-      className={`${props.arrowCustomStyle} transition`}
+      className={`${props.arrowCustomStyle} transition inline-block`}
       width="16"
       height="16"
       viewBox="0 0 16 16"

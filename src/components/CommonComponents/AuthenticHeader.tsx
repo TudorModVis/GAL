@@ -40,11 +40,11 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 					source={props.imageSrc}
 				/>
 			</div>
-			<div className='col-span-12 col-start-13 mt-24 flex flex-col'>
+			<div className=' col-span-12 col-start-13 mt-24 flex flex-col'>
 				<AnimatedLine customStyles='mb-2 w-full' />
 				<div
 					aria-label='Breadcrumb'
-					className='flex flex-wrap gap-1 items-center w-full'
+					className='space-x-1 w-full'
 				>
 					{props.location.map((loc, index) => {
 						const isLast = index === props.location.length - 1
@@ -52,12 +52,12 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 
 						const Crumb =
 							loc.link && !isLast ? (
-								<Link
-									href={loc.link}
+								<span
+									// href={loc.link}
 									className={`${baseClass} hover:underline`}
 								>
 									{loc.text}
-								</Link>
+								</span>
 							) : (
 								<span
 									className={baseClass}
@@ -70,10 +70,10 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 						return (
 							<span
 								key={index}
-								className='inline-flex items-center gap-1'
+								className='items-center inline'
 							>
 								{Crumb}
-								{!isLast && <Arrow arrowCustomStyle='fill-stone-600 scale-75' />}
+								{!isLast && <Arrow arrowCustomStyle='fill-stone-600 ml-1 scale-75' />}
 							</span>
 						)
 					})}
