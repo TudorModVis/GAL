@@ -38,6 +38,7 @@ export function PageContent() {
 
 	const onSubmit = (data: TypeBlogFormState) => {
 		const cleanedData = cleanBlogFormData(data)
+		console.log('cleanedData', cleanedData)
 		createBlog(cleanedData, {
 			onSuccess: response => {
 				if (imagesToUpload.length > 0) {

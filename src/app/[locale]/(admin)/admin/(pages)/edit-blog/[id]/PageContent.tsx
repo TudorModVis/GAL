@@ -89,7 +89,7 @@ export function PageContent({ blogId }: Props) {
 			currentData.sections.forEach(section => {
 				section.subsections?.forEach(subsection => {
 					if (subsection.images) {
-						allImagesToDelete.push(...subsection.images)
+						allImagesToDelete.push(...subsection.images.map(img => img.url))
 					}
 				})
 			})

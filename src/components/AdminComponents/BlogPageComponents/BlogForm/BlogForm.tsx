@@ -1,6 +1,6 @@
 'use client'
 
-// import { DevTool } from '@hookform/devtools'
+import { DevTool } from '@hookform/devtools'
 import { ErrorMessage } from '@hookform/error-message'
 import { useCallback, useEffect } from 'react'
 import { Control, FormState, UseFormRegister, UseFormSetValue, useWatch } from 'react-hook-form'
@@ -177,7 +177,7 @@ export function BlogForm({
 				addImageToUpload={addImageToUpload}
 				removeImageFromUpload={removeImageFromUpload}
 			/>
-			{/* <DevTool control={control} /> */}
+			<DevTool control={control} />
 		</div>
 	)
 }
