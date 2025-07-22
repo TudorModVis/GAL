@@ -68,12 +68,12 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 
 						const Crumb =
 							loc.link && !isLast ? (
-								<span
-									// href={loc.link}
+								<Link
+									href={loc.link}
 									className={`${baseClass} hover:underline`}
 								>
 									{loc.text}
-								</span>
+								</Link>
 							) : (
 								<span
 									className={baseClass}
