@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import React from 'react'
 
+import { IMultiLangText } from '@/types/shared/text.types'
+
 import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import AnimatedLine from '../CommonComponents/AnimatedLine'
 import AnimatedText from '../CommonComponents/AnimatedText'
@@ -11,20 +13,44 @@ import InfoSection, { Breadcrumb } from '../CommonComponents/InfoSection'
 
 import { managementService } from '@/services/management.service'
 
-const Administration = () => {
+interface ManagementResponse {
+	main_image: string
+	updatedAt: string
+	president: { text: IMultiLangText; image?: string }
+	executive: { column1: IMultiLangText }
+	general_assembly: { column1: IMultiLangText; column2?: IMultiLangText }
+	administration: { column1: IMultiLangText }
+	committee: { column1: IMultiLangText; column2?: IMultiLangText }
+	censorship: { column1: IMultiLangText }
+}
+
+const pick = (obj: IMultiLangText | undefined, locale: string) => {
+	if (!obj) return ''
+	return obj[locale as keyof IMultiLangText] ?? obj.en ?? ''
+}
+
+const HtmlBlock: React.FC<{ html: string }> = ({ html }) => (
+	<div
+		className='col-span-4 flex flex-col gap-4 mb-24 prose max-w-none'
+		dangerouslySetInnerHTML={{ __html: html }}
+	/>
+)
+
+const Administration: React.FC = () => {
 	const locale = useLocale()
 	const t = useTranslations('index.Administration')
 	const tCategories = useTranslations('BlogCategories')
 
-	const tagKey = [
-		'PRESIDENT',
-		'EXECUTIVE_BODY',
-		'GENERAL_ASSEMBLY',
-		'BOARD_OF_DIRECTORS',
-		'SELECTION_COMMITTEE',
-		'AUDIT_COMMISSION'
-	]
-	const tags: string[] = tagKey.map(k => tCategories(k))
+	const tags = (
+		[
+			'PRESIDENT',
+			'EXECUTIVE_BODY',
+			'GENERAL_ASSEMBLY',
+			'BOARD_OF_DIRECTORS',
+			'SELECTION_COMMITTEE',
+			'AUDIT_COMMISSION'
+		] as const
+	).map(k => tCategories(k))
 
 	const locRaw = t.raw('location') as Record<string, string>
 	const location: Breadcrumb[] = [
@@ -38,80 +64,14 @@ const Administration = () => {
 		queryFn: () => managementService.getManagement()
 	})
 
-	const formatDate = (isoDate?: string) => {
-		if (!isoDate) return ''
-		const date = new Date(isoDate)
-		const day = String(date.getDate()).padStart(2, '0')
-		const month = String(date.getMonth() + 1).padStart(2, '0')
-		const year = date.getFullYear()
-		return `${day}.${month}.${year}`
-	}
+	const management = data?.data as ManagementResponse | undefined
 
-	const management = data?.data
-
-	const renderMembers = (baseKey: string, columnCount = 1) => {
-		const members = t.raw(`${baseKey}.members`) as string[]
-		if (!members?.length) return null
-
-		if (columnCount === 1) {
-			return (
-				<div className='col-span-4 flex flex-col gap-4 mb-24'>
-					{members.map((member, idx) => (
-						<AnimatedText
-							key={idx}
-							text={member}
-						/>
-					))}
-				</div>
-			)
-		}
-
-		const chunkSize = Math.ceil(members.length / columnCount)
-		return (
-			<>
-				{Array.from({ length: columnCount }).map((_, colIdx) => (
-					<div
-						key={colIdx}
-						className='col-span-4 flex flex-col gap-4 mb-24'
-					>
-						{members.slice(colIdx * chunkSize, (colIdx + 1) * chunkSize).map((member, idx) => (
-							<AnimatedText
-								key={idx}
-								text={member}
-							/>
-						))}
-					</div>
-				))}
-			</>
-		)
-	}
-
-	const renderSelectionCommittee = () => {
-		const members = t.raw('selectionCommittee.members') as string[]
-		const substitutes = t.raw('selectionCommittee.substitutes') as string[]
-
-		return (
-			<>
-				<div className='col-span-4 flex flex-col gap-4 mb-24'>
-					{members.map((member, idx) => (
-						<AnimatedText
-							key={idx}
-							text={member}
-						/>
-					))}
-				</div>
-
-				<div className='col-span-4 flex flex-col gap-4 mb-24'>
-					<AnimatedText text={t('selectionCommittee.substitutesHeader') as string} />
-					{substitutes.map((sub, idx) => (
-						<AnimatedText
-							key={idx}
-							text={sub}
-						/>
-					))}
-				</div>
-			</>
-		)
+	const formatDate = (iso?: string) => {
+		if (!iso) return ''
+		const d = new Date(iso)
+		return `${d.getDate().toString().padStart(2, '0')}.${(d.getMonth() + 1)
+			.toString()
+			.padStart(2, '0')}.${d.getFullYear()}`
 	}
 
 	return (
@@ -124,6 +84,7 @@ const Administration = () => {
 				imageAlt='Management Image'
 				locale={locale}
 				lastActualization={formatDate(management?.updatedAt)}
+				isAdminOrDocs
 			/>
 
 			<section className='w-screen h-fit flex flex-col'>
@@ -137,7 +98,18 @@ const Administration = () => {
 						text={t('president.detailsLabel')}
 						customStyles='font-bold col-span-3'
 					/>
-					{renderMembers('president')}
+
+					<HtmlBlock html={pick(management?.president?.text, locale)} />
+
+					{management?.president?.image && (
+						<div className='col-start-8 col-span-4 flex justify-center items-start mb-24'>
+							<img
+								src={management.president.image}
+								alt='President'
+								className='max-w-full h-auto aspect-square object-cover rounded-2xl shadow-md'
+							/>
+						</div>
+					)}
 				</div>
 
 				<div className='grid grid-cols-full w-full relative'>
@@ -150,7 +122,7 @@ const Administration = () => {
 						text={t('executiveBody.detailsLabel')}
 						customStyles='font-bold col-span-3'
 					/>
-					{renderMembers('executiveBody')}
+					<HtmlBlock html={pick(management?.executive?.column1, locale)} />
 				</div>
 
 				<div className='grid grid-cols-full w-full relative'>
@@ -163,7 +135,10 @@ const Administration = () => {
 						text={t('generalAssembly.subheader')}
 						customStyles='font-bold col-span-3'
 					/>
-					{renderMembers('generalAssembly', 2)}
+					<HtmlBlock html={pick(management?.general_assembly?.column1, locale)} />
+					{management?.general_assembly?.column2 && (
+						<HtmlBlock html={pick(management.general_assembly.column2, locale)} />
+					)}
 				</div>
 
 				<div className='grid grid-cols-full w-full relative'>
@@ -176,7 +151,7 @@ const Administration = () => {
 						text={t('boardOfDirectors.subheader')}
 						customStyles='font-bold col-span-3'
 					/>
-					{renderMembers('boardOfDirectors')}
+					<HtmlBlock html={pick(management?.administration?.column1, locale)} />
 				</div>
 
 				<div className='grid grid-cols-full w-full relative'>
@@ -189,7 +164,10 @@ const Administration = () => {
 						text={t('selectionCommittee.subheader')}
 						customStyles='font-bold col-span-3'
 					/>
-					{renderSelectionCommittee()}
+					<HtmlBlock html={pick(management?.committee?.column1, locale)} />
+					{management?.committee?.column2 && (
+						<HtmlBlock html={pick(management.committee.column2, locale)} />
+					)}
 				</div>
 
 				<div className='grid grid-cols-full w-full relative'>
@@ -202,7 +180,7 @@ const Administration = () => {
 						text={t('auditCommission.subheader')}
 						customStyles='font-bold col-span-3'
 					/>
-					{renderMembers('auditCommission')}
+					<HtmlBlock html={pick(management?.censorship?.column1, locale)} />
 				</div>
 			</section>
 		</main>

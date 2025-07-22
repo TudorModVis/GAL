@@ -32,6 +32,22 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 				? 'Дата публикации'
 				: 'Publication date'
 
+	const bgClasses = ['bg-forest-600', 'bg-forest-800', 'bg-forest-700', 'bg-forest-500']
+
+	function hashString(str: string): number {
+		let hash = 0
+		for (let i = 0; i < str.length; i++) {
+			hash = (hash << 5) - hash + str.charCodeAt(i)
+			hash |= 0
+		}
+		return Math.abs(hash)
+	}
+
+	function pickBgClass(seed: string) {
+		const idx = hashString(seed) % bgClasses.length
+		return bgClasses[idx]
+	}
+
 	return (
 		<section className='w-screen h-fit grid grid-cols-donation relative text-forest-900 align-content-start pt-24 mb-40'>
 			<div className='w-full h-[64vh] overflow-hidden mt-24 rounded-2xl col-span-11'>
@@ -83,7 +99,7 @@ const AuthenticHeader: React.FC<AuthenticHeaderProps> = props => {
 						{props.tags.map((tag, index) => (
 							<span
 								key={index}
-								className='bg-forest-800 px-4 text-xs py-1 rounded-sm text-nowrap'
+								className={`${pickBgClass(tag)} px-4 text-xs py-1 rounded-sm text-nowrap`}
 							>
 								{tag}
 							</span>

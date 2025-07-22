@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react'
 
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
+import { Pagination } from '../AdminComponents/NewsGrid/NewsCard/Pagination'
+
 import AnimatedLine from './AnimatedLine'
 import AnimatedText from './AnimatedText'
 import BigPost from './BigPost'
@@ -34,26 +36,28 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	// În mod implicit va fi grid, adică true = grid
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
-		limit: 11,
+		limit: 2,
 		content_type: props.type as BlogsContentTypeEnum,
-		authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum
+		authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum,
+		...(props.type !== 'NEWS' && {
+			content_type: props.type as BlogsContentTypeEnum
+		})
 	})
 
-	useEffect(() => {
-		setParams({
-			page: 1,
-			limit: 11,
-			authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum,
-			...(props.type !== 'NEWS' && {
-				content_type: props.type as BlogsContentTypeEnum
-			})
-		})
-	}, [props.type])
+	const updatePage = (newPage: number) => {
+		setParams(prevParams => ({
+			...prevParams,
+			page: newPage
+		}))
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
 
 	const { data, isLoading } = useQuery({
 		queryKey: ['blogs', params],
 		queryFn: () => blogService.getAllBlogs(params)
 	})
+
+	console.log('Data fetched:', data)
 
 	const t = useTranslations('Visialization_type')
 
@@ -127,6 +131,15 @@ const Visualization: React.FC<VisualisationProps> = props => {
 			) : (
 				<div className='h-[calc(100vh-15rem)] grid place-content-center'>
 					<p className='text-green-700 text-[1.25rem] text-center'>Nu s-a putut încărca</p>
+				</div>
+			)}
+			{data && (
+				<div className='col-span-full flex justify-center w-full'>
+					<Pagination
+						pagination={data.data.pagination}
+						updatePage={updatePage}
+						currentPage={params.page || 1}
+					/>
 				</div>
 			)}
 		</section>

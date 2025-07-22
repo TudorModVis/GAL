@@ -84,6 +84,22 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 		}
 	}
 
+	const bgClasses = ['bg-forest-600', 'bg-forest-800', 'bg-forest-700', 'bg-forest-500']
+
+	function hashString(str: string): number {
+		let hash = 0
+		for (let i = 0; i < str.length; i++) {
+			hash = (hash << 5) - hash + str.charCodeAt(i)
+			hash |= 0
+		}
+		return Math.abs(hash)
+	}
+
+	function pickBgClass(seed: string) {
+		const idx = hashString(seed) % bgClasses.length
+		return bgClasses[idx]
+	}
+
 	return (
 		<Link
 			onMouseDown={handleMouseDown}
@@ -97,11 +113,10 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 				<div className='h-1/3 sm:h-1/2 relative'>
 					<div className='absolute top-4 left-4 z-10 flex flex-wrap gap-2'>
 						{props.categories.map((tag, index) => {
-							const randomBg = bgClasses[tag.length % bgClasses.length]
 							return (
 								<div
 									key={index}
-									className={`${randomBg} py-1 px-4 text-sand-50 rounded-sm text-sm`}
+									className={`${pickBgClass(tag)} py-1 px-4 text-sand-50 rounded-sm text-sm`}
 								>
 									{t(tag)}
 								</div>
