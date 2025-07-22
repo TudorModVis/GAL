@@ -25,7 +25,7 @@ export function GalStatistics({ language, register, formState }: Props) {
 						title={item.title[language]}
 						name={item.name}
 						formState={formState}
-						error={language === 'ro' ? "Câmpul este obligatoriu" : language === 'ru' ? "Поле обязательно для заполнения" : "This field is required"}
+						error={language === 'ro' ? "Câmp obligatoriu. Introdu doar cifre" : language === 'ru' ? "Поле обязательно для заполнения. Введите только цифры" : "This field is required. Enter only numbers"}
 						placeholder={language === 'ro' ? "Introduceți valoare" : language === 'ru' ? "Введите значение" : "Enter value"}
 					/>
 				))}

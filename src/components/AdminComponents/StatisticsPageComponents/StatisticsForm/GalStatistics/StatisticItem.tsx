@@ -26,7 +26,12 @@ export function StatisticItem({register, title, name, formState, placeholder, er
                     className={`bg-gray-300 mt-[0.5rem] font-bold placeholder:opacity-70`}
                     {...register(name as keyof TypeStatisticsFormState, {
                         minLength: 1,
-                        required: true
+                        required: true,
+                        pattern: {
+                            value: /^[0-9]+$/,
+                            message: error
+                        },
+                        setValueAs: (value) => parseInt(value, 10)
                     })}
                 />
                 <ErrorMessage

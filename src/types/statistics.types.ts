@@ -4,14 +4,14 @@ export interface IStatisticsResponse {
     _id: string;
     title: IMultiLangText;
     image: string;
-    projects_number: string;
-    activity_years: string;
-    population: string;
-    total_members: string;
-    total_added_members: string;
-    business_members: string;
-    public_members: string;
-    civic_members: string;
+    projects_number: number;
+    activity_years: number;
+    population: number;
+    total_members: number;
+    total_added_members: number;
+    business_members: number;
+    public_members: number;
+    civic_members: number;
     createdAt: string;
     updatedAt: string;
 }

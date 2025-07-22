@@ -35,6 +35,7 @@ export function PageContent() {
 	const { isLoading } = useInitialStatisticsData(reset)
 
 	const onSubmit = (data: TypeStatisticsFormState) => {
+		console.log(data)
 		updateStatistics(data, {
 			onSuccess: () => {
 				if (imagesToUpload.length > 0) {

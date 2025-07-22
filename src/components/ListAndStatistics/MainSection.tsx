@@ -68,7 +68,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={parseInt(statistics?.total_members ?? '0', 10)}
+								to={statistics?.total_members ?? 0}
 							/>
 						</div>
 						<div className='sm:col-span-3 col-span-full'>
@@ -79,7 +79,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={parseInt(statistics?.business_members ?? '0', 10)}
+								to={statistics?.business_members ?? 0}
 							/>
 						</div>
 						<div className='sm:col-span-3 col-span-full'>
@@ -90,7 +90,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={parseInt(statistics?.public_members ?? '0', 10)}
+								to={statistics?.public_members ?? 0}
 							/>
 						</div>
 						<div className='sm:col-span-3 col-span-full sm:mb-0 mb-20'>
@@ -101,7 +101,7 @@ const MainSection = () => {
 							/>
 							<AnimatedCounter
 								from={0}
-								to={parseInt(statistics?.civic_members ?? '0', 10)}
+								to={statistics?.civic_members ?? 0}
 							/>
 						</div>
 					</div>

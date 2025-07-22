@@ -64,7 +64,7 @@ const AboutUs = () => {
 					<div className='flex gap'>
 						<AnimatedCounter
 							from={0}
-							to={parseInt(statistics?.projects_number ?? '0', 10)}
+							to={statistics?.projects_number ?? 0}
 						/>
 						<span className='sm:leading-13 leading-7 font-bold sm:text-5xl text-2xl'>+</span>
 					</div>
@@ -80,7 +80,7 @@ const AboutUs = () => {
 					<div className='flex gap'>
 						<AnimatedCounter
 							from={0}
-							to={parseInt(statistics?.activity_years ?? '0', 10)}
+							to={statistics?.activity_years ?? 0}
 						/>
 					</div>
 				</div>
@@ -95,7 +95,7 @@ const AboutUs = () => {
 					<div className='flex gap'>
 						<AnimatedCounter
 							from={0}
-							to={parseInt(statistics?.population ?? '0', 10)}
+							to={statistics?.population ?? 0}
 						/>
 						<span className='sm:leading-13 leading-7 font-bold text-2xl sm:text-5xl'>+</span>
 					</div>
@@ -110,7 +110,7 @@ const AboutUs = () => {
 					/>
 					<AnimatedCounter
 						from={0}
-						to={parseInt(statistics?.total_members ?? '0', 10)}
+						to={statistics?.total_members ?? 0}
 					/>
 				</div>
 			</div>
