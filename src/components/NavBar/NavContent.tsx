@@ -320,7 +320,9 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 					onMouseLeave={handleMouseLeave}
 					className='flex gap-1 items-center cursor-pointer'
 				>
-					<AnimatedLink text={tNav('authentic_local.authentic_btn')} />
+					<Link href='/authentic-local'>
+						<AnimatedLink text={tNav('authentic_local.authentic_btn')} />
+					</Link>
 					<ArrowDown
 						arrowColor={
 							hoveredMenu === 'autentic' || hoveredMenu === 'despre' ? '#11200B' : arrowColor

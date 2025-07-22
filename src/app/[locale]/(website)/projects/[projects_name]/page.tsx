@@ -18,7 +18,7 @@ const Page = () => {
 	type Locale = keyof IMultiLangText
 	const locale = useLocale() as Locale
 
-	const t = useTranslations('index.News')
+	const t = useTranslations('index.Projects')
 	const tCategories = useTranslations('BlogCategories')
 
 	const formatDate = (isoDate?: string) => {
@@ -30,13 +30,15 @@ const Page = () => {
 		return `${day}.${month}.${year}`
 	}
 
-	const { news_name } = useParams<{ news_name: string }>()
-	const id = news_name
+	const { projects_name } = useParams<{ projects_name: string }>()
+	const id = projects_name
 
 	const { data, isSuccess } = useQuery({
 		queryKey: ['blog', id],
 		queryFn: () => blogService.getBlogById(id)
 	})
+
+	console.log('data', data)
 
 	if (!isSuccess) return <BigSkeleton />
 
