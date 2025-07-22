@@ -12,8 +12,6 @@ import AnimatedHeader from './AnimatedHeader'
 import LinkWithArrow from './LinkWithArrow'
 import { Link } from '@/i18n/navigation'
 
-const bgClasses = ['bg-forest-800', 'bg-forest-700', 'bg-forest-600']
-
 const BigPost: React.FC<IBlogResponse> = props => {
 	const [isDragging, setIsDragging] = useState(false)
 	type Locale = keyof IMultiLangText
@@ -94,6 +92,22 @@ const BigPost: React.FC<IBlogResponse> = props => {
 		}
 	}
 
+	const bgClasses = ['bg-forest-600', 'bg-forest-800', 'bg-forest-700', 'bg-forest-500']
+
+	function hashString(str: string): number {
+		let hash = 0
+		for (let i = 0; i < str.length; i++) {
+			hash = (hash << 5) - hash + str.charCodeAt(i)
+			hash |= 0
+		}
+		return Math.abs(hash)
+	}
+
+	function pickBgClass(seed: string) {
+		const idx = hashString(seed) % bgClasses.length
+		return bgClasses[idx]
+	}
+
 	return (
 		<Link
 			href={getPathname(props.content_type)}
@@ -118,11 +132,10 @@ const BigPost: React.FC<IBlogResponse> = props => {
 				<div className='flex justify-between items-center w-full'>
 					<div className='flex gap-2'>
 						{props.categories.map(tag => {
-							const randomBg = bgClasses[tag.length % bgClasses.length]
 							return (
 								<div
 									key={tag}
-									className={`${randomBg} text-sand-50 text-xs py-1 px-3 rounded-sm`}
+									className={`${pickBgClass(tag)} text-sand-50 text-xs py-1 px-3 rounded-sm`}
 								>
 									{t(tag)}
 								</div>

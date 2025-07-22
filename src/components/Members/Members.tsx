@@ -12,7 +12,7 @@ const Members = () => {
 		<section className='w-screen min-h-[77vh] h-fit grid grid-cols-full grid-rows-[auto_1fr] relative text-forest-900 mb-16'>
 			<AnimatedHeader
 				text={tMembers('title')}
-				customStyles='font-bold text-2xl sm:text-5xl leading-7 sm:leading-13 col-span-full pt-4 sm:pt-0 mt-20 sm:mt-24 mb-6 sm:mb-12 border-t-[1px] border-stone-400'
+				customStyles='font-bold text-2xl sm:text-5xl leading-7 sm:leading-13 col-span-full pt-4 sm:pt-0 mt-20 sm:mt-24 mb-6 sm:mb-12 border-t-[1px] border-stone-400 sm:border-t-0'
 			/>
 			<div className='sm:col-span-3 col-span-full h-full relative flex flex-col'>
 				<div className='w-full sm:h-[67%] max-h-[358px] sm:max-h-none h-full'>

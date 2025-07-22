@@ -22,28 +22,52 @@ interface InfoSectionProps {
 	imageSrc: string
 	imageAlt: string
 	locale?: string
+	isAdminOrDocs?: boolean
 }
 
 const InfoSection: React.FC<InfoSectionProps> = props => {
-	const actualization =
-		props.locale === 'ro'
+	const actualization = props.isAdminOrDocs
+		? props.locale === 'ro'
+			? 'Ultima actualizare'
+			: props.locale === 'ru'
+				? 'Последнее обновление'
+				: 'Last actualization'
+		: props.locale === 'ro'
 			? 'Data publicării'
 			: props.locale === 'ru'
 				? 'Дата публикации'
 				: 'Publication date'
 
+	const bgClasses = ['bg-forest-600', 'bg-forest-800', 'bg-forest-700', 'bg-forest-500']
+
+	function hashString(str: string): number {
+		let hash = 0
+		for (let i = 0; i < str.length; i++) {
+			hash = (hash << 5) - hash + str.charCodeAt(i)
+			hash |= 0
+		}
+		return Math.abs(hash)
+	}
+
+	function pickBgClass(seed: string) {
+		const idx = hashString(seed) % bgClasses.length
+		return bgClasses[idx]
+	}
+
 	return (
 		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900 align-content-start pt-24'>
 			<div className='col-span-9 flex flex-col mt-24'>
 				<div className='flex gap-2 text-sand-50 items-center flex-wrap'>
-					{props.tags.map((tag, index) => (
-						<span
-							key={index}
-							className='bg-forest-800 px-4 py-1 rounded-sm mb-2 text-xs text-nowrap'
-						>
-							{tag}
-						</span>
-					))}
+					{props.tags.map((tag, index) => {
+						return (
+							<span
+								key={index}
+								className={`${pickBgClass(tag)} px-4 py-1 rounded-sm mb-2 text-xs text-nowrap`}
+							>
+								{tag}
+							</span>
+						)
+					})}
 				</div>
 				<AnimatedHeader
 					text={props.headerText}

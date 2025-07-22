@@ -38,8 +38,6 @@ const Page = () => {
 		queryFn: () => blogService.getBlogById(id)
 	})
 
-	console.log('data', data)
-
 	if (!isSuccess) return <BigSkeleton />
 
 	const blog = data.data
