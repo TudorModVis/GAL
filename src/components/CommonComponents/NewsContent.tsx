@@ -70,7 +70,7 @@ const NewsContent: React.FC<NewsContentProps> = ({ summary, sections, locale }) 
 										>
 											<ParalaxImage
 												altText={`${t(sub.title, locale)} image ${imgIdx + 1}`}
-												source={src}
+												source={src.url}
 											/>
 										</div>
 									))}

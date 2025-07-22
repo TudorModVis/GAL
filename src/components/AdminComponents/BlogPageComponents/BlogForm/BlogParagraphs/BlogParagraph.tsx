@@ -49,7 +49,8 @@ export function BlogParagraph({
 		appendSubparagraph({
 			title: { ro: '', ru: '', en: '' },
 			column1: { ro: '', ru: '', en: '' },
-			column2: { ro: '', ru: '', en: '' }
+			column2: { ro: '', ru: '', en: '' },
+			images: []
 		})
 	}, [appendSubparagraph])
 

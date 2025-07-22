@@ -70,6 +70,8 @@ export function BlogSubparagraph({
 		register(`sections.${paragraphIndex}.subsections.${subIndex}.column1.ru`, { required: true })
 		register(`sections.${paragraphIndex}.subsections.${subIndex}.column1.en`, { required: true })
 
+		// register(`sections.${paragraphIndex}.subsections.${subIndex}.images`);
+
 		register(`sections.${paragraphIndex}.subsections.${subIndex}.column2.ro`, {
         validate: createColumn2Validator('ro')
 		})
@@ -87,13 +89,14 @@ export function BlogSubparagraph({
 		remove: removeImage
 	} = useFieldArray({
 		control,
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		name: `sections.${paragraphIndex}.subsections.${subIndex}.images` as any
+		name: `sections.${paragraphIndex}.subsections.${subIndex}.images`
 	})
 
 	const addImageField = () => {
-		appendImage('')
+		appendImage({ url: '' })
 	}
+
+	console.log('imageFields', imageFields)
 
 	return (
 		<>
@@ -185,8 +188,7 @@ export function BlogSubparagraph({
 						<ImageUpload
 							language={language}
 							name={
-								// eslint-disable-next-line @typescript-eslint/no-explicit-any
-								`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}` as any
+								`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}.url` as any
 							}
 							control={control}
 							height='6rem'
