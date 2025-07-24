@@ -21,6 +21,7 @@ import 'slick-carousel/slick/slick.css'
 const LastNews = () => {
 	const tLastNews = useTranslations('index.LastNews')
 	const sliderRef = useRef<Slider>(null)
+	const userInteracted = useRef(false)
 	const [currentSlide, setCurrentSlide] = useState(0)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
@@ -49,6 +50,12 @@ const LastNews = () => {
 		return pages
 	}, [data])
 
+	const restartAutoplay = () => {
+		if (!sliderRef.current) return
+		sliderRef.current.slickPause()
+		sliderRef.current.slickPlay()
+	}
+
 	const totalSlides = newsPages.length
 	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
@@ -75,7 +82,14 @@ const LastNews = () => {
 		autoplaySpeed: 5000,
 		arrows: false,
 		onInit: () => setCurrentSlide(0),
-		afterChange: (current: number) => setCurrentSlide(current)
+		beforeChange: () => {
+			if (!userInteracted.current) return
+			restartAutoplay()
+		},
+		afterChange: (current: number) => {
+			setCurrentSlide(current)
+			userInteracted.current = false
+		}
 	}
 
 	return !isMobile ? (
@@ -88,14 +102,22 @@ const LastNews = () => {
 					/>
 					<div className='flex gap-2 items-center'>
 						<button
-							onClick={() => sliderRef.current?.slickPrev()}
-							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 cursor-pointer'
+							onClick={() => {
+								userInteracted.current = true
+								sliderRef.current?.slickPrev()
+								restartAutoplay()
+							}}
+							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center cursor-pointer'
 						>
 							<Arrow arrowCustomStyle='-rotate-180 fill-forest-900' />
 						</button>
 						<button
-							onClick={() => sliderRef.current?.slickNext()}
-							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 cursor-pointer'
+							onClick={() => {
+								userInteracted.current = true
+								sliderRef.current?.slickNext()
+								restartAutoplay()
+							}}
+							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center cursor-pointer'
 						>
 							<Arrow arrowCustomStyle='fill-forest-900' />
 						</button>

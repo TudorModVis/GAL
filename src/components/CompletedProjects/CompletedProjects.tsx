@@ -23,8 +23,8 @@ import 'slick-carousel/slick/slick.css'
 const CompletedProjects = () => {
 	const tCompletedProjects = useTranslations('index.CompletedProjects')
 	const sliderRef = useRef<Slider>(null)
+	const userInteracted = useRef(false)
 	const [currentSlide, setCurrentSlide] = useState(0)
-
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
 		limit: 11
@@ -52,6 +52,12 @@ const CompletedProjects = () => {
 		return pages
 	}, [data])
 
+	const restartAutoplay = () => {
+		if (!sliderRef.current) return
+		sliderRef.current.slickPause()
+		sliderRef.current.slickPlay()
+	}
+
 	const totalSlides = projectPages.length
 	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
@@ -78,7 +84,14 @@ const CompletedProjects = () => {
 		autoplaySpeed: 5000,
 		arrows: false,
 		onInit: () => setCurrentSlide(0),
-		afterChange: (current: number) => setCurrentSlide(current)
+		beforeChange: () => {
+			if (!userInteracted.current) return
+			restartAutoplay()
+		},
+		afterChange: (current: number) => {
+			setCurrentSlide(current)
+			userInteracted.current = false
+		}
 	}
 
 	return !isMobile ? (
@@ -92,14 +105,22 @@ const CompletedProjects = () => {
 					/>
 					<div className='hidden sm:flex gap-2 items-center'>
 						<button
-							onClick={() => sliderRef.current?.slickPrev()}
-							className='rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer'
+							onClick={() => {
+								userInteracted.current = true
+								sliderRef.current?.slickPrev()
+								restartAutoplay()
+							}}
+							className='rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer size-10 flex items-center justify-center'
 						>
 							<Arrow arrowCustomStyle='-rotate-180 fill-sand-50' />
 						</button>
 						<button
-							onClick={() => sliderRef.current?.slickNext()}
-							className='rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer'
+							onClick={() => {
+								userInteracted.current = true
+								sliderRef.current?.slickNext()
+								restartAutoplay()
+							}}
+							className='rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer size-10 flex items-center justify-center'
 						>
 							<Arrow arrowCustomStyle='fill-sand-50' />
 						</button>

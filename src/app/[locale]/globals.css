@@ -268,45 +268,22 @@
 	}
 }
 
+:root {
+	--current-rem: 14;
+}
+
+html,
+input,
+textarea {
+	font-size: 14px;
+}
+
 @media (min-width: 1024px) {
 	:root {
-		--current-rem: 14;
-	}
-
-	html {
-		font-size: 14px;
-	}
-
-	input,
-	textarea {
-		font-size: 14px;
-	}
-}
-
-@media (min-width: 1500px) {
-	:root {
 		--current-rem: 16;
 	}
 
-	html {
-		font-size: 16px;
-	}
-
-	input,
-	textarea {
-		font-size: 16px;
-	}
-}
-
-@media (min-width: 1900px) {
-	:root {
-		--current-rem: 16;
-	}
-
-	html {
-		font-size: 16px;
-	}
-
+	html,
 	input,
 	textarea {
 		font-size: 16px;

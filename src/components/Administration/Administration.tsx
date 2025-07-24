@@ -31,7 +31,7 @@ const pick = (obj: IMultiLangText | undefined, locale: string) => {
 
 const HtmlBlock: React.FC<{ html: string }> = ({ html }) => (
 	<div
-		className='col-span-4 flex flex-col [&>p]:h-[1ch] mb-24 prose max-w-none'
+		className='col-span-4 flex flex-col gap-[1ch] leading-4.5 mb-24 prose max-w-none'
 		dangerouslySetInnerHTML={{ __html: html }}
 	/>
 )

@@ -37,7 +37,6 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
 		limit: 2,
-		content_type: props.type as BlogsContentTypeEnum,
 		authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum,
 		...(props.type !== 'NEWS' && {
 			content_type: props.type as BlogsContentTypeEnum
