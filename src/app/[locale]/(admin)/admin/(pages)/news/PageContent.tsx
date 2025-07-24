@@ -74,11 +74,15 @@ export function PageContent() {
 							colsNumber={cols}
 							blogs={data.data.blogs}
 						/>
-						<Pagination
-							pagination={data.data.pagination}
-							updatePage={updatePage}
-							currentPage={params.page || 1}
-						/>
+						<div className='w-full flex justify-end'>
+							<div className='w-full sidebar-req:w-[calc(100vw-20.625rem)]'>
+								<Pagination
+									pagination={data.data.pagination}
+									updatePage={updatePage}
+									currentPage={params.page || 1}
+								/>
+							</div>
+						</div>
 					</>
 				) : (
 					<div className='h-[calc(100vh-15rem)] grid place-content-center'>
