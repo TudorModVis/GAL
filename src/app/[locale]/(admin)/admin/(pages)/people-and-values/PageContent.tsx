@@ -8,7 +8,9 @@ import { ThreeColIcon } from '@/components/AdminComponents/Icons/ThreeColIcon'
 import { TwoColIcon } from '@/components/AdminComponents/Icons/TwoColIcon'
 import { Pagination } from '@/components/AdminComponents/NewsGrid/NewsCard/Pagination'
 import { NewsGrid } from '@/components/AdminComponents/NewsGrid/NewsGrid'
+import { SkeletonGrid } from '@/components/AdminComponents/NewsGrid/SkeletonGrid'
 import { Button } from '@/components/AdminComponents/ui/Button'
+
 // import { Spinner } from '@/components/AdminComponents/ui/Spinner/Spinner'
 
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
@@ -18,7 +20,6 @@ import { ADMIN_PAGES } from '@/config/admin-pages.config'
 import { Link } from '@/i18n/navigation'
 import { Pathnames } from '@/i18n/routing'
 import { blogService } from '@/services/blog.service'
-import { SkeletonGrid } from '@/components/AdminComponents/NewsGrid/SkeletonGrid'
 
 export function PageContent() {
 	const [cols, setCols] = useState<2 | 3>(3)
@@ -79,11 +80,15 @@ export function PageContent() {
 							colsNumber={cols}
 							blogs={data.data.blogs}
 						/>
-						<Pagination
-							pagination={data.data.pagination}
-							updatePage={updatePage}
-							currentPage={params.page || 1}
-						/>
+						<div className='w-full flex justify-end'>
+							<div className='w-full sidebar-req:w-[calc(100vw-20.625rem)]'>
+								<Pagination
+									pagination={data.data.pagination}
+									updatePage={updatePage}
+									currentPage={params.page || 1}
+								/>
+							</div>
+						</div>
 					</>
 				) : (
 					<div className='h-[calc(100vh-15rem)] grid place-content-center'>
