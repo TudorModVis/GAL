@@ -162,10 +162,10 @@ const LastNews = () => {
 					</div>
 					<LinkWithArrow
 						text={tLastNews('see_more_news')}
-						href='/'
+						href='/news'
 						arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
 						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 					/>
 				</div>
 			</div>
@@ -186,7 +186,7 @@ const LastNews = () => {
 						{data?.data?.blogs?.map(news => (
 							<div
 								key={news._id}
-								className='pr-4 h-full ml-12'
+								className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
 							>
 								<SmallPost {...news} />
 							</div>
@@ -206,10 +206,10 @@ const LastNews = () => {
 						<div className='mt-12'>
 							<LinkWithArrow
 								text={tLastNews('see_more_news')}
-								href='/'
+								href='/news'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
 								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 							/>
 						</div>
 					</div>

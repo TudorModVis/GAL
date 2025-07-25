@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { AuthenticLocalCategoriesEnum, BlogsContentTypeEnum, IGetParams } from '@/types/blog.types'
 
@@ -36,19 +36,24 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	// În mod implicit va fi grid, adică true = grid
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
-		limit: 2,
+		limit: 12,
 		authentic_local_category: props.authenticType as AuthenticLocalCategoriesEnum,
 		...(props.type !== 'NEWS' && {
 			content_type: props.type as BlogsContentTypeEnum
 		})
 	})
 
+	const sectionRef = useRef<HTMLElement | null>(null)
+
 	const updatePage = (newPage: number) => {
 		setParams(prevParams => ({
 			...prevParams,
 			page: newPage
 		}))
-		window.scrollTo({ top: 0, behavior: 'smooth' })
+		sectionRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+		})
 	}
 
 	const { data, isLoading } = useQuery({
@@ -56,10 +61,15 @@ const Visualization: React.FC<VisualisationProps> = props => {
 		queryFn: () => blogService.getAllBlogs(params)
 	})
 
+	console.log('Visualization data:', data)
+
 	const t = useTranslations('Visialization_type')
 
 	return (
-		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900'>
+		<section
+			ref={sectionRef}
+			className='w-screen h-fit grid grid-cols-full relative text-forest-900'
+		>
 			<AnimatedLine customStyles='col-span-full mb-2' />
 			<AnimatedText
 				text={props.header}

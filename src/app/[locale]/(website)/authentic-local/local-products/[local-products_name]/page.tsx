@@ -6,13 +6,13 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 
 import AuthenticHeader, { Breadcrumb } from '@/components/CommonComponents/AuthenticHeader'
-import BigSkeleton from '@/components/CommonComponents/BigSkeleton'
 import NewsContent from '@/components/CommonComponents/NewsContent'
 import Donation from '@/components/Donation/Donation'
 
 import { IMultiLangText } from '@/types/shared/text.types'
 
 import { blogService } from '@/services/blog.service'
+import AuthenticSkeleton from '@/components/CommonComponents/AuthenticSkeleton'
 
 const Page = () => {
 	type Locale = keyof IMultiLangText
@@ -38,7 +38,7 @@ const Page = () => {
 		queryFn: () => blogService.getBlogById(id)
 	})
 
-	if (!isSuccess) return <BigSkeleton />
+	if (!isSuccess) return <AuthenticSkeleton />
 
 	const blog = data.data
 

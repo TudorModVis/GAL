@@ -158,7 +158,7 @@ const BigPost: React.FC<IBlogResponse> = props => {
 					href='/'
 					arrowProps='group-hover:fill-forest-900 group-hover:rotate-0 -rotate-45 fill-sand-50'
 					customStyle='flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
-                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-sand-50 [&>div]:bg-forest-700 [&>div]:group-hover:text-forest-900 [&>div]:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-sand-50 [&>div]:bg-forest-800 [&>div]:group-hover:text-forest-900 [&>div]:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 				/>
 			</div>
 		</Link>
