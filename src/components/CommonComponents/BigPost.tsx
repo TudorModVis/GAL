@@ -112,12 +112,24 @@ const BigPost: React.FC<IBlogResponse> = props => {
 		<Link
 			href={getPathname(props.content_type)}
 			draggable='false'
-			className='bg-stone-50 group col-span-6 custom-shadow w-full h-[605px] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer select-none'
+			className='bg-stone-50 group col-span-6 custom-shadow w-full h-[492px] sm:h-[605px] relative flex flex-col rounded-2xl overflow-hidden cursor-pointer select-none'
 			onMouseDown={handleMouseDown}
 			onMouseMove={handleMouseMove}
 			onClick={handleClick}
 		>
-			<div className='h-1/2 relative'>
+			<div className='sm:h-1/2 h-2/5 relative'>
+				<div className='flex gap-2 absolute z-10 top-4 left-4 sm:hidden'>
+					{props.categories.map(tag => {
+						return (
+							<div
+								key={tag}
+								className={`${pickBgClass(tag)} text-sand-50 text-xs py-1 px-3 rounded-sm`}
+							>
+								{t(tag)}
+							</div>
+						)
+					})}
+				</div>
 				<Image
 					draggable='false'
 					// schimba ALT-ul mai tarziu
@@ -128,8 +140,8 @@ const BigPost: React.FC<IBlogResponse> = props => {
 					sizes='50vw'
 				/>
 			</div>
-			<div className='h-1/2 px-6 py-8 flex flex-col justify-between group text-forest-900'>
-				<div className='flex justify-between items-center w-full'>
+			<div className='sm:h-1/2 h-3/5 px-4 sm:px-6 pt-6 pb-4 sm:py-8! flex flex-col justify-between group text-forest-900'>
+				<div className='sm:flex hidden justify-between items-center w-full'>
 					<div className='flex gap-2'>
 						{props.categories.map(tag => {
 							return (
@@ -149,7 +161,7 @@ const BigPost: React.FC<IBlogResponse> = props => {
 					text={props.title[locale]}
 				/>
 				<h4
-					className='leading-4.5 line-clamp-3'
+					className='leading-4.5 sm:line-clamp-3 line-clamp-5'
 					dangerouslySetInnerHTML={{ __html: props.summary.column1[locale] }}
 				/>
 				<LinkWithArrow

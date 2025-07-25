@@ -33,7 +33,7 @@ export default async function LocalProducts({ params }: { params: Promise<{ loca
 	]
 
 	return (
-		<main className='relative w-full h-fit mb-[100vh] bg-sand-50'>
+		<main className='relative w-full h-fit mb-12 sm:mb-[100vh] bg-sand-50'>
 			<InfoSection
 				tags={tags}
 				headerText={t('title')}

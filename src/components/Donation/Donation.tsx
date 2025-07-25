@@ -1,12 +1,9 @@
-import { Scroll } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
 
 import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import AnimatedText from '../CommonComponents/AnimatedText'
-import Arrow from '../CommonComponents/Arrow'
-import LinkWithArrow from '../CommonComponents/LinkWithArrow'
 
 import ScrollToBottom from './ScrollToBottom'
 

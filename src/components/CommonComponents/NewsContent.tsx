@@ -11,77 +11,93 @@ import ParalaxImage from './ParalaxImage'
 export type Locale = 'ro' | 'ru' | 'en'
 
 export interface NewsContentProps {
-	summary: ISummary
-	sections: ISection[]
-	locale: Locale
+  summary: ISummary
+  sections: ISection[]
+  locale: Locale
 }
 
 const t = (value: IMultiLangText | undefined, locale: Locale): string => {
-	if (!value) return ''
-	return value[locale] ?? ''
+  if (!value) return ''
+  return value[locale] ?? ''
 }
 
 const NewsContent: React.FC<NewsContentProps> = ({ summary, sections, locale }) => {
-	const summaryColumns = [summary.column1, summary.column2].filter(Boolean) as IMultiLangText[]
+  const summaryColumns = [summary.column1, summary.column2].filter(Boolean) as IMultiLangText[]
 
-	return (
-		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900'>
-			<AnimatedLine customStyles='col-span-full mb-2' />
-			<AnimatedText
-				text={t({ ro: 'Sumarul proiectului', ru: 'Сводка проекта', en: 'Project summary' }, locale)}
-				customStyles='col-span-2 font-bold leading-4.5'
-			/>
-			{summaryColumns.map((c, idx) => (
-				<AnimatedText
-					key={`summary-${idx}`}
-					text={t(c, locale)}
-					customStyles={`col-span-4 col-start-${4 + idx * 4} leading-4.5`}
-				/>
-			))}
+  return (
+    <section className='w-screen h-fit grid grid-cols-full relative text-forest-900'>
+      <AnimatedLine customStyles='col-span-full mb-2' />
+      <AnimatedText
+        text={t({ ro: 'Sumarul proiectului', ru: 'Сводка проекта', en: 'Project summary' }, locale)}
+        customStyles='sm:col-span-2 col-span-full font-bold leading-4.5'
+      />
 
-			{sections.map((section, sIdx) => (
-				<React.Fragment key={`section-${sIdx}`}>
-					<AnimatedHeader
-						text={t(section.title, locale)}
-						customStyles='col-span-9 text-5xl leading-13 font-bold mt-24'
-					/>
-					{section.subsections.map((sub, subIdx) => (
-						<React.Fragment key={`sub-${sIdx}-${subIdx}`}>
-							<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
-							<AnimatedText
-								text={t(sub.title, locale)}
-								customStyles='col-span-2 font-bold leading-4.5'
-							/>
-							<AnimatedText
-								text={t(sub.column1, locale)}
-								customStyles='col-span-4 col-start-4 leading-4.5'
-							/>
-							<AnimatedText
-								text={t(sub.column2, locale)}
-								customStyles='col-span-4 col-start-8 leading-4.5'
-							/>
-							{/* Display all images for the subsection, if any */}
-							{sub.images && sub.images.length > 0 && (
-								<div className='col-span-full mt-24 mb-16 space-y-24'>
-									{sub.images.map((src, imgIdx) => (
-										<div
-											key={`img-${sIdx}-${subIdx}-${imgIdx}`}
-											className='w-[1448px] h-[64vh] overflow-hidden rounded-2xl'
-										>
-											<ParalaxImage
-												altText={`${t(sub.title, locale)} image ${imgIdx + 1}`}
-												source={src.url}
-											/>
-										</div>
-									))}
-								</div>
-							)}
-						</React.Fragment>
-					))}
-				</React.Fragment>
-			))}
-		</section>
-	)
+      {summaryColumns.map((c, idx) => (
+        <AnimatedText
+          key={`summary-${idx}`}
+          text={t(c, locale)}
+          customStyles={`sm:col-span-4 col-span-full sm:col-start-${4 + idx * 4} leading-4.5`}
+        />
+      ))}
+
+      {sections.map((section, sIdx) => (
+        <React.Fragment key={`section-${sIdx}`}>
+          <AnimatedHeader
+            text={t(section.title, locale)}
+            customStyles='
+              sm:col-span-9 col-span-full
+              sm:text-5xl sm:leading-13 text-xl leading-6 font-bold
+              mt-20 sm:mt-24
+              [.spacer+&]:mt-0        
+              sm:[.spacer+&]:mt-24      
+            '
+          />
+
+          {section.subsections.map((sub, subIdx) => (
+            <React.Fragment key={`sub-${sIdx}-${subIdx}`}>
+              <AnimatedLine customStyles='col-span-full mb-2 mt-6 sm:mt-12' />
+
+              <AnimatedText
+                text={t(sub.title, locale)}
+                customStyles='col-span-full sm:col-span-2 font-bold leading-4.5 sm:mb-0 mb-12'
+              />
+              <AnimatedText
+                text={t(sub.column1, locale)}
+                customStyles='col-span-full sm:col-span-4 sm:col-start-4 leading-4.5'
+              />
+              <AnimatedText
+                text={t(sub.column2, locale)}
+                customStyles='col-span-full sm:col-span-4 sm:col-start-8 leading-4.5'
+              />
+
+              {sub.images && sub.images?.length > 0 && (
+                <div
+                  className='
+                    col-span-full mt-20 sm:mt-24 mb-20 sm:mb-16 space-y-24
+                    [&:has(+.spacer)]:mb-0 sm:[&:has(+.spacer)]:mb-0
+                  '
+                >
+                  {sub.images.map((src, imgIdx) => (
+                    <div
+                      key={`img-${sIdx}-${subIdx}-${imgIdx}`}
+                      className='sm:w-[1448px] w-full aspect-[4/3] sm:h-[64vh] overflow-hidden rounded-2xl'
+                    >
+                      <ParalaxImage
+                        altText={`${t(sub.title, locale)} image ${imgIdx + 1}`}
+                        source={src.url}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className='h-20 w-full sm:hidden spacer' />
+            </React.Fragment>
+          ))}
+        </React.Fragment>
+      ))}
+    </section>
+  )
 }
 
 export default NewsContent

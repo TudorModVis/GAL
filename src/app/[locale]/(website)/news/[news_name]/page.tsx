@@ -55,7 +55,7 @@ const Page = () => {
 		: [tCategories(blog.categories)]
 
 	return (
-		<main className='bg-sand-50 mb-[100vh]'>
+		<main className='bg-sand-50 mb-12 sm:mb-[100vh]'>
 			<InfoSection
 				tags={tags}
 				headerText={blog.title[locale]}

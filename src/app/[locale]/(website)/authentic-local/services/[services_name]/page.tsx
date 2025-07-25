@@ -6,13 +6,15 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 
 import AuthenticHeader, { Breadcrumb } from '@/components/CommonComponents/AuthenticHeader'
+import AuthenticSkeleton from '@/components/CommonComponents/AuthenticSkeleton'
+import InfoSection from '@/components/CommonComponents/InfoSection'
 import NewsContent from '@/components/CommonComponents/NewsContent'
 import Donation from '@/components/Donation/Donation'
 
 import { IMultiLangText } from '@/types/shared/text.types'
 
 import { blogService } from '@/services/blog.service'
-import AuthenticSkeleton from '@/components/CommonComponents/AuthenticSkeleton'
+import BigSkeleton from '@/components/CommonComponents/BigSkeleton'
 
 const Page = () => {
 	type Locale = keyof IMultiLangText
@@ -30,7 +32,7 @@ const Page = () => {
 		return `${day}.${month}.${year}`
 	}
 
-	const params = useParams<{ 'services_name': string }>()
+	const params = useParams<{ services_name: string }>()
 	const id = params['services_name']
 
 	const { data, isSuccess } = useQuery({
@@ -38,7 +40,17 @@ const Page = () => {
 		queryFn: () => blogService.getBlogById(id)
 	})
 
-	if (!isSuccess) return <AuthenticSkeleton />
+	if (!isSuccess)
+		return (
+			<>
+				<div className='hidden sm:block'>
+					<AuthenticSkeleton />
+				</div>
+				<div className='block sm:hidden'>
+					<BigSkeleton />
+				</div>
+			</>
+		)
 
 	const blog = data.data
 
@@ -56,16 +68,29 @@ const Page = () => {
 		: [tCategories(blog.categories)]
 
 	return (
-		<main className='bg-sand-50 mb-[100vh]'>
-			<AuthenticHeader
-				tags={tags}
-				headerText={blog.title[locale]}
-				lastActualization={formatDate(blog.updatedAt)}
-				location={location}
-				imageSrc={blog.main_image}
-				imageAlt={blog.title[locale]}
-				locale={locale}
-			/>
+		<main className='bg-sand-50 mb-12 sm:mb-[100vh]'>
+			<div className='hidden sm:block'>
+				<AuthenticHeader
+					tags={tags}
+					headerText={blog.title[locale]}
+					lastActualization={formatDate(blog.updatedAt)}
+					location={location}
+					imageSrc={blog.main_image}
+					imageAlt={blog.title[locale]}
+					locale={locale}
+				/>
+			</div>
+			<div className='block sm:hidden'>
+				<InfoSection
+					tags={tags}
+					headerText={blog.title[locale]}
+					lastActualization={formatDate(blog.updatedAt)}
+					location={location}
+					imageSrc={blog.main_image}
+					imageAlt={blog.title[locale]}
+					locale={locale}
+				/>
+			</div>
 			<NewsContent
 				summary={blog.summary}
 				sections={blog.sections}

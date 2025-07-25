@@ -85,35 +85,42 @@ const InfoSection: React.FC<InfoSectionProps> = props => {
 
 			<div
 				aria-label='Breadcrumb'
-				className='flex gap-1 items-center col-span-full'
+				className='space-x-1 w-full col-span-full'
 			>
 				{props.location.map((loc, index) => {
 					const isLast = index === props.location.length - 1
 					const baseClass = isLast ? 'text-forest-900' : 'text-stone-600'
+
+					const Crumb =
+						loc.link && !isLast ? (
+							<Link
+								href={loc.link}
+								className={`${baseClass} hover:underline`}
+							>
+								{loc.text}
+							</Link>
+						) : (
+							<span
+								className={baseClass}
+								aria-current={isLast ? 'page' : undefined}
+							>
+								{loc.text}
+							</span>
+						)
+
 					return (
-						<React.Fragment key={index}>
-							{loc.link && !isLast ? (
-								<Link
-									href={loc.link}
-									className={`${baseClass} hover:underline text-nowrap`}
-								>
-									{loc.text}
-								</Link>
-							) : (
-								<span
-									className={baseClass}
-									aria-current={isLast ? 'page' : undefined}
-								>
-									{loc.text}
-								</span>
-							)}
-							{!isLast && <Arrow arrowCustomStyle='fill-stone-600 scale-75' />}
-						</React.Fragment>
+						<span
+							key={index}
+							className='items-center inline'
+						>
+							{Crumb}
+							{!isLast && <Arrow arrowCustomStyle='fill-stone-600 ml-1 scale-75' />}
+						</span>
 					)
 				})}
 			</div>
 
-			<div className='sm:w-[1448px] w-full sm:h-[64vh] aspect-square sm:aspect-auto overflow-hidden mt-11.5 sm:mt-6 rounded-2xl mb-40 col-span-full'>
+			<div className='sm:w-[1448px] w-full sm:h-[64vh] aspect-square sm:aspect-auto overflow-hidden mt-11.5 sm:mt-6 rounded-2xl mb-20 sm:mb-40 col-span-full'>
 				<ParalaxImage
 					altText={props.imageAlt}
 					source={props.imageSrc}

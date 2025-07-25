@@ -61,8 +61,6 @@ const Visualization: React.FC<VisualisationProps> = props => {
 		queryFn: () => blogService.getAllBlogs(params)
 	})
 
-	console.log('Visualization data:', data)
-
 	const t = useTranslations('Visialization_type')
 
 	return (
@@ -73,13 +71,13 @@ const Visualization: React.FC<VisualisationProps> = props => {
 			<AnimatedLine customStyles='col-span-full mb-2' />
 			<AnimatedText
 				text={props.header}
-				customStyles='col-span-2 font-bold'
+				customStyles='sm:col-span-2 col-span-full font-bold'
 			/>
 			<AnimatedText
 				text={props.description}
-				customStyles='col-span-4 col-start-4 mb-24'
+				customStyles='sm:col-span-4 sm:col-start-4 col-span-full mb-20 sm:mb-24'
 			/>
-			<div className='col-span-2 col-start-11 flex flex-col'>
+			<div className='col-span-2 col-start-11 flex-col hidden sm:flex'>
 				<AnimatedText
 					text={t('type')}
 					customStyles='text-right font-bold'
@@ -106,7 +104,7 @@ const Visualization: React.FC<VisualisationProps> = props => {
 			{isLoading ? (
 				<PostSkeleton />
 			) : data ? (
-				<motion.div className='col-span-full grid grid-cols-12 gap-6'>
+				<motion.div className='col-span-full sm:grid sm:grid-cols-12 gap-6'>
 					<AnimatePresence mode='wait'>
 						{data?.data.blogs.map((item, index) =>
 							visualisationType ? (
@@ -116,7 +114,7 @@ const Visualization: React.FC<VisualisationProps> = props => {
 									initial='hidden'
 									animate='show'
 									exit='exit'
-									className='col-span-6'
+									className='sm:col-span-6 mb-12'
 								>
 									<BigPost {...item} />
 								</motion.div>
@@ -141,7 +139,7 @@ const Visualization: React.FC<VisualisationProps> = props => {
 				</div>
 			)}
 			{data && (
-				<div className='col-span-full flex justify-center w-full'>
+				<div className='col-span-full flex justify-center sm:mt-0 -mt-16 sm:mb-0 mb-12 items-center w-full'>
 					<Pagination
 						pagination={data.data.pagination}
 						updatePage={updatePage}
