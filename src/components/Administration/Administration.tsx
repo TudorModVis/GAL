@@ -29,9 +29,14 @@ const pick = (obj: IMultiLangText | undefined, locale: string) => {
 	return obj[locale as keyof IMultiLangText] ?? obj.en ?? ''
 }
 
-const HtmlBlock: React.FC<{ html: string }> = ({ html }) => (
+const HtmlBlock: React.FC<{ html: string; isFirstOfPair?: boolean }> = ({
+	html,
+	isFirstOfPair
+}) => (
 	<div
-		className='col-span-4 flex flex-col gap-[1ch] leading-4.5 mb-24 prose max-w-none'
+		className={`sm:col-span-4 col-span-full flex flex-col gap-[1ch] leading-4.5 ${
+			isFirstOfPair ? 'mb-12' : 'mb-20'
+		} sm:mb-24 prose max-w-none`}
 		dangerouslySetInnerHTML={{ __html: html }}
 	/>
 )
@@ -75,7 +80,7 @@ const Administration: React.FC = () => {
 	}
 
 	return (
-		<main className='relative w-full h-fit mb-[100vh] bg-sand-50'>
+		<main className='relative w-full h-fit sm:mb-[100vh] bg-sand-50'>
 			<InfoSection
 				tags={tags}
 				headerText={t('title')}
@@ -91,18 +96,18 @@ const Administration: React.FC = () => {
 				<div className='grid grid-cols-full w-full relative'>
 					<AnimatedHeader
 						text={t('president.header')}
-						customStyles='col-span-full text-5xl font-bold leading-13'
+						customStyles='col-span-full sm:text-5xl text-xl leading-6 font-bold sm:leading-13'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('president.detailsLabel')}
-						customStyles='font-bold col-span-3'
+						customStyles='font-bold col-span-full sm:col-span-3 sm:mb-0 mb-12'
 					/>
 
 					<HtmlBlock html={pick(management?.president?.text, locale)} />
 
 					{management?.president?.image && (
-						<div className='col-start-8 col-span-4 flex justify-center items-start mb-24'>
+						<div className='sm:col-start-8 sm:col-span-4 col-span-full flex justify-center items-start mb-20 sm:mb-24'>
 							<img
 								src={management.president.image}
 								alt='President'
@@ -115,12 +120,12 @@ const Administration: React.FC = () => {
 				<div className='grid grid-cols-full w-full relative'>
 					<AnimatedHeader
 						text={t('executiveBody.header')}
-						customStyles='col-span-full text-5xl font-bold leading-13'
+						customStyles='col-span-full sm:text-5xl text-xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('executiveBody.detailsLabel')}
-						customStyles='font-bold col-span-3'
+						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
 					<HtmlBlock html={pick(management?.executive?.column1, locale)} />
 				</div>
@@ -128,14 +133,17 @@ const Administration: React.FC = () => {
 				<div className='grid grid-cols-full w-full relative'>
 					<AnimatedHeader
 						text={t('generalAssembly.header')}
-						customStyles='col-span-full text-5xl font-bold leading-13'
+						customStyles='col-span-full text-xl sm:text-5xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('generalAssembly.subheader')}
-						customStyles='font-bold col-span-3'
+						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
-					<HtmlBlock html={pick(management?.general_assembly?.column1, locale)} />
+					<HtmlBlock
+						html={pick(management?.general_assembly?.column1, locale)}
+						isFirstOfPair={!!management?.general_assembly?.column2}
+					/>
 					{management?.general_assembly?.column2 && (
 						<HtmlBlock html={pick(management.general_assembly.column2, locale)} />
 					)}
@@ -144,12 +152,12 @@ const Administration: React.FC = () => {
 				<div className='grid grid-cols-full w-full relative'>
 					<AnimatedHeader
 						text={t('boardOfDirectors.header')}
-						customStyles='col-span-full text-5xl font-bold leading-13'
+						customStyles='col-span-full text-xl sm:text-5xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('boardOfDirectors.subheader')}
-						customStyles='font-bold col-span-3'
+						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
 					<HtmlBlock html={pick(management?.administration?.column1, locale)} />
 				</div>
@@ -157,14 +165,17 @@ const Administration: React.FC = () => {
 				<div className='grid grid-cols-full w-full relative'>
 					<AnimatedHeader
 						text={t('selectionCommittee.header')}
-						customStyles='col-span-full text-5xl font-bold leading-13'
+						customStyles='col-span-full sm:text-5xl text-xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('selectionCommittee.subheader')}
-						customStyles='font-bold col-span-3'
+						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
-					<HtmlBlock html={pick(management?.committee?.column1, locale)} />
+					<HtmlBlock
+						html={pick(management?.committee?.column1, locale)}
+						isFirstOfPair={!!management?.committee?.column2}
+					/>
 					{management?.committee?.column2 && (
 						<HtmlBlock html={pick(management.committee.column2, locale)} />
 					)}
@@ -173,12 +184,12 @@ const Administration: React.FC = () => {
 				<div className='grid grid-cols-full w-full relative'>
 					<AnimatedHeader
 						text={t('auditCommission.header')}
-						customStyles='col-span-full text-5xl font-bold leading-13'
+						customStyles='col-span-full sm:text-5xl text-xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('auditCommission.subheader')}
-						customStyles='font-bold col-span-3'
+						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
 					<HtmlBlock html={pick(management?.censorship?.column1, locale)} />
 				</div>

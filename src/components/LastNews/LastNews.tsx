@@ -21,18 +21,11 @@ import 'slick-carousel/slick/slick.css'
 const LastNews = () => {
 	const tLastNews = useTranslations('index.LastNews')
 	const sliderRef = useRef<Slider>(null)
-	const userInteracted = useRef(false)
 	const [currentSlide, setCurrentSlide] = useState(0)
-	const [params, setParams] = useState<IGetParams>({
-		page: 1,
-		limit: 11
-	})
+	const [params, setParams] = useState<IGetParams>({ page: 1, limit: 12 })
 
 	useEffect(() => {
-		setParams({
-			page: 1,
-			limit: 11
-		})
+		setParams({ page: 1, limit: 12 })
 	}, [])
 
 	const { data } = useQuery({
@@ -42,7 +35,6 @@ const LastNews = () => {
 
 	const newsPages = useMemo(() => {
 		if (!data?.data?.blogs) return []
-
 		const pages = []
 		for (let i = 0; i < data.data.blogs.length; i += 3) {
 			pages.push(data.data.blogs.slice(i, i + 3))
@@ -50,14 +42,11 @@ const LastNews = () => {
 		return pages
 	}, [data])
 
-	const restartAutoplay = () => {
+	const resetAutoplay = () => {
 		if (!sliderRef.current) return
 		sliderRef.current.slickPause()
 		sliderRef.current.slickPlay()
 	}
-
-	const totalSlides = newsPages.length
-	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
 	function useIsMobile(breakpoint = 640) {
 		const [isMobile, setIsMobile] = useState(false)
@@ -69,8 +58,10 @@ const LastNews = () => {
 		}, [breakpoint])
 		return isMobile
 	}
-
 	const isMobile = useIsMobile()
+
+	const totalSlides = newsPages.length
+	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
 	const settings = {
 		dots: false,
@@ -82,13 +73,17 @@ const LastNews = () => {
 		autoplaySpeed: 5000,
 		arrows: false,
 		onInit: () => setCurrentSlide(0),
+
 		beforeChange: () => {
-			if (!userInteracted.current) return
-			restartAutoplay()
+			sliderRef.current?.slickPause()
 		},
 		afterChange: (current: number) => {
 			setCurrentSlide(current)
-			userInteracted.current = false
+			sliderRef.current?.slickPlay()
+		},
+
+		onSwipe: () => {
+			resetAutoplay()
 		}
 	}
 
@@ -102,22 +97,14 @@ const LastNews = () => {
 					/>
 					<div className='flex gap-2 items-center'>
 						<button
-							onClick={() => {
-								userInteracted.current = true
-								sliderRef.current?.slickPrev()
-								restartAutoplay()
-							}}
-							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center cursor-pointer'
+							onClick={() => sliderRef.current?.slickPrev()}
+							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center'
 						>
 							<Arrow arrowCustomStyle='-rotate-180 fill-forest-900' />
 						</button>
 						<button
-							onClick={() => {
-								userInteracted.current = true
-								sliderRef.current?.slickNext()
-								restartAutoplay()
-							}}
-							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center cursor-pointer'
+							onClick={() => sliderRef.current?.slickNext()}
+							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center'
 						>
 							<Arrow arrowCustomStyle='fill-forest-900' />
 						</button>
@@ -130,9 +117,9 @@ const LastNews = () => {
 						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
-						{newsPages.map((page, pageIndex) => (
+						{newsPages.map((page, idx) => (
 							<div
-								key={pageIndex}
+								key={idx}
 								className='outline-none'
 							>
 								<div className='grid grid-cols-12 gap-x-6'>
@@ -162,10 +149,10 @@ const LastNews = () => {
 					</div>
 					<LinkWithArrow
 						text={tLastNews('see_more_news')}
-						href='/'
+						href='/news'
 						arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
 						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+                         [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 					/>
 				</div>
 			</div>
@@ -186,7 +173,7 @@ const LastNews = () => {
 						{data?.data?.blogs?.map(news => (
 							<div
 								key={news._id}
-								className='pr-4 h-full ml-12'
+								className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
 							>
 								<SmallPost {...news} />
 							</div>
@@ -206,10 +193,10 @@ const LastNews = () => {
 						<div className='mt-12'>
 							<LinkWithArrow
 								text={tLastNews('see_more_news')}
-								href='/'
+								href='/news'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
 								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                                 [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+                             [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 							/>
 						</div>
 					</div>

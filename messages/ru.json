@@ -318,11 +318,11 @@
 			"accountant": "Бухгалтер МИГ “Stejarul Dacilor”"
 		},
 		"map": {
-			"name": "Название",
-			"details": "Детали",
-			"location": "Местоположение",
-			"sector": "Сектор",
-			"unit": "Foj",
+			"name": "Название:",
+			"details": "Детали:",
+			"location": "Местоположение:",
+			"sector": "Сектор:",
+			"unit": "Foj:",
 			"marker_selemet": {
 				"name": "Примэрия коммуны Селемет",
 				"details": "098230243645 - Юридическое лицо",

@@ -40,9 +40,9 @@ const AboutUs = () => {
 				<LinkWithArrow
 					text={tAboutUs('button_learn_more')}
 					href='/aboutUs'
-					arrowProps='group-hover/link:fill-sand-50 group-hover/link:rotate-0 -rotate-45 fill-sand-50'
-					customStyle='flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5
-                     [&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:group-hover/link:bg-forest-800 text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+					arrowProps='group-hover/link:fill-sand-50 leading-6 group-hover/link:rotate-0 -rotate-45 fill-sand-50'
+					customStyle='flex w-full leading-6 gap-1 items-center [&>div:nth-child(1)]:py-2.5
+                     [&>div:nth-child(1)]:px-4 [&>div]:bg-forest-800 [&>div]:group-hover/link:bg-forest-800 text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 				/>
 			</div>
 			<div className='order-3 sm:order-2 col-span-full sm:col-span-9 mt-12 sm:mt-72'>
@@ -51,7 +51,7 @@ const AboutUs = () => {
 					text={tAboutUs('main_headline')}
 				/>
 			</div>
-			<div className='order-2 sm:order-3 sm:col-start-9 sm:col-span-4 col-span-full sm:absolute'>
+			<div className='order-2 sm:order-3 sm:col-start-9 sm:col-span-4 flex justify-center col-span-full sm:absolute'>
 				<Moldova />
 			</div>
 			<div className='order-4 flex flex-col col-span-full sm:col-span-3 sm:row-start-3 sm:mt-24 mt-6 sm:h-40 h-[106px]'>

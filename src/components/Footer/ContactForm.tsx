@@ -112,7 +112,7 @@ const ContactForm = () => {
 								setTopic(key)
 								if (errors.topic) setErrors(p => ({ ...p, topic: false }))
 							}}
-							className={`transition rounded-full font-medium sm:px-4 px-3.5 py-2.5 cursor-pointer
+							className={`transition rounded-full hover:bg-stone-200 font-medium sm:px-4 px-3.5 py-2.5 cursor-pointer
                           ${shakeClassIf(errors.topic)}
                           ${
 														topic === key
@@ -212,7 +212,7 @@ const ContactForm = () => {
                      [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4
                      [&>div]:text-forest-900 [&>div]:bg-sand-50
                      [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full
-                     [&>div:nth-child(2)]:p-3`}
+                     [&>div:nth-child(2)]:p-3.5`}
 				>
 					<div className='transition text-nowrap'>
 						{isPending ? t('form_text.loading') : t('form_text.contact_button_text')}

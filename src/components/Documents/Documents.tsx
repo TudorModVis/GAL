@@ -76,7 +76,7 @@ const Documents: React.FC = () => {
 	]
 
 	return (
-		<main className='relative w-full h-fit mb-[100vh] bg-sand-50'>
+		<main className='relative w-full h-fit sm:mb-[100vh] bg-sand-50'>
 			<InfoSection
 				tags={tags}
 				headerText={t('title')}
@@ -101,7 +101,7 @@ const Documents: React.FC = () => {
 							<AnimatedLine customStyles='col-span-full mb-2' />
 							<AnimatedText
 								text={title}
-								customStyles='font-bold col-span-3'
+								customStyles='font-bold col-span-full sm:col-span-3 sm:mb-0 mb-14'
 							/>
 
 							<div className='col-span-9 grid sm:grid-cols-2 gap-6'>
@@ -117,7 +117,7 @@ const Documents: React.FC = () => {
 										<button
 											onClick={() => downloadFile(doc.file)}
 											disabled={!doc.file}
-											className='bg-forest-700 hover:bg-forest-600 disabled:bg-forest-300 text-sand-50 cursor-pointer mb-24 w-fit px-4 py-2.5 rounded-full outline-none disabled:cursor-not-allowed'
+											className='bg-forest-800 hover:bg-forest-600 disabled:bg-forest-300 text-sand-50 cursor-pointer mb-24 w-fit px-4 py-2.5 rounded-full outline-none disabled:cursor-not-allowed'
 										>
 											{btn}
 										</button>

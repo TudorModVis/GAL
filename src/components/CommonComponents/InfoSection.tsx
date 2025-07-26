@@ -56,13 +56,13 @@ const InfoSection: React.FC<InfoSectionProps> = props => {
 
 	return (
 		<section className='w-screen h-fit grid grid-cols-full relative text-forest-900 align-content-start pt-24'>
-			<div className='col-span-9 flex flex-col mt-24'>
+			<div className='sm:col-span-9 col-span-full flex flex-col mt-24'>
 				<div className='flex gap-2 text-sand-50 items-center flex-wrap'>
 					{props.tags.map((tag, index) => {
 						return (
 							<span
 								key={index}
-								className={`${pickBgClass(tag)} px-4 py-1 rounded-sm mb-2 text-xs text-nowrap`}
+								className={`${pickBgClass(tag)} px-4 py-1 rounded-sm text-xs text-nowrap`}
 							>
 								{tag}
 							</span>
@@ -71,49 +71,56 @@ const InfoSection: React.FC<InfoSectionProps> = props => {
 				</div>
 				<AnimatedHeader
 					text={props.headerText}
-					customStyles='leading-13 text-5xl font-bold my-4'
+					customStyles='sm:leading-13 leading-6 sm:text-5xl text-xl font-bold my-4'
 				/>
 				{props.lastActualization && (
 					<AnimatedText
 						text={actualization + ' ' + props.lastActualization}
-						customStyles='leading-4.5 mb-6 font-bold'
+						customStyles='leading-4.5 sm:mb-6 font-bold sm:text-base text-xs'
 					/>
 				)}
 			</div>
 
-			<AnimatedLine customStyles='col-span-full mt-24 mb-2' />
+			<AnimatedLine customStyles='col-span-full mt-20 sm:mt-24 mb-2' />
 
 			<div
 				aria-label='Breadcrumb'
-				className='flex gap-1 items-center col-span-full'
+				className='space-x-1 w-full col-span-full'
 			>
 				{props.location.map((loc, index) => {
 					const isLast = index === props.location.length - 1
 					const baseClass = isLast ? 'text-forest-900' : 'text-stone-600'
+
+					const Crumb =
+						loc.link && !isLast ? (
+							<Link
+								href={loc.link}
+								className={`${baseClass} hover:underline`}
+							>
+								{loc.text}
+							</Link>
+						) : (
+							<span
+								className={baseClass}
+								aria-current={isLast ? 'page' : undefined}
+							>
+								{loc.text}
+							</span>
+						)
+
 					return (
-						<React.Fragment key={index}>
-							{loc.link && !isLast ? (
-								<Link
-									href={loc.link}
-									className={`${baseClass} hover:underline`}
-								>
-									{loc.text}
-								</Link>
-							) : (
-								<span
-									className={baseClass}
-									aria-current={isLast ? 'page' : undefined}
-								>
-									{loc.text}
-								</span>
-							)}
-							{!isLast && <Arrow arrowCustomStyle='fill-stone-600 scale-75' />}
-						</React.Fragment>
+						<span
+							key={index}
+							className='items-center inline'
+						>
+							{Crumb}
+							{!isLast && <Arrow arrowCustomStyle='fill-stone-600 ml-1 scale-75' />}
+						</span>
 					)
 				})}
 			</div>
 
-			<div className='w-[1448px] h-[64vh] overflow-hidden mt-6 rounded-2xl mb-40 col-span-full'>
+			<div className='sm:w-[1448px] w-full sm:h-[64vh] aspect-square sm:aspect-auto overflow-hidden mt-11.5 sm:mt-6 rounded-2xl mb-20 sm:mb-40 col-span-full'>
 				<ParalaxImage
 					altText={props.imageAlt}
 					source={props.imageSrc}

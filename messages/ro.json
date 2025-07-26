@@ -318,11 +318,11 @@
 			"accountant": "Contabil GAL “Stejarul Dacilor”"
 		},
 		"map": {
-			"name": "Denumirea",
-			"details": "Detalii",
-			"location": "Locație",
-			"sector": "Sector",
-			"unit": "Foj",
+			"name": "Denumirea:",
+			"details": "Detalii:",
+			"location": "Locație:",
+			"sector": "Sector:",
+			"unit": "Foj:",
 			"marker_selemet": {
 				"name": "Primăria comunei Selemet",
 				"details": "098230243645 - Persoană juridică",

@@ -268,21 +268,21 @@
 	}
 }
 
-:root {
-	--current-rem: 14;
-}
-
 html,
 input,
 textarea {
-	font-size: 14px;
+	font-size: 16px;
 }
 
-@media (min-width: 1024px) {
-	:root {
-		--current-rem: 16;
+@media (min-width: 640px) and (max-width: 1279px) {
+	html,
+	input,
+	textarea {
+		font-size: 14px;
 	}
+}
 
+@media (min-width: 1280px) {
 	html,
 	input,
 	textarea {

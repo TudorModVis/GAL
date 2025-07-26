@@ -23,18 +23,16 @@ import 'slick-carousel/slick/slick.css'
 const CompletedProjects = () => {
 	const tCompletedProjects = useTranslations('index.CompletedProjects')
 	const sliderRef = useRef<Slider>(null)
-	const userInteracted = useRef(false)
 	const [currentSlide, setCurrentSlide] = useState(0)
 	const [params, setParams] = useState<IGetParams>({
 		page: 1,
-		limit: 11
-		// content_type: BlogsContentTypeEnum.PROJECT
+		limit: 12
 	})
 
 	useEffect(() => {
 		setParams({
 			page: 1,
-			limit: 11
+			limit: 12
 		})
 	}, [])
 
@@ -52,14 +50,14 @@ const CompletedProjects = () => {
 		return pages
 	}, [data])
 
-	const restartAutoplay = () => {
+	const totalSlides = projectPages.length
+	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
+
+	const resetAutoplay = () => {
 		if (!sliderRef.current) return
 		sliderRef.current.slickPause()
 		sliderRef.current.slickPlay()
 	}
-
-	const totalSlides = projectPages.length
-	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
 
 	function useIsMobile(breakpoint = 640) {
 		const [isMobile, setIsMobile] = useState(false)
@@ -84,13 +82,17 @@ const CompletedProjects = () => {
 		autoplaySpeed: 5000,
 		arrows: false,
 		onInit: () => setCurrentSlide(0),
+
 		beforeChange: () => {
-			if (!userInteracted.current) return
-			restartAutoplay()
+			sliderRef.current?.slickPause()
 		},
 		afterChange: (current: number) => {
 			setCurrentSlide(current)
-			userInteracted.current = false
+			sliderRef.current?.slickPlay()
+		},
+
+		onSwipe: () => {
+			resetAutoplay()
 		}
 	}
 
@@ -105,21 +107,13 @@ const CompletedProjects = () => {
 					/>
 					<div className='hidden sm:flex gap-2 items-center'>
 						<button
-							onClick={() => {
-								userInteracted.current = true
-								sliderRef.current?.slickPrev()
-								restartAutoplay()
-							}}
+							onClick={() => sliderRef.current?.slickPrev()}
 							className='rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer size-10 flex items-center justify-center'
 						>
 							<Arrow arrowCustomStyle='-rotate-180 fill-sand-50' />
 						</button>
 						<button
-							onClick={() => {
-								userInteracted.current = true
-								sliderRef.current?.slickNext()
-								restartAutoplay()
-							}}
+							onClick={() => sliderRef.current?.slickNext()}
 							className='rounded-full bg-forest-700 border border-stone-300 hover:bg-forest-600 p-3 cursor-pointer size-10 flex items-center justify-center'
 						>
 							<Arrow arrowCustomStyle='fill-sand-50' />
@@ -165,9 +159,9 @@ const CompletedProjects = () => {
 					</div>
 					<LinkWithArrow
 						text={tCompletedProjects('see_more_projects')}
-						href='/'
+						href='/projects'
 						arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50'
-						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4 [&>div]:text-sand-50 [&>div]:bg-forest-700 gap [&>div]:group-hover/link:bg-forest-800 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4 [&>div]:text-sand-50 [&>div]:bg-forest-800 gap [&>div]:group-hover/link:bg-forest-800 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 					/>
 				</div>
 			</div>
@@ -187,7 +181,7 @@ const CompletedProjects = () => {
 						{data?.data?.blogs?.map(project => (
 							<div
 								key={project._id}
-								className='pr-4 h-full ml-12'
+								className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
 							>
 								<SmallPost {...project} />
 							</div>
@@ -207,7 +201,7 @@ const CompletedProjects = () => {
 						<div className='mt-12'>
 							<LinkWithArrow
 								text={tCompletedProjects('see_more_projects')}
-								href='/'
+								href='/projects'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50 sm:fill-forest-900'
 								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
 																	[&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:text-sand-50 sm:[&>div]:text-forest-900 sm:[&>div]:bg-sand-50 gap 

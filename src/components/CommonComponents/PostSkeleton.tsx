@@ -5,8 +5,8 @@ import ImageIcon from './ImageIcon'
 const PostSkeleton = () => {
 	return (
 		<div className='col-span-full grid grid-cols-full gap-6 w-full'>
-			<div className='col-span-6 w-full h-150'>
-				<div className='bg-gray-500 flex items-center justify-center w-full h-2/3 rounded-t-2xl animate-pulse'>
+			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
+				<div className='bg-gray-500 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />
 				</div>
 				<div className='flex flex-col'>
@@ -22,8 +22,8 @@ const PostSkeleton = () => {
 					<div className='w-1/3 bg-gray-500 rounded-sm h-8 mb-6 animate-pulse'></div>
 				</div>
 			</div>
-			<div className='col-span-6 w-full h-150'>
-				<div className='bg-gray-500 flex items-center justify-center w-full h-2/3 rounded-t-2xl animate-pulse'>
+			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
+				<div className='bg-gray-500 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />
 				</div>
 				<div className='flex flex-col'>
@@ -39,8 +39,8 @@ const PostSkeleton = () => {
 					<div className='w-1/3 bg-gray-500 rounded-sm h-8 mb-6 animate-pulse'></div>
 				</div>
 			</div>
-			<div className='col-span-6 w-full h-150'>
-				<div className='bg-gray-500 flex items-center justify-center w-full h-2/3 rounded-t-2xl animate-pulse'>
+			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
+				<div className='bg-gray-500 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />
 				</div>
 				<div className='flex flex-col'>
@@ -56,8 +56,8 @@ const PostSkeleton = () => {
 					<div className='w-1/3 bg-gray-500 rounded-sm h-8 mb-6 animate-pulse'></div>
 				</div>
 			</div>
-			<div className='col-span-6 w-full h-150'>
-				<div className='bg-gray-500 flex items-center justify-center w-full h-2/3 rounded-t-2xl animate-pulse'>
+			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
+				<div className='bg-gray-500 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />
 				</div>
 				<div className='flex flex-col'>
@@ -73,8 +73,8 @@ const PostSkeleton = () => {
 					<div className='w-1/3 bg-gray-500 rounded-sm h-8 mb-6 animate-pulse'></div>
 				</div>
 			</div>
-			<div className='col-span-6 w-full h-150'>
-				<div className='bg-gray-500 flex items-center justify-center w-full h-2/3 rounded-t-2xl animate-pulse'>
+			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
+				<div className='bg-gray-500 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />
 				</div>
 				<div className='flex flex-col'>
@@ -90,8 +90,8 @@ const PostSkeleton = () => {
 					<div className='w-1/3 bg-gray-500 rounded-sm h-8 mb-6 animate-pulse'></div>
 				</div>
 			</div>
-			<div className='col-span-6 w-full h-150'>
-				<div className='bg-gray-500 flex items-center justify-center w-full h-2/3 rounded-t-2xl animate-pulse'>
+			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
+				<div className='bg-gray-500 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />
 				</div>
 				<div className='flex flex-col'>

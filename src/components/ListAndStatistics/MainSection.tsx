@@ -53,7 +53,7 @@ const MainSection = () => {
 							href='/'
 							arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50'
 							customStyle='flex w-full gap-1 items-center [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50
-                     [&>div:nth-child(1)]:px-4 [&>div]:group-hover/link:bg-forest-700 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+                     [&>div:nth-child(1)]:px-4 [&>div]:group-hover/link:bg-forest-700 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 						/>
 					</div>
 					<div className='col-span-full max-h-[400px] mt-12 mb-6 bg-green-900 overflow-hidden sm:hidden block rounded-2xl'>

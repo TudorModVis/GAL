@@ -312,11 +312,11 @@
 			"accountant": "Accountant of LAG “Oak of the Dacians”"
 		},
 		"map": {
-			"name": "Name",
-			"details": "Details",
-			"location": "Location",
-			"sector": "Sector",
-			"unit": "Unit",
+			"name": "Name:",
+			"details": "Details:",
+			"location": "Location:",
+			"sector": "Sector:",
+			"unit": "Unit:",
 			"marker_selemet": {
 				"name": "Selemet Commune Hall",
 				"details": "098230243645 - Legal entity",
