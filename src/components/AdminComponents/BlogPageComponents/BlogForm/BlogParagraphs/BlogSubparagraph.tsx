@@ -96,8 +96,6 @@ export function BlogSubparagraph({
 		appendImage({ url: '' })
 	}
 
-	console.log('imageFields', imageFields)
-
 	return (
 		<>
 			<div className='flex gap-[1.5rem] mt-[3rem] border-t border-gray-500 pt-[0.75rem]'>

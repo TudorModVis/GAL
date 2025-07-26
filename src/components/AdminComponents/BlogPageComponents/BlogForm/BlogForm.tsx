@@ -92,6 +92,7 @@ export function BlogForm({
 
 			{/* MARK: Title */}
 			<BlogTitleInput
+				key={`title-${language}`}
 				formState={formState}
 				register={register}
 				control={control}
