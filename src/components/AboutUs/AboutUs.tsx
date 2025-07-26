@@ -51,7 +51,7 @@ const AboutUs = () => {
 					text={tAboutUs('main_headline')}
 				/>
 			</div>
-			<div className='order-2 sm:order-3 sm:col-start-9 sm:col-span-4 col-span-full sm:absolute'>
+			<div className='order-2 sm:order-3 sm:col-start-9 sm:col-span-4 flex justify-center col-span-full sm:absolute'>
 				<Moldova />
 			</div>
 			<div className='order-4 flex flex-col col-span-full sm:col-span-3 sm:row-start-3 sm:mt-24 mt-6 sm:h-40 h-[106px]'>

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useLenis } from 'lenis/react'
+// import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -26,7 +26,7 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 
 	const pathname = usePathname()
 	const tNav = useTranslations('index.NavBar')
-	const lenis = useLenis()
+	// const lenis = useLenis()
 	const closeMenuTimer = useRef<NodeJS.Timeout | null>(null)
 
 	useEffect(() => {
@@ -47,13 +47,13 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 		setIsOpen(false)
 	}
 
-	useEffect(() => {
-		if (isOpen) {
-			lenis?.stop()
-		} else {
-			lenis?.start()
-		}
-	}, [isOpen, lenis])
+	// useEffect(() => {
+	// 	if (isOpen) {
+	// 		lenis?.stop()
+	// 	} else {
+	// 		lenis?.start()
+	// 	}
+	// }, [isOpen, lenis])
 
 	const topVariants = {
 		closed: { rotate: 0, translateY: 0 },

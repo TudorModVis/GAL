@@ -29,7 +29,7 @@ const NewsContent: React.FC<NewsContentProps> = ({ summary, sections, locale }) 
       <AnimatedLine customStyles='col-span-full mb-2' />
       <AnimatedText
         text={t({ ro: 'Sumarul proiectului', ru: 'Сводка проекта', en: 'Project summary' }, locale)}
-        customStyles='sm:col-span-2 col-span-full font-bold leading-4.5'
+        customStyles='sm:col-span-2 col-span-full font-bold leading-4.5 sm:mb-0 mb-12'
       />
 
       {summaryColumns.map((c, idx) => (
@@ -63,7 +63,7 @@ const NewsContent: React.FC<NewsContentProps> = ({ summary, sections, locale }) 
               />
               <AnimatedText
                 text={t(sub.column1, locale)}
-                customStyles='col-span-full sm:col-span-4 sm:col-start-4 leading-4.5'
+                customStyles='col-span-full sm:col-span-4 mb-0 mb-12 sm:col-start-4 leading-4.5'
               />
               <AnimatedText
                 text={t(sub.column2, locale)}

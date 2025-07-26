@@ -29,9 +29,14 @@ const pick = (obj: IMultiLangText | undefined, locale: string) => {
 	return obj[locale as keyof IMultiLangText] ?? obj.en ?? ''
 }
 
-const HtmlBlock: React.FC<{ html: string }> = ({ html }) => (
+const HtmlBlock: React.FC<{ html: string; isFirstOfPair?: boolean }> = ({
+	html,
+	isFirstOfPair
+}) => (
 	<div
-		className='sm:col-span-4 col-span-full flex flex-col gap-[1ch] leading-4.5 sm:mb-24 mb-12 prose max-w-none'
+		className={`sm:col-span-4 col-span-full flex flex-col gap-[1ch] leading-4.5 ${
+			isFirstOfPair ? 'mb-12' : 'mb-20'
+		} sm:mb-24 prose max-w-none`}
 		dangerouslySetInnerHTML={{ __html: html }}
 	/>
 )
@@ -117,7 +122,7 @@ const Administration: React.FC = () => {
 						text={t('executiveBody.header')}
 						customStyles='col-span-full sm:text-5xl text-xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('executiveBody.detailsLabel')}
 						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
@@ -130,12 +135,15 @@ const Administration: React.FC = () => {
 						text={t('generalAssembly.header')}
 						customStyles='col-span-full text-xl sm:text-5xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('generalAssembly.subheader')}
 						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
-					<HtmlBlock html={pick(management?.general_assembly?.column1, locale)} />
+					<HtmlBlock
+						html={pick(management?.general_assembly?.column1, locale)}
+						isFirstOfPair={!!management?.general_assembly?.column2}
+					/>
 					{management?.general_assembly?.column2 && (
 						<HtmlBlock html={pick(management.general_assembly.column2, locale)} />
 					)}
@@ -146,7 +154,7 @@ const Administration: React.FC = () => {
 						text={t('boardOfDirectors.header')}
 						customStyles='col-span-full text-xl sm:text-5xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('boardOfDirectors.subheader')}
 						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
@@ -159,12 +167,15 @@ const Administration: React.FC = () => {
 						text={t('selectionCommittee.header')}
 						customStyles='col-span-full sm:text-5xl text-xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('selectionCommittee.subheader')}
 						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
 					/>
-					<HtmlBlock html={pick(management?.committee?.column1, locale)} />
+					<HtmlBlock
+						html={pick(management?.committee?.column1, locale)}
+						isFirstOfPair={!!management?.committee?.column2}
+					/>
 					{management?.committee?.column2 && (
 						<HtmlBlock html={pick(management.committee.column2, locale)} />
 					)}
@@ -175,7 +186,7 @@ const Administration: React.FC = () => {
 						text={t('auditCommission.header')}
 						customStyles='col-span-full sm:text-5xl text-xl font-bold sm:leading-13 leading-6'
 					/>
-					<AnimatedLine customStyles='col-span-full mb-2 mt-12' />
+					<AnimatedLine customStyles='col-span-full mb-2 mt-7.5 sm:mt-12' />
 					<AnimatedText
 						text={t('auditCommission.subheader')}
 						customStyles='font-bold col-span-full sm:mb-0 mb-12 sm:col-span-3'
