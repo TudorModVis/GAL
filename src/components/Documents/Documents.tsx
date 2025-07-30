@@ -81,7 +81,7 @@ const Documents: React.FC = () => {
 				tags={tags}
 				headerText={t('title')}
 				location={location}
-				imageSrc={docs?.main_image ?? '/documents_image.png'}
+				imageSrc={docs?.main_image}
 				imageAlt='Documents Image'
 				locale={locale}
 				lastActualization={formatDate(docs?.updatedAt)}

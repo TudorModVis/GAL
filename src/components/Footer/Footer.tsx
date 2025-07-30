@@ -21,7 +21,7 @@ const Footer = () => {
 			className='sm:fixed w-screen sm:h-screen flex flex-col justify-between py-8 bottom-0 -z-10 bg-forest-600 text-sand-50'
 		>
 			<div className='grid grid-cols-full auto-rows-min w-full'>
-        <AnimatedLine customStyles='sm:hidden my-12 col-span-full opacity-25'/>
+				<AnimatedLine customStyles='sm:hidden my-12 col-span-full opacity-25' />
 				<div className='col-span-full sm:col-span-5 flex flex-col'>
 					<Logo color='#FFFEFD' />
 					<h4 className='mt-6 sm:mt-8 sm:mb-0 mb-12 leading-4.5'>
@@ -57,16 +57,16 @@ const Footer = () => {
 					<Link href='/news'>
 						<AnimatedLink text={tFooter('useful_information.announcements_link')} />
 					</Link>
-					<Link href='/'>
+					<Link href='/projects'>
 						<AnimatedLink text={tFooter('useful_information.projects_link')} />
 					</Link>
-					<Link href='/'>
+					<Link href='/authentic-local'>
 						<AnimatedLink text={tFooter('useful_information.authentic_local')} />
 					</Link>
 				</div>
-				<div className="sm:col-start-7 col-span-full sm:col-span-6 row-start-1 sm:row-end-4 relative grid sm:grid-cols-6 sm:gap-x-6">
-          <ContactForm />
-        </div>
+				<div className='sm:col-start-7 col-span-full sm:col-span-6 row-start-1 sm:row-end-4 relative grid sm:grid-cols-6 sm:gap-x-6'>
+					<ContactForm />
+				</div>
 			</div>
 			<div className='grid grid-cols-full auto-rows-min w-full'>
 				<div className='sm:hidden block col-span-full mt-6'>

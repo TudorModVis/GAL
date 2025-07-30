@@ -154,6 +154,18 @@
 			"visualization_header": "Destinații locale, tradiții și istorie",
 			"visualization_text": "Această rubrică prezintă locurile și experiențele care definesc identitatea regiunii, de la atracții naturale și monumente de patrimoniu, până la festivaluri, gastronomie locală și inițiative turistice de familie. Turismul rural prinde viață prin oameni și locuri care păstrează viu spiritul autentic al satului."
 		},
+		"Search": {
+			"placeholder": "Caută proiecte, noutăți, persoane, ...",
+			"all": "Toate rezultatele",
+			"news": "Noutăți",
+			"projects": "Proiecte",
+			"authentic_local": "Autentic Local",
+			"results": "rezultate",
+			"access_article": "Accesează articol",
+			"loading": "Se încarcă...",
+			"error": "Eroare la încărcarea rezultatelor.",
+			"no_results": "Niciun rezultat."
+		},
 		"Documents": {
 			"title": "Documente Oficiale",
 			"location": {

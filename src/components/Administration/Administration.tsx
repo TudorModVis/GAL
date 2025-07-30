@@ -85,7 +85,7 @@ const Administration: React.FC = () => {
 				tags={tags}
 				headerText={t('title')}
 				location={location}
-				imageSrc={management?.main_image ?? '/management_img.png'}
+				imageSrc={management?.main_image}
 				imageAlt='Management Image'
 				locale={locale}
 				lastActualization={formatDate(management?.updatedAt)}

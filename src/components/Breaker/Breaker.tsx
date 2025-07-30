@@ -22,6 +22,7 @@ const Breaker = () => {
 	})
 
 	const title = data?.data?.title?.[locale] ?? ''
+	const imageSrc = data?.data?.image
 
 	return (
 		<section className='w-screen grid grid-cols-full relative sm:px-8 my-40'>
@@ -30,10 +31,17 @@ const Breaker = () => {
 				text={title}
 			/>
 			<div className='col-span-full h-[358px] sm:h-[640px] relative'>
-				<ParalaxImage
-					source={data?.data?.image || '/breaker_image.png'}
-					altText={tBreaker('image_alt')}
-				/>
+				{imageSrc ? (
+					<ParalaxImage
+						source={imageSrc}
+						altText={tBreaker('image_alt')}
+					/>
+				) : (
+					<div
+						className='h-full w-full bg-gray-500 animate-pulse rounded-lg'
+						aria-label='Loading image'
+					/>
+				)}
 			</div>
 		</section>
 	)

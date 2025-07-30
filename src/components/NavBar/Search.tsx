@@ -1,224 +1,250 @@
-import React, { useState, useEffect } from "react";
-import MagnifyGlass from "./MagnifyGlass";
-import Cross from "./Cross";
-import { createPortal } from "react-dom";
-import { motion } from "framer-motion";
-import { useLenis } from "lenis/react";
-import Image from "next/image";
-import Arrow from "../CommonComponents/Arrow";
+// Search.tsx
+'use client'
 
-interface hoveredMenu {
-  hoveredMenu: string | null;
-  handleHoverEnd: () => void;
+import { keepPreviousData, useQuery, useQueryClient } from '@tanstack/react-query'
+import { AxiosResponse } from 'axios'
+import { motion } from 'framer-motion'
+import { useLocale, useTranslations } from 'next-intl'
+import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
+
+import { BlogsContentTypeEnum } from '@/types/blog.types'
+import { ResponseTypeEnums } from '@/types/search.types'
+import { IMultiLangText } from '@/types/shared/text.types'
+
+import { useSearchDebounce } from '@/hooks/useSearchDebounce'
+
+import Arrow from '../CommonComponents/Arrow'
+
+import Cross from './Cross'
+import MagnifyGlass from './MagnifyGlass'
+import SearchSidePart from './SearchSidePart'
+import { useScrollLock } from './useScrollLock'
+import { buildHref } from './utils/buildHref'
+import { queryConfigFor } from './utils/queryConfigFor'
+import { Link } from '@/i18n/navigation'
+
+// Search.tsx
+
+// Search.tsx
+
+type Locale = keyof IMultiLangText
+type AnyAxios = AxiosResponse<any, any>
+
+export default function Search({
+	hoveredMenu,
+	handleHoverEnd
+}: {
+	hoveredMenu: string | null
+	handleHoverEnd: () => void
+}) {
+	const locale = useLocale() as Locale
+	const t = useTranslations('index.Search')
+	const { search, data, isLoading, isError, isSuccess } = useSearchDebounce()
+	const [isClicked, setIsClicked] = useState(false)
+	const [showModal, setShowModal] = useState(false)
+	const [filter, setFilter] = useState<'all' | 'news' | 'projects' | 'success'>('all')
+	const [activeIdx, setActiveIdx] = useState<number>(0)
+	const [mounted, setMounted] = useState(false)
+	const queryClient = useQueryClient()
+	const { lock, unlock } = useScrollLock()
+
+	const results = data?.data.results
+	const stats = data?.data.stats
+
+	useEffect(() => setMounted(true), [])
+	useEffect(() => {
+		if (isClicked) setShowModal(true)
+	}, [isClicked])
+	useEffect(() => {
+		if (isClicked) {
+			lock()
+			return unlock
+		}
+	}, [isClicked, lock, unlock])
+
+	useEffect(() => {
+		if (!isSuccess || !results?.length) return
+		results.forEach(item => {
+			const { queryKey, queryFn } = queryConfigFor(item)
+			queryClient.prefetchQuery({ queryKey, queryFn: queryFn as () => Promise<unknown> })
+		})
+	}, [isSuccess, results, queryClient])
+
+	const filteredResults = useMemo(() => {
+		if (!results) return []
+		switch (filter) {
+			case 'news':
+				return results.filter(r => r.content_type === BlogsContentTypeEnum.NEWS)
+			case 'projects':
+				return results.filter(r => r.content_type === BlogsContentTypeEnum.PROJECT)
+			case 'success':
+				return results.filter(r => r.content_type === BlogsContentTypeEnum.AUTHENTIC_LOCAL)
+			default:
+				return results
+		}
+	}, [results, filter])
+
+	function kindFor(item: { response_type: any }) {
+		switch (item.response_type) {
+			case ResponseTypeEnums.MANAGEMENT:
+				return 'management'
+			case ResponseTypeEnums.DOCUMENT:
+				return 'documents'
+			default:
+				return 'blog'
+		}
+	}
+
+	const currentItem = filteredResults[activeIdx] ?? filteredResults[0]
+
+	const { queryKey, queryFn } = currentItem
+		? queryConfigFor(currentItem)
+		: { queryKey: [], queryFn: undefined }
+
+	const { data: payload } = useQuery<AnyAxios>({
+		queryKey,
+		queryFn: (queryFn ??
+			(() => Promise.resolve(undefined as unknown as AnyAxios))) as () => Promise<AnyAxios>,
+		enabled: !!currentItem && !!queryFn,
+		placeholderData: keepPreviousData,
+		staleTime: 600_000,
+		gcTime: 1_800_000
+	})
+
+	const sideProps = {
+		tags: payload?.data?.categories ?? [],
+		headerText: currentItem?.title[locale] ?? '',
+		imageSrc: payload?.data?.main_image,
+		imageAlt: currentItem?.title[locale] ?? '',
+		summary: payload?.data?.summary?.column1?.[locale] ?? '',
+		kind: currentItem ? kindFor(currentItem) : undefined,
+		locale
+	}
+
+	const countForFilter = (current: typeof filter) => {
+		if (!stats) return 0
+		switch (current) {
+			case 'news':
+				return stats.total_blogs_news || 0
+			case 'projects':
+				return stats.total_blogs_project || 0
+			case 'success':
+				return stats.total_blogs_authentic_local || 0
+			default:
+				return stats.total_blogs || 0
+		}
+	}
+
+	return (
+		<>
+			<div
+				onClick={() => {
+					setIsClicked(p => !p)
+					if (hoveredMenu) handleHoverEnd()
+				}}
+				className={`cursor-pointer flex justify-center items-center rounded-full ${
+					isClicked ? 'bg-stone-50 hover:bg-stone-200' : 'bg-forest-800 hover:bg-forest-700'
+				} transition duration-400 p-3.5`}
+			>
+				{isClicked ? <Cross /> : <MagnifyGlass />}
+			</div>
+
+			{mounted &&
+				showModal &&
+				createPortal(
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: isClicked ? 1 : 0 }}
+						transition={{ duration: 0.5 }}
+						onAnimationComplete={() => !isClicked && setShowModal(false)}
+						className='fixed top-0 -left-[50%] z-10 flex h-screen w-[200%] flex-col bg-black/35 backdrop-blur-xs'
+					>
+						<div className='relative mb-10 mt-[7.5rem] grid h-screen w-full grid-cols-full'>
+							<div className='col-span-8 col-start-3 grid max-h-[751px] grid-cols-8 grid-rows-[4rem_4rem_1fr] gap-x-6 rounded-2xl bg-sand-50'>
+								<input
+									className='col-span-full h-16 bg-[url(/search.svg)] bg-[position:1.5rem_center] bg-no-repeat pl-14 pr-6 outline-none'
+									type='search'
+									onChange={e => search(e.target.value)}
+									placeholder={t('placeholder')}
+								/>
+
+								<div className='col-span-full flex h-16 items-center space-x-2 bg-stone-50 px-6'>
+									{(['all', 'news', 'projects', 'success'] as const).map(ft => (
+										<div
+											key={ft}
+											onClick={() => setFilter(ft)}
+											className={`cursor-pointer rounded-full px-4 py-2.5 ${
+												filter === ft ? 'bg-forest-700 text-sand-50' : 'bg-sand-50 text-forest-900'
+											}`}
+										>
+											{ft === 'all'
+												? t('all')
+												: ft === 'news'
+													? t('news')
+													: ft === 'projects'
+														? t('projects')
+														: t('authentic_local')}
+											<span className='ml-2 rounded-full bg-sand-50 px-2 py-0.5 text-xs text-forest-900'>
+												{countForFilter(ft)}
+											</span>
+										</div>
+									))}
+								</div>
+
+								<div className='col-span-4 col-start-1 mt-6 flex h-full flex-col overflow-hidden pb-7'>
+									<span className='ml-12 text-xs text-stone-600'>
+										{countForFilter(filter)} {t('results')}
+									</span>
+
+									<div
+										className='flex-1 overflow-y-auto pl-12 pr-2 pb-2 [&>a]:cursor-pointer'
+										onMouseLeave={() => setActiveIdx(0)}
+									>
+										{isLoading && <p className='mt-4 text-sm text-stone-600'>{t('loading')}</p>}
+										{isError && <p className='mt-4 text-sm text-red-600'>{t('error')}</p>}
+										{!isLoading && !filteredResults.length && (
+											<p className='mt-4 text-sm text-stone-600'>{t('no_results')}</p>
+										)}
+
+										{filteredResults.map((item, idx) => (
+											<Link
+												key={item._id}
+												href={buildHref(item)}
+												locale={locale}
+												onMouseEnter={() => setActiveIdx(idx)}
+												onClick={() => setIsClicked(false)}
+												className='block'
+											>
+												<div
+													className={`group relative flex items-center justify-between px-2 py-2.5 transition ${
+														activeIdx === idx ? 'bg-forest-500/20' : 'hover:bg-forest-500/20'
+													}`}
+												>
+													{item.title[locale]}
+													<div
+														className={`ml-2 rotate-45 transition ${
+															activeIdx === idx
+																? 'opacity-100'
+																: 'opacity-0 group-hover:opacity-100'
+														}`}
+													>
+														<Arrow arrowCustomStyle='fill-forest-900 -rotate-45' />
+													</div>
+												</div>
+											</Link>
+										))}
+									</div>
+								</div>
+
+								<div className='relative col-span-4 col-start-5 overflow-hidden rounded-br-2xl'>
+									<SearchSidePart {...sideProps} />
+								</div>
+							</div>
+						</div>
+					</motion.div>,
+					document.body
+				)}
+		</>
+	)
 }
-
-const Search: React.FC<hoveredMenu> = ({ hoveredMenu, handleHoverEnd }) => {
-  const [isClicked, setIsClicked] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [filter, setFilter] = useState("all");
-  const [showModal, setShowModal] = useState(false);
-
-  const lenis = useLenis();
-
-  const handleClick = () => {
-    setIsClicked((prev) => !prev);
-    if (hoveredMenu) {
-      handleHoverEnd();
-    }
-  };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (isClicked) {
-      setShowModal(true);
-    }
-  }, [isClicked]);
-
-  useEffect(() => {
-    if (isClicked) {
-      lenis?.stop();
-    } else {
-      lenis?.start();
-    }
-  }, [isClicked, lenis]);
-
-  const handleAnimationComplete = () => {
-    if (!isClicked) {
-      setShowModal(false);
-    }
-  };
-
-  const modalVariants = {
-    initial: {
-      opacity: 0,
-      transition: { duration: 0.3 },
-    },
-    open: {
-      opacity: 1,
-      transition: { delay: 0.1, duration: 0.5 },
-    },
-  };
-
-  return (
-    <>
-      <div
-        onClick={handleClick}
-        className={`cursor-pointer flex justify-center items-center rounded-full ${
-          isClicked
-            ? "bg-stone-50 hover:bg-stone-200"
-            : "bg-forest-800 hover:bg-forest-700"
-        } transition duration-400 bg-forest-800 p-3.5`}
-      >
-        {isClicked ? <Cross /> : <MagnifyGlass />}
-      </div>
-      {mounted &&
-        showModal &&
-        createPortal(
-          <motion.div
-            variants={modalVariants}
-            animate={isClicked ? "open" : "initial"}
-            initial="initial"
-            className="bg-black/35 backdrop-blur-xs flex flex-col -left-[50%] w-[200%] h-screen fixed z-10 top-0"
-            onAnimationComplete={handleAnimationComplete}
-          >
-            <div className="grid-cols-full grid w-full h-screen mb-10 mt-[7.5rem] relative">
-              <div className="bg-sand-50 rounded-2xl col-span-8 col-start-3 h-full w-full grid grid-cols-8 grid-rows-[4rem_4rem_1fr] gap-x-6">
-                <input
-                  className="col-span-full bg-[url(/search.svg)] px-14 bg-[position:1.5rem_center] h-16 bg-no-repeat outline-none"
-                  type="search"
-                  placeholder="Caută proiecte, noutăți, persoane, ..."
-                />
-                <div className="h-16 col-span-full flex items-center px-6 space-x-2 bg-stone-50">
-                  <div
-                    onClick={() => setFilter("all")}
-                    className={`rounded-full cursor-pointer ${
-                      filter === "all"
-                        ? "bg-forest-700 text-sand-50"
-                        : "bg-sand-50 text-forest-900"
-                    } px-4 py-2.5`}
-                  >
-                    Toate rezultate
-                    <span
-                      className={`rounded-full ml-2 text-xs bg-sand-50 text-forest-900 px-2 py-0.5`}
-                    >
-                      100
-                    </span>
-                  </div>
-                  <div
-                    onClick={() => setFilter("news")}
-                    className={`rounded-full cursor-pointer ${
-                      filter === "news"
-                        ? "bg-forest-700 text-sand-50"
-                        : "bg-sand-50 text-forest-900"
-                    } px-4 py-2.5`}
-                  >
-                    Noutăți
-                    <span
-                      className={`rounded-full ml-2 text-xs px-2 py-0.5 bg-sand-50 text-forest-900`}
-                    >
-                      32
-                    </span>
-                  </div>
-                  <div
-                    onClick={() => setFilter("projects")}
-                    className={`rounded-full cursor-pointer px-4 py-2.5 ${
-                      filter === "projects"
-                        ? "bg-forest-700 text-sand-50"
-                        : "bg-sand-50 text-forest-900"
-                    }`}
-                  >
-                    Proiecte
-                    <span
-                      className={`rounded-full ml-2 text-xs px-2 py-0.5 bg-sand-50 text-forest-900`}
-                    >
-                      12
-                    </span>
-                  </div>
-                  <div
-                    onClick={() => setFilter("success")}
-                    className={`rounded-full cursor-pointer px-4 py-2.5 ${
-                      filter === "success"
-                        ? "bg-forest-700 text-sand-50"
-                        : "bg-sand-50 text-forest-900"
-                    } `}
-                  >
-                    Istorii de success
-                    <span
-                      className={`rounded-full ml-2 text-xs bg-sand-50 text-forest-900 px-2 py-0.5`}
-                    >
-                      1432
-                    </span>
-                  </div>
-                </div>
-                <div className="col-span-4 col-start-1 pl-12 mt-6 h-full [&>div]:cursor-pointer">
-                  <span className="text-stone-600 text-xs">36 rezultate</span>
-                  <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
-                    Biodiversitate și raportarea sustenabilității
-                    <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45" />
-                    </div>
-                  </div>
-                  <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
-                    ECOMONDO – The Green Technology Expo
-                    <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45" />
-                    </div>
-                  </div>
-                  <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
-                    Responsabilitatea Extinsă a Producătorului
-                    <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45" />
-                    </div>
-                  </div>
-                  <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
-                    Economia Circulară în industria Textilelor
-                    <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45" />
-                    </div>
-                  </div>
-                  <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
-                    The Living First Language Platform
-                    <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45" />
-                    </div>
-                  </div>
-                  <div className="py-2.5 px-2 group hover:bg-forest-500/20 relative flex items-center transition justify-between">
-                    Coding Aboriginal Languages for Indigenous Literacy (CALIL)
-                    <div className="group-hover:opacity-100 transition opacity-0 rotate-45">
-                      <Arrow arrowCustomStyle="fill-forest-900 -rotate-45" />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-span-4 col-start-5 relative rounded-br-2xl overflow-hidden">
-                  <div className="absolute top-6 left-6 z-10 flex flex-wrap pr-6 gap-2">
-                    <h5 className="text-sand-50 bg-forest-900 rounded-sm px-4 py-1 cursor-default">
-                      Antreprenorial
-                    </h5>
-                    <h5 className="text-sand-50 bg-forest-500 rounded-sm px-4 py-1 cursor-default">
-                      Noutate
-                    </h5>
-                    <h3 className="text-2xl font-bold text-sand-50">
-                      ECOMONDO – The Green Technology Expo
-                    </h3>
-                    <h4 className="leading-4.5 text-sand-50 font-normal">
-                      Nr. populației totale în cadrul componenței teritoriale
-                      din cele 14 localități ale raionelor Cimișlia și Căușeni.
-                      Nr. populației totale în cadrul componenței teritoriale
-                      din cele 14 localități ale raionelor Cimișlia și
-                      Căușeni...
-                    </h4>
-                  </div>
-                  <Image fill alt="searchImage" src="/searchImage.png" />
-                </div>
-              </div>
-            </div>
-          </motion.div>,
-          document.body
-        )}
-    </>
-  );
-};
-export default Search;

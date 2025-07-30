@@ -19,7 +19,7 @@ interface InfoSectionProps {
 	headerText: string
 	lastActualization?: string
 	location: Breadcrumb[]
-	imageSrc: string
+	imageSrc?: string
 	imageAlt: string
 	locale?: string
 	isAdminOrDocs?: boolean
@@ -121,10 +121,17 @@ const InfoSection: React.FC<InfoSectionProps> = props => {
 			</div>
 
 			<div className='sm:w-[1448px] w-full sm:h-[64vh] aspect-square sm:aspect-auto overflow-hidden mt-11.5 sm:mt-6 rounded-2xl mb-20 sm:mb-40 col-span-full'>
-				<ParalaxImage
-					altText={props.imageAlt}
-					source={props.imageSrc}
-				/>
+				{props.imageSrc ? (
+					<ParalaxImage
+						source={props.imageSrc}
+						altText={props.imageAlt}
+					/>
+				) : (
+					<div
+						className='h-full w-full bg-gray-500 animate-pulse rounded-lg'
+						aria-label='Loading image'
+					/>
+				)}
 			</div>
 		</section>
 	)

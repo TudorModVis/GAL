@@ -1,17 +1,17 @@
+// NavContent.tsx
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
-import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import AnimatedLink from '../CommonComponents/AnimatedLink'
 import LinkWithArrow from '../CommonComponents/LinkWithArrow'
-// Import useRef
 import Logo from '../CommonComponents/Logo'
 
 import ArrowDown from './ArrowDown'
 import LanguageSwitcher from './LanguageSwitcher'
 import Search from './Search'
+import { useScrollLock } from './useScrollLock'
 import { Link } from '@/i18n/navigation'
 
 interface ArrowColor {
@@ -34,23 +34,19 @@ const NavContent: React.FC<ArrowColor> = ({ arrowColor }) => {
 		| 'oameni_si_valori'
 	>(null)
 
-	const lenis = useLenis()
-
 	const closeMenuTimer = useRef<NodeJS.Timeout | null>(null)
-
 	const tNav = useTranslations('index.NavBar')
+	const { lock, unlock } = useScrollLock()
 
 	useEffect(() => {
 		if (hoveredMenu) {
-			lenis?.stop()
-		} else {
-			lenis?.start()
+			lock()
+			return unlock
 		}
-	}, [hoveredMenu, lenis])
+	}, [hoveredMenu, lock, unlock])
 
 	useEffect(() => {
 		setMounted(true)
-
 		return () => {
 			if (closeMenuTimer.current) {
 				clearTimeout(closeMenuTimer.current)

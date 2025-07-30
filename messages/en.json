@@ -154,6 +154,18 @@
 			"visualization_header": "Local destinations, traditions, and history",
 			"visualization_text": "This section presents the places and experiences that define the identity of the region, from natural attractions and heritage monuments to festivals, local cuisine, and family-run tourist initiatives. Rural tourism comes to life through the people and places that keep the authentic village spirit alive."
 		},
+		"Search": {
+			"placeholder": "Search projects, news, people, ...",
+			"all": "All results",
+			"news": "News",
+			"projects": "Projects",
+			"authentic_local": "Authentic Local",
+			"results": "results",
+			"access_article": "Access article",
+			"loading": "Loading...",
+			"error": "Error loading results.",
+			"no_results": "No results."
+		},
 		"Documents": {
 			"title": "Official Documents",
 			"location": {
