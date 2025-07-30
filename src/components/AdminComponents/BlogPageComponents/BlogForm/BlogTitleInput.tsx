@@ -18,10 +18,12 @@ interface BlogTitleInputProps extends IBlogForm {
 export function BlogTitleInput({ register, language, formState, control }: BlogTitleInputProps) {
 	const titleValue = useWatch({
 		control,
-		name: BLOG_FORM.getTitlePath(language)
+		name: BLOG_FORM.getTitlePath(language),
 	}) || ''
 
-	const characterCount = titleValue.toString().length
+	console.log(titleValue)
+
+	const characterCount = titleValue.toString().length;
 
 	const hasError = formState.errors.title
 
@@ -45,7 +47,6 @@ export function BlogTitleInput({ register, language, formState, control }: BlogT
 				</span>
 			</div>
 			<InputField
-				key={`title-${language}`}
 				hasError={!!hasError}
 				placeholder={ADMIN_FORM_TRANSLATE.titleInput[language].placeholder}
 				className={`bg-gray-300 mt-[0.5rem] font-bold placeholder:opacity-70`}
