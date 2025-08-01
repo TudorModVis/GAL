@@ -12,17 +12,17 @@ interface HeroProps {
 
 const topLine: Variants = {
 	show: { y: 0, opacity: 1 },
-	hidden: { y: '-115%', opacity: 0 }
+	hidden: { y: '-115%', opacity: 1 }
 }
 
 const bottomLine: Variants = {
 	show: { y: 0, opacity: 1 },
-	hidden: { y: '115%', opacity: 0 }
+	hidden: { y: '115%', opacity: 1 }
 }
 
 const letterTransition = (i: number) => ({
-	delay: 0.04 * i,
-	duration: 0.8,
+	delay: 0.03 * i,
+	duration: 0.7,
 	ease: 'easeInOut'
 })
 

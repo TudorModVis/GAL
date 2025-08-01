@@ -20,7 +20,7 @@ const AnimatedLink: React.FC<AnimatedLinkProp> = (props) => {
 
   const transition = {
     ease: [0.19, 1, 0.22, 1],
-    duration: 0.5,
+    duration: 0.75,
   };
 
   return (

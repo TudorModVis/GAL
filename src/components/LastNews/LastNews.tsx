@@ -98,13 +98,13 @@ const LastNews = () => {
 					<div className='flex gap-2 items-center'>
 						<button
 							onClick={() => sliderRef.current?.slickPrev()}
-							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center'
+							className='rounded-full bg-sand-50 hover:bg-stone-200 duration-250 p-3 size-10 flex items-center justify-center cursor-pointer'
 						>
 							<Arrow arrowCustomStyle='-rotate-180 fill-forest-900' />
 						</button>
 						<button
 							onClick={() => sliderRef.current?.slickNext()}
-							className='rounded-full bg-sand-50 hover:bg-stone-400 p-3 size-10 flex items-center justify-center'
+							className='rounded-full bg-sand-50 hover:bg-stone-200 duration-250 p-3 size-10 flex items-center justify-center cursor-pointer'
 						>
 							<Arrow arrowCustomStyle='fill-forest-900' />
 						</button>
@@ -196,7 +196,7 @@ const LastNews = () => {
 								href='/news'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
 								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                             [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
+                             [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap group-hover/link:[&>div]:bg-red-400 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 							/>
 						</div>
 					</div>

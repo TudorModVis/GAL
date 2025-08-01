@@ -14,13 +14,13 @@ const AnimatedText: React.FC<TextProps> = props => {
 
 	const textAnimation: Variants = {
 		hidden: {
-			transform: 'translateY(2rem)',
+			transform: 'translateY(1.5rem)',
 			opacity: 0
 		},
 		visible: {
 			transform: 'translateY(0rem)',
 			opacity: 100,
-			transition: { duration: 0.4, ease: 'easeIn' }
+			transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
 		}
 	}
 

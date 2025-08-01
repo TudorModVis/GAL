@@ -26,8 +26,6 @@ import { Link } from '@/i18n/navigation'
 
 // Search.tsx
 
-// Search.tsx
-
 type Locale = keyof IMultiLangText
 type AnyAxios = AxiosResponse<any, any>
 
@@ -143,9 +141,9 @@ export default function Search({
 					setIsClicked(p => !p)
 					if (hoveredMenu) handleHoverEnd()
 				}}
-				className={`cursor-pointer flex justify-center items-center rounded-full ${
+				className={`cursor-pointer duration-250 flex justify-center items-center rounded-full ${
 					isClicked ? 'bg-stone-50 hover:bg-stone-200' : 'bg-forest-800 hover:bg-forest-700'
-				} transition duration-400 p-3.5`}
+				} transition p-3.5`}
 			>
 				{isClicked ? <Cross /> : <MagnifyGlass />}
 			</div>
@@ -217,7 +215,7 @@ export default function Search({
 												className='block'
 											>
 												<div
-													className={`group relative flex items-center justify-between px-2 py-2.5 transition ${
+													className={`group relative flex items-center justify-between px-2 py-2.5 transition rounded-xs ${
 														activeIdx === idx ? 'bg-forest-500/20' : 'hover:bg-forest-500/20'
 													}`}
 												>

@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import React from 'react'
+
 import Arrow from '../CommonComponents/Arrow'
 
 const ScrollToBottom = () => {
@@ -15,7 +16,7 @@ const ScrollToBottom = () => {
 	return (
 		<button
 			onClick={handleScrollToBottom}
-			className={`flex gap-1 mx-auto w-full items-center group/link cursor-pointer
+			className={`flex gap-1 w-fit items-center group/link cursor-pointer
                      [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4
                      [&>div]:text-forest-900 [&>div]:bg-sand-50
                      [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full

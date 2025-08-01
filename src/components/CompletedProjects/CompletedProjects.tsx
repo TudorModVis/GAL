@@ -161,7 +161,7 @@ const CompletedProjects = () => {
 						text={tCompletedProjects('see_more_projects')}
 						href='/projects'
 						arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50'
-						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4 [&>div]:text-sand-50 [&>div]:bg-forest-800 gap [&>div]:group-hover/link:bg-forest-800 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
+						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4 [&>div]:text-sand-50 [&>div]:bg-forest-800 gap [&>div]:group-hover/link:bg-forest-700 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 					/>
 				</div>
 			</div>
