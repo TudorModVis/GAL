@@ -1,4 +1,3 @@
-// Search.tsx
 'use client'
 
 import { keepPreviousData, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -24,18 +23,16 @@ import { buildHref } from './utils/buildHref'
 import { queryConfigFor } from './utils/queryConfigFor'
 import { Link } from '@/i18n/navigation'
 
-// Search.tsx
 
 type Locale = keyof IMultiLangText
 type AnyAxios = AxiosResponse<any, any>
 
-export default function Search({
-	hoveredMenu,
-	handleHoverEnd
-}: {
-	hoveredMenu: string | null
-	handleHoverEnd: () => void
-}) {
+type SearchProps = {
+	hoveredMenu?: string | null
+	handleHoverEnd?: () => void
+}
+
+export default function Search({ hoveredMenu = null, handleHoverEnd = () => {} }: SearchProps) {
 	const locale = useLocale() as Locale
 	const t = useTranslations('index.Search')
 	const { search, data, isLoading, isError, isSuccess } = useSearchDebounce()
@@ -136,7 +133,7 @@ export default function Search({
 
 	return (
 		<>
-			<div
+			<button
 				onClick={() => {
 					setIsClicked(p => !p)
 					if (hoveredMenu) handleHoverEnd()
@@ -146,7 +143,7 @@ export default function Search({
 				} transition p-3.5`}
 			>
 				{isClicked ? <Cross /> : <MagnifyGlass />}
-			</div>
+			</button>
 
 			{mounted &&
 				showModal &&
@@ -189,55 +186,59 @@ export default function Search({
 										</div>
 									))}
 								</div>
+								{!isLoading && filteredResults.length === 0 ? (
+									<p className='text-base w-full col-span-full flex items-center justify-center'>
+										{t('no_results')}
+									</p>
+								) : (
+									<>
+										<div className='col-span-4 col-start-1 mt-6 flex h-full flex-col overflow-hidden pb-7'>
+											<span className='ml-12 text-xs text-stone-600'>
+												{countForFilter(filter)} {t('results')}
+											</span>
 
-								<div className='col-span-4 col-start-1 mt-6 flex h-full flex-col overflow-hidden pb-7'>
-									<span className='ml-12 text-xs text-stone-600'>
-										{countForFilter(filter)} {t('results')}
-									</span>
-
-									<div
-										className='flex-1 overflow-y-auto pl-12 pr-2 pb-2 [&>a]:cursor-pointer'
-										onMouseLeave={() => setActiveIdx(0)}
-									>
-										{isLoading && <p className='mt-4 text-sm text-stone-600'>{t('loading')}</p>}
-										{isError && <p className='mt-4 text-sm text-red-600'>{t('error')}</p>}
-										{!isLoading && !filteredResults.length && (
-											<p className='mt-4 text-sm text-stone-600'>{t('no_results')}</p>
-										)}
-
-										{filteredResults.map((item, idx) => (
-											<Link
-												key={item._id}
-												href={buildHref(item)}
-												locale={locale}
-												onMouseEnter={() => setActiveIdx(idx)}
-												onClick={() => setIsClicked(false)}
-												className='block'
+											<div
+												className='flex-1 overflow-y-auto pl-12 pr-2 pb-2 [&>a]:cursor-pointer'
+												onMouseLeave={() => setActiveIdx(0)}
 											>
-												<div
-													className={`group relative flex items-center justify-between px-2 py-2.5 transition rounded-xs ${
-														activeIdx === idx ? 'bg-forest-500/20' : 'hover:bg-forest-500/20'
-													}`}
-												>
-													{item.title[locale]}
-													<div
-														className={`ml-2 rotate-45 transition ${
-															activeIdx === idx
-																? 'opacity-100'
-																: 'opacity-0 group-hover:opacity-100'
-														}`}
-													>
-														<Arrow arrowCustomStyle='fill-forest-900 -rotate-45' />
-													</div>
-												</div>
-											</Link>
-										))}
-									</div>
-								</div>
+												{isLoading && <p className='mt-4 text-sm text-stone-600'>{t('loading')}</p>}
+												{isError && <p className='mt-4 text-sm text-red-600'>{t('error')}</p>}
 
-								<div className='relative col-span-4 col-start-5 overflow-hidden rounded-br-2xl'>
-									<SearchSidePart {...sideProps} />
-								</div>
+												{filteredResults.map((item, idx) => (
+													<Link
+														key={item._id}
+														href={buildHref(item)}
+														locale={locale}
+														onMouseEnter={() => setActiveIdx(idx)}
+														onClick={() => setIsClicked(false)}
+														className='block'
+													>
+														<div
+															className={`group relative flex items-center justify-between px-2 py-2.5 transition rounded-xs ${
+																activeIdx === idx ? 'bg-forest-500/20' : 'hover:bg-forest-500/20'
+															}`}
+														>
+															{item.title[locale]}
+															<div
+																className={`ml-2 rotate-45 transition ${
+																	activeIdx === idx
+																		? 'opacity-100'
+																		: 'opacity-0 group-hover:opacity-100'
+																}`}
+															>
+																<Arrow arrowCustomStyle='fill-forest-900 -rotate-45' />
+															</div>
+														</div>
+													</Link>
+												))}
+											</div>
+										</div>
+
+										<div className='relative col-span-4 col-start-5 overflow-hidden rounded-br-2xl'>
+											<SearchSidePart {...sideProps} />
+										</div>
+									</>
+								)}
 							</div>
 						</div>
 					</motion.div>,

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-// import { useLenis } from 'lenis/react'
+import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -10,8 +10,10 @@ import Arrow from '../CommonComponents/Arrow'
 import Logo from '../CommonComponents/Logo'
 
 import ArrowDown from './ArrowDown'
+import Cross from './Cross'
 import LanguageSwitcher from './LanguageSwitcher'
 import MagnifyGlass from './MagnifyGlass'
+import SearchMobile from './SearchMobile'
 import { Link, usePathname } from '@/i18n/navigation'
 
 interface NavProps {
@@ -20,13 +22,14 @@ interface NavProps {
 
 const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false)
 	const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false)
 	const [isAuthenticOpen, setIsAuthenticOpen] = useState<boolean>(false)
 	const [mounted, setMounted] = useState<boolean>(false)
 
 	const pathname = usePathname()
 	const tNav = useTranslations('index.NavBar')
-	// const lenis = useLenis()
+	const lenis = useLenis()
 	const closeMenuTimer = useRef<NodeJS.Timeout | null>(null)
 
 	useEffect(() => {
@@ -47,13 +50,13 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 		setIsOpen(false)
 	}
 
-	// useEffect(() => {
-	// 	if (isOpen) {
-	// 		lenis?.stop()
-	// 	} else {
-	// 		lenis?.start()
-	// 	}
-	// }, [isOpen, lenis])
+	useEffect(() => {
+		if (isOpen || isSearchOpen) {
+			lenis?.stop()
+		} else {
+			lenis?.start()
+		}
+	}, [isOpen, isSearchOpen, lenis])
 
 	const topVariants = {
 		closed: { rotate: 0, translateY: 0 },
@@ -73,29 +76,18 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 	const menuVariants = {
 		open: {
 			y: 0,
-			transition: {
-				type: 'tween',
-				duration: 0.5,
-				ease: 'easeOut'
-			}
+			transition: { duration: 1, ease: [0.23, 1, 0.32, 1] }
 		},
 		closed: {
 			y: '-100%',
-			transition: {
-				type: 'tween',
-				duration: 0.5,
-				ease: 'easeIn'
-			}
+			transition: { duration: 1, ease: [0.23, 1, 0.32, 1] }
 		}
 	}
 
 	const itemVariants = {
 		open: {
 			opacity: 1,
-			transition: {
-				type: 'tween',
-				delay: 0.3
-			}
+			transition: { duration: 1, ease: [0.23, 1, 0.32, 1] }
 		},
 		closed: {
 			opacity: 0
@@ -107,24 +99,30 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 			opacity: 1,
 			height: 'auto',
 			marginTop: '10px',
-			transition: {
-				duration: 0.3,
-				ease: 'easeOut'
-			}
+			transition: { duration: 1, ease: [0.23, 1, 0.32, 1] }
 		},
 		closed: {
 			opacity: 0,
 			height: 0,
 			marginTop: '0px',
-			transition: {
-				duration: 0.3,
-				ease: 'easeIn'
-			}
+			transition: { duration: 1, ease: [0.23, 1, 0.32, 1] }
 		}
 	}
 
 	return (
 		<>
+			{mounted &&
+				createPortal(
+					<motion.div
+						className='fixed top-0 left-0 right-0 w-screen h-full bg-stone-50 text-forest-900 z-10 flex overflow-y-auto'
+						initial={false}
+						animate={isSearchOpen ? 'open' : 'closed'}
+						variants={menuVariants}
+					>
+						<SearchMobile />
+					</motion.div>,
+					document.body
+				)}
 			{mounted &&
 				createPortal(
 					<motion.div
@@ -136,7 +134,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 						<ul
 							className={`flex flex-col text-2xl list-none! ${isAuthenticOpen ? '[&>li:not(:nth-child(5))]:text-stone-400' : ''} ${isAboutOpen ? '[&>li:not(:nth-child(2))]:text-stone-400' : ''} [&>li]:transition [&>li]:duration-500 w-full px-5.5 mt-32`}
 						>
-							{/* Home Link */}
 							<motion.li
 								variants={itemVariants}
 								className='border-b-[1px] border-stone-400 py-2.5 px-2'
@@ -155,7 +152,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 								</Link>
 							</motion.li>
 
-							{/* About Dropdown */}
 							<motion.li
 								variants={itemVariants}
 								className='border-b-[1px] border-stone-400 py-2.5 px-2'
@@ -185,7 +181,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 									variants={subMenuVariants}
 									className='pl-4 overflow-hidden'
 								>
-									{/* Add your 3 "About" links here */}
 									<li className='pb-2 pt-6'>
 										<Link
 											href='/aboutUs'
@@ -231,7 +226,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 								</motion.ul>
 							</motion.li>
 
-							{/* News Link */}
 							<motion.li
 								variants={itemVariants}
 								className='border-b-[1px] border-stone-400 py-2.5 px-2'
@@ -250,7 +244,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 								</Link>
 							</motion.li>
 
-							{/* Projects Link */}
 							<motion.li
 								variants={itemVariants}
 								className='border-b-[1px] border-stone-400 py-2.5 px-2'
@@ -269,7 +262,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 								</Link>
 							</motion.li>
 
-							{/* Authentic Local Dropdown */}
 							<motion.li
 								variants={itemVariants}
 								className='border-b-[1px] border-stone-400 py-2.5 px-2'
@@ -299,7 +291,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 									variants={subMenuVariants}
 									className='pl-4 overflow-hidden'
 								>
-									{/* Add your 4 "Authentic Local" links here */}
 									<li className='pb-2 pt-6'>
 										<Link
 											href='/authentic-local/local-products'
@@ -359,7 +350,6 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 								</motion.ul>
 							</motion.li>
 
-							{/* Contacts Link */}
 							<motion.li
 								variants={itemVariants}
 								className='border-b-[1px] border-stone-400 py-2.5 px-2'
@@ -382,10 +372,12 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 				} duration-500 transition text-forest-900 z-10 top-0 left-0 right-0 w-screen sm:hidden`}
 			>
 				<div className='relative col-span-full grid-cols-full px-4 mx-auto flex items-center h-16'>
-					<button className='size-10 bg-forest-800 flex justify-center items-center rounded-full'>
-						<MagnifyGlass />
+					<button
+						onClick={() => setIsSearchOpen(!isSearchOpen)}
+						className={`cursor-pointer duration-250 flex justify-center items-center rounded-full bg-forest-800 transition p-3`}
+					>
+						{isSearchOpen ? <Cross color='#FFFEFD' /> : <MagnifyGlass />}
 					</button>
-
 					<Link
 						href='/'
 						className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
@@ -394,7 +386,10 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 					</Link>
 
 					<div className='flex gap-4 ml-auto'>
-						<LanguageSwitcher arrowColor={isOpen || isFixed ? '#11200B' : '#FFFEFD'} />
+						<LanguageSwitcher
+							arrowColor={isOpen || isFixed || isSearchOpen ? '#11200B' : '#FFFEFD'}
+						/>
+
 						<motion.button
 							onClick={() => setIsOpen(!isOpen)}
 							animate={isOpen ? 'open' : 'closed'}

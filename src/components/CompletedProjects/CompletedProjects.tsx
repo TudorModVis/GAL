@@ -21,19 +21,13 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 
 const CompletedProjects = () => {
-	const tCompletedProjects = useTranslations('index.CompletedProjects')
+	const t = useTranslations('index.CompletedProjects')
 	const sliderRef = useRef<Slider>(null)
 	const [currentSlide, setCurrentSlide] = useState(0)
-	const [params, setParams] = useState<IGetParams>({
-		page: 1,
-		limit: 12
-	})
+	const [params, setParams] = useState<IGetParams>({ page: 1, limit: 12 })
 
 	useEffect(() => {
-		setParams({
-			page: 1,
-			limit: 12
-		})
+		setParams({ page: 1, limit: 12 })
 	}, [])
 
 	const { data } = useQuery({
@@ -41,22 +35,15 @@ const CompletedProjects = () => {
 		queryFn: () => blogService.getAllBlogs(params)
 	})
 
-	const projectPages = useMemo(() => {
-		if (!data?.data?.blogs) return []
-		const pages = []
-		for (let i = 0; i < data.data.blogs.length; i += 2) {
-			pages.push(data.data.blogs.slice(i, i + 2))
-		}
-		return pages
-	}, [data])
+	const projects = useMemo(() => data?.data?.blogs ?? [], [data])
 
-	const totalSlides = projectPages.length
-	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
+	const desktopVisible = 2
+	const mobileVisible = 1
+	const totalSlides = projects.length
 
-	const resetAutoplay = () => {
-		if (!sliderRef.current) return
-		sliderRef.current.slickPause()
-		sliderRef.current.slickPlay()
+	const calcWidth = (index: number) => {
+		if (totalSlides < 2) return 100
+		return ((index % totalSlides) / (totalSlides - 1)) * 100
 	}
 
 	function useIsMobile(breakpoint = 640) {
@@ -76,23 +63,22 @@ const CompletedProjects = () => {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: !isMobile ? 1 : 1.15,
+		slidesToShow: isMobile ? 1.15 : desktopVisible,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 5000,
 		arrows: false,
 		onInit: () => setCurrentSlide(0),
-
-		beforeChange: () => {
+		beforeChange: (_: number, next: number) => {
+			setCurrentSlide(next)
 			sliderRef.current?.slickPause()
 		},
-		afterChange: (current: number) => {
-			setCurrentSlide(current)
+		afterChange: () => {
 			sliderRef.current?.slickPlay()
 		},
-
 		onSwipe: () => {
-			resetAutoplay()
+			sliderRef.current?.slickPause()
+			sliderRef.current?.slickPlay()
 		}
 	}
 
@@ -103,7 +89,7 @@ const CompletedProjects = () => {
 				<div className='col-span-full flex justify-between items-center mb-6 sm:mb-12'>
 					<AnimatedHeader
 						customStyles='sm:text-5xl text-2xl font-bold text-forest-900'
-						text={tCompletedProjects('completed_projects_header')}
+						text={t('completed_projects_header')}
 					/>
 					<div className='hidden sm:flex gap-2 items-center'>
 						<button
@@ -127,21 +113,9 @@ const CompletedProjects = () => {
 						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
-						{projectPages.map((page, pageIndex) => (
-							<div
-								key={pageIndex}
-								className='outline-none'
-							>
-								<div className='grid grid-cols-12 gap-x-6 w-auto'>
-									{page.map(project => (
-										<div
-											key={project._id}
-											className='col-span-6'
-										>
-											<BigPost {...project} />
-										</div>
-									))}
-								</div>
+						{projects.map(project => (
+							<div key={project._id}>
+								<BigPost {...project} />
 							</div>
 						))}
 					</Slider>
@@ -151,14 +125,12 @@ const CompletedProjects = () => {
 					<div className='bg-stone-300 h-[2px] w-full'>
 						<motion.div
 							className='bg-forest-900 h-full'
-							animate={{
-								width: `${totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 100}%`
-							}}
+							animate={{ width: `${calcWidth(currentSlide)}%` }}
 							transition={{ ease: 'easeInOut', duration: 0.5 }}
 						/>
 					</div>
 					<LinkWithArrow
-						text={tCompletedProjects('see_more_projects')}
+						text={t('see_more_projects')}
 						href='/projects'
 						arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50'
 						customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4 [&>div]:text-sand-50 [&>div]:bg-forest-800 gap [&>div]:group-hover/link:bg-forest-700 [&>div]:group-hover/link:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
@@ -178,7 +150,7 @@ const CompletedProjects = () => {
 						ref={sliderRef}
 						{...settings}
 					>
-						{data?.data?.blogs?.map(project => (
+						{projects.map(project => (
 							<div
 								key={project._id}
 								className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
@@ -192,20 +164,16 @@ const CompletedProjects = () => {
 						<div className='bg-stone-300 h-[2px] w-full rounded-full'>
 							<motion.div
 								className='bg-forest-900 h-full rounded-full'
-								animate={{
-									width: `${mobileTotalSlides > 1 ? (currentSlide / (mobileTotalSlides - 1)) * 100 : 100}%`
-								}}
+								animate={{ width: `${calcWidth(currentSlide)}%` }}
 								transition={{ ease: 'easeInOut', duration: 0.5 }}
 							/>
 						</div>
 						<div className='mt-12'>
 							<LinkWithArrow
-								text={tCompletedProjects('see_more_projects')}
+								text={t('see_more_projects')}
 								href='/projects'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50 sm:fill-forest-900'
-								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-																	[&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:text-sand-50 sm:[&>div]:text-forest-900 sm:[&>div]:bg-sand-50 gap 
-																	[&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
+								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5 [&>div:nth-child(1)]:px-4 [&>div]:bg-forest-700 [&>div]:text-sand-50 sm:[&>div]:text-forest-900 sm:[&>div]:bg-sand-50 gap [&>div]:group-hover/link:bg-stone-200 [&>div]:rounded-full [&>div:nth-child(2)]:p-3'
 							/>
 						</div>
 					</div>

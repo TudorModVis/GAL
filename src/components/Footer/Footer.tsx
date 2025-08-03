@@ -75,7 +75,7 @@ const Footer = () => {
 				<AnimatedLine customStyles='opacity-25 col-span-full mt-12 sm:mt-8 mb-2' />
 				<div className='col-span-full'>
 					<h4 className='sm:mb-0 mb-2'>{tFooter('useful_information.our_partners')}</h4>
-					<div className='grid sm:flex justify-between relative items-center [&>*]:cursor-pointer [&>*]:transition [&>*]:hover:scale-105'>
+					<div className='grid sm:flex justify-between relative items-center [&>*]:cursor-pointer'>
 						<Image
 							src='/programul_leader.png'
 							alt='Programul Leader'

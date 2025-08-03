@@ -33,14 +33,7 @@ const LastNews = () => {
 		queryFn: () => blogService.getAllBlogs(params)
 	})
 
-	const newsPages = useMemo(() => {
-		if (!data?.data?.blogs) return []
-		const pages = []
-		for (let i = 0; i < data.data.blogs.length; i += 3) {
-			pages.push(data.data.blogs.slice(i, i + 3))
-		}
-		return pages
-	}, [data])
+	const totalSlides = useMemo(() => data?.data?.blogs?.length ?? 0, [data])
 
 	const resetAutoplay = () => {
 		if (!sliderRef.current) return
@@ -60,25 +53,23 @@ const LastNews = () => {
 	}
 	const isMobile = useIsMobile()
 
-	const totalSlides = newsPages.length
-	const mobileTotalSlides = data?.data?.blogs?.length ?? 0
-
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: !isMobile ? 1 : 1.15,
+		slidesToShow: isMobile ? 1.15 : 3,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 5000,
 		arrows: false,
 		onInit: () => setCurrentSlide(0),
 
-		beforeChange: () => {
+		beforeChange: (_: number, next: number) => {
+			const nextIndex = totalSlides ? next % totalSlides : 0
+			setCurrentSlide(nextIndex)
 			sliderRef.current?.slickPause()
 		},
-		afterChange: (current: number) => {
-			setCurrentSlide(current)
+		afterChange: () => {
 			sliderRef.current?.slickPlay()
 		},
 
@@ -117,21 +108,9 @@ const LastNews = () => {
 						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
-						{newsPages.map((page, idx) => (
-							<div
-								key={idx}
-								className='outline-none'
-							>
-								<div className='grid grid-cols-12 gap-x-6'>
-									{page.map(news => (
-										<div
-											key={news._id}
-											className='col-span-4'
-										>
-											<SmallPost {...news} />
-										</div>
-									))}
-								</div>
+						{data?.data?.blogs?.map(post => (
+							<div key={post._id}>
+								<SmallPost {...post} />
 							</div>
 						))}
 					</Slider>
@@ -185,7 +164,7 @@ const LastNews = () => {
 							<motion.div
 								className='bg-stone-50 h-full rounded-full'
 								animate={{
-									width: `${mobileTotalSlides > 1 ? (currentSlide / (mobileTotalSlides - 1)) * 100 : 100}%`
+									width: `${totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 100}%`
 								}}
 								transition={{ ease: 'easeInOut', duration: 0.5 }}
 							/>

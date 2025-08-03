@@ -1,34 +1,38 @@
 import React from 'react'
 
-import ImageIcon from './ImageIcon'
+const AuthenticHeaderSkeleton: React.FC = () => (
+	<section className='w-screen h-fit grid grid-cols-donation relative pt-24 mb-40 animate-pulse'>
+		<div className='col-span-11 mt-24 w-full h-[64vh] rounded-2xl bg-stone-400' />
 
-const AuthenticSkeleton = () => {
-	return (
-		<main className='bg-sand-50 sm:mb-[100vh] h-fit w-screen'>
-			<div className='flex gap-16 py-48 animate-pulse grid-cols-donation w-full h-screen'>
-				<div className='w-200 aspect-square bg-gray-500 rounded-2xl flex items-center justify-center'>
-					<ImageIcon customStyles='sm:w-[260px] sm:h-[260px] w-32 h-32' />
+		<div className='col-span-12 col-start-13 mt-24 flex flex-col'>
+			<div className='w-full h-px bg-stone-400 mb-2' />
+			<div className='flex flex-col justify-between h-full'>
+				<div className='flex items-center gap-1 w-full mb-6'>
+					<div className='h-4 w-24 bg-stone-400 rounded-2xl' />
+					<div className='h-4 w-4 bg-stone-400 rounded-2xl shrink-0' />
+					<div className='h-4 w-16 bg-stone-400 rounded-2xl' />
+					<div className='h-4 w-4 bg-stone-400 rounded-2xl shrink-0' />
+					<div className='h-4 w-20 bg-stone-400 rounded-2xl' />
+					<div className='h-4 w-4 bg-stone-400 rounded-2xl shrink-0' />
+					<div className='h-4 w-40 bg-stone-400 rounded-2xl' />
 				</div>
-				<div className='w-full flex flex-col justify-between'>
-					<div>
-						<div className='h-[1px] bg-gray-500 w-full'></div>
-						<div className='h-4.5 bg-gray-500 w-full mt-3 rounded-2xl'></div>
-						<div className='h-4.5 bg-gray-500 w-1/2 mt-3 rounded-2xl'></div>
+				<div>
+					<div className='flex gap-2 mb-4'>
+						<div className='h-5 w-20 bg-stone-400 rounded-full' />
+						<div className='h-5 w-16 bg-stone-400 rounded-full' />
+						<div className='h-5 w-14 bg-stone-400 rounded-full' />
 					</div>
-					<div>
-						<div className='flex gap-2 mb-4'>
-							<div className='h-5.5 w-24 bg-gray-500 rounded-2xl'></div>
-							<div className='h-5.5 w-16 bg-gray-500 rounded-2xl'></div>
-						</div>
-						<div className='w-full h-9 bg-gray-500 rounded-2xl'></div>
-						<div className='w-full h-9 bg-gray-500 mt-4 rounded-2xl'></div>
-						<div className='w-1/2 h-9 bg-gray-500 mt-4 rounded-2xl'></div>
-						<div className='w-36 h-3 bg-gray-500 mt-4 rounded-2xl'></div>
+
+					<div className='space-y-3'>
+						<div className='h-9 w-full bg-stone-400 rounded-2xl' />
+						<div className='h-9 w-11/12 bg-stone-400 rounded-2xl' />
+						<div className='h-9 w-4/5 bg-stone-400 rounded-2xl' />
+						<div className='h-3 w-1/3 bg-stone-400 rounded-2xl' />
 					</div>
 				</div>
 			</div>
-		</main>
-	)
-}
+		</div>
+	</section>
+)
 
-export default AuthenticSkeleton
+export default AuthenticHeaderSkeleton

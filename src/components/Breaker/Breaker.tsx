@@ -38,7 +38,7 @@ const Breaker = () => {
 					/>
 				) : (
 					<div
-						className='h-full w-full bg-gray-500 animate-pulse rounded-lg'
+						className='h-full w-full bg-stone-400 animate-pulse rounded-lg'
 						aria-label='Loading image'
 					/>
 				)}
