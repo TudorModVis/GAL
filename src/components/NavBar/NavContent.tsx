@@ -200,7 +200,8 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 									<LinkWithArrow
 										onClick={() => closeMenu()}
 										onMouseEnter={() => {
-											;(setHoveredSubMenu('documente_oficiale'), setRealHovered(true))
+											setHoveredSubMenu('documente_oficiale')
+											setRealHovered(true)
 										}}
 										text={tNav('about.documents')}
 										href='/documents'
@@ -223,7 +224,8 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 									<LinkWithArrow
 										onClick={() => closeMenu()}
 										onMouseEnter={() => {
-											;(setHoveredSubMenu('produse_locale'), setRealHovered(true))
+											setHoveredSubMenu('produse_locale')
+											setRealHovered(true)
 										}}
 										text={tNav('authentic_local.local_products')}
 										href='/authentic-local/local-products'
@@ -236,7 +238,8 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 									<LinkWithArrow
 										onClick={() => closeMenu()}
 										onMouseEnter={() => {
-											;(setHoveredSubMenu('servicii_din_comunitate'), setRealHovered(true))
+											setHoveredSubMenu('servicii_din_comunitate')
+											setRealHovered(true)
 										}}
 										text={tNav('authentic_local.community_services')}
 										href='/authentic-local/services'
@@ -249,7 +252,8 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 									<LinkWithArrow
 										onClick={() => closeMenu()}
 										onMouseEnter={() => {
-											;(setHoveredSubMenu('atractii_turistice'), setRealHovered(true))
+											setHoveredSubMenu('atractii_turistice')
+											setRealHovered(true)
 										}}
 										text={tNav('authentic_local.tourist_attractions')}
 										href='/authentic-local/tourist-attractions'
@@ -262,7 +266,8 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 									<LinkWithArrow
 										onClick={() => closeMenu()}
 										onMouseEnter={() => {
-											;(setHoveredSubMenu('oameni_si_valori'), setRealHovered(true))
+											setHoveredSubMenu('oameni_si_valori')
+											setRealHovered(true)
 										}}
 										text={tNav('authentic_local.people_and_values')}
 										href='/authentic-local/people-and-values'

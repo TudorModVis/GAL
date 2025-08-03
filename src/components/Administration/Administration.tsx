@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import React from 'react'
 
 import { IMultiLangText } from '@/types/shared/text.types'
-
+import Image from 'next/image'
 import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import AnimatedLine from '../CommonComponents/AnimatedLine'
 import AnimatedText from '../CommonComponents/AnimatedText'
@@ -108,10 +108,13 @@ const Administration: React.FC = () => {
 
 					{management?.president?.image && (
 						<div className='sm:col-start-8 sm:col-span-4 col-span-full flex justify-center items-start mb-20 sm:mb-24'>
-							<img
+							<Image
 								src={management.president.image}
 								alt='President'
+								width={400}
+								height={400}
 								className='max-w-full h-auto aspect-square object-cover rounded-2xl shadow-md'
+								priority
 							/>
 						</div>
 					)}

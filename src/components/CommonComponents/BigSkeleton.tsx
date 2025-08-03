@@ -1,7 +1,5 @@
 import React from 'react'
 
-import ImageIcon from './ImageIcon'
-
 const BigSkeleton = () => {
 	return (
 		<main className='bg-sand-50 sm:mb-[100vh] h-fit w-screen'>

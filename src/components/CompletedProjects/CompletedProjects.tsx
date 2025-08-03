@@ -38,7 +38,6 @@ const CompletedProjects = () => {
 	const projects = useMemo(() => data?.data?.blogs ?? [], [data])
 
 	const desktopVisible = 2
-	const mobileVisible = 1
 	const totalSlides = projects.length
 
 	const calcWidth = (index: number) => {
