@@ -23,7 +23,6 @@ import { buildHref } from './utils/buildHref'
 import { queryConfigFor } from './utils/queryConfigFor'
 import { Link } from '@/i18n/navigation'
 
-
 type Locale = keyof IMultiLangText
 type AnyAxios = AxiosResponse<any, any>
 
@@ -48,9 +47,11 @@ export default function Search({ hoveredMenu = null, handleHoverEnd = () => {} }
 	const stats = data?.data.stats
 
 	useEffect(() => setMounted(true), [])
+
 	useEffect(() => {
 		if (isClicked) setShowModal(true)
 	}, [isClicked])
+
 	useEffect(() => {
 		if (isClicked) {
 			lock()

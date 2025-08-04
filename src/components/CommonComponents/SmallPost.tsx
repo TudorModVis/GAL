@@ -131,7 +131,7 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 					/>
 				</div>
-				<div className={`bg-sand-50 h-2/3 sm:h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col`}>
+				<div className={`bg-stone-50 h-2/3 sm:h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col`}>
 					<AnimatedHeader
 						customStyles='font-bold text-xl leading-6'
 						text={props.title[locale]}

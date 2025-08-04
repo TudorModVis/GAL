@@ -14,6 +14,7 @@ import Cross from './Cross'
 import LanguageSwitcher from './LanguageSwitcher'
 import MagnifyGlass from './MagnifyGlass'
 import SearchMobile from './SearchMobile'
+import { useScrollLock } from './useScrollLock'
 import { Link, usePathname } from '@/i18n/navigation'
 
 interface NavProps {
@@ -26,10 +27,10 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 	const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false)
 	const [isAuthenticOpen, setIsAuthenticOpen] = useState<boolean>(false)
 	const [mounted, setMounted] = useState<boolean>(false)
+	const { lock, unlock } = useScrollLock()
 
 	const pathname = usePathname()
 	const tNav = useTranslations('index.NavBar')
-	const lenis = useLenis()
 	const closeMenuTimer = useRef<NodeJS.Timeout | null>(null)
 
 	useEffect(() => {
@@ -52,11 +53,11 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 
 	useEffect(() => {
 		if (isOpen || isSearchOpen) {
-			lenis?.stop()
+			lock()
 		} else {
-			lenis?.start()
+			unlock()
 		}
-	}, [isOpen, isSearchOpen, lenis])
+	}, [isOpen, isSearchOpen, lock, unlock])
 
 	const topVariants = {
 		closed: { rotate: 0, translateY: 0 },
@@ -119,7 +120,7 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 						animate={isSearchOpen ? 'open' : 'closed'}
 						variants={menuVariants}
 					>
-						<SearchMobile />
+						<SearchMobile isOpen={isSearchOpen}/>
 					</motion.div>,
 					document.body
 				)}
@@ -368,7 +369,7 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 
 			<div
 				className={`text-nowrap border-b-[1px] ${
-					isOpen || isFixed ? 'border-stone-400' : 'border-stone-50'
+					isOpen || isFixed || isSearchOpen ? 'border-stone-400' : 'border-stone-50'
 				} duration-500 transition text-forest-900 z-10 top-0 left-0 right-0 w-screen sm:hidden`}
 			>
 				<div className='relative col-span-full grid-cols-full px-4 mx-auto flex items-center h-16'>
