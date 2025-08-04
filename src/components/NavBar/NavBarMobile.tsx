@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
