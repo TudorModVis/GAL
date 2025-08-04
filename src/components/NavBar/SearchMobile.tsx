@@ -49,7 +49,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({ item, locale }) => 
 					key={item._id}
 					href={buildHref(item)}
 					locale={locale}
-					className='grid grid-cols-8 gap-x-4 my-4'
+					className='grid grid-cols-8 gap-x-4'
 				>
 					<Image
 						width={78}
@@ -75,7 +75,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({ item, locale }) => 
 					</div>
 				</Link>
 			</div>
-			<div className='border-b-[1px] border-black/25 w-screen'></div>
+			<div className='border-b-[1px] border-black/25 w-screen h-[1px]'></div>
 		</>
 	)
 }
@@ -108,9 +108,8 @@ const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen }) => {
 	useEffect(() => {
 		if (!isOpen) return
 
-		const handleUserScroll = (e: Event) => {
-			const target = e.target as HTMLElement
-			const isInsideScrollable = target.closest('.scrollable')
+		const handleUserInteraction = (e: Event) => {
+			const isInsideScrollable = (e.target as HTMLElement).closest('.scrollable')
 			if (isInsideScrollable) {
 				unlock()
 			} else {
@@ -118,12 +117,18 @@ const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen }) => {
 			}
 		}
 
-		document.addEventListener('wheel', handleUserScroll, { passive: true })
-		document.addEventListener('touchstart', handleUserScroll, { passive: true })
+		document.addEventListener('pointerdown', handleUserInteraction, {
+			capture: true,
+			passive: true
+		})
+
+		document.addEventListener('wheel', handleUserInteraction, { passive: true })
+		document.addEventListener('touchmove', handleUserInteraction, { passive: true })
 
 		return () => {
-			document.removeEventListener('wheel', handleUserScroll)
-			document.removeEventListener('touchstart', handleUserScroll)
+			document.removeEventListener('pointerdown', handleUserInteraction, true)
+			document.removeEventListener('wheel', handleUserInteraction)
+			document.removeEventListener('touchmove', handleUserInteraction)
 		}
 	}, [isOpen, lock, unlock])
 
@@ -181,7 +186,13 @@ const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen }) => {
 						placeholder={t('placeholder')}
 					/>
 				</div>
-				<div className='flex h-14 items-center bg-stone-50 overflow-x-auto no-scrollbar snap-x snap-mandatory mb-6'>
+				<div
+					className='flex h-14 items-center bg-stone-50 overflow-x-auto no-scrollbar snap-x snap-mandatory mb-6'
+					style={{
+						WebkitOverflowScrolling: 'touch',
+						touchAction: 'pan-x'
+					}}
+				>
 					{(['all', 'news', 'projects', 'success'] as const).map(ft => (
 						<div
 							key={ft}
@@ -210,12 +221,12 @@ const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen }) => {
 					{t('no_results')}
 				</p>
 			) : (
-				<div className='mt-6 max-h-[calc(100vh-112px)] pb-30 flex flex-col overflow-hidden h-full'>
-					<span className='text-xs text-stone-600 mb-2 w-full px-4 mx-auto max-w-[390px]'>
+				<div className='mt-6 max-h-[calc(100svh-112px)] pb-30 flex flex-col overflow-hidden h-full'>
+					<span className='text-xs text-stone-600 mb-6 w-full px-4 mx-auto max-w-[390px]'>
 						{countForFilter(filter)} {t('results')}
 					</span>
 
-					<div className='scrollable flex-1 overflow-y-auto overscroll-contain overflow-x-hidden grid'>
+					<div className='scrollable flex-1 overflow-y-auto overscroll-contain overflow-x-hidden grid content-start gap-4'>
 						{isLoading && (
 							<div className='w-screen flex justify-center'>
 								<p className='mt-4 text-sm text-stone-600'>{t('loading')}</p>

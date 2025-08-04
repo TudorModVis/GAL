@@ -1,4 +1,4 @@
-// NavContent.tsx
+import { useQuery } from '@tanstack/react-query'
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import React, { useEffect, useRef, useState } from 'react'
@@ -13,6 +13,8 @@ import LanguageSwitcher from './LanguageSwitcher'
 import Search from './Search'
 import { useScrollLock } from './useScrollLock'
 import { Link } from '@/i18n/navigation'
+import { documentsService } from '@/services/documents.service'
+import { managementService } from '@/services/management.service'
 
 interface Props {
 	arrowColor?: string
@@ -33,7 +35,6 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 		| 'atractii_turistice'
 		| 'oameni_si_valori'
 	>(null)
-
 	const closeTimer = useRef<NodeJS.Timeout | null>(null)
 	const tNav = useTranslations('index.NavBar')
 	const { lock, unlock } = useScrollLock()
@@ -114,16 +115,31 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 		exit: { opacity: 0, transition: { duration: 0.5 } }
 	}
 
+	const { data: mgmtResp } = useQuery({
+		queryKey: ['management'],
+		queryFn: () => managementService.getManagement(),
+		staleTime: 300_000
+	})
+
+	const { data: docsResp } = useQuery({
+		queryKey: ['documents'],
+		queryFn: () => documentsService.getDocuments(),
+		staleTime: 300_000
+	})
+
 	const imageBySubMenu: Record<NonNullable<typeof hoveredSubMenu>, { src: string; alt: string }> = {
 		despre_noi: { src: '/news_image.png', alt: 'News image' },
-		conducerea_gal: { src: '/administration_image.png', alt: 'Administration image' },
-		documente_oficiale: { src: '/documents_image.png', alt: 'Documents image' },
+		conducerea_gal: {
+			src: mgmtResp?.data?.main_image ?? '/administration_image.png',
+			alt: 'Administration image'
+		},
+		documente_oficiale: {
+			src: docsResp?.data?.main_image ?? '/documents_image.png',
+			alt: 'Documents image'
+		},
 		produse_locale: { src: '/localProducts_image.png', alt: 'Local products image' },
 		servicii_din_comunitate: { src: '/services_image.png', alt: 'Community services image' },
-		atractii_turistice: {
-			src: '/touristAttractions_image.png',
-			alt: 'Tourist attractions image'
-		},
+		atractii_turistice: { src: '/touristAttractions_image.png', alt: 'Tourist attractions image' },
 		oameni_si_valori: { src: '/peopleAndValue_image.png', alt: 'People and values image' }
 	}
 
@@ -285,10 +301,10 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 										key={hoveredSubMenu}
 										src={imageBySubMenu[hoveredSubMenu].src}
 										alt={imageBySubMenu[hoveredSubMenu].alt}
-										className={`absolute inset-0 h-full w-full rounded-lg object-cover ${realHovered === false ? 'hidden' : ''}`}
+										className='absolute inset-0 h-full w-full rounded-lg object-cover'
 										variants={imageFadeVariants}
 										initial='initial'
-										animate='animate'
+										animate={realHovered ? 'animate' : 'exit'}
 										exit='exit'
 									/>
 								)}
