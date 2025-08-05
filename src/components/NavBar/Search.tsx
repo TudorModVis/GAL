@@ -115,7 +115,8 @@ export default function Search({ hoveredMenu = null, handleHoverEnd = () => {} }
 		imageAlt: currentItem?.title[locale] ?? '',
 		summary: payload?.data?.summary?.column1?.[locale] ?? '',
 		kind: currentItem ? kindFor(currentItem) : undefined,
-		locale
+		locale,
+		href: currentItem ? buildHref(currentItem) : "/"
 	}
 
 	const countForFilter = (current: typeof filter) => {
@@ -198,10 +199,7 @@ export default function Search({ hoveredMenu = null, handleHoverEnd = () => {} }
 												{countForFilter(filter)} {t('results')}
 											</span>
 
-											<div
-												className='flex-1 overflow-y-auto pl-12 pr-2 pb-2 [&>a]:cursor-pointer'
-												onMouseLeave={() => setActiveIdx(0)}
-											>
+											<div className='flex-1 overflow-y-auto pl-12 pr-2 pb-2 [&>a]:cursor-pointer'>
 												{isLoading && <p className='mt-4 text-sm text-stone-600'>{t('loading')}</p>}
 												{isError && <p className='mt-4 text-sm text-red-600'>{t('error')}</p>}
 

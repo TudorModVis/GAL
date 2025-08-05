@@ -3,6 +3,10 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import React from 'react'
 
+import LinkWithArrow from '../CommonComponents/LinkWithArrow'
+
+import { Link } from '@/i18n/navigation'
+
 interface SidePartProps {
 	tags: string[]
 	headerText: string
@@ -11,10 +15,12 @@ interface SidePartProps {
 	locale?: string
 	summary?: string
 	kind?: string
+	href: any
 }
 
 const SearchSidePart: React.FC<SidePartProps> = props => {
 	const tCategories = useTranslations('BlogCategories')
+	const tLink = useTranslations('LinkArrow')
 	const bgClasses = ['bg-forest-600', 'bg-forest-800', 'bg-forest-700', 'bg-forest-500']
 
 	const auxTags: Record<'documents' | 'management', string[]> = {
@@ -55,8 +61,8 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 	}, [props.imageSrc])
 
 	return (
-		<>
-			<div className='absolute left-6 top-6 z-10 flex flex-wrap gap-2 pr-6'>
+		<Link href={props.href}>
+			<div className='absolute left-6 top-6 z-10 flex flex-col gap-2 pr-6 h-full'>
 				<div className='flex gap-2 text-sand-50 items-center flex-wrap'>
 					{tags.map((tag, index) => (
 						<span
@@ -76,6 +82,15 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 						dangerouslySetInnerHTML={{ __html: props.summary }}
 					/>
 				) : null}
+
+				<LinkWithArrow
+					asBtn
+					text={tLink('read_article')}
+					href='/news'
+					arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
+					customStyle='mt-auto flex gap-1 w-full items-center duration-250 align-bottom transition justify-between [&>div:nth-child(1)]:py-2.5
+     									[&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5 mb-12'
+				/>
 			</div>
 
 			{props.imageSrc && (
@@ -97,7 +112,7 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 					aria-label='Loading image'
 				/>
 			)}
-		</>
+		</Link>
 	)
 }
 

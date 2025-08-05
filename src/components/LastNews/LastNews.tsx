@@ -174,8 +174,8 @@ const LastNews = () => {
 								text={tLastNews('see_more_news')}
 								href='/news'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
-								customStyle='flex gap-1 mt-12 max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
-                             [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap group-hover/link:[&>div]:bg-red-400 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
+								customStyle='flex gap-1 mt-12 duration-250 transition max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
+                             [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 							/>
 						</div>
 					</div>
