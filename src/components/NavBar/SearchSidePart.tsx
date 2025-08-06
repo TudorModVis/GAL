@@ -62,7 +62,7 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 
 	return (
 		<Link href={props.href}>
-			<div className='absolute left-6 top-6 z-10 flex flex-col gap-2 pr-6 h-full'>
+			<div className='absolute left-6 top-6 z-10 flex flex-col gap-2 pr-6 group h-full'>
 				<div className='flex gap-2 text-sand-50 items-center flex-wrap'>
 					{tags.map((tag, index) => (
 						<span
@@ -86,10 +86,10 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 				<LinkWithArrow
 					asBtn
 					text={tLink('read_article')}
-					href='/news'
-					arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
-					customStyle='mt-auto flex gap-1 w-full items-center duration-250 align-bottom transition justify-between [&>div:nth-child(1)]:py-2.5
-     									[&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5 mb-12'
+					href='/'
+					arrowProps='group-hover:fill-forest-900 group-active:rotate-0 group-hover:rotate-0 -rotate-45 fill-sand-50'
+					customStyle='flex w-full justify-between gap-1 items-center [&>div:nth-child(1)]:py-2.5 align-bottom mt-auto mb-12
+                       [&>div:nth-child(1)]:px-4 [&>div]:group-hover:bg-sand-50 [&>div]:bg-forest-800 [&>div]:group-hover:text-forest-900 [&>div]:text-sand-50 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 				/>
 			</div>
 

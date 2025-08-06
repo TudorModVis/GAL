@@ -66,12 +66,12 @@ const Visualization: React.FC<VisualisationProps> = props => {
 	return (
 		<section
 			ref={sectionRef}
-			className='w-screen h-fit grid grid-cols-full relative text-forest-900'
+			className='w-screen h-fit grid grid-cols-full relative text-forest-900 mb-'
 		>
 			<AnimatedLine customStyles='col-span-full mb-2' />
 			<AnimatedText
 				text={props.header}
-				customStyles='sm:col-span-2 col-span-full font-bold'
+				customStyles='sm:col-span-2 col-span-full font-bold mb-12'
 			/>
 			<AnimatedText
 				text={props.description}

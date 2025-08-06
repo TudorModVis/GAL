@@ -123,8 +123,7 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 					</div>
 					<Image
 						draggable='false'
-						// schimba ALT-ul mai tarziu
-						alt='imagine'
+						alt='image'
 						src={props.main_image}
 						fill
 						style={{ objectFit: 'cover' }}

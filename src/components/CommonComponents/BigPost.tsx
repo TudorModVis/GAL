@@ -118,7 +118,7 @@ const BigPost: React.FC<IBlogResponse> = props => {
 			onClick={handleClick}
 		>
 			<div className='sm:h-1/2 h-2/5 relative'>
-				<div className='flex gap-2 absolute z-10 top-4 left-4 sm:hidden'>
+				<div className='flex gap-2 absolute left-4 right-4 flex-wrap z-10 top-4 sm:hidden'>
 					{props.categories.map(tag => {
 						return (
 							<div
@@ -132,7 +132,6 @@ const BigPost: React.FC<IBlogResponse> = props => {
 				</div>
 				<Image
 					draggable='false'
-					// schimba ALT-ul mai tarziu
 					alt='imagine'
 					src={props.main_image}
 					fill

@@ -125,7 +125,7 @@ const CompletedProjects = () => {
 						<motion.div
 							className='bg-forest-900 h-full'
 							animate={{ width: `${calcWidth(currentSlide)}%` }}
-							transition={{ ease: 'easeInOut', duration: 0.5 }}
+							transition={{ ease: 'easeInOut' }}
 						/>
 					</div>
 					<LinkWithArrow
@@ -164,7 +164,7 @@ const CompletedProjects = () => {
 							<motion.div
 								className='bg-forest-900 h-full rounded-full'
 								animate={{ width: `${calcWidth(currentSlide)}%` }}
-								transition={{ ease: 'easeInOut', duration: 0.5 }}
+								transition={{ ease: 'easeInOut' }}
 							/>
 						</div>
 						<div className='mt-12'>

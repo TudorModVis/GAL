@@ -9,7 +9,6 @@ import Arrow from '../CommonComponents/Arrow'
 import Logo from '../CommonComponents/Logo'
 
 import ArrowDown from './ArrowDown'
-import Cross from './Cross'
 import LanguageSwitcher from './LanguageSwitcher'
 import MagnifyGlass from './MagnifyGlass'
 import SearchMobile from './SearchMobile'
@@ -57,6 +56,20 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 			unlock()
 		}
 	}, [isOpen, isSearchOpen, lock, unlock])
+
+	const toggleSearch = () => {
+		setIsSearchOpen(prev => {
+			if (!prev) setIsOpen(false)
+			return !prev
+		})
+	}
+
+	const toggleMenu = () => {
+		setIsOpen(prev => {
+			if (!prev) setIsSearchOpen(false)
+			return !prev
+		})
+	}
 
 	const topVariants = {
 		closed: { rotate: 0, translateY: 0 },
@@ -119,7 +132,7 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 						animate={isSearchOpen ? 'open' : 'closed'}
 						variants={menuVariants}
 					>
-						<SearchMobile isOpen={isSearchOpen}/>
+						<SearchMobile isOpen={isSearchOpen} />
 					</motion.div>,
 					document.body
 				)}
@@ -372,12 +385,49 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 				} duration-500 transition text-forest-900 z-10 top-0 left-0 right-0 w-screen sm:hidden`}
 			>
 				<div className='relative col-span-full grid-cols-full px-4 mx-auto flex items-center h-16'>
-					<button
-						onClick={() => setIsSearchOpen(!isSearchOpen)}
-						className={`cursor-pointer duration-250 flex justify-center items-center rounded-full bg-forest-800 transition p-3`}
+					<motion.button
+						onClick={toggleSearch}
+						animate={isSearchOpen ? 'open' : 'closed'}
+						initial={false}
+						className='relative size-10 rounded-full bg-forest-800 flex items-center justify-center overflow-hidden'
 					>
-						{isSearchOpen ? <Cross color='#FFFEFD' /> : <MagnifyGlass />}
-					</button>
+						<motion.span
+							variants={{
+								closed: { opacity: 1, scale: 1, rotate: 0 },
+								open: { opacity: 0, scale: 0.5, rotate: 90 }
+							}}
+							transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+							className='flex items-center justify-center'
+						>
+							<MagnifyGlass />
+						</motion.span>
+
+						<motion.span
+							variants={{
+								closed: { opacity: 0, scale: 0.5, rotate: -90 },
+								open: { opacity: 1, scale: 1, rotate: 0 }
+							}}
+							transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+							className='absolute inset-0 flex items-center justify-center'
+						>
+							<motion.div
+								variants={{
+									closed: { rotate: 0, y: 0 },
+									open: { rotate: 45, y: 0 }
+								}}
+								transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+								className='absolute w-4 h-0.5 bg-sand-50'
+							/>
+							<motion.div
+								variants={{
+									closed: { rotate: 0, y: 0 },
+									open: { rotate: -45, y: 0 }
+								}}
+								transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+								className='absolute w-4 h-0.5 bg-sand-50'
+							/>
+						</motion.span>
+					</motion.button>
 					<Link
 						href='/'
 						className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
@@ -391,7 +441,7 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 						/>
 
 						<motion.button
-							onClick={() => setIsOpen(!isOpen)}
+							onClick={toggleMenu}
 							animate={isOpen ? 'open' : 'closed'}
 							initial={false}
 							className='size-10 bg-forest-800 [&>div]:bg-stone-50 [&>div]:origin-center justify-center items-center rounded-full flex flex-col gap-[3px]'

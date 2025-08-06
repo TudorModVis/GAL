@@ -123,7 +123,7 @@ const LastNews = () => {
 							animate={{
 								width: `${totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 100}%`
 							}}
-							transition={{ ease: 'easeInOut', duration: 0.5 }}
+							transition={{ ease: 'easeInOut' }}
 						/>
 					</div>
 					<LinkWithArrow
@@ -166,7 +166,7 @@ const LastNews = () => {
 								animate={{
 									width: `${totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 100}%`
 								}}
-								transition={{ ease: 'easeInOut', duration: 0.5 }}
+								transition={{ ease: 'easeInOut' }}
 							/>
 						</div>
 						<div className='mt-12'>
