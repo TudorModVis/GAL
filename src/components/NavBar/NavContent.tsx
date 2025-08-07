@@ -333,7 +333,12 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 					onMouseLeave={handleMouseLeave}
 					className='flex cursor-pointer items-center gap-1'
 				>
-					<AnimatedLink text={tNav('about.about_btn')} />
+					<Link
+						href='/aboutUs'
+						onClick={() => closeMenu()}
+					>
+						<AnimatedLink text={tNav('about.about_btn')} />
+					</Link>
 					<ArrowDown
 						arrowColor={
 							hoveredMenu === 'despre' || hoveredMenu === 'autentic' ? '#11200B' : arrowColor
@@ -354,7 +359,10 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 					onMouseLeave={handleMouseLeave}
 					className='flex cursor-pointer items-center gap-1'
 				>
-					<Link href='/authentic-local'>
+					<Link
+						href='/authentic-local'
+						onClick={() => closeMenu()}
+					>
 						<AnimatedLink text={tNav('authentic_local.authentic_btn')} />
 					</Link>
 					<ArrowDown

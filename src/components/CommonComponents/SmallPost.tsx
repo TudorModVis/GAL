@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { BlogsContentTypeEnum, IBlogResponse } from '@/types/blog.types'
 import { IMultiLangText } from '@/types/shared/text.types'
 
-import AnimatedHeader from './AnimatedHeader'
+// import AnimatedHeader from './AnimatedHeader'
 import LinkWithArrow from './LinkWithArrow'
 import { Link } from '@/i18n/navigation'
 
@@ -131,10 +131,11 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 					/>
 				</div>
 				<div className={`bg-stone-50 h-2/3 sm:h-1/2 px-4 pb-4 pt-6 flex justify-between flex-col`}>
-					<AnimatedHeader
+					{/* <AnimatedHeader
 						customStyles='font-bold text-xl leading-6'
 						text={props.title[locale]}
-					/>
+					/> */}
+					<h2 className='font-bold text-xl leading-6'>{props.title[locale]}</h2>
 					<h4
 						className='group-hover:opacity-100 leading-4.5 sm:line-clamp-4 line-clamp-6 opacity-100 sm:opacity-0 transition-opacity duration-300'
 						dangerouslySetInnerHTML={{ __html: props.summary.column1[locale] }}
