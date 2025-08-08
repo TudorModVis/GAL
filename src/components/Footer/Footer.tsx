@@ -36,7 +36,7 @@ const Footer = () => {
 	return (
 		<footer
 			id='footer'
-			className='w-screen flex flex-col py-8 bg-forest-600 text-sand-50
+			className='w-full flex flex-col py-8 bg-forest-600 text-sand-50
                  sm:fixed sm:h-screen bottom-0 -z-10'
 		>
 			<div className='grid grid-cols-full auto-rows-min w-full flex-none mb-2'>
@@ -92,7 +92,7 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div className='flex-1 min-h-0 flex flex-col w-full max-w-[1512px] px-4 mx-auto'>
+			<div className='flex-1 min-h-0 flex flex-col w-full max-w-[390px] sm:max-w-[1512px] sm:px-7 px-4 mx-auto'>
 				<div className='sm:hidden block col-span-full mt-6'>
 					<Socials />
 				</div>
@@ -170,7 +170,7 @@ const Footer = () => {
 
 			<div
 				className='flex-none mt-12 sm:mt-[4vh] flex flex-col sm:flex-row
-                   items-center sm:items-baseline justify-between w-full max-w-[1512px] px-4 mx-auto'
+                   items-center sm:items-baseline justify-between w-full max-w-[390px] sm:max-w-[1512px] sm:px-7 px-4 mx-auto'
 			>
 				<h4 className='text-center w-full sm:w-fit sm:text-left'>
 					{t('useful_information.copyright')}
