@@ -192,7 +192,7 @@ export function ImageUpload({
 						src={displayImageUrl as string}
 						alt='Uploaded Image'
 						fill
-						className='w-full h-full object-contain hover:opacity-80 transition-opacity duration-300'
+						className='w-full h-full object-cover hover:opacity-80 transition-opacity duration-300'
 					/>
 
 					<button

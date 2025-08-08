@@ -9,8 +9,9 @@ import { ImageUpload } from '@/components/AdminComponents/ui/ImageUpload/ImageUp
 import { RichTextEditor } from '@/components/AdminComponents/ui/RichTextEditor/RichTextEditor'
 import { TextAreaField } from '@/components/AdminComponents/ui/TextAreaField'
 
-import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
+
+import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 
 interface Props {
 	control: Control<TypeBlogFormState>
@@ -73,7 +74,7 @@ export function BlogSubparagraph({
 		// register(`sections.${paragraphIndex}.subsections.${subIndex}.images`);
 
 		register(`sections.${paragraphIndex}.subsections.${subIndex}.column2.ro`, {
-        validate: createColumn2Validator('ro')
+			validate: createColumn2Validator('ro')
 		})
 		register(`sections.${paragraphIndex}.subsections.${subIndex}.column2.ru`, {
 			validate: createColumn2Validator('ru')
@@ -92,8 +93,12 @@ export function BlogSubparagraph({
 		name: `sections.${paragraphIndex}.subsections.${subIndex}.images`
 	})
 
-	const addImageField = () => {
-		appendImage({ url: '' })
+	const addSingleImageField = () => {
+		appendImage({ url_1: '' })
+	}
+
+	const addDoubleImageField = () => {
+		appendImage({ url_1: '', url_2: '' })
 	}
 
 	return (
@@ -101,11 +106,11 @@ export function BlogSubparagraph({
 			<div className='flex gap-[1.5rem] mt-[3rem] border-t border-gray-500 pt-[0.75rem]'>
 				<div className='flex flex-col max-w-[21.5rem] flex-1 gap-[0.5rem]'>
 					<label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-						{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.title }
+						{ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.title}
 					</label>
 
 					<TextAreaField
-						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.title }
+						placeholder={ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.title}
 						className='h-[11rem] placeholder:opacity-70'
 						key={`subparagraph-title-${language}`}
 						{...register(`sections.${paragraphIndex}.subsections.${subIndex}.title.${language}`, {
@@ -118,7 +123,7 @@ export function BlogSubparagraph({
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.title`}
 						render={() => (
 							<p className='text-error text-sm'>
-								{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.title }
+								{ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.title}
 							</p>
 						)}
 					/>
@@ -126,13 +131,15 @@ export function BlogSubparagraph({
 
 				<div className='flex flex-col max-w-[29rem] flex-1 gap-[0.5rem]'>
 					<label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-						{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.col1_title }
+						{ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.col1_title}
 					</label>
 					<RichTextEditor
 						key={`summary-col1-${language}`}
 						control={control}
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column1.${language}`}
-						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.col1_placeholder }
+						placeholder={
+							ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.col1_placeholder
+						}
 						rules={{
 							required: true
 						}}
@@ -143,7 +150,7 @@ export function BlogSubparagraph({
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column1`}
 						render={() => (
 							<p className='text-error text-sm'>
-								{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.col1_error }
+								{ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.col1_error}
 							</p>
 						)}
 					/>
@@ -151,20 +158,24 @@ export function BlogSubparagraph({
 
 				<div className='flex flex-col max-w-[29rem] flex-1 gap-[0.5rem]'>
 					<label className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'>
-						{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.col2_title }
+						{ADMIN_FORM_TRANSLATE.subparagraphInput[language].label.col2_title}
 					</label>
 					<RichTextEditor
 						key={`summary-col2-${language}`}
 						control={control}
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column2.${language}`}
-						placeholder={ ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.col2_placeholder }
+						placeholder={
+							ADMIN_FORM_TRANSLATE.subparagraphInput[language].placeholder.col2_placeholder
+						}
 						className={`${formState.errors.sections?.[paragraphIndex]?.subsections?.[subIndex]?.column2 ? 'border-error text-error placeholder:text-error animate-shake' : ''}`}
 					/>
 					<ErrorMessage
 						errors={formState.errors}
 						name={`sections.${paragraphIndex}.subsections.${subIndex}.column2`}
 						render={() => (
-							<p className='text-error text-sm'>{ ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.col2_error }</p>
+							<p className='text-error text-sm'>
+								{ADMIN_FORM_TRANSLATE.subparagraphInput[language].error.col2_error}
+							</p>
 						)}
 					/>
 				</div>
@@ -179,48 +190,101 @@ export function BlogSubparagraph({
 
 			<div className='mt-[2rem]'>
 				{imageFields.map((imageField, imageIndex) => (
-					<div
-						key={imageField.id}
-						className='relative mt-[0.5rem]'
-					>
-						<ImageUpload
-							language={language}
-							name={
-								`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}.url` as any
-							}
-							control={control}
-							height='6rem'
-							className='rounded-[1rem]'
-							addImageToUpload={addImageToUpload}
-							addImageToDelete={addImageToDelete}
-							removeImageFromUpload={removeImageFromUpload}
-							onRemove={() => removeImage(imageIndex)}
-							rules={{
-								required: true
-							}}
-						/>
-					</div>
+					<>
+						{imageField.url_2 !== undefined ? (
+							<div
+								key={imageField.id}
+								className='relative mt-[0.5rem] flex gap-[1.5rem] items-center'
+							>
+								<ImageUpload
+									language={language}
+									name={
+										`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}.url_1` as any
+									}
+									control={control}
+									className='rounded-[1rem]'
+									addImageToUpload={addImageToUpload}
+									addImageToDelete={addImageToDelete}
+									removeImageFromUpload={removeImageFromUpload}
+									onRemove={() => removeImage(imageIndex)}
+									rules={{
+										required: true
+									}}
+								/>
+
+								<ImageUpload
+									language={language}
+									name={
+										`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}.url_2` as any
+									}
+									control={control}
+									className='rounded-[1rem]'
+									addImageToUpload={addImageToUpload}
+									addImageToDelete={addImageToDelete}
+									removeImageFromUpload={removeImageFromUpload}
+									onRemove={() => removeImage(imageIndex)}
+									rules={{
+										required: true
+									}}
+								/>
+							</div>
+						) : (
+							<div
+								key={imageField.id}
+								className='relative mt-[0.5rem]'
+							>
+								<ImageUpload
+									language={language}
+									name={
+										`sections.${paragraphIndex}.subsections.${subIndex}.images.${imageIndex}.url_1` as any
+									}
+									control={control}
+									className='rounded-[1rem]'
+									addImageToUpload={addImageToUpload}
+									addImageToDelete={addImageToDelete}
+									removeImageFromUpload={removeImageFromUpload}
+									onRemove={() => removeImage(imageIndex)}
+									rules={{
+										required: true
+									}}
+								/>
+							</div>
+						)}
+					</>
 				))}
 				<ErrorMessage
 					errors={formState.errors}
 					name={`sections.${paragraphIndex}.subsections.${subIndex}.images`}
 					render={() => (
 						<p className='text-error text-sm mt-1'>
-							{ ADMIN_FORM_TRANSLATE.addingElements[language].removeImage }
+							{ADMIN_FORM_TRANSLATE.addingElements[language].removeImage}
 						</p>
 					)}
 				/>
 
-				<button
-					type='button'
-					className='cursor-pointer hover:opacity-70 transition-opacity duration-300 w-full mt-[0.5rem] border border-dashed border-gray-500 bg-gray-300 rounded-[1rem] h-[6rem] flex items-center justify-center gap-[0.5rem]'
-					onClick={addImageField}
-				>
-					<ImageIcon className='text-green-700 size-[1.125rem]' />
-					<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-						{ ADMIN_FORM_TRANSLATE.addingElements[language].addImage }
-					</span>
-				</button>
+				<div className='flex gap-[1.5rem] items-center'>
+					<button
+						type='button'
+						className='cursor-pointer hover:opacity-70 transition-opacity duration-300 w-full mt-[0.5rem] border border-dashed border-gray-500 bg-gray-300 rounded-[1rem] h-[6rem] flex items-center justify-center gap-[0.5rem]'
+						onClick={addSingleImageField}
+					>
+						<ImageIcon className='text-green-700 size-[1.125rem]' />
+						<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
+							{ADMIN_FORM_TRANSLATE.addingElements[language].addImage}
+						</span>
+					</button>
+
+					<button
+						type='button'
+						className='cursor-pointer hover:opacity-70 transition-opacity duration-300 w-full mt-[0.5rem] border border-dashed border-gray-500 bg-gray-300 rounded-[1rem] h-[6rem] flex items-center justify-center gap-[0.5rem]'
+						onClick={addDoubleImageField}
+					>
+						<ImageIcon className='text-green-700 size-[1.125rem]' />
+						<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
+							Adauga imagine dubla
+						</span>
+					</button>
+				</div>
 			</div>
 		</>
 	)

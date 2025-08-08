@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { FieldErrors, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 import { BlogForm } from '@/components/AdminComponents/BlogPageComponents/BlogForm/BlogForm'
 import { BlogPageNav } from '@/components/AdminComponents/BlogPageComponents/BlogPageNav'
@@ -20,7 +21,6 @@ import { useUploadImages } from '@/hooks/blog/useUploadImages'
 import { useRouter } from '@/i18n/navigation'
 import { Pathnames } from '@/i18n/routing'
 import { cleanBlogFormData } from '@/lib/form-data-cleaner.utils'
-import { toast } from 'sonner'
 
 interface Props {
 	blogId: string
@@ -89,7 +89,13 @@ export function PageContent({ blogId }: Props) {
 			currentData.sections.forEach(section => {
 				section.subsections?.forEach(subsection => {
 					if (subsection.images) {
-						allImagesToDelete.push(...subsection.images.map(img => img.url))
+						subsection.images.forEach(img => {
+							if (img.url_2 !== undefined && img.url_2 !== '') {
+								allImagesToDelete.push(img.url_1, img.url_2)
+							} else {
+								allImagesToDelete.push(img.url_1)
+							}
+						})
 					}
 				})
 			})
@@ -133,7 +139,11 @@ export function PageContent({ blogId }: Props) {
 				<BlogPageNav
 					onDeleteBlog={handleDeleteBlog}
 					isPending={
-						isImagesUploadPending || isDeletePending || isUpdatePending || isBlogDeletePending || isLoading
+						isImagesUploadPending ||
+						isDeletePending ||
+						isUpdatePending ||
+						isBlogDeletePending ||
+						isLoading
 					}
 					language={language}
 					setLanguage={setLanguage}
@@ -141,7 +151,11 @@ export function PageContent({ blogId }: Props) {
 
 				<BlogForm
 					isPending={
-						isImagesUploadPending || isDeletePending || isUpdatePending || isBlogDeletePending || isLoading
+						isImagesUploadPending ||
+						isDeletePending ||
+						isUpdatePending ||
+						isBlogDeletePending ||
+						isLoading
 					}
 					formState={formState}
 					setValue={setValue}

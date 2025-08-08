@@ -49,7 +49,10 @@ export interface ISubSection {
 	title: IMultiLangText
 	column1: IMultiLangText
 	column2?: IMultiLangText
-	images?: { url: string }[]
+	images?: { 
+		url_1: string
+		url_2?: string
+	}[]
 }
 
 export interface ISection {

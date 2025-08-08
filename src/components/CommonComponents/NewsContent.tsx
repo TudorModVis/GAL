@@ -84,7 +84,7 @@ const NewsContent: React.FC<NewsContentProps> = ({ summary, sections, locale }) 
                     >
                       <ParalaxImage
                         altText={`${t(sub.title, locale)} image ${imgIdx + 1}`}
-                        source={src.url}
+                        source={src.url_1} /* MARK: Am pus url_1 sa dau deploy dar vezi sa faci o verificare. Daca src.url_2 !== undefined */
                       />
                     </div>
                   ))}
