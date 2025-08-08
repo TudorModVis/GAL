@@ -73,7 +73,7 @@ export function PageContent() {
 	return (
 		<div className='flex justify-end w-full'>
 			<form
-				className='mt-[3rem] sidebar-req:w-[calc(100vw-20.625rem)] w-full'
+				className='mt-[3rem] sidebar-req:w-[calc(100vw-20.625rem)] fullhd-threshold:w-[calc(var(--breakpoint-fullhd-threshold)-20.625rem)] w-full'
 				onSubmit={handleSubmit(onSubmit, onInvalid)}
 			>
 				<StatisticsNav

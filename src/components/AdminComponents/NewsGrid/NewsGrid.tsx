@@ -26,7 +26,7 @@ export function NewsGrid({ colsNumber, blogs }: Props) {
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					transition={{ duration: 0.5, ease: 'easeInOut' }}
-					className={`grid sidebar-req:w-[calc(100vw-20.625rem)] gap-[1.5rem] items-stretch`}
+					className={`grid sidebar-req:w-[calc(100vw-20.625rem)] fullhd-threshold:w-[calc(var(--breakpoint-fullhd-threshold)-20.625rem)] gap-[1.5rem] items-stretch`}
 					style={{
 						gridTemplateColumns: `repeat(${colsNumber}, minmax(0, 1fr))`,
 						gridAutoRows: 'minmax(0, 1fr)'

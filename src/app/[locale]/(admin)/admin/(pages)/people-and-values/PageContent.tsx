@@ -48,7 +48,7 @@ export function PageContent() {
 	return (
 		<div className='mt-[2.5rem]'>
 			<div className='flex justify-end w-full'>
-				<div className='flex sidebar-req:w-[calc(100vw-20.625rem)] w-full items-center justify-end gap-[1rem]'>
+				<div className='flex sidebar-req:w-[calc(100vw-20.625rem)] fullhd-threshold:w-[calc(var(--breakpoint-fullhd-threshold)-20.625rem)] w-full items-center justify-end gap-[1rem]'>
 					<p className='font-bold text-[1rem] leading-[1.125rem] text-green-700'>
 						{t('visualization_type')}
 					</p>
@@ -81,7 +81,7 @@ export function PageContent() {
 							blogs={data.data.blogs}
 						/>
 						<div className='w-full flex justify-end'>
-							<div className='w-full sidebar-req:w-[calc(100vw-20.625rem)]'>
+							<div className='w-full sidebar-req:w-[calc(100vw-20.625rem)] fullhd-threshold:w-[calc(var(--breakpoint-fullhd-threshold)-20.625rem)]'>
 								<Pagination
 									pagination={data.data.pagination}
 									updatePage={updatePage}

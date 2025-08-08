@@ -6,7 +6,7 @@ import { StaticSidebar } from '@/components/AdminComponents/AdminSidebar/StaticS
 
 export default function AdminPagesLayout({ children }: PropsWithChildren<unknown>) {
 	return (
-		<div className='px-[2rem] pb-[6rem] pt-[1.5rem]'>
+		<div className='px-[2rem] pb-[6rem] relative pt-[1.5rem] max-w-[var(--breakpoint-fullhd-threshold)] mx-auto'>
 			<AdminSidebar />
 			<StaticSidebar />
 

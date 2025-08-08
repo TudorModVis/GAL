@@ -6,7 +6,7 @@ import { SidebarSubsection } from './SidebarSubsection'
 export function StaticSidebar() {
 
     return (
-        <div className={`max-sidebar-req:hidden h-screen fixed top-0 left-0 z-[1000] border-r border-r-gray-500 bg-green-600 w-[16.625rem]`}>
+        <div className={`max-sidebar-req:hidden h-screen absolute top-0 left-0 z-[1000] border-r border-r-gray-500 bg-green-600 w-[16.625rem]`}>
 
             <div className='w-full h-full flex flex-col p-[1.5rem]'>
                 <Link href='/admin'>

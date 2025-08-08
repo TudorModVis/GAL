@@ -81,7 +81,7 @@ export function PageContent() {
 							blogs={data.data.blogs}
 						/>
 						<div className='w-full flex justify-end'>
-							<div className='w-full sidebar-req:w-[calc(100vw-20.625rem)]'>
+							<div className='w-full sidebar-req:w-[calc(100vw-20.625rem)] fullhd-threshold:w-[calc(var(--breakpoint-fullhd-threshold)-20.625rem)]'>
 								<Pagination
 									pagination={data.data.pagination}
 									updatePage={updatePage}

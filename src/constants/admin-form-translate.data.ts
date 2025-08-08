@@ -333,21 +333,24 @@ export const ADMIN_FORM_TRANSLATE = {
 		ro: {
 			addParagraph: 'Adaugă paragraf',
 			addSubparagraph: 'Adaugă subparagraf',
-			addImage: 'Adaugă imagine',
+			addSingleImage: 'Adaugă imagine "una orizontală"',
+			addDoubleImage: 'Adaugă imagine "două pătrate"',
 			remove: 'Elimină',
 			removeImage: "Eliminați câmpul de imagine dacă nu aveți nevoie să încărcați o imagine"
 		},
 		en: {
 			addParagraph: 'Add paragraph',
 			addSubparagraph: 'Add subparagraph',
-			addImage: 'Add image',
+			addSingleImage: 'Add image "one horizontal"',
+			addDoubleImage: 'Add image "two squares"',
 			remove: 'Remove',
 			removeImage: "Remove the image field if you don't need to upload an image"
 		},
 		ru: {
 			addParagraph: 'Добавить абзац',
 			addSubparagraph: 'Добавить подпараграф',
-			addImage: 'Добавить изображение',
+			addSingleImage: 'Добавить изображение "один горизонтальный"',
+			addDoubleImage: 'Добавить изображение "два квадратных"',
 			remove: 'Удалить',
 			removeImage: 'Удалите поле изображения, если вам не нужно загружать изображение'
 		}

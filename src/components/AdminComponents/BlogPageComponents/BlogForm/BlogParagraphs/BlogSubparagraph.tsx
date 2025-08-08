@@ -270,7 +270,7 @@ export function BlogSubparagraph({
 					>
 						<ImageIcon className='text-green-700 size-[1.125rem]' />
 						<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-							{ADMIN_FORM_TRANSLATE.addingElements[language].addImage}
+							{ADMIN_FORM_TRANSLATE.addingElements[language].addSingleImage}
 						</span>
 					</button>
 
@@ -281,7 +281,7 @@ export function BlogSubparagraph({
 					>
 						<ImageIcon className='text-green-700 size-[1.125rem]' />
 						<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-							Adauga imagine dubla
+							{ADMIN_FORM_TRANSLATE.addingElements[language].addDoubleImage}
 						</span>
 					</button>
 				</div>
