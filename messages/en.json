@@ -416,6 +416,10 @@
 		"create_one": "Create one",
 		"save": "Save",
 
+		"delete_question": "Are you sure you want to delete the article?",
+		"confirm_delete": "Yes, delete",
+		"cancel_delete": "No, I changed my mind",
+
 		"create_new_blog": "Create new article",
 		"edit_blog": "Edit article",
 		"delete_blog": "Delete article",
