@@ -162,7 +162,7 @@
 	--font-roboto: 'Roboto', sans-serif;
 
 	--breakpoint-sidebar-req: 111.125rem;
-	--breakpoint-fullhd-threshold: 120rem;
+	--breakpoint-fullhd-threshold: 128rem; 
 
 	/* Shake Animation */
 	--animate-shake: shake 0.5s ease-in-out;

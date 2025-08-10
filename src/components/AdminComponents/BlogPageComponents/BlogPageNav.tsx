@@ -5,6 +5,9 @@ import { Button } from '../ui/Button'
 
 import { LangBtn } from './LangBtn'
 import { useRouter } from '@/i18n/navigation'
+import { useState } from 'react'
+import { BlogDeleteModal } from './BlogDeleteModal'
+import { AnimatePresence } from 'framer-motion'
 
 interface Props {
 	language: 'ro' | 'ru' | 'en'
@@ -30,6 +33,8 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, is
 			onDeleteBlog()
 		}
 	}
+
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	return (
 		<div className='flex items-center bg-white sticky top-0 left-0 z-[90] justify-between py-[1.5rem]'>
@@ -58,11 +63,19 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, is
 			</div>
 			<div className='flex items-center gap-[2.5rem]'>
 				<p
-					onClick={handleDelete}
+					onClick={() => setIsModalOpen(true)}
 					className='text-error text-[1rem] leading-[1.125rem] font-[400] cursor-pointer hover:opacity-70 transition-opacity duration-300'
 				>
 					{isCreate ? t('cancel') : t('delete_blog')}
 				</p>
+				<AnimatePresence mode='wait'>
+					{isModalOpen && (
+						<BlogDeleteModal
+							handleDelete={handleDelete}
+							setDeleteModalOpen={setIsModalOpen}
+						/>
+					)}
+				</AnimatePresence>
 				<Button
 					disabled={isPending}
 					type='submit'
