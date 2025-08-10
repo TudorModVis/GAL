@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import React from 'react'
 
 import LinkWithArrow from '../CommonComponents/LinkWithArrow'
@@ -15,6 +15,7 @@ interface SidePartProps {
 	locale?: string
 	summary?: string
 	kind?: string
+	closeSearch: React.Dispatch<React.SetStateAction<boolean>>
 	href: any
 }
 
@@ -52,22 +53,45 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 	const rawTags =
 		props.kind === 'documents' || props.kind === 'management' ? auxTags[props.kind] : props.tags
 
-	const tags = rawTags.map(k => tCategories(k))
+	const tags = useMemo(() => rawTags.map(k => tCategories(k)), [rawTags, tCategories])
 
-	const [loaded, setLoaded] = useState(false)
+	const [currentSrc, setCurrentSrc] = useState<string | undefined>(props.imageSrc)
+	const [loaded, setLoaded] = useState<boolean>(false)
 
 	useEffect(() => {
-		setLoaded(false)
-	}, [props.imageSrc])
+		if (!props.imageSrc || props.imageSrc === currentSrc) return
+		let cancelled = false
+		const img = new window.Image()
+		img.decoding = 'async'
+		img.src = props.imageSrc
+		img.onload = () => {
+			if (cancelled) return
+			setCurrentSrc(props.imageSrc)
+			setLoaded(false)
+		}
+		img.onerror = () => {
+			if (cancelled) return
+			setCurrentSrc(props.imageSrc)
+			setLoaded(false)
+		}
+		return () => {
+			cancelled = true
+		}
+	}, [props.imageSrc, currentSrc])
+
+	const blurPixel = 'data:image/gif;base64,R0lGODlhAQABAAAAACw='
 
 	return (
-		<Link href={props.href}>
-			<div className='absolute left-6 top-6 z-10 flex flex-col gap-2 pr-6 group h-full'>
-				<div className='flex gap-2 text-sand-50 items-center flex-wrap'>
+		<Link
+			href={props.href}
+			onClick={() => props.closeSearch(false)}
+		>
+			<div className='absolute left-6 top-6 z-10 flex h-full flex-col gap-2 pr-6 group'>
+				<div className='flex flex-wrap items-center gap-2 text-sand-50'>
 					{tags.map((tag, index) => (
 						<span
 							key={index}
-							className={`${pickBgClass(tag)} px-4 py-1 rounded-sm text-xs whitespace-nowrap`}
+							className={`${pickBgClass(tag)} rounded-sm px-4 py-1 text-xs whitespace-nowrap`}
 						>
 							{tag}
 						</span>
@@ -78,7 +102,7 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 
 				{props.summary ? (
 					<h4
-						className='font-normal leading-4.5 text-sand-50 line-clamp-4'
+						className='line-clamp-4 font-normal leading-4.5 text-sand-50'
 						dangerouslySetInnerHTML={{ __html: props.summary }}
 					/>
 				) : null}
@@ -93,22 +117,27 @@ const SearchSidePart: React.FC<SidePartProps> = props => {
 				/>
 			</div>
 
-			{props.imageSrc && (
+			{currentSrc && (
 				<>
 					<Image
+						key={currentSrc}
 						fill
+						priority
+						fetchPriority='high'
 						className={`object-cover transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-						src={props.imageSrc}
+						src={currentSrc}
 						alt={props.imageAlt}
+						placeholder='blur'
+						blurDataURL={blurPixel}
 						onLoadingComplete={() => setLoaded(true)}
 					/>
-					<div className='absolute inset-0 bg-black/[0.35]'></div>
+					<div className='absolute inset-0 bg-black/[0.35]' />
 				</>
 			)}
 
 			{!loaded && (
 				<div
-					className='h-full w-full bg-gray-500 animate-pulse'
+					className='h-full w-full animate-pulse bg-gray-500'
 					aria-label='Loading image'
 				/>
 			)}
