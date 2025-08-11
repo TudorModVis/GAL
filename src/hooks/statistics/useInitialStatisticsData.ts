@@ -27,6 +27,7 @@ export function useInitialStatisticsData(reset: UseFormReset<TypeStatisticsFormS
                     business_members: data.data.business_members,
                     public_members: data.data.public_members,
                     civic_members: data.data.civic_members,
+                    executive_members: data.data.executive_members,
                 })
             }
     }, [isSuccess, data, reset])

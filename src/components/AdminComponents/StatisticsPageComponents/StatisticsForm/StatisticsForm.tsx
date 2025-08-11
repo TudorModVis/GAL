@@ -1,5 +1,6 @@
 'use client'
 
+import { DevTool } from '@hookform/devtools'
 import { ErrorMessage } from '@hookform/error-message'
 import { useCallback } from 'react'
 import { Control, FormState, UseFormRegister } from 'react-hook-form'
@@ -13,6 +14,7 @@ import { StatisticsTitleInput } from './StatisticsTitleInput'
 import { StatisticsMainImageUpload } from './StatisticsMainImageUpload'
 import { GalStatistics } from './GalStatistics/GalStatistics'
 import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
+import { ExecutiveMembers } from './ExecutiveMembers/ExecutiveMembers'
 
 interface Props {
 	register: UseFormRegister<TypeStatisticsFormState>
@@ -106,6 +108,18 @@ export function StatisticsForm({
                 register={register}
                 formState={formState}
             />
+
+			<ExecutiveMembers
+				language={language}
+				register={register}
+				formState={formState}
+				control={control}
+				addImageToUpload={addImageToUpload}
+				addImageToDelete={addImageToDelete}
+				removeImageFromUpload={removeImageFromUpload}
+			/>
+
+			<DevTool control={control} />
 		</div>
 	)
 }

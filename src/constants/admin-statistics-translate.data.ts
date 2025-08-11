@@ -182,5 +182,49 @@ export const ADMIN_STATISTICS_TRANSLATE = {
             placeholder: 'Введите количество участников из гражданского сектора',
             error: 'Количество участников из гражданского сектора обязательно'
         }
+    },
+    executiveMembersTitle: {
+        ro: "Membrii Executivi",
+        en: "Executive Members",
+        ru: "Исполнительные члены"
+    },
+    executiveMembersNameInput: {
+        ro: {
+            label: "Nume reprezentant",
+            placeholder: 'Introduceți numele',
+            error: 'Numele reprezentantului este obligatoriu în toate limbile'
+        },
+        en: {
+            label: 'Representative name',
+            placeholder: 'Enter the representative name',
+            error: 'The representative name is required in all languages'
+        },
+        ru: {
+            label: 'Имя представителя',
+            placeholder: 'Введите имя представителя',
+            error: 'Имя представителя обязательно во всех языках'
+        },
+    },
+    executiveMemberPositionInput: {
+        ro: {
+            label: "Funcția membrului",
+            placeholder: 'Introduceți funcția membrului',
+            error: 'Funcția membrului este obligatorie în toate limbile'
+        },
+        en: {
+            label: 'Member position',
+            placeholder: 'Enter the member position',
+            error: 'The member position is required in all languages'
+        },
+        ru: {
+            label: 'Должность члена',
+            placeholder: 'Введите должность члена',
+            error: 'Должность члена обязательна во всех языках'
+        }
+    },
+    addMember: {
+        ro: "Adaugă membru",
+        en: "Add member",
+        ru: "Добавить члена"
     }
 } as const
