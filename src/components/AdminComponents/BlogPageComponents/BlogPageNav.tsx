@@ -24,10 +24,6 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, is
 	const router = useRouter()
 
 	const handleDelete = () => {
-		if(isCreate){
-			router.back()
-			return
-		}
 		if (isPending) return
 		if (onDeleteBlog) {
 			onDeleteBlog()
@@ -63,7 +59,10 @@ export function BlogPageNav({ language, setLanguage, isPending, onDeleteBlog, is
 			</div>
 			<div className='flex items-center gap-[2.5rem]'>
 				<p
-					onClick={() => setIsModalOpen(true)}
+					onClick={() => {
+						if(isCreate) router.back()
+							else setIsModalOpen(true)
+					}}
 					className='text-error text-[1rem] leading-[1.125rem] font-[400] cursor-pointer hover:opacity-70 transition-opacity duration-300'
 				>
 					{isCreate ? t('cancel') : t('delete_blog')}
