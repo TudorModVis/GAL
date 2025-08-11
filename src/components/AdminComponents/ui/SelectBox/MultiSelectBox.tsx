@@ -8,7 +8,7 @@ import {
 } from '@ariakit/react'
 import { Control, Controller, RegisterOptions } from 'react-hook-form'
 
-import { BlogsCategoriesEnum, ISection, TypeBlogFormState } from '@/types/blog.types'
+import { TypeBlogFormState } from '@/types/blog.types'
 import { TypeStatisticsFormState } from '@/types/statistics.types'
 
 import { cn } from '@/lib/utils'
@@ -87,7 +87,7 @@ export const MultiSelectBox = ({
 									value={option.value}
 									className={cn(
 										'text-green-700 flex justify-between items-center rounded-[0.25rem] h-[3rem] px-[0.5rem] transition-colors duration-300 cursor-pointer',
-										arrayValue.includes(option.value as BlogsCategoriesEnum & ISection)
+										arrayValue.includes(option.value as any)
 											? 'bg-gray-400 data-[active-item]:bg-gray-500/50'
 											: 'data-[active-item]:bg-gray-400'
 									)}
