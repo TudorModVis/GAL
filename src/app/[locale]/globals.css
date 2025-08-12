@@ -162,7 +162,7 @@
 	--font-roboto: 'Roboto', sans-serif;
 
 	--breakpoint-sidebar-req: 111.125rem;
-	--breakpoint-fullhd-threshold: 128rem; 
+	--breakpoint-fullhd-threshold: 128rem;
 
 	/* Shake Animation */
 	--animate-shake: shake 0.5s ease-in-out;
@@ -192,6 +192,26 @@
 		60% {
 			transform: translateX(3px);
 		}
+	}
+
+	.scrollbars-75 {
+		--scrollbar-size: 12px;
+	}
+
+	.scrollbars-75::-webkit-scrollbar,
+	.scrollbars-75 *::-webkit-scrollbar {
+		width: var(--scrollbar-size);
+		height: var(--scrollbar-size);
+	}
+
+	.scrollbars-75,
+	.scrollbars-75 * {
+		scrollbar-width: thin;
+	}
+
+	.scrollbars-75,
+	.scrollbars-75 * {
+		scrollbar-gutter: stable;
 	}
 
 	.shakeClass {
