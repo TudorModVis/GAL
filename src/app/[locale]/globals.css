@@ -209,11 +209,6 @@
 		scrollbar-width: thin;
 	}
 
-	.scrollbars-75,
-	.scrollbars-75 * {
-		scrollbar-gutter: stable;
-	}
-
 	.shakeClass {
 		animation: shake 0.3s ease-in-out;
 	}

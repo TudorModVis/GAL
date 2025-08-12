@@ -48,9 +48,9 @@ export default function Hero(props: HeroProps) {
 
 	const { scrollYProgress } = useScroll({
 		target: ref,
-		offset: ["start start", "end start"]
+		offset: ['start start', 'end start']
 	})
-	const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) 
+	const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
 	useEffect(() => {
 		const id = setInterval(cyclePhase, INTERVAL)
@@ -58,7 +58,10 @@ export default function Hero(props: HeroProps) {
 	}, [cyclePhase])
 
 	return (
-		<section ref={ref} className='w-screen h-[100svh] sm:h-screen relative px-8 overflow-hidden'>
+		<section
+			ref={ref}
+			className='w-screen h-[100svh] sm:h-screen relative px-8 overflow-hidden'
+		>
 			<motion.video
 				style={{ y }}
 				className='absolute inset-0 left-0 w-full h-full object-cover'
@@ -69,11 +72,19 @@ export default function Hero(props: HeroProps) {
 				playsInline
 				poster={props.posterSource}
 			/>
+			<motion.div
+				style={{ y }}
+				className='absolute inset-0 bg-black/35 pointer-events-none z-[2]'
+				aria-hidden
+			/>
 			<div className='w-full h-full grid grid-cols-full px-8 relative z-10'>
 				<motion.div className='relative font-bold text-sand-50 sm:text-[5rem] text-[2rem] sm:leading-24 leading-9 sm:col-start-3 self-center text-center col-span-8 mx-auto'>
 					<h1>
 						{props.heroTitle1.split(/(\s+)/).map((l, i) => (
-							<span key={i} className='inline-block overflow-hidden align-baseline'>
+							<span
+								key={i}
+								className='inline-block overflow-hidden align-baseline'
+							>
 								<motion.span
 									variants={topLine}
 									initial='show'
@@ -89,7 +100,10 @@ export default function Hero(props: HeroProps) {
 
 					<h1 className='absolute inset-0 top-1/2 -translate-y-1/2 h-fit'>
 						{props.heroTitle2.split(/(\s+)/).map((l, i) => (
-							<span key={i} className='inline-block overflow-hidden align-baseline'>
+							<span
+								key={i}
+								className='inline-block overflow-hidden align-baseline'
+							>
 								<motion.span
 									variants={bottomLine}
 									initial='hidden'
