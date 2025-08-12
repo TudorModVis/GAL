@@ -52,7 +52,7 @@ export function ExecutiveMembers({
                 {
                     fields.map((field, index) => (
                         <ExecutiveMemeber
-                            key={field.id}
+                            key={field.id + '-' + field.image}
                             language={language}
                             register={register}
                             formState={formState}

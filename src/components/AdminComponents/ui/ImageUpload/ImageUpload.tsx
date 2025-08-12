@@ -178,7 +178,7 @@ export function ImageUpload({
 				type='file'
 				accept={BLOG_FORM.ACCEPTED_IMAGE_FORMATS.join(',')}
 				onChange={handleInputChange}
-				className='cursor-pointer w-full h-full absolute inset-0 opacity-0 z-10'
+				className={`cursor-pointer w-full h-full absolute inset-0 opacity-0 z-10 ${hasImage && 'hidden'}`}
 				onError={() => {
 					toast.error(t('failed_to_upload_image'))
 				}}

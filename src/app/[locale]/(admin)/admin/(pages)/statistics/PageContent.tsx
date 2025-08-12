@@ -35,7 +35,6 @@ export function PageContent() {
 	const { isLoading } = useInitialStatisticsData(reset)
 
 	const onSubmit = (data: TypeStatisticsFormState) => {
-		console.log(data)
 		updateStatistics(data, {
 			onSuccess: () => {
 				if (imagesToUpload.length > 0) {
@@ -60,8 +59,6 @@ export function PageContent() {
 				}
 			}
 		})
-
-		// window.location.reload()
 	}
 
 	const t = useTranslations('Admin.ToastMessages')

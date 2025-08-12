@@ -4,10 +4,11 @@ import { Plus } from 'lucide-react'
 import { useCallback, useEffect } from 'react'
 import { Control, FormState, UseFormRegister, useFieldArray } from 'react-hook-form'
 
+import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
+
 import { ImageToUpload, TypeBlogFormState } from '@/types/blog.types'
 
 import { BlogParagraph } from './BlogParagraph'
-import { ADMIN_FORM_TRANSLATE } from '@/constants/admin-form-translate.data'
 
 interface Props {
 	register: UseFormRegister<TypeBlogFormState>
@@ -28,29 +29,43 @@ export function BlogParagraphsRoot({
 	addImageToDelete,
 	removeImageFromUpload
 }: Props) {
-	const { fields, append, remove } = useFieldArray({
+	const { fields, append, remove, replace } = useFieldArray({
 		control,
 		name: 'sections'
 	})
 
 	const addParagraph = useCallback(() => {
-		append({
-			title: { ro: '', ru: '', en: '' },
-			subsections: [
-				{
-					title: { ro: '', ru: '', en: '' },
-					column1: { ro: '', ru: '', en: '' },
-					column2: { ro: '', ru: '', en: '' }
-				}
-			]
-		}, { shouldFocus: false })
+		append(
+			{
+				title: { ro: '', ru: '', en: '' },
+				subsections: [
+					{
+						title: { ro: '', ru: '', en: '' },
+						column1: { ro: '', ru: '', en: '' },
+						column2: { ro: '', ru: '', en: '' }
+					}
+				]
+			},
+			{ shouldFocus: false }
+		)
 	}, [append])
 
 	useEffect(() => {
 		if (fields.length === 0) {
-			addParagraph()
+			replace(
+				{
+					title: { ro: '', ru: '', en: '' },
+					subsections: [
+						{
+							title: { ro: '', ru: '', en: '' },
+							column1: { ro: '', ru: '', en: '' },
+							column2: { ro: '', ru: '', en: '' }
+						}
+					]
+				}
+			)
 		}
-	}, [fields.length, addParagraph])
+	}, [replace, fields.length])
 
 	return (
 		<div>
@@ -76,7 +91,7 @@ export function BlogParagraphsRoot({
 			>
 				<Plus className='text-green-700 size-[1.25rem]' />
 				<span className='text-[1rem] leading-[1.125rem] text-green-700 font-[400]'>
-					{ ADMIN_FORM_TRANSLATE.addingElements[language].addParagraph }
+					{ADMIN_FORM_TRANSLATE.addingElements[language].addParagraph}
 				</span>
 			</button>
 		</div>

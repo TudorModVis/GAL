@@ -127,6 +127,7 @@ export function PageContent({ blogId }: Props) {
 	const onInvalid = (errors: FieldErrors<TypeBlogFormState>) => {
 		if (Object.keys(errors).length > 0) {
 			toast.error(t('please_fill_in_all_required_fields_correctly'))
+			console.log(errors)
 		}
 	}
 
