@@ -60,6 +60,8 @@ export function PageContent() {
 				}
 			}
 		})
+
+		// window.location.reload()
 	}
 
 	const t = useTranslations('Admin.ToastMessages')

@@ -27,7 +27,11 @@ interface ImageUploadProps {
 		| keyof TypeStatisticsFormState
 		| keyof TypeManagementFormState
 		| keyof TypeDocumentsFormState
-	control: Control<TypeBlogFormState> | Control<TypeStatisticsFormState> | Control<TypeManagementFormState> | Control<TypeDocumentsFormState>
+	control:
+		| Control<TypeBlogFormState>
+		| Control<TypeStatisticsFormState>
+		| Control<TypeManagementFormState>
+		| Control<TypeDocumentsFormState>
 	rules?: RegisterOptions
 	className?: string
 	height?: string
@@ -107,7 +111,12 @@ export function ImageUpload({
 			BLOG_FORM.ACCEPTED_IMAGE_FORMATS,
 			language
 		)
-		if (!isValid) return
+		if (!isValid) {
+			if (fileInputRef.current) {
+				fileInputRef.current.value = ''
+			}
+			return
+		}
 
 		setSelectedFile(file)
 		createPreview(file)
