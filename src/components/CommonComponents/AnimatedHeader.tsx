@@ -72,19 +72,31 @@ const AnimatedHeader: React.FC<TextProps> = ({ customStyles = '', text }) => {
 		})
 	}
 
+	const reserveSpace = !isShort && lines.length === 0
 	const measurementLayer = !isShort && (
 		<span
 			aria-hidden
-			style={{
-				position: 'absolute',
-				visibility: 'hidden',
-				pointerEvents: 'none',
-				userSelect: 'none',
-				top: 0,
-				left: 0,
-				width: '100%',
-				whiteSpace: 'pre-wrap'
-			}}
+			style={
+				reserveSpace
+					? {
+							visibility: 'hidden',
+							pointerEvents: 'none',
+							userSelect: 'none',
+							width: '100%',
+							whiteSpace: 'pre-wrap',
+							display: 'block'
+						}
+					: {
+							position: 'absolute',
+							visibility: 'hidden',
+							pointerEvents: 'none',
+							userSelect: 'none',
+							top: 0,
+							left: 0,
+							width: '100%',
+							whiteSpace: 'pre-wrap'
+						}
+			}
 		>
 			{words.map((w, i) => (
 				<span

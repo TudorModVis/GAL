@@ -104,7 +104,6 @@ export function GlobalTransitionProvider({ children }: { children: React.ReactNo
 			if (href === pathname) return
 
 			e.preventDefault()
-			e.stopPropagation()
 
 			pendingNavRef.current = true
 			setIsTransitioning(true)

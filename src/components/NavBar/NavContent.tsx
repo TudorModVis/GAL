@@ -324,7 +324,10 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 				animate={controls}
 				className='col-start-3 col-span-6 flex items-center gap-8'
 			>
-				<Link href='/'>
+				<Link
+					href='/'
+					onClick={() => closeMenu()}
+				>
 					<AnimatedLink text={tNav('home')} />
 				</Link>
 
@@ -347,10 +350,16 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 					/>
 				</motion.div>
 
-				<Link href='/news'>
+				<Link
+					href='/news'
+					onClick={() => closeMenu()}
+				>
 					<AnimatedLink text={tNav('news')} />
 				</Link>
-				<Link href='/projects'>
+				<Link
+					href='/projects'
+					onClick={() => closeMenu()}
+				>
 					<AnimatedLink text={tNav('projects')} />
 				</Link>
 
