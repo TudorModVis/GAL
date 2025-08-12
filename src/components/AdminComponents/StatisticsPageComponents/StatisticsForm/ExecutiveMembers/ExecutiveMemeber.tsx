@@ -5,7 +5,6 @@ import { ImageUpload } from '@/components/AdminComponents/ui/ImageUpload/ImageUp
 import { ImageToUpload } from '@/types/blog.types'
 import { TypeStatisticsFormState } from '@/types/statistics.types'
 import { NameInput } from './NameInput'
-import { X } from 'lucide-react'
 import { PositionInput } from './PositionInput'
 import { ErrorMessage } from '@hookform/error-message'
 import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
@@ -18,7 +17,6 @@ interface Props {
 	addImageToUpload: (image: ImageToUpload) => void
 	addImageToDelete: (imageUrl: string) => void
 	removeImageFromUpload: (uploadUrl: string) => void
-	onRemove: () => void
 	index: number
 }
 
@@ -30,15 +28,14 @@ export function ExecutiveMemeber({
 	addImageToUpload,
 	addImageToDelete,
 	removeImageFromUpload,
-	onRemove,
 	index
 }: Props) {
 	return (
 		<div className='relative group'>
 
-            <div className='absolute top-[1.5rem] left-[1.5rem] z-[80] size-[1.25rem] cursor-pointer hover:opacity-70 transition-opacity duration-300' onClick={onRemove} >
+            {/* <div className='absolute top-[1.5rem] left-[1.5rem] z-[80] size-[1.25rem] cursor-pointer hover:opacity-70 transition-opacity duration-300' onClick={onRemove} >
 				<X className='text-black'/>
-			</div>
+			</div> */}
 
 
 			<ImageUpload

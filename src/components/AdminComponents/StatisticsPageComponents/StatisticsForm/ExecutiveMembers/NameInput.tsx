@@ -1,9 +1,15 @@
+'use client'
+
+import { useEffect } from 'react'
 import { FormState, UseFormRegister } from 'react-hook-form'
 
-import { TypeStatisticsFormState } from '@/types/statistics.types'
 import { InputField } from '@/components/AdminComponents/ui/InputField'
-import { STATISTICS_FORM } from '@/config/statistics-form.config'
+
 import { ADMIN_STATISTICS_TRANSLATE } from '@/constants/admin-statistics-translate.data'
+
+import { TypeStatisticsFormState } from '@/types/statistics.types'
+
+import { STATISTICS_FORM } from '@/config/statistics-form.config'
 
 interface Props {
 	register: UseFormRegister<TypeStatisticsFormState>
@@ -13,14 +19,21 @@ interface Props {
 }
 
 export function NameInput({ register, language, formState, index }: Props) {
-    const hasError = formState.errors?.executive_members?.[index]?.name
+	const hasError = formState.errors?.executive_members?.[index]?.name
+
+	useEffect(() => {
+		register(`executive_members.${index}.name.ro`, { required: true })
+		register(`executive_members.${index}.name.ru`, { required: true })
+		register(`executive_members.${index}.name.en`, { required: true })
+	}, [register, index])
+
 	return (
 		<div className='mt-[1.5rem]'>
 			<label
 				className='font-bold text-green-700 text-[1rem] leading-[1.125rem]'
 				htmlFor='member_name'
 			>
-				{ ADMIN_STATISTICS_TRANSLATE.executiveMembersNameInput[language].label }
+				{ADMIN_STATISTICS_TRANSLATE.executiveMembersNameInput[language].label}
 			</label>
 
 			<InputField
