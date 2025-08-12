@@ -198,7 +198,7 @@ export const ADMIN_FORM_TRANSLATE = {
 		en: {
 			label: 'Main image',
 			placeholder: {
-				main: 'Click to upload main image',
+				main: 'Click to upload image',
 				subtext: 'Max size'
 			},
 			error: 'Main image is required'
@@ -206,7 +206,7 @@ export const ADMIN_FORM_TRANSLATE = {
 		ru: {
 			label: 'Основное изображение',
 			placeholder: {
-				main: 'Нажмите, чтобы загрузить основное изображение',
+				main: 'Нажмите, чтобы загрузить',
 				subtext: 'Макс. размер'
 			},
 			error: 'Основное изображение обязательно'
