@@ -1,7 +1,5 @@
 import React from 'react'
 
-import ImageIcon from './ImageIcon'
-
 const PostSkeleton = () => {
 	return (
 		<div
@@ -10,9 +8,7 @@ const PostSkeleton = () => {
 			aria-hidden='true'
 		>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
-				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
-					<ImageIcon customStyles='sm:size-32 size-24' />
-				</div>
+				<div className='bg-stone-400 flex items-center justify-center w-full sm:h-1/2 h-2/5 rounded-t-2xl animate-pulse'></div>
 				<div className='flex flex-col'>
 					<div className='flex justify-between my-4'>
 						<div className='flex gap-2'>
@@ -23,13 +19,14 @@ const PostSkeleton = () => {
 					</div>
 					<div className='w-full bg-stone-400 rounded-sm h-10 mb-3 animate-pulse'></div>
 					<div className='w-full bg-stone-400 rounded-sm h-12 mb-4 animate-pulse'></div>
-					<div className='w-1/3 bg-stone-400 rounded-sm h-8 mb-6 animate-pulse'></div>
+					<div className='flex gap-1'>
+						<div className='w-1/4 h-11 bg-stone-400 rounded-full mb-6 animate-pulse'></div>
+						<div className='bg-stone-400 rounded-full size-11 animate-pulse'></div>
+					</div>
 				</div>
 			</div>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
-				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
-					<ImageIcon customStyles='sm:size-32 size-24' />
-				</div>
+				<div className='bg-stone-400 flex items-center justify-center w-full sm:h-1/2 h-2/5 rounded-t-2xl animate-pulse'></div>
 				<div className='flex flex-col'>
 					<div className='flex justify-between my-4'>
 						<div className='flex gap-2'>
@@ -40,13 +37,14 @@ const PostSkeleton = () => {
 					</div>
 					<div className='w-full bg-stone-400 rounded-sm h-10 mb-3 animate-pulse'></div>
 					<div className='w-full bg-stone-400 rounded-sm h-12 mb-4 animate-pulse'></div>
-					<div className='w-1/3 bg-stone-400 rounded-sm h-8 mb-6 animate-pulse'></div>
+					<div className='flex gap-1'>
+						<div className='w-1/4 h-11 bg-stone-400 rounded-full mb-6 animate-pulse'></div>
+						<div className='bg-stone-400 rounded-full size-11 animate-pulse'></div>
+					</div>
 				</div>
 			</div>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
-				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
-					<ImageIcon customStyles='sm:size-32 size-24' />
-				</div>
+				<div className='bg-stone-400 flex items-center justify-center w-full sm:h-1/2 h-2/5 rounded-t-2xl animate-pulse'></div>
 				<div className='flex flex-col'>
 					<div className='flex justify-between my-4'>
 						<div className='flex gap-2'>
@@ -57,13 +55,14 @@ const PostSkeleton = () => {
 					</div>
 					<div className='w-full bg-stone-400 rounded-sm h-10 mb-3 animate-pulse'></div>
 					<div className='w-full bg-stone-400 rounded-sm h-12 mb-4 animate-pulse'></div>
-					<div className='w-1/3 bg-stone-400 rounded-sm h-8 mb-6 animate-pulse'></div>
+					<div className='flex gap-1'>
+						<div className='w-1/4 h-11 bg-stone-400 rounded-full mb-6 animate-pulse'></div>
+						<div className='bg-stone-400 rounded-full size-11 animate-pulse'></div>
+					</div>
 				</div>
 			</div>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
-				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
-					<ImageIcon customStyles='sm:size-32 size-24' />
-				</div>
+				<div className='bg-stone-400 flex items-center justify-center w-full sm:h-1/2 h-2/5 rounded-t-2xl animate-pulse'></div>
 				<div className='flex flex-col'>
 					<div className='flex justify-between my-4'>
 						<div className='flex gap-2'>
@@ -74,13 +73,14 @@ const PostSkeleton = () => {
 					</div>
 					<div className='w-full bg-stone-400 rounded-sm h-10 mb-3 animate-pulse'></div>
 					<div className='w-full bg-stone-400 rounded-sm h-12 mb-4 animate-pulse'></div>
-					<div className='w-1/3 bg-stone-400 rounded-sm h-8 mb-6 animate-pulse'></div>
+					<div className='flex gap-1'>
+						<div className='w-1/4 h-11 bg-stone-400 rounded-full mb-6 animate-pulse'></div>
+						<div className='bg-stone-400 rounded-full size-11 animate-pulse'></div>
+					</div>
 				</div>
 			</div>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
-				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
-					<ImageIcon customStyles='sm:size-32 size-24' />
-				</div>
+				<div className='bg-stone-400 flex items-center justify-center w-full sm:h-1/2 h-2/5 rounded-t-2xl animate-pulse'></div>
 				<div className='flex flex-col'>
 					<div className='flex justify-between my-4'>
 						<div className='flex gap-2'>
@@ -91,13 +91,14 @@ const PostSkeleton = () => {
 					</div>
 					<div className='w-full bg-stone-400 rounded-sm h-10 mb-3 animate-pulse'></div>
 					<div className='w-full bg-stone-400 rounded-sm h-12 mb-4 animate-pulse'></div>
-					<div className='w-1/3 bg-stone-400 rounded-sm h-8 mb-6 animate-pulse'></div>
+					<div className='flex gap-1'>
+						<div className='w-1/4 h-11 bg-stone-400 rounded-full mb-6 animate-pulse'></div>
+						<div className='bg-stone-400 rounded-full size-11 animate-pulse'></div>
+					</div>
 				</div>
 			</div>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
-				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
-					<ImageIcon customStyles='sm:size-32 size-24' />
-				</div>
+				<div className='bg-stone-400 flex items-center justify-center w-full sm:h-1/2 h-2/5 rounded-t-2xl animate-pulse'></div>
 				<div className='flex flex-col'>
 					<div className='flex justify-between my-4'>
 						<div className='flex gap-2'>
@@ -108,7 +109,10 @@ const PostSkeleton = () => {
 					</div>
 					<div className='w-full bg-stone-400 rounded-sm h-10 mb-3 animate-pulse'></div>
 					<div className='w-full bg-stone-400 rounded-sm h-12 mb-4 animate-pulse'></div>
-					<div className='w-1/3 bg-stone-400 rounded-sm h-8 mb-6 animate-pulse'></div>
+					<div className='flex gap-1'>
+						<div className='w-1/4 h-11 bg-stone-400 rounded-full mb-6 animate-pulse'></div>
+						<div className='bg-stone-400 rounded-full size-11 animate-pulse'></div>
+					</div>
 				</div>
 			</div>
 		</div>

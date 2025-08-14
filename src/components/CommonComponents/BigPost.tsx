@@ -7,7 +7,6 @@ import React, { useState } from 'react'
 import { BlogsContentTypeEnum, IBlogResponse } from '@/types/blog.types'
 import { IMultiLangText } from '@/types/shared/text.types'
 
-// import AnimatedHeader from './AnimatedHeader'
 import LinkWithArrow from './LinkWithArrow'
 import { Link } from '@/i18n/navigation'
 
@@ -154,10 +153,6 @@ const BigPost: React.FC<IBlogResponse> = props => {
 					</div>
 					<span className='text-forest-900 text-xs font-bold'>{formatDate(props.createdAt)}</span>
 				</div>
-				{/* <AnimatedHeader
-					customStyles='font-bold text-xl leading-6'
-					text={props.title[locale]}
-				/> */}
 				<h2 className='font-bold text-xl leading-6'>{props.title[locale]}</h2>
 				<h4
 					className='leading-4.5 sm:line-clamp-3 line-clamp-5'

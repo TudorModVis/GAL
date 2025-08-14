@@ -12,6 +12,7 @@ import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import AnimatedLine from '../CommonComponents/AnimatedLine'
 import Arrow from '../CommonComponents/Arrow'
 import BigPost from '../CommonComponents/BigPost'
+import BigPostSkeleton from '../CommonComponents/BigPostSkeleton'
 import LinkWithArrow from '../CommonComponents/LinkWithArrow'
 import SmallPost from '../CommonComponents/SmallPost'
 
@@ -112,11 +113,17 @@ const CompletedProjects = () => {
 						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
-						{projects.map(project => (
-							<div key={project._id}>
-								<BigPost {...project} />
-							</div>
-						))}
+						{projects.length > 0
+							? projects.map(project => (
+									<div key={project._id}>
+										<BigPost {...project} />
+									</div>
+								))
+							: Array.from({ length: 3 }).map((_, i) => (
+									<div key={`empty-${i}`}>
+										<BigPostSkeleton />
+									</div>
+								))}
 					</Slider>
 				</div>
 
@@ -149,14 +156,23 @@ const CompletedProjects = () => {
 						ref={sliderRef}
 						{...settings}
 					>
-						{projects.map(project => (
-							<div
-								key={project._id}
-								className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
-							>
-								<SmallPost {...project} />
-							</div>
-						))}
+						{projects.length > 0
+							? projects.map(project => (
+									<div
+										key={project._id}
+										className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
+									>
+										<SmallPost {...project} />
+									</div>
+								))
+							: Array.from({ length: 3 }).map((_, i) => (
+									<div
+										key={`empty-${i}`}
+										className='h-full ml-[13vw] sm:ml-0'
+									>
+										<BigPostSkeleton />
+									</div>
+								))}
 					</Slider>
 
 					<div className='mt-12 flex flex-col items-center pr-6'>
