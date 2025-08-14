@@ -9,6 +9,7 @@ import BigSkeleton from '@/components/CommonComponents/BigSkeleton'
 import InfoSection, { Breadcrumb } from '@/components/CommonComponents/InfoSection'
 import NewsContent from '@/components/CommonComponents/NewsContent'
 import Donation from '@/components/Donation/Donation'
+import LastNews from '@/components/LastNews/LastNews'
 
 import { IMultiLangText } from '@/types/shared/text.types'
 
@@ -70,6 +71,7 @@ const Page = () => {
 				sections={blog.sections}
 				locale={locale}
 			/>
+			<LastNews />
 			<Donation />
 		</main>
 	)

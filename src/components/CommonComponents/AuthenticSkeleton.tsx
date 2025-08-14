@@ -1,7 +1,11 @@
 import React from 'react'
 
 const AuthenticHeaderSkeleton: React.FC = () => (
-	<section className='w-screen h-fit grid grid-cols-donation relative pt-24 mb-40 animate-pulse'>
+	<section
+		className='w-screen h-fit grid grid-cols-donation relative pt-24 mb-40 animate-pulse'
+		data-nosnippet
+		aria-hidden='true'
+	>
 		<div className='col-span-11 mt-24 w-full h-[64vh] rounded-2xl bg-stone-400' />
 
 		<div className='col-span-12 col-start-13 mt-24 flex flex-col'>

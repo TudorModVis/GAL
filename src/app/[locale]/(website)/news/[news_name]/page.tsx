@@ -13,6 +13,7 @@ import Donation from '@/components/Donation/Donation'
 import { IMultiLangText } from '@/types/shared/text.types'
 
 import { blogService } from '@/services/blog.service'
+import LastNews from '@/components/LastNews/LastNews'
 
 const Page = () => {
 	type Locale = keyof IMultiLangText
@@ -70,6 +71,7 @@ const Page = () => {
 				sections={blog.sections}
 				locale={locale}
 			/>
+			<LastNews/>
 			<Donation />
 		</main>
 	)

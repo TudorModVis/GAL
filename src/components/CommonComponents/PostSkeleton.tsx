@@ -4,7 +4,11 @@ import ImageIcon from './ImageIcon'
 
 const PostSkeleton = () => {
 	return (
-		<div className='col-span-full grid grid-cols-full gap-6 w-full'>
+		<div
+			className='col-span-full grid grid-cols-full gap-6 w-full'
+			data-nosnippet
+			aria-hidden='true'
+		>
 			<div className='sm:col-span-6 col-span-full w-full sm:h-150 h-100'>
 				<div className='bg-stone-400 flex items-center justify-center w-full h-2/5 sm:h-2/3 rounded-t-2xl animate-pulse'>
 					<ImageIcon customStyles='sm:size-32 size-24' />

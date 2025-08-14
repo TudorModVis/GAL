@@ -2,7 +2,11 @@ import React from 'react'
 
 const BigSkeleton = () => {
 	return (
-		<main className='bg-sand-50 sm:mb-[100vh] h-fit w-screen'>
+		<main
+			className='bg-sand-50 sm:mb-[100vh] h-fit w-screen'
+			data-nosnippet
+			aria-hidden='true'
+		>
 			<div className='flex flex-col grid-cols-full py-48 animate-pulse'>
 				<div className='flex gap-2 mt-24 sm:mt-0'>
 					<div className='w-28 h-5.5 bg-stone-400 rounded-2xl'></div>

@@ -12,6 +12,7 @@ import AnimatedHeader from '../CommonComponents/AnimatedHeader'
 import Arrow from '../CommonComponents/Arrow'
 import LinkWithArrow from '../CommonComponents/LinkWithArrow'
 import SmallPost from '../CommonComponents/SmallPost'
+import SmallPostSkeleton from '../CommonComponents/SmallPostSkeleton'
 
 import { blogService } from '@/services/blog.service'
 
@@ -108,11 +109,17 @@ const LastNews = () => {
 						className='[&_.slick-slide]:px-3'
 						{...settings}
 					>
-						{data?.data?.blogs?.map(post => (
-							<div key={post._id}>
-								<SmallPost {...post} />
-							</div>
-						))}
+						{data?.data?.blogs && data.data.blogs.length > 0
+							? data.data.blogs.map(post => (
+									<div key={post._id}>
+										<SmallPost {...post} />
+									</div>
+								))
+							: Array.from({ length: 3 }).map((_, i) => (
+									<div key={`empty-${i}`}>
+										<SmallPostSkeleton />
+									</div>
+								))}
 					</Slider>
 				</div>
 
@@ -149,14 +156,23 @@ const LastNews = () => {
 						ref={sliderRef}
 						{...settings}
 					>
-						{data?.data?.blogs?.map(news => (
-							<div
-								key={news._id}
-								className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
-							>
-								<SmallPost {...news} />
-							</div>
-						))}
+						{data?.data?.blogs && data.data.blogs.length > 0
+							? data.data.blogs.map(news => (
+									<div
+										key={news._id}
+										className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'
+									>
+										<SmallPost {...news} />
+									</div>
+								))
+							: Array.from({ length: 3 }).map((_, i) => (
+									<div
+										key={`empty-${i}`}
+										className='ml-[13vw] sm:ml-0'
+									>
+										<SmallPostSkeleton />
+									</div>
+								))}
 					</Slider>
 
 					<div className='mt-12 flex flex-col items-center pr-6'>

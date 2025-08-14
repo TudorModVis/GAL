@@ -83,7 +83,7 @@
 			"resource_map": "Harta resurselor"
 		},
 		"LastNews": {
-			"last_news_header": "Ultimele noutăți",
+			"last_news_header": "Mai multe noutăți",
 			"access_article": "Accesează articol",
 			"see_more_news": "Vezi mai multe noutăți"
 		},
@@ -424,8 +424,8 @@
 		"save": "Salvează",
 
 		"delete_question": "Ești sigur că vrei să ștergi articolul?",
-		"confirm_delete" : "Da, șterge",
-		"cancel_delete" : "Nu, m-am răzgândit",
+		"confirm_delete": "Da, șterge",
+		"cancel_delete": "Nu, m-am răzgândit",
 
 		"create_new_blog": "Creează un articol nou",
 		"edit_blog": "Editează articolul",
