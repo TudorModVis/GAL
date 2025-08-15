@@ -60,7 +60,7 @@ export default function Hero(props: HeroProps) {
 	return (
 		<section
 			ref={ref}
-			className='w-full h-[100svh] sm:h-screen relative px-8 overflow-hidden'
+			className='w-full h-[100svh] sm:h-screen relative px-8 overflow-x-clip touch-pan-y [overscroll-behavior-x:none]'
 		>
 			<motion.video
 				style={{ y, willChange: 'transform' }}
