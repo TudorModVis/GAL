@@ -382,7 +382,7 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 			<div
 				className={`text-nowrap border-b-[1px] ${
 					isOpen || isFixed || isSearchOpen ? 'border-stone-400' : 'border-stone-50'
-				} duration-500 transition text-forest-900 z-10 top-0 left-0 right-0 w-screen sm:hidden`}
+				} duration-500 transition text-forest-900 z-10 top-0 left-0 right-0 w-screen min-[860px]:hidden`}
 			>
 				<div className='relative col-span-full grid-cols-full px-4 mx-auto flex items-center h-16'>
 					<motion.button

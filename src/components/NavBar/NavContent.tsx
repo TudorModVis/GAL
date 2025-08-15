@@ -322,7 +322,7 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 				variants={textVariants}
 				initial='initial'
 				animate={controls}
-				className='col-start-3 col-span-6 flex items-center gap-8'
+				className='xl:col-start-3 lg:col-start-2 col-start-3 col-span-7 xl:col-span-6 flex items-center gap-8'
 			>
 				<Link
 					href='/'
@@ -390,7 +390,7 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 				</button>
 			</motion.div>
 
-			<div className='col-start-10 col-span-3 flex items-center gap-6'>
+			<div className='col-start-12 lg:col-start-9 2xl:col-start-10 col-span-4 2xl:col-span-3 flex items-center gap-6'>
 				<LanguageSwitcher
 					arrowColor={
 						hoveredMenu === 'despre' || hoveredMenu === 'autentic' ? '#11200B' : arrowColor
@@ -404,7 +404,7 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 					text={tNav('resource_map')}
 					href='/'
 					arrowProps='-rotate-45 fill-sand-50 group-hover/link:rotate-0'
-					customStyle='flex w-full items-center gap-1 [&>div]:rounded-full [&>div:nth-child(1)]:px-4 [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50 [&>div]:group-hover/link:bg-forest-700 [&>div:nth-child(2)]:p-3.5'
+					customStyle='lg:flex hidden w-full items-center gap-1 [&>div]:rounded-full [&>div:nth-child(1)]:px-4 [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50 [&>div]:group-hover/link:bg-forest-700 [&>div:nth-child(2)]:p-3.5'
 				/>
 			</div>
 
@@ -412,7 +412,7 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 				variants={lineVariants}
 				animate={hoveredMenu ? 'hover' : 'initial'}
 				initial='initial'
-				className='absolute bottom-0 -left-[100%] h-[1px] w-[400%] bg-sand-50'
+				className='pointer-events-none absolute bottom-0 left-1/2 h-px w-screen -translate-x-1/2 bg-sand-50'
 			/>
 		</>
 	)

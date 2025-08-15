@@ -42,7 +42,7 @@ const NavBar = () => {
 		setIsNearEnd(position > 0)
 	})
 
-	function useIsMobile(breakpoint = 640) {
+	function useIsMobile(breakpoint = 860) {
 		const [isMobile, setIsMobile] = useState(false)
 		useEffect(() => {
 			const check = () => setIsMobile(window.innerWidth < breakpoint)
@@ -56,7 +56,7 @@ const NavBar = () => {
 	const isMobile = useIsMobile()
 	return isMobile ? (
 		<>
-			<nav className='text-nowrap sm:hidden'>
+			<nav className='text-nowrap min-[860px]:hidden'>
 				<AnimatePresence mode='wait'>
 					{!isNearEnd && (onlyFixed || isAtTop) ? (
 						<motion.div
@@ -94,7 +94,7 @@ const NavBar = () => {
 		</>
 	) : (
 		<>
-			<nav className='text-nowrap hidden sm:block'>
+			<nav className='text-nowrap hidden min-[860px]:block'>
 				<AnimatePresence mode='wait'>
 					{!isNearEnd && (onlyFixed || isAtTop) ? (
 						<motion.div
@@ -116,7 +116,7 @@ const NavBar = () => {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.4, ease: 'easeInOut' }}
-							className='grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4 overflow-x-hidden'
+							className='grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4'
 						>
 							<NavContent arrowColor='#FFFEFD' />
 						</motion.div>
