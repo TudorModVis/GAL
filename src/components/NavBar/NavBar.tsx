@@ -116,7 +116,7 @@ const NavBar = () => {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.4, ease: 'easeInOut' }}
-							className='grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4'
+							className='grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4 overflow-x-hidden'
 						>
 							<NavContent arrowColor='#FFFEFD' />
 						</motion.div>

@@ -76,14 +76,14 @@
 				"authentic_btn": "Местный колорит",
 				"local_products": "Местные продукты",
 				"community_services": "Услуги",
-				"tourist_attractions": "Туристические достопримечательности",
+				"tourist_attractions": "Достопримечательности",
 				"people_and_values": "Люди и ценности"
 			},
 			"contacts": "Контакты",
 			"resource_map": "Карта ресурсов"
 		},
 		"LastNews": {
-			"last_news_header1":"",
+			"last_news_header1": "",
 			"last_news_header2": "Больше новостей",
 			"access_article": "Перейти к статье",
 			"see_more_news": "Смотреть больше новостей"

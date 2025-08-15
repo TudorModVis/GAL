@@ -60,19 +60,17 @@ export default function Hero(props: HeroProps) {
 	return (
 		<section
 			ref={ref}
-			style={{ overscrollBehaviorX: 'none', touchAction: 'pan-y' }}
-			className='w-full h-[100svh] sm:h-screen relative overflow-hidden'
+			className='w-screen h-[100svh] sm:h-screen relative px-8 overflow-hidden'
 		>
 			<motion.video
-				style={{ y, willChange: 'transform' }}
-				className='absolute inset-0 left-0 w-full h-full object-cover overflow-x-hidden overflow-hidden'
+				style={{ y }}
+				className='absolute inset-0 left-0 w-full h-full object-cover'
 				src={props.videoSource}
 				autoPlay
 				loop
 				muted
 				playsInline
 				poster={props.posterSource}
-				draggable={false}
 			/>
 			<motion.div
 				style={{ y }}

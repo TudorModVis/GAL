@@ -48,7 +48,7 @@ const AboutUs = () => {
 	return (
 		<section
 			id='aboutUs'
-			className='w-screen h-fit grid grid-cols-full relative sm:px-8 sm:my-24'
+			className='w-screen h-fit grid grid-cols-full relative sm:px-8 sm:my-24 overflow-x-hidden'
 		>
 			<motion.div
 				className='order-1 col-span-full sm:col-span-6 leading-4.5 mb-12 sm:mb-0 sm:mt-0 mt-20'
