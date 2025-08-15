@@ -71,7 +71,7 @@ const Page = () => {
 				sections={blog.sections}
 				locale={locale}
 			/>
-			<LastNews/>
+			<LastNews isPost={true}/>
 			<Donation />
 		</main>
 	)

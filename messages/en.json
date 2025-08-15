@@ -25,7 +25,7 @@
 			"image_alt": "Local Action Group “Oak of the Dacians”"
 		},
 		"Donation": {
-			"cta_title": "Would you like to support us? Contact us!",
+			"cta_title": "Want to support us? Contact us!",
 			"donation_text1": "The desire to contribute to the common good is reflected in deeds.",
 			"donation_text2": "If you are willing to support our initiatives—through donations, know-how, or institutional support—the LAG “Oak of the Dacians” team is open to dialogue and collaboration.",
 			"contact_button_text": "Contact us"
@@ -83,7 +83,8 @@
 			"resource_map": "Resource Map"
 		},
 		"LastNews": {
-			"last_news_header": "More news",
+			"last_news_header1": "Last news",
+			"last_news_header2": "More news",
 			"access_article": "Access article",
 			"see_more_news": "See more news"
 		},

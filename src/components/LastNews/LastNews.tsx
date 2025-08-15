@@ -19,7 +19,11 @@ import { blogService } from '@/services/blog.service'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 
-const LastNews = () => {
+interface LastNewsProps {
+	isPost?: boolean
+}
+
+const LastNews: React.FC<LastNewsProps> = props => {
 	const tLastNews = useTranslations('index.LastNews')
 	const sliderRef = useRef<Slider>(null)
 	const [currentSlide, setCurrentSlide] = useState(0)
@@ -80,12 +84,14 @@ const LastNews = () => {
 	}
 
 	return !isMobile ? (
-		<section className='w-screen h-fit py-24 relative bg-forest-600 flex items-center'>
+		<section
+			className={`w-screen h-fit py-24 relative bg-forest-600 flex items-center ${props.isPost ? 'sm:mt-24 mt-20' : ''}`}
+		>
 			<div className='grid-cols-full grid relative w-full'>
 				<div className='col-span-full flex justify-between items-center mb-12'>
 					<AnimatedHeader
 						customStyles='text-5xl font-bold text-sand-50'
-						text={tLastNews('last_news_header')}
+						text={props.isPost ? tLastNews('last_news_header2') : tLastNews('last_news_header1')}
 					/>
 					<div className='flex gap-2 items-center'>
 						<button
@@ -144,12 +150,12 @@ const LastNews = () => {
 			</div>
 		</section>
 	) : (
-		<section className='w-full relative bg-forest-600 py-20'>
+		<section className={`w-full relative bg-forest-600 py-20 ${props.isPost ? 'sm:mb-0 mb-20' : ''}`}>
 			<div className='max-w-[390px] mx-auto'>
 				<div className='pl-6'>
 					<AnimatedHeader
 						customStyles='text-3xl font-bold text-sand-50 mb-8'
-						text={tLastNews('last_news_header')}
+						text={props.isPost ? tLastNews('last_news_header2') : tLastNews('last_news_header1')}
 					/>
 
 					<Slider
@@ -185,12 +191,12 @@ const LastNews = () => {
 								transition={{ ease: 'easeInOut' }}
 							/>
 						</div>
-						<div className='mt-12'>
+						<div className='mt-12 self-center -translate-x-3'>
 							<LinkWithArrow
 								text={tLastNews('see_more_news')}
 								href='/news'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-forest-900'
-								customStyle='flex gap-1 mt-12 duration-250 transition max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
+								customStyle='flex gap-1 max-[340px]:text-sm mt-12 duration-250 transition max-w-[15rem] w-full items-center [&>div:nth-child(1)]:py-2.5
                              [&>div:nth-child(1)]:px-4 [&>div]:bg-sand-50 gap [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 							/>
 						</div>

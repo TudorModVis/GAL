@@ -83,7 +83,8 @@
 			"resource_map": "Карта ресурсов"
 		},
 		"LastNews": {
-			"last_news_header": "Больше новостей",
+			"last_news_header1":"",
+			"last_news_header2": "Больше новостей",
 			"access_article": "Перейти к статье",
 			"see_more_news": "Смотреть больше новостей"
 		},

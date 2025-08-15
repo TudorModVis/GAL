@@ -83,7 +83,8 @@
 			"resource_map": "Harta resurselor"
 		},
 		"LastNews": {
-			"last_news_header": "Mai multe noutăți",
+			"last_news_header1": "Последние новости",
+			"last_news_header2": "Mai multe noutăți",
 			"access_article": "Accesează articol",
 			"see_more_news": "Vezi mai multe noutăți"
 		},

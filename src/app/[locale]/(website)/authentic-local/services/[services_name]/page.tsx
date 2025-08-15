@@ -44,7 +44,7 @@ const Page = () => {
 	if (!isSuccess)
 		return (
 			<>
-				<div className='hidden sm:block'>
+				<div className='hidden sm:block w-full bg-sand-50 h-screen'>
 					<AuthenticSkeleton />
 				</div>
 				<div className='block sm:hidden'>
@@ -97,7 +97,7 @@ const Page = () => {
 				sections={blog.sections}
 				locale={locale}
 			/>
-			<LastNews />
+			<LastNews isPost={true} />
 			<Donation />
 		</main>
 	)
