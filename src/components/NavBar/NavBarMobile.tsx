@@ -132,7 +132,10 @@ const NavBar: React.FC<NavProps> = ({ isFixed }) => {
 						animate={isSearchOpen ? 'open' : 'closed'}
 						variants={menuVariants}
 					>
-						<SearchMobile isOpen={isSearchOpen} />
+						<SearchMobile
+							isOpen={isSearchOpen}
+							setIsOpen={setIsSearchOpen}
+						/>
 					</motion.div>,
 					document.body
 				)}

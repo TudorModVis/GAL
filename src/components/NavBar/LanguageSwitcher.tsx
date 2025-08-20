@@ -41,7 +41,7 @@ const LanguageSwitcher: React.FC<ArrowColor> = ({ arrowColor }) => {
 	return (
 		<div
 			style={arrowColor ? { color: arrowColor } : undefined}
-			className={`relative inline-block group cursor-pointer sm:-mt-2 transition ${isHovered ? 'bg-stone-50' : ''} rounded-t-sm`}
+			className={`relative inline-block group cursor-pointer min-[860px]:-mt-2 transition ${isHovered ? 'bg-stone-50' : ''} rounded-t-sm`}
 			onMouseEnter={() => {
 				if (!isMobile) setIsHovered(true)
 			}}

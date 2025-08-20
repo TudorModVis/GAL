@@ -71,7 +71,7 @@ const Map = () => {
 			center={[46.579, 28.925]}
 			zoom={13}
 			placeholder={<MapPlaceholder />}
-			style={{ height: '100vh', width: '100%', zIndex: 0 }}
+			style={{ height: '100%', width: '100%', zIndex: 0 }}
 		>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

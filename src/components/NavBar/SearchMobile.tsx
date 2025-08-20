@@ -22,9 +22,9 @@ type AnyAxios = AxiosResponse<any, any>
 type SearchResultItemProps = {
 	item: any
 	locale: Locale
+	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
-
-const SearchResultItem: React.FC<SearchResultItemProps> = ({ item, locale }) => {
+const SearchResultItem: React.FC<SearchResultItemProps> = ({ item, locale, setIsOpen }) => {
 	const { queryKey, queryFn } = queryConfigFor(item)
 	const {
 		data: payload,
@@ -46,6 +46,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({ item, locale }) => 
 		<>
 			<div className='grid-cols-full'>
 				<Link
+					onClick={() => setIsOpen(false)}
 					key={item._id}
 					href={buildHref(item)}
 					locale={locale}
@@ -82,9 +83,10 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({ item, locale }) => 
 
 type SearchMobileProps = {
 	isOpen: boolean
+	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen }) => {
+const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen, setIsOpen }) => {
 	const locale = useLocale() as Locale
 	const { search, data, isLoading, isError, isSuccess } = useSearchDebounce()
 	const [filter, setFilter] = useState<'all' | 'news' | 'projects' | 'success'>('all')
@@ -243,6 +245,7 @@ const SearchMobile: React.FC<SearchMobileProps> = ({ isOpen }) => {
 								key={item._id}
 								item={item}
 								locale={locale}
+								setIsOpen={setIsOpen}
 							/>
 						))}
 					</div>

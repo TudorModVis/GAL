@@ -78,7 +78,7 @@ export default function Hero(props: HeroProps) {
 				aria-hidden
 			/>
 			<div className='w-full h-full grid grid-cols-full px-8 relative z-10'>
-				<motion.div className='relative font-bold text-sand-50 sm:text-[5rem] text-[2rem] sm:leading-24 leading-9 sm:col-start-3 self-center text-center col-span-8 mx-auto'>
+				<motion.div className='relative font-bold text-sand-50 min-[860px]:text-[5rem] text-[2rem] min-[860px]:leading-24 leading-9 sm:col-start-3 self-center text-center col-span-8 mx-auto'>
 					<h1>
 						{props.heroTitle1.split(/(\s+)/).map((l, i) => (
 							<span

@@ -81,7 +81,7 @@ const MainSection = () => {
 								text={tListAndStatistics('resource_map_button')}
 								href='/'
 								arrowProps='group-hover/link:rotate-0 -rotate-45 fill-sand-50'
-								customStyle='flex w-fit gap-1 items-center [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50
+								customStyle='flex w-fit gap-1 items-center sm:mb-[14vh] [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50
                      [&>div:nth-child(1)]:px-4 [&>div]:group-hover/link:bg-forest-700 [&>div]:rounded-full [&>div:nth-child(2)]:p-3.5'
 							/>
 						</motion.div>
@@ -136,7 +136,7 @@ const MainSection = () => {
 						</div>
 					</div>
 				</div>
-				<div className='col-span-11 col-start-14 max-h-[70vh] bg-green-900 overflow-hidden sm:block hidden rounded-2xl'>
+				<div className='col-span-11 col-start-14 bg-green-900 overflow-hidden sm:block hidden rounded-2xl'>
 					<MapWithNoSSR />
 				</div>
 			</section>
