@@ -7,11 +7,22 @@ import MainSection from '@/components/ListAndStatistics/MainSection'
 import Members from '@/components/Members/Members'
 
 export async function generateMetadata() {
-	const t = await getTranslations('index.meta')
+	const t = await getTranslations('index.meta.aboutUs')
 
 	return {
 		title: t('title'),
-		description: t('description')
+		description: t('description'),
+		openGraph: {
+			title: t('title'),
+			description: t('description'),
+			images: [{ url: '/donation_image.png' }]
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: t('title'),
+			description: t('description'),
+			images: ['/donation_image.png']
+		}
 	}
 }
 

@@ -2,7 +2,15 @@
 	"index": {
 		"meta": {
 			"title": "Grupul de Acțiune Locală Stejarul Dacilor",
-			"description": "Grupul de Acțiune Locală Stejarul Dacilor contribuie activ la dezvoltarea comunităților rurale din raioanele Cimișlia-Căușeni, sprijinind inițiative locale. Prin proiectele susținute, contribuim la dezvoltarea economică, socială și culturală a satelor, valorificarea resurselor și cooperarea între comunități. Ne dorim sate mai prospere, bine conectate și orientate spre viitor – prin implicare activă, idei inovatoare și utilizarea eficientă a resurselor în beneficiul oamenilor."
+			"description": "Grupul de Acțiune Locală Stejarul Dacilor contribuie activ la dezvoltarea comunităților rurale din raioanele Cimișlia-Căușeni, sprijinind inițiative locale. Prin proiectele susținute, contribuim la dezvoltarea economică, socială și culturală a satelor, valorificarea resurselor și cooperarea între comunități. Ne dorim sate mai prospere, bine conectate și orientate spre viitor – prin implicare activă, idei inovatoare și utilizarea eficientă a resurselor în beneficiul oamenilor.",
+			"aboutUs": {
+				"title": "Descrierea Generală a GAL-ului Stejarul Dacilor",
+				"description": "Grupul de Acțiune Locală Stejarul Dacilor contribuie activ la dezvoltarea comunităților rurale din raioanele Cimișlia-Căușeni, sprijinind inițiative locale. Prin proiectele susținute, contribuim la dezvoltarea economică, socială și culturală a satelor, valorificarea resurselor și cooperarea între comunități. Ne dorim sate mai prospere, bine conectate și orientate spre viitor – prin implicare activă, idei inovatoare și utilizarea eficientă a resurselor în beneficiul oamenilor."
+			},
+			"administration": {
+				"title": "Conducerea GAL-ului",
+				"description": "Textul care va fi pentru conducerea gal-ului"
+			}
 		},
 		"heroTitle": {
 			"1": "Grupul de Acțiune Locală Stejarul Dacilor",
