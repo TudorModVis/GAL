@@ -25,7 +25,7 @@ export async function generateMetadata({
 }) {
 	const { locale, id } = await params
 	setRequestLocale(locale)
-	const t = await getTranslations('index.meta')
+	const t = await getTranslations('index.meta.test')
 
 	let blog: any | null = null
 

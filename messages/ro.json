@@ -14,6 +14,10 @@
 			"documents": {
 				"title": "Documente Oficiale",
 				"description": "Aici găsești documentele oficiale ale GAL-ului Stejarul Dacilor, inclusiv regulamente, statut, strategii și rapoarte anuale."
+			},
+			"test": {
+				"title": "Test Meta Title",
+				"description": "Test Meta Description"
 			}
 		},
 		"heroTitle": {
