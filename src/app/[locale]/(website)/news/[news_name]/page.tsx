@@ -1,16 +1,11 @@
 import { setRequestLocale } from 'next-intl/server'
 
-import ClientPart from './ClientPart'
-import { blogService } from '@/services/blog.service'
 import { IBlogResponse } from '@/types/blog.types'
 
-export type Locale = 'ro' | 'ru' | 'en'
+import ClientPart from './ClientPart'
+import { blogService } from '@/services/blog.service'
 
-interface IMultiLangText {
-	ro: string
-	ru: string
-	en: string
-}
+export type Locale = 'ro' | 'ru' | 'en'
 
 export async function generateMetadata({
 	params
