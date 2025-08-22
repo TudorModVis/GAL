@@ -7,8 +7,8 @@ import { GlobalTransitionProvider } from '@/components/providers/GlobalTransitio
 export default function WebsiteLayout({ children }: PropsWithChildren<unknown>) {
 	return (
 		<div>
-			<NavBar />
 			<GlobalTransitionProvider>
+				<NavBar />
 				{children}
 				<Footer />
 			</GlobalTransitionProvider>
