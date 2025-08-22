@@ -1,6 +1,6 @@
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import { IBlogResponse } from '@/types/blog.types'
+import type { IBlogResponse } from '@/types/blog.types'
 
 import ClientPart from './ClientPart'
 import { blogService } from '@/services/blog.service'
@@ -10,27 +10,37 @@ export type Locale = 'ro' | 'ru' | 'en'
 export async function generateMetadata({
 	params
 }: {
-	params: Promise<{ locale: Locale; id: string }>
+	params: Promise<{ locale: Locale; news_name: string }>
 }) {
-	const { locale, id } = await params
+	const { locale, news_name } = await params
 	setRequestLocale(locale)
 
-	let imageFromBackend: string | undefined
-	let title: string | undefined
-	let description: string | undefined
+	const t = await getTranslations('index.meta.test')
+	let title: string = t('title')
+	let description: string = t('description')
+	let image: string = '/videoPoster.jpg'
 
 	try {
-		const { data } = (await blogService.getBlogById(id)) as {
-			data: IBlogResponse
-		}
+		const res = await blogService.getBlogById(news_name)
+		const data: IBlogResponse = (res as any)?.data ?? (res as any)
 
-		imageFromBackend = data?.main_image
-		title = data?.title?.[locale]
-		description = data?.summary?.column1?.[locale]
+		if (data?.main_image) image = data.main_image
+
+		const rawTitle = (data as any)?.title
+		const localizedTitle = typeof rawTitle === 'object' ? rawTitle?.[locale] : rawTitle
+		if (localizedTitle) title = String(localizedTitle)
+
+		const rawSummary = (data as any)?.summary
+		const maybeDesc: unknown = rawSummary?.column1
+			? typeof rawSummary.column1 === 'object'
+				? rawSummary.column1?.[locale]
+				: rawSummary.column1
+			: typeof rawSummary === 'object'
+				? rawSummary?.[locale]
+				: rawSummary
+
+		if (maybeDesc) description = htmlToPlainText(String(maybeDesc))
 	} catch {}
-
-	const fallbackImage = '/videoPoster.jpg'
-	const image = imageFromBackend || fallbackImage
 
 	return {
 		title,
@@ -47,6 +57,19 @@ export async function generateMetadata({
 			images: [image]
 		}
 	}
+}
+
+function htmlToPlainText(html?: string): string {
+	if (!html) return ''
+	const withoutTags = html.replace(/<[^>]*>/g, ' ')
+	const decoded = withoutTags
+		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
+		.replace(/&lt;/g, '<')
+		.replace(/&gt;/g, '>')
+		.replace(/&quot;/g, '"')
+		.replace(/&#39;/g, "'")
+	return decoded.replace(/\s+/g, ' ').trim()
 }
 
 export default async function Projects() {

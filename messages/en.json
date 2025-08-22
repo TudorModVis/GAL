@@ -14,6 +14,10 @@
 			"documents": {
 				"title": "Official Documents",
 				"description": "Here you can find the official documents of the Stejarul Dacilor LAG, including regulations, statutes, strategies, and annual reports."
+			},
+			"test": {
+				"title": "Test Meta TitleEN",
+				"description": "Test Meta Description"
 			}
 		},
 		"heroTitle": {
