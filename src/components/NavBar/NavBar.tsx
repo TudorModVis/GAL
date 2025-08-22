@@ -64,7 +64,7 @@ const NavBar = () => {
 							initial={{ opacity: 0, y: -50 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
-							transition={{ duration: 0.4, ease: 'easeInOut' }}
+							transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
 							className={`bg-sand-50 left-1/2 -translate-x-1/2 top-0 fixed w-full z-20`}
 						>
 							<NavBarMobile isFixed={true} />
@@ -75,7 +75,7 @@ const NavBar = () => {
 							initial={{ opacity: 0, y: -50 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
-							transition={{ duration: 0.4, ease: 'easeInOut' }}
+							transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
 							className='left-1/2 -translate-x-1/2 top-0 text-sand-50 absolute w-full z-20'
 						>
 							<NavBarMobile />
@@ -102,7 +102,7 @@ const NavBar = () => {
 							initial={{ opacity: 0, y: -50 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
-							transition={{ duration: 0.4, ease: 'easeInOut' }}
+							transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
 							className={`grid text-forest-900 bg-sand-50 left-1/2 -translate-x-1/2 grid-cols-full top-0 items-center max-w-[1512px] justify-between fixed w-full m-auto z-20 px-8 py-4`}
 						>
 							<NavContent arrowColor='#11200B' />
@@ -115,7 +115,7 @@ const NavBar = () => {
 							initial={{ opacity: 0, y: -50 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
-							transition={{ duration: 0.4, ease: 'easeInOut' }}
+							transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
 							className='grid grid-cols-full items-center left-1/2 -translate-x-1/2 text-sand-50 absolute w-full m-auto z-20 px-8 py-4'
 						>
 							<NavContent arrowColor='#FFFEFD' />
