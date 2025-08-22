@@ -1,83 +1,77 @@
-'use client'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import { useQuery } from '@tanstack/react-query'
-import { useLocale, useTranslations } from 'next-intl'
-import { useParams } from 'next/navigation'
-import React from 'react'
+import type { IBlogResponse } from '@/types/blog.types'
 
-import BigSkeleton from '@/components/CommonComponents/BigSkeleton'
-import InfoSection, { Breadcrumb } from '@/components/CommonComponents/InfoSection'
-import NewsContent from '@/components/CommonComponents/NewsContent'
-import Donation from '@/components/Donation/Donation'
-import LastNews from '@/components/LastNews/LastNews'
-
-import { IMultiLangText } from '@/types/shared/text.types'
-
+import ClientPart from './ClientPart'
 import { blogService } from '@/services/blog.service'
 
-const Page = () => {
-	type Locale = keyof IMultiLangText
-	const locale = useLocale() as Locale
+export type Locale = 'ro' | 'ru' | 'en'
 
-	const t = useTranslations('index.Projects')
-	const tCategories = useTranslations('BlogCategories')
+export async function generateMetadata({
+	params
+}: {
+	params: Promise<{ locale: Locale; news_name: string }>
+}) {
+	const { locale, news_name } = await params
+	setRequestLocale(locale)
 
-	const formatDate = (isoDate?: string) => {
-		if (!isoDate) return ''
-		const date = new Date(isoDate)
-		const day = String(date.getDate()).padStart(2, '0')
-		const month = String(date.getMonth() + 1).padStart(2, '0')
-		const year = date.getFullYear()
-		return `${day}.${month}.${year}`
+	const t = await getTranslations('index.meta')
+	let title: string = t('title')
+	let description: string = t('description')
+	let image: string = '/videoPoster.jpg'
+
+	try {
+		const res = await blogService.getBlogById(news_name)
+		const data: IBlogResponse = (res as any)?.data ?? (res as any)
+
+		if (data?.main_image) image = data.main_image
+
+		const rawTitle = (data as any)?.title
+		const localizedTitle = typeof rawTitle === 'object' ? rawTitle?.[locale] : rawTitle
+		if (localizedTitle) title = String(localizedTitle)
+
+		const rawSummary = (data as any)?.summary
+		const maybeDesc: unknown = rawSummary?.column1
+			? typeof rawSummary.column1 === 'object'
+				? rawSummary.column1?.[locale]
+				: rawSummary.column1
+			: typeof rawSummary === 'object'
+				? rawSummary?.[locale]
+				: rawSummary
+
+		if (maybeDesc) description = htmlToPlainText(String(maybeDesc))
+	} catch {}
+
+	return {
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			images: [{ url: image, alt: title }]
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title,
+			description,
+			images: [image]
+		}
 	}
-
-	const { projects_name } = useParams<{ projects_name: string }>()
-	const id = projects_name
-
-	const { data, isSuccess } = useQuery({
-		queryKey: ['blog', id],
-		queryFn: () => blogService.getBlogById(id)
-	})
-
-	if (!isSuccess) return <BigSkeleton />
-
-	const blog = data.data
-
-	const locRaw = t.raw('location') as Record<string, string>
-
-	const location: Breadcrumb[] = [
-		{ text: locRaw['0'] ?? 'Home', link: '/' },
-		{ text: locRaw['1'] ?? 'Projects', link: '/projects' },
-		{ text: blog.title[locale] }
-	]
-
-	const tags: string[] = Array.isArray(blog.categories)
-		? blog.categories.map(k => tCategories(k))
-		: [tCategories(blog.categories)]
-
-	return (
-		<main className='bg-sand-50 mb-12 sm:mb-[100vh]'>
-			<InfoSection
-				tags={tags}
-				headerText={blog.title[locale]}
-				lastActualization={formatDate(blog.updatedAt)}
-				location={location}
-				imageSrc={blog.main_image}
-				imageAlt={blog.title[locale]}
-				locale={locale}
-			/>
-			<NewsContent
-				summary={blog.summary}
-				sections={blog.sections}
-				locale={locale}
-			/>
-			<LastNews
-				isPost={true}
-				excludeId={blog._id}
-			/>
-			<Donation />
-		</main>
-	)
 }
 
-export default Page
+function htmlToPlainText(html?: string): string {
+	if (!html) return ''
+	const withoutTags = html.replace(/<[^>]*>/g, ' ')
+	const decoded = withoutTags
+		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
+		.replace(/&lt;/g, '<')
+		.replace(/&gt;/g, '>')
+		.replace(/&quot;/g, '"')
+		.replace(/&#39;/g, "'")
+	return decoded.replace(/\s+/g, ' ').trim()
+}
+
+export default async function Projects() {
+	return <ClientPart />
+}

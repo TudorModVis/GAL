@@ -15,7 +15,7 @@ export async function generateMetadata({
 	const { locale, news_name } = await params
 	setRequestLocale(locale)
 
-	const t = await getTranslations('index.meta.test')
+	const t = await getTranslations('index.meta')
 	let title: string = t('title')
 	let description: string = t('description')
 	let image: string = '/videoPoster.jpg'
@@ -72,6 +72,6 @@ function htmlToPlainText(html?: string): string {
 	return decoded.replace(/\s+/g, ' ').trim()
 }
 
-export default async function Projects() {
+export default async function News() {
 	return <ClientPart />
 }

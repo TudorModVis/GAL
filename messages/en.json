@@ -15,9 +15,29 @@
 				"title": "Official Documents",
 				"description": "Here you can find the official documents of the Stejarul Dacilor LAG, including regulations, statutes, strategies, and annual reports."
 			},
-			"test": {
-				"title": "Test Meta TitleEN",
-				"description": "Test Meta Description"
+			"news": {
+				"title": "Stay informed and follow our activity in the region and beyond.",
+				"description": "Here we publish the most important news and updates from the activity of LAG 'Stejarul Dacilor': open calls, local events, trainings, collaborations, civic initiatives, and the promotion of successes in the region. Stay informed and engaged in everything relevant happening in our area!"
+			},
+			"projects": {
+				"title": "Projects that turn ideas into reality and inspire an entire community.",
+				"description": "Each project contributes to a more sustainable, fair, and active rural environment. The projects supported by LAG directly address local needs: modernization of public institutions, support for entrepreneurs, environmental protection, cultural activities, and youth engagement."
+			},
+			"localProducts": {
+				"title": "Discover local products with history, taste, and soul from our region.",
+				"description": "Here you will find products crafted with care, passion, and skill by artisans, producers, and entrepreneurs from the member villages of LAG 'Stejarul Dacilor'. Whether we speak of handmade objects, traditional preserves, artisanal goods, or folk art items, each product tells a local story, carries an identity, and supports a vibrant and sustainable rural economy. We promote what is authentic, high-quality, and born from local tradition and innovation."
+			},
+			"peopleAndValues": {
+				"title": "People who inspire through actions, values, and local involvement.",
+				"description": "Here we present people who inspire by their own example. Each of them contributes, through their work and vocation, to the development of a vibrant, dignified community connected to the values that unite us: solidarity, respect for tradition, and the courage to bring positive change."
+			},
+			"services": {
+				"title": "Local resources and services that support the region’s development.",
+				"description": "Beyond the picturesque landscapes and authentic hospitality, the LAG localities hide a diverse network of services and activities that contribute to quality of life and sustainable development. We invite you to discover concrete examples of local services – from craft workshops and educational centers, to agritourism guesthouses, tourism activities, social initiatives, or small-scale artisanal production."
+			},
+			"touristAttractions": {
+				"title": "Discover the emblematic places of the region – tradition, nature, and heritage.",
+				"description": "This section showcases the places and experiences that define the identity of the region, from natural attractions and heritage monuments to festivals, local gastronomy, and family-based tourism initiatives. Rural tourism comes alive through the people and places that keep the authentic village spirit alive."
 			}
 		},
 		"heroTitle": {
@@ -208,111 +228,28 @@
 			},
 			"president": {
 				"header": "President",
-				"detailsLabel": "Details",
-				"members": [
-					"Valeriu Guțu, Mayor of Ciorăști Village",
-					"Lilian Botnaru, Mayor of Lozova Village",
-					"Rodica Butnaru, Mayor of Mîlcești Village",
-					"Nicanor Ciochină, Mayor of Boldurești Village",
-					"Vasile Tofan, Mayor of Vorniceni Village",
-					"Necula Valentina, Head of GT Necula Valentina",
-					"Dubac Marina, Founder of GT Lazariuc Marina Vladimir",
-					"Cataraga Constantin, Founder of II Cataraga Constantin",
-					"Coda Aurelia, SRL IVENTI",
-					"Stamati Grigore, President of AO Roots of Ciutești",
-					"Ilie Sicinava, President of Water Users Association Bălănești"
-				]
+				"detailsLabel": "Details"
 			},
 			"executiveBody": {
 				"header": "Executive Body",
-				"detailsLabel": "Details",
-				"members": [
-					"Valeriu Guțu, Mayor of Ciorăști Village",
-					"Lilian Botnaru, Mayor of Lozova Village",
-					"Rodica Butnaru, Mayor of Mîlcești Village",
-					"Nicanor Ciochină, Mayor of Boldurești Village",
-					"Vasile Tofan, Mayor of Vorniceni Village",
-					"Necula Valentina, Head of GT Necula Valentina",
-					"Dubac Marina, Founder of GT Lazariuc Marina Vladimir",
-					"Cataraga Constantin, Founder of II Cataraga Constantin",
-					"Coda Aurelia, SRL IVENTI",
-					"Stamati Grigore, President of AO Roots of Ciutești",
-					"Ilie Sicinava, President of Water Users Association Bălănești"
-				]
+				"detailsLabel": "Details"
 			},
 			"generalAssembly": {
 				"header": "General Assembly",
-				"subheader": "Registry of LAG Members",
-				"members": [
-					"1. <b>Valeriu Spînu,</b> Codreni Commune Hall, mayor, IDNO/IDNP: 1007601005903",
-					"2. <b>Anatolie Spînu,</b> Batîr Village Hall, mayor, IDNO/IDNP: 1007601005899",
-					"3. <b>Sergiu Pîrlog,</b> Ciuflești Village Hall, mayor, IDNO/IDNP: 1007601005198",
-					"4. <b>Svetlana Ciobanu,</b> Ecaterinovca Commune Hall, mayor, IDNO/IDNP: 1007601008845",
-					"5. <b>Iurie Faureanu,</b> Porumbrei Commune Hall, mayor, IDNO/IDNP: 1007601005925",
-					"6. <b>Vladimir Cucereavîi,</b> Taraclia Village Hall, mayor, IDNO/IDNP: 1007601003792",
-					"7. <b>Ion Cojocaru,</b> Sagaidac Village Hall, mayor, IDNO/IDNP: 1007601005660",
-					"8. <b>Tatiana Badan,</b> Selemet Village Hall, mayor, IDNO/IDNP: 1007601008801",
-					"9. <b>Marin Bumbu,</b> Satul Nou Village Hall, mayor, IDNO/IDNP: 1007601008926",
-					"10. <b>Alexandru Ghenciu,</b> Suric Village Hall, mayor, IDNO/IDNP: 1007601008694",
-					"11. <b>Alexandru Sturza,</b> Mihailovca Village Hall, mayor, IDNO/IDNP: 1007601008834",
-					"12. <b>Ion Lungu,</b> GT “Ion Nicolae Lungu” Porumbrei, head, IDNO/IDNP: 34955440",
-					"13. <b>Galina Strogoțeanu,</b> GT “Serghhei Fiodor Gaibu”, employee, IDNO/IDNP: 34613445",
-					"14. <b>Ion Ghenciu,</b> GT “Ion Tudor Ghenciu”, head, IDNO/IDNP: 34983448",
-					"15. <b>Vitalie Juganari,</b> GT “Vitalie Ion Juganari”, head, IDNO/IDNP: 34829445",
-					"16. <b>Nadejda Cojocaru,</b> II “Ion Cojocari”, employee, IDNO/IDNP: 1003605150881",
-					"17. <b>Larisa Jaloba,</b> II “CRIZANTEMĂ-JALOBA”, administrator, IDNO/IDNP: 1005605000980",
-					"18. <b>Tatiana Spînu,</b> II “Valeriu Spînu”, administrator, IDNO/IDNP: 1003605151224",
-					"19. <b>Andrei Munteanu,</b> SRL “Alexpromun”, administrator, IDNO/IDNP: 1007605001877",
-					"20. <b>Cristina Grițcan,</b> SRL “Alun Iacobaș”, merchandiser, IDNO/IDNP: 1014608001155",
-					"21. <b>Mircea Talmaci,</b> SRL “Agrocimtal”, administrator, IDNO/IDNP: 1017605002462",
-					"22. <b>Nicolae Prodius,</b> SRL “Rodinic-Service”, administrator, IDNO/IDNP: 1004605006619",
-					"23. <b>Elena Sturza,</b> SRL “UNIVECAS”, administrator, IDNO/IDNP: 1014605002520",
-					"24. <b>Oxana Țurcanu,</b> AO “Baștina”, administrator, IDNO/IDNP: 1020620007396",
-					"25. <b>Pelaghia Traci,</b> AO “Plai Natal”, member, IDNO/IDNP: 1017620004016",
-					"26. <b>Maria Onu,</b> AO “Pro Ecaterinovca”, administrator, IDNO/IDNP: 1021620000877",
-					"27. <b>Inga Botea,</b> AO “Renaștere”, accountant, IDNO/IDNP: 1020620008441",
-					"28. <b>Lilia Harati,</b> AO “Struguraș”, member, IDNO/IDNP: 1021620001427",
-					"29. <b>Victoria Melnic,</b> AO “Speranța Viitorului”, administrator, IDNO/IDNP: 1021620004026"
-				]
+				"subheader": "Registry of LAG Members"
 			},
 			"boardOfDirectors": {
 				"header": "Board of Directors",
-				"subheader": "Registry of Board Members",
-				"members": [
-					"1. <b>Tatiana Badan,</b> Selemet Village Hall, mayor",
-					"2. <b>Vladimir Cucereavâi,</b> Taraclia Village Hall, mayor",
-					"3. <b>Lilia Harati,</b> AO “Struguraș”, member",
-					"4. <b>Sergiu Pârlog,</b> Ciuflești Village Hall, mayor",
-					"5. <b>Mircea Talmaci,</b> SRL “Agrocimtal”, administrator"
-				]
+				"subheader": "Registry of Board Members"
 			},
 			"selectionCommittee": {
 				"header": "Selection Committee",
 				"subheader": "Registry of Selection Committee Members",
-				"members": [
-					"1. <b>Tatiana Badan,</b> Selemet Village Hall, mayor",
-					"2. <b>Efim Strogoțeanu,</b> GT “Serghhei Fiodor Gaibu”, employee",
-					"3. <b>Inga Botea,</b> AO “Renașterea”, accountant",
-					"4. <b>Ion Ghenciu,</b> GT “Ion Tudor Ghenciu”, head",
-					"5. <b>Valeriu Spînu,</b> Codreni Village Hall, mayor",
-					"6. <b>Victoria Melnic,</b> AO “Speranța Viitorului”, administrator",
-					"7. <b>Nicolae Prodius,</b> SRL “Rodinic-Service”, administrator"
-				],
-				"substitutesHeader": "Substitute Members",
-				"substitutes": [
-					"1. <b>Andrei Munteanu,</b> SRL “Alexpromun”, administrator",
-					"2. <b>Iurie Faureanu,</b> Porumbrei Village Hall, mayor",
-					"3. <b>Maria Onu,</b> AO “Pro Ecaterinovca”, administrator"
-				]
+				"substitutesHeader": "Substitute Members"
 			},
 			"auditCommission": {
 				"header": "Audit Commission",
-				"subheader": "Registry of Audit Commission Members",
-				"members": [
-					"1. <b>Svetlana Ciobanu,</b> Ecaterinovca Commune Hall",
-					"2. <b>Pelaghia Traci,</b> AO “Plai Natal”",
-					"3. <b>Oxana Țurcanu,</b> AO “Baștina”"
-				]
+				"subheader": "Registry of Audit Commission Members"
 			}
 		},
 		"CompletedProjects": {

@@ -16,13 +16,13 @@ export async function generateMetadata() {
 		openGraph: {
 			title: t('title'),
 			description: t('description'),
-			images: [{ url: '/news_image.png' }]
+			images: [{ url: '/videoPoster.jpg' }]
 		},
 		twitter: {
 			card: 'summary_large_image',
 			title: t('title'),
 			description: t('description'),
-			images: ['/news_image.png']
+			images: ['/videoPoster.jpg']
 		}
 	}
 }

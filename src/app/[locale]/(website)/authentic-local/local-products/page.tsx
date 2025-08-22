@@ -5,11 +5,22 @@ import Visualization from '@/components/CommonComponents/Visualization'
 import Donation from '@/components/Donation/Donation'
 
 export async function generateMetadata() {
-	const t = await getTranslations('index.meta')
+	const t = await getTranslations('index.meta.localProducts')
 
 	return {
 		title: t('title'),
-		description: t('description')
+		description: t('description'),
+		openGraph: {
+			title: t('title'),
+			description: t('description'),
+			images: [{ url: '/localProducts_image.png' }]
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: t('title'),
+			description: t('description'),
+			images: ['/localProducts_image.png']
+		}
 	}
 }
 

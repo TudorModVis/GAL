@@ -15,9 +15,29 @@
 				"title": "Documente Oficiale",
 				"description": "Aici găsești documentele oficiale ale GAL-ului Stejarul Dacilor, inclusiv regulamente, statut, strategii și rapoarte anuale."
 			},
-			"test": {
-				"title": "Test Meta Title",
-				"description": "Test Meta Description"
+			"news": {
+				"title": "Rămâi informat și urmărește activitatea noastră în teritoriu și dincolo de el.",
+				"description": "Aici publicăm cele mai importante știri și actualizări din activitatea GAL „Stejarul Dacilor”: apeluri deschise, evenimente locale, instruiri, colaborări, inițiative civice și promovarea succeselor din teritoriu. Rămâi informat și implicat în tot ce se întâmplă relevant în regiunea noastră!"
+			},
+			"projects": {
+				"title": "Proiecte care transformă ideile în realitate și inspiră o comunitate întreagă.",
+				"description": "Fiecare proiect contribuie la un mediu rural mai sustenabil, mai echitabil și mai activ. Proiectele susținute de GAL răspund concret nevoilor locale: modernizarea instituțiilor publice, sprijin pentru antreprenori, protecția mediului, activități culturale și implicarea tinerilor."
+			},
+			"localProducts": {
+				"title": "Descoperă produsele locale cu istorie, gust și suflet din regiunea noastră.",
+				"description": "Aici găsești produse realizate cu grijă, pasiune și pricepere de către meșteșugarii, producătorii și antreprenorii din satele membre ale GAL „Stejarul Dacilor”. Fie că vorbim de obiecte lucrate manual, conserve tradiționale, produse artizanale sau articole de artă populară, fiecare bun spune o poveste locală, poartă o identitate și susține o economie rurală vie și durabilă. Promovăm ceea ce e autentic, de calitate, născut din tradiție și inovație locală."
+			},
+			"peopleAndValues": {
+				"title": "Oamenii care inspiră prin fapte, valori și implicare locală.",
+				"description": "Aici prezentăm oameni care inspiră prin exemplul propriu. Fiecare dintre ei contribuie, prin munca și vocația sa, la dezvoltarea unei comunități vii, demne și conectate la valorile care ne unesc: solidaritate, respect față de tradiție și curajul de a schimba lucrurile în bine."
+			},
+			"services": {
+				"title": "Resurse și servicii locale care sprijină dezvoltarea regiunii.",
+				"description": "Dincolo de peisajele pitorești și ospitalitatea autentică, localitățile GAL ascund o rețea diversificată de servicii și activități care contribuie la calitatea vieții și dezvoltarea durabilă. Vă invităm să descoperiți exemple concrete de servicii locale – de la ateliere meșteșugărești și centre educaționale, până la agropensiuni, activități turistice, inițiative sociale sau mică producție artizanală."
+			},
+			"touristAttractions": {
+				"title": "Descoperă locurile reprezentative ale regiunii – tradiție, natură și patrimoniu.",
+				"description": "Această rubrică prezintă locurile și experiențele care definesc identitatea regiunii, de la atracții naturale și monumente de patrimoniu, până la festivaluri, gastronomie locală și inițiative turistice de familie. Turismul rural prinde viață prin oameni și locuri care păstrează viu spiritul autentic al satului."
 			}
 		},
 		"heroTitle": {
@@ -209,116 +229,33 @@
 
 			"president": {
 				"header": "Președintele",
-				"detailsLabel": "Detalii",
-				"members": [
-					"Valeriu Guțu, Primarul  c.Cioresti",
-					"Lilian Botnaru, Primarul c.Lozova",
-					"Rodica Butnaru,  Primarul c.Milceușeni",
-					"Nicanor Ciochină,  Primarul c.Boldurești",
-					"Vasile Tofan, Primarul s.Vorniceni",
-					"Necula Valentina, Concucător GT Necula Valentina",
-					"Dubac Marina,  Fondator GȚ Lazariuc Marina Vladimir",
-					"Cataraga Constantin,  Fondator  ÎI Cataraga Constantin",
-					"Coda Aurelia, SRL IVENTI",
-					"Stamati Grigore,  Președinte AO Rădăcinile Ciuteștilor",
-					"Ilie Sicinava, Președinte AO a utilizatorilor de apă Bălănești"
-				]
+				"detailsLabel": "Detalii"
 			},
 
 			"executiveBody": {
 				"header": "Organul Executiv",
-				"detailsLabel": "Detalii",
-				"members": [
-					"Valeriu Guțu, Primarul  c.Cioresti",
-					"Lilian Botnaru, Primarul c.Lozova",
-					"Rodica Butnaru,  Primarul c.Milceușeni",
-					"Nicanor Ciochină,  Primarul c.Boldurești",
-					"Vasile Tofan, Primarul s.Vorniceni",
-					"Necula Valentina, Concucător GT Necula Valentina",
-					"Dubac Marina,  Fondator GȚ Lazariuc Marina Vladimir",
-					"Cataraga Constantin,  Fondator  ÎI Cataraga Constantin",
-					"Coda Aurelia, SRL IVENTI",
-					"Stamati Grigore,  Președinte AO Rădăcinile Ciuteștilor",
-					"Ilie Sicinava, Președinte AO a utilizatorilor de apă Bălănești"
-				]
+				"detailsLabel": "Detalii"
 			},
 
 			"generalAssembly": {
 				"header": "Adunarea Generală",
-				"subheader": "Registrul Membrilor GAL",
-				"members": [
-					"1. <b>Valeriu Spînu,</b> Primăria comunei Codreni, primar, IDNO/IDNP: 1007601005903",
-					"2. <b>Anatolie Spînu,</b> Primăria satului Batîr, primar, IDNO/IDNP: 1007601005899",
-					"3. <b>Pîrlog Sergiu,</b> Primăria satului Ciuflești, primar, IDNO/IDNP: 1007601005198",
-					"4. <b>Ciobanu Svetlana,</b> Primăria comunei Ecaterinovca, primar, IDNO/IDNP: 1007601008845",
-					"5. <b>Faureanu Iurie,</b> Primăria comunei Porumbrei, primar, IDNO/IDNP: 1007601005925",
-					"6. <b>Cucereavîi Vladimir,</b> Primăria satului Taraclia, primar, IDNO/IDNP: 1007601003792",
-					"7. <b>Cojocaru Ion,</b> Primăria satului Sagaidac, primar, IDNO/IDNP: 1007601005660",
-					"8. <b>Badan Tatiana,</b> Primăria satului Selemet, primar, IDNO/IDNP: 1007601008801",
-					"9. <b>Bumbu Marin,</b> Primăria satului Satul Nou, primar, IDNO/IDNP: 1007601008926",
-					"10. <b>Ghenciu Alexandru,</b> Primăria satului Suric, primar, IDNO/IDNP: 1007601008694",
-					"11. <b>Sturza Alexandru,</b> Primăria satului Mihailovca, primar, IDNO/IDNP: 1007601008834",
-					"12. <b>Lungu Ion,</b> G.Ț. „Lungu Ion Nicolae s. Porumbrei”, conducător, IDNO/IDNP: 34955440",
-					"13. <b>Strogoțeanu Galina,</b> G.Ț. „Gaibu Serghei Fiodor”, angajată, IDNO/IDNP: 34613445",
-					"14. <b>Ghenciu Ion,</b> G.Ț. „Ghenciu Ion Tudor”, conducător, IDNO/IDNP: 34983448",
-					"15. <b>Juganari Vitalie,</b> G.Ț. „Juganari Vitalie Ion”, conducător, IDNO/IDNP: 34829445",
-					"16. <b>Cojocaru Nadejda,</b> Î.I. „Cojocari Ion”, angajată, IDNO/IDNP: 1003605150881",
-					"17. <b>Jaloba Larisa,</b> Î.I. „CRIZANTEMĂ-JALOBA”, administrator, IDNO/IDNP: 1005605000980",
-					"18. <b>Spînu Tatiana,</b> Î.I. „Spînu Valeriu”, administrator, IDNO/IDNP: 1003605151224",
-					"19. <b>Munteanu Andrei,</b> SRL „Alexpromun”, administrator, IDNO/IDNP: 1007605001877",
-					"20. <b>Grițcan Cristina,</b> SRL „Alun Iacobaș”, merceolog, IDNO/IDNP: 1014608001155",
-					"21. <b>Talmaci Mircea,</b> SRL „Agrocimtal”, administrator, IDNO/IDNP: 1017605002462",
-					"22. <b>Prodius Nicolae,</b> SRL „Rodinic-Service”, administrator, IDNO/IDNP: 1004605006619",
-					"23. <b>Sturza Elena,</b> SRL „UNIVECAS”, administrator, IDNO/IDNP: 1014605002520",
-					"24. <b>Țurcanu Oxana,</b> AO „Baștina”, administrator, IDNO/IDNP: 1020620007396",
-					"25. <b>Traci Pelaghia,</b> AO „Plai Natal”, membru AO, IDNO/IDNP: 1017620004016",
-					"26. <b>Onu Maria,</b> AO „Pro Ecaterinovca”, administrator, IDNO/IDNP: 1021620000877",
-					"27. <b>Botea Inga,</b> AO „Renaștere”, contabil, IDNO/IDNP: 1020620008441",
-					"28. <b>Harati Lilia,</b> AO „Struguraș”, membră AO, IDNO/IDNP: 1021620001427",
-					"29. <b>Melnic Victoria,</b> AO „Speranța Viitorului”, administrator, IDNO/IDNP: 1021620004026"
-				]
+				"subheader": "Registrul Membrilor GAL"
 			},
 
 			"boardOfDirectors": {
 				"header": "Consiliul de Administrare",
-				"subheader": "Registrul Membrilor Consiliului de Administrație",
-				"members": [
-					"1. <b>Badan Tatiana,</b> Primăria satului Selemet, primar",
-					"2. <b>Cucereavâi Vladimir,</b> Primăria satului Taraclia, primar",
-					"3. <b>Harati Lilia,</b>  AO „Struguraș”, membră AO",
-					"4. <b>Pârlog Sergiu,</b>  Primăria satului Ciuflești, primar",
-					"5. <b>Talmaci Mircea,</b> SRL „Agrocimtal”, administrator"
-				]
+				"subheader": "Registrul Membrilor Consiliului de Administrație"
 			},
 
 			"selectionCommittee": {
 				"header": "Comitetul de Selectare",
 				"subheader": "Registrul Membrilor Comitetului de Selectare",
-				"members": [
-					"1. <b>Badan Tatiana,</b> Primăria satului Selemet, primar",
-					"2. <b>Strogoteanu Efim,</b> GȚ „Gaibu Serghei Fiodor”, angajat",
-					"3. <b>Botea Inga,</b>  A.O. „Renașterea”, contabil",
-					"4. <b>Ghenciu Ion,</b>  GȚ „Ghenciu Ion Tudor”, conducător",
-					"5. <b>Spînu Valeriu,</b> Primăria satului Codreni, primar",
-					"6. <b>Melnic Victoria,</b> A.O. „Speranța Viitorului”, administrator",
-					"7. <b>Prodius Nicolae,</b> SRL „Rodinic-Service”, administrator"
-				],
-				"substitutesHeader": "Membri suplianți",
-				"substitutes": [
-					"1. <b>Munteanu Andrei,</b> SRL „Alexpromun”, administrator",
-					"2. <b>Faureanu Iurie,</b>  Primăria satului Porumbrei, primar",
-					"3. <b>Onu Maria,</b>  A.O. „Pro Ecaterinovca”, administrator"
-				]
+				"substitutesHeader": "Membri suplianți"
 			},
 
 			"auditCommission": {
 				"header": "Comisia de Cenzori",
-				"subheader": "Registrul Membrilor Comisiei de Cenzori",
-				"members": [
-					"1. <b>Ciobanu Svetlana,</b> Primăria comunei Ecaterinovca",
-					"2. <b>Traci Pelaghia,</b> A.O. „Plai Natal”",
-					"3. <b>Țurcanu Oxana,</b>  A.O. „Baștina”"
-				]
+				"subheader": "Registrul Membrilor Comisiei de Cenzori"
 			}
 		},
 		"CompletedProjects": {
