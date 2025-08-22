@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { BlogsContentTypeEnum, IBlogResponse } from '@/types/blog.types'
 import { IMultiLangText } from '@/types/shared/text.types'
@@ -30,6 +30,19 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 			e.preventDefault()
 			e.stopPropagation()
 		}
+	}
+
+	function useIsMobile(breakpoint = 640) {
+		const [isMobile, setIsMobile] = useState(false)
+
+		useEffect(() => {
+			const check = () => setIsMobile(window.innerWidth < breakpoint)
+			check()
+			window.addEventListener('resize', check)
+			return () => window.removeEventListener('resize', check)
+		}, [breakpoint])
+
+		return isMobile
 	}
 
 	const getPathname = (type: BlogsContentTypeEnum) => {
@@ -97,6 +110,8 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 		return bgClasses[idx]
 	}
 
+	const isMobile = useIsMobile()
+
 	return (
 		<Link
 			onMouseDown={handleMouseDown}
@@ -109,7 +124,7 @@ const SmallPost: React.FC<IBlogResponse> = props => {
 			<div className='bg-sand-50 my-3 custom-shadow relative flex h-[483px] sm:h-[500px] flex-col rounded-2xl overflow-hidden cursor-pointer group'>
 				<div className='h-1/3 sm:h-1/2 relative'>
 					<div className='absolute top-4 left-4 z-10 flex flex-wrap gap-2'>
-						{props.categories.map((tag, index) => {
+						{props.categories.slice(0, isMobile ? 2 : props.categories.length).map((tag, index) => {
 							return (
 								<div
 									key={index}

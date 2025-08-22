@@ -1,80 +1,68 @@
-'use client'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import { useQuery } from '@tanstack/react-query'
-import { useLocale, useTranslations } from 'next-intl'
-import { useParams } from 'next/navigation'
-import React from 'react'
-
-import BigSkeleton from '@/components/CommonComponents/BigSkeleton'
-import InfoSection, { Breadcrumb } from '@/components/CommonComponents/InfoSection'
-import NewsContent from '@/components/CommonComponents/NewsContent'
-import Donation from '@/components/Donation/Donation'
-
-import { IMultiLangText } from '@/types/shared/text.types'
-
+import ClientPart from './ClientPart'
 import { blogService } from '@/services/blog.service'
-import LastNews from '@/components/LastNews/LastNews'
 
-const Page = () => {
-	type Locale = keyof IMultiLangText
-	const locale = useLocale() as Locale
+export type Locale = 'ro' | 'ru' | 'en'
 
-	const t = useTranslations('index.News')
-	const tCategories = useTranslations('BlogCategories')
-
-	const formatDate = (isoDate?: string) => {
-		if (!isoDate) return ''
-		const date = new Date(isoDate)
-		const day = String(date.getDate()).padStart(2, '0')
-		const month = String(date.getMonth() + 1).padStart(2, '0')
-		const year = date.getFullYear()
-		return `${day}.${month}.${year}`
-	}
-
-	const { news_name } = useParams<{ news_name: string }>()
-	const id = news_name
-
-	const { data, isSuccess } = useQuery({
-		queryKey: ['blog', id],
-		queryFn: () => blogService.getBlogById(id)
-	})
-
-	if (!isSuccess) return <BigSkeleton />
-
-	const blog = data.data
-
-	const locRaw = t.raw('location') as Record<string, string>
-
-	const location: Breadcrumb[] = [
-		{ text: locRaw['0'] ?? 'Home', link: '/' },
-		{ text: locRaw['1'] ?? 'News', link: '/news' },
-		{ text: blog.title[locale] }
-	]
-
-	const tags: string[] = Array.isArray(blog.categories)
-		? blog.categories.map(k => tCategories(k))
-		: [tCategories(blog.categories)]
-
-	return (
-		<main className='bg-sand-50 mb-12 sm:mb-[100vh]'>
-			<InfoSection
-				tags={tags}
-				headerText={blog.title[locale]}
-				lastActualization={formatDate(blog.updatedAt)}
-				location={location}
-				imageSrc={blog.main_image}
-				imageAlt={blog.title[locale]}
-				locale={locale}
-			/>
-			<NewsContent
-				summary={blog.summary}
-				sections={blog.sections}
-				locale={locale}
-			/>
-			<LastNews isPost={true}/>
-			<Donation />
-		</main>
-	)
+function htmlToPlainText(html?: string): string {
+	if (!html) return ''
+	const withoutTags = html.replace(/<[^>]*>/g, ' ')
+	const decoded = withoutTags
+		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
+		.replace(/&lt;/g, '<')
+		.replace(/&gt;/g, '>')
+		.replace(/&quot;/g, '"')
+		.replace(/&#39;/g, "'")
+	return decoded.replace(/\s+/g, ' ').trim()
 }
 
-export default Page
+export async function generateMetadata({
+	params
+}: {
+	params: Promise<{ locale: Locale; id: string }>
+}) {
+	const { locale, id } = await params
+	setRequestLocale(locale)
+	const t = await getTranslations('index.meta')
+
+	let blog: any | null = null
+
+	try {
+		const res = await blogService.getBlogById(id)
+		blog = (res && (res.data ?? res)) || null
+	} catch {}
+
+	const fallbackImage = '/videoPoster.jpg'
+
+	const title: string = blog?.title?.[locale] ?? blog?.title?.en ?? t?.('title') ?? 'Blog Post'
+
+	const descriptionFromBackendHtml: string | undefined =
+		blog?.summary?.column1?.[locale] ?? blog?.summary?.column1?.en
+
+	const description: string =
+		htmlToPlainText(descriptionFromBackendHtml) || t?.('description') || ''
+
+	const image: string = blog?.main_image || fallbackImage
+
+	return {
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			images: [{ url: image, alt: title }]
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title,
+			description,
+			images: [image]
+		}
+	}
+}
+
+export default async function Projects() {
+	return <ClientPart />
+}

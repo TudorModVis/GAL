@@ -21,6 +21,7 @@ import 'slick-carousel/slick/slick.css'
 
 interface LastNewsProps {
 	isPost?: boolean
+	excludeId?: string
 }
 
 const LastNews: React.FC<LastNewsProps> = props => {
@@ -30,13 +31,18 @@ const LastNews: React.FC<LastNewsProps> = props => {
 	const [params, setParams] = useState<IGetParams>({ page: 1, limit: 12 })
 
 	useEffect(() => {
-		setParams({ page: 1, limit: 12 })
-	}, [])
+		setParams({ page: 1, limit: 12 + (props.excludeId ? 1 : 0) })
+	}, [props.excludeId])
 
 	const { data } = useQuery({
 		queryKey: ['blogs', params],
 		queryFn: () => blogService.getAllBlogs(params)
 	})
+
+	const filteredBlogs = useMemo(() => {
+		const arr = data?.data?.blogs ?? []
+		return props.excludeId ? arr.filter((b: any) => b._id !== props.excludeId) : arr
+	}, [data, props.excludeId])
 
 	const totalSlides = useMemo(() => data?.data?.blogs?.length ?? 0, [data])
 
@@ -116,7 +122,7 @@ const LastNews: React.FC<LastNewsProps> = props => {
 						{...settings}
 					>
 						{data?.data?.blogs && data.data.blogs.length > 0
-							? data.data.blogs.map(post => (
+							? filteredBlogs.map(post => (
 									<div key={post._id}>
 										<SmallPost {...post} />
 									</div>
@@ -150,7 +156,9 @@ const LastNews: React.FC<LastNewsProps> = props => {
 			</div>
 		</section>
 	) : (
-		<section className={`w-full relative bg-forest-600 py-20 ${props.isPost ? 'sm:mb-0 mb-20' : ''}`}>
+		<section
+			className={`w-full relative bg-forest-600 py-20 ${props.isPost ? 'sm:mb-0 mb-20' : ''}`}
+		>
 			<div className='max-w-[390px] mx-auto'>
 				<div className='pl-6'>
 					<AnimatedHeader
@@ -163,7 +171,7 @@ const LastNews: React.FC<LastNewsProps> = props => {
 						{...settings}
 					>
 						{data?.data?.blogs && data.data.blogs.length > 0
-							? data.data.blogs.map(news => (
+							? filteredBlogs.map(news => (
 									<div
 										key={news._id}
 										className='pr-4 h-full ml-[13vw] [@media(min-width:430px)_and_(max-width:500px)]:ml-[12vw] [@media(min-width:501px)_and_(max-width:649px)]:ml-[10vw]'

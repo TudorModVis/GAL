@@ -58,7 +58,7 @@ const ParalaxImage: React.FC<ParalaxImageProps> = ({
 				src={source}
 				alt={altText}
 				draggable={false}
-				className='absolute w-full h-[120%] object-cover -top-[10%]'
+				className='absolute w-full h-[90%] sm:h-[120%] object-cover -top-[10%]'
 				style={{ y, willChange: 'transform', visibility: ready ? 'visible' : 'hidden' }}
 				initial={false}
 			/>

@@ -5,10 +5,8 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import React from 'react'
 
-import AuthenticHeader, { Breadcrumb } from '@/components/CommonComponents/AuthenticHeader'
-import AuthenticSkeleton from '@/components/CommonComponents/AuthenticSkeleton'
 import BigSkeleton from '@/components/CommonComponents/BigSkeleton'
-import InfoSection from '@/components/CommonComponents/InfoSection'
+import InfoSection, { Breadcrumb } from '@/components/CommonComponents/InfoSection'
 import NewsContent from '@/components/CommonComponents/NewsContent'
 import Donation from '@/components/Donation/Donation'
 import LastNews from '@/components/LastNews/LastNews'
@@ -21,7 +19,7 @@ const Page = () => {
 	type Locale = keyof IMultiLangText
 	const locale = useLocale() as Locale
 
-	const t = useTranslations('index.PeopleAndValues')
+	const t = useTranslations('index.News')
 	const tCategories = useTranslations('BlogCategories')
 
 	const formatDate = (isoDate?: string) => {
@@ -33,25 +31,15 @@ const Page = () => {
 		return `${day}.${month}.${year}`
 	}
 
-	const params = useParams<{ 'people-and-values_name': string }>()
-	const id = params['people-and-values_name']
+	const { news_name } = useParams<{ news_name: string }>()
+	const id = news_name
 
 	const { data, isSuccess } = useQuery({
 		queryKey: ['blog', id],
 		queryFn: () => blogService.getBlogById(id)
 	})
 
-	if (!isSuccess)
-		return (
-			<>
-				<div className='hidden sm:block w-full bg-sand-50 h-screen'>
-					<AuthenticSkeleton />
-				</div>
-				<div className='block sm:hidden'>
-					<BigSkeleton />
-				</div>
-			</>
-		)
+	if (!isSuccess) return <BigSkeleton />
 
 	const blog = data.data
 
@@ -59,8 +47,7 @@ const Page = () => {
 
 	const location: Breadcrumb[] = [
 		{ text: locRaw['0'] ?? 'Home', link: '/' },
-		{ text: locRaw['1'] ?? 'Authentic Local', link: '/authentic-local' },
-		{ text: locRaw['2'] ?? 'People and Values', link: '/authentic-local/people-and-values' },
+		{ text: locRaw['1'] ?? 'News', link: '/news' },
 		{ text: blog.title[locale] }
 	]
 
@@ -70,28 +57,15 @@ const Page = () => {
 
 	return (
 		<main className='bg-sand-50 mb-12 sm:mb-[100vh]'>
-			<div className='hidden sm:block'>
-				<AuthenticHeader
-					tags={tags}
-					headerText={blog.title[locale]}
-					lastActualization={formatDate(blog.updatedAt)}
-					location={location}
-					imageSrc={blog.main_image}
-					imageAlt={blog.title[locale]}
-					locale={locale}
-				/>
-			</div>
-			<div className='block sm:hidden'>
-				<InfoSection
-					tags={tags}
-					headerText={blog.title[locale]}
-					lastActualization={formatDate(blog.updatedAt)}
-					location={location}
-					imageSrc={blog.main_image}
-					imageAlt={blog.title[locale]}
-					locale={locale}
-				/>
-			</div>
+			<InfoSection
+				tags={tags}
+				headerText={blog.title[locale]}
+				lastActualization={formatDate(blog.updatedAt)}
+				location={location}
+				imageSrc={blog.main_image}
+				imageAlt={blog.title[locale]}
+				locale={locale}
+			/>
 			<NewsContent
 				summary={blog.summary}
 				sections={blog.sections}

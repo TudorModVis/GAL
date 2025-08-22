@@ -10,6 +10,10 @@
 			"administration": {
 				"title": "LAG Administration",
 				"description": "The text that will be for the LAG administration"
+			},
+			"documents": {
+				"title": "Official Documents",
+				"description": "Here you can find the official documents of the Stejarul Dacilor LAG, including regulations, statutes, strategies, and annual reports."
 			}
 		},
 		"heroTitle": {

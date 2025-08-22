@@ -97,7 +97,10 @@ const Page = () => {
 				sections={blog.sections}
 				locale={locale}
 			/>
-			<LastNews isPost={true} />
+			<LastNews
+				isPost={true}
+				excludeId={blog._id}
+			/>
 			<Donation />
 		</main>
 	)

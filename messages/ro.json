@@ -10,6 +10,10 @@
 			"administration": {
 				"title": "Conducerea GAL-ului",
 				"description": "Textul care va fi pentru conducerea gal-ului"
+			},
+			"documents": {
+				"title": "Documente Oficiale",
+				"description": "Aici găsești documentele oficiale ale GAL-ului Stejarul Dacilor, inclusiv regulamente, statut, strategii și rapoarte anuale."
 			}
 		},
 		"heroTitle": {
