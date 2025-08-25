@@ -46,7 +46,7 @@ const ParalaxImage: React.FC<ParalaxImageProps> = ({
 
 	const isMobile = useIsMobile()
 	const base = useTransform(scrollYProgress, [0, 1], [-10, 10])
-	const multiplier = isMobile ? 1.5 : 1
+	const multiplier = isMobile ? 1.1 : 1
 	const y = useTransform(base, v => `${v * multiplier}%`)
 
 	return (
@@ -58,7 +58,7 @@ const ParalaxImage: React.FC<ParalaxImageProps> = ({
 				src={source}
 				alt={altText}
 				draggable={false}
-				className='absolute w-full h-[90%] sm:h-[120%] object-cover -top-[10%]'
+				className='absolute w-full h-[70%] sm:h-[120%] object-cover -top-[10%]'
 				style={{ y, willChange: 'transform', visibility: ready ? 'visible' : 'hidden' }}
 				initial={false}
 			/>

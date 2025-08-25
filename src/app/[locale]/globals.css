@@ -209,6 +209,11 @@
 		scrollbar-width: thin;
 	}
 
+	.popup-309 {
+		max-width: 309px;
+		min-width: 309px;
+	}
+
 	.shakeClass {
 		animation: shake 0.3s ease-in-out;
 	}
@@ -328,6 +333,11 @@ textarea {
 		margin: 0 auto;
 	}
 
+	.popup-309 {
+		max-width: 270px;
+		min-width: 270px;
+	}
+
 	.grid-cols-donation {
 		max-width: 390px;
 		grid-template-columns: repeat(8, minmax(0, 1fr));
@@ -352,4 +362,11 @@ ol {
 .styled-scrollbar {
 	scrollbar-width: thin;
 	scrollbar-color: #a5a5a5 transparent;
+}
+
+@media (max-width: 300px) {
+	.popup-309 {
+		max-width: 220px;
+		min-width: 220px;
+	}
 }

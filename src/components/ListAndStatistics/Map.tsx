@@ -140,7 +140,7 @@ const Map = () => {
 					key={`${idx}`}
 					position={marker.position as [number, number]}
 				>
-					<Popup>
+					<Popup className='popup-309'>
 						<div className='w-full h-full text-xs font-[Onest] [&>p]:m-0! flex flex-col gap-2'>
 							<p>
 								<b>{tMap('name')}</b> {marker.name}
