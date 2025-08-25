@@ -283,16 +283,86 @@
 		},
 		"map": {
 			"name": "Denumirea:",
-			"details": "Detalii:",
+			"population": "Nr.populației:",
 			"location": "Locație:",
-			"sector": "Sector:",
-			"unit": "Foj:",
+			"phone": "Telefon:",
+			"mail": "E-mail:",
+			"marker_sagaidac": {
+				"name": "Primăria Sagaidac",
+				"population": "1.233",
+				"location": "R-UL CIMIȘLIA, S. SAGAIDAC",
+				"phone": "0241-35-236 // 0241-35-238",
+				"mail": "primariasagaidac@gmail.com"
+			},
+			"marker_suric": {
+				"name": "Primăria Suric",
+				"population": "378",
+				"location": "R-UL CIMIȘLIA, S. SURIC",
+				"phone": "0241-52-238",
+				"mail": "primariasuric@bk.ru"
+			},
+			"marker_satulnou": {
+				"name": "Primăria Satul Nou",
+				"population": "1.022",
+				"location": "R-UL CIMIȘLIA, S. SATUL NOU",
+				"phone": "0241-54-238",
+				"mail": "primariasatulnou2019@gmail.com"
+			},
+			"marker_porumbrei": {
+				"name": "Primăria Porumbrei",
+				"population": "1.088",
+				"location": "R-UL CIMIȘLIA, COM. PORUMBREI",
+				"phone": "0241-76-236 // 0241-76-238",
+				"mail": "primaria03@mail.ru"
+			},
+			"marker_codreni": {
+				"name": "Primăria Codreni",
+				"population": "409",
+				"location": "R-UL CIMIȘLIA, COM. CODRENI",
+				"phone": "0241-93-636 // 0241-93-638",
+				"mail": "codreni2@gmail.com"
+			},
 			"marker_selemet": {
-				"name": "Primăria comunei Selemet",
-				"details": "098230243645 - Persoană juridică",
-				"location": "R-UL CIMIȘLIA, S.Selemet",
-				"sector": "Public",
-				"foj": "Unitate random de testare"
+				"name": "Primăria Selemet",
+				"population": "1.981",
+				"location": "R-UL CIMIȘLIA, S. SELEMET",
+				"phone": "0241-39-236 // 0241-39-238",
+				"mail": "primariaselemet@yahoo.com"
+			},
+			"marker_mihailovca": {
+				"name": "Primăria Mihailovca",
+				"population": "1.799",
+				"location": "R-UL CIMIȘLIA, S. MIHAILOVCA",
+				"phone": "0241-44-236",
+				"mail": "prim.mihailovca@mail.ru"
+			},
+			"marker_batir": {
+				"name": "Primăria Batîr",
+				"population": "1.319",
+				"location": "R-UL CIMIȘLIA, S. BATÎR",
+				"phone": "0241-59-236",
+				"mail": "primariabatir@mail.ru"
+			},
+			"marker_taraclia": {
+				"name": "Primăria Taraclia",
+				"population": "2.537",
+				"location": "R-UL CĂUȘENI, S. TARACLIA",
+				"phone": "0243-61-238",
+				"mail": "primartaraclia@gmail.com"
+			},
+			"marker_ciuflesti": {
+				"name": "Primăria Ciuflești",
+				"population": "655",
+				"location": "R-UL CĂUȘENI, S. CIUFLȘTI",
+				"phone": "0243-65-223 // 0243-65-272 // 0243-65-400",
+				"mail": "primariaciuflestii83@gmail.com"
+			},
+			"marker_ecaterinovca": {
+				"name": "Primăria Ecaterinovca",
+				"population": "905",
+				"location": "R-UL CIMIȘLIA, S. ECATERINOVCA",
+				"phone": "0241-31-238 // 0241-31-236",
+				"mail": "pecaterinovca@gmail.com"
 			}
 		},
 		"listAndStatistics": {

@@ -2,27 +2,34 @@
 
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { AnimatePresence } from 'motion/react'
-import { usePathname } from 'next/navigation'
-import React, { useEffect, useRef, useState } from 'react'
+import { usePathname as useNextPathname } from 'next/navigation'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 import NavBarMobile from './NavBarMobile'
 import NavContent from './NavContent'
 
+const stripLocale = (path: string) => path.replace(/^\/(ro|en|ru)(?=\/|$)/, '')
+
+const normalizePath = (path: string) => {
+	const decoded = decodeURI(path)
+	const noTrailing = decoded !== '/' ? decoded.replace(/\/+$/, '') : decoded
+	return noTrailing.normalize?.('NFC') ?? noTrailing
+}
+
 const NavBar = () => {
+	const rawPath = useNextPathname() || ''
+	const pathname = useMemo(() => normalizePath(rawPath), [rawPath])
+	const pathWithoutLocale = useMemo(() => normalizePath(stripLocale(pathname)), [pathname])
+
 	const [onlyFixed, setOnlyFixed] = useState(false)
-	const pathname = usePathname()
-	const pathWithoutLocale = pathname.replace(/^\/(ro|en|ru)/, '')
 
 	useEffect(() => {
-		if (pathWithoutLocale === '' || pathWithoutLocale === '/' || pathWithoutLocale === '/aboutUs') {
-			setOnlyFixed(false)
-		} else {
-			setOnlyFixed(true)
-		}
+		const noFixed = new Set(['', '/', '/aboutUs', '/despreNoi', '/о-нас'])
+		setOnlyFixed(!noFixed.has(pathWithoutLocale))
 	}, [pathWithoutLocale])
 
-	const first = useRef(null)
-	const second = useRef(null)
+	const first = useRef<HTMLDivElement | null>(null)
+	const second = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress: scrollYProgressFirst } = useScroll({
 		target: first,
 		offset: ['start start', 'end end']
@@ -31,16 +38,12 @@ const NavBar = () => {
 		target: second,
 		offset: ['start start', 'start start']
 	})
+
 	const [isAtTop, setIsAtTop] = useState(true)
 	const [isNearEnd, setIsNearEnd] = useState(false)
 
-	useMotionValueEvent(scrollYProgressFirst, 'change', position => {
-		setIsAtTop(position === 0)
-	})
-
-	useMotionValueEvent(scrollYProgressSecond, 'change', position => {
-		setIsNearEnd(position > 0)
-	})
+	useMotionValueEvent(scrollYProgressFirst, 'change', p => setIsAtTop(p === 0))
+	useMotionValueEvent(scrollYProgressSecond, 'change', p => setIsNearEnd(p > 0))
 
 	function useIsMobile(breakpoint = 860) {
 		const [isMobile, setIsMobile] = useState(false)
@@ -54,6 +57,7 @@ const NavBar = () => {
 	}
 
 	const isMobile = useIsMobile()
+
 	return isMobile ? (
 		<>
 			<nav className='text-nowrap min-[860px]:hidden'>
@@ -65,9 +69,9 @@ const NavBar = () => {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-							className={`bg-sand-50 left-1/2 -translate-x-1/2 top-0 fixed w-full z-20`}
+							className='bg-sand-50 left-1/2 -translate-x-1/2 top-0 fixed w-full z-20'
 						>
-							<NavBarMobile isFixed={true} />
+							<NavBarMobile isFixed />
 						</motion.div>
 					) : !isAtTop && !isNearEnd && !onlyFixed ? (
 						<motion.div
@@ -86,11 +90,11 @@ const NavBar = () => {
 			<div
 				ref={first}
 				className='absolute top-[100vh] invisible'
-			></div>
+			/>
 			<div
 				ref={second}
 				className='absolute top-[75%] invisible'
-			></div>
+			/>
 		</>
 	) : (
 		<>
@@ -103,11 +107,11 @@ const NavBar = () => {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-							className={`grid text-forest-900 bg-sand-50 left-1/2 -translate-x-1/2 grid-cols-full top-0 items-center max-w-[1512px] justify-between fixed w-full m-auto z-20 px-8 py-4`}
+							className='grid text-forest-900 bg-sand-50 left-1/2 -translate-x-1/2 grid-cols-full top-0 items-center max-w-[1512px] justify-between fixed w-full m-auto z-20 px-8 py-4'
 						>
 							<NavContent arrowColor='#11200B' />
-							<div className='absolute bg-sand-50 w-[400%] -left-[100%] h-full -z-10'></div>
-							<div className='bg-stone-400 h-[1px] absolute bottom-0 w-[400%] -left-[100%]'></div>
+							<div className='absolute bg-sand-50 w-[400%] -left-[100%] h-full -z-10' />
+							<div className='bg-stone-400 h-[1px] absolute bottom-0 w-[400%] -left-[100%]' />
 						</motion.div>
 					) : !isAtTop && !isNearEnd && !onlyFixed ? (
 						<motion.div
@@ -127,11 +131,11 @@ const NavBar = () => {
 			<div
 				ref={first}
 				className='absolute top-[100vh] invisible'
-			></div>
+			/>
 			<div
 				ref={second}
 				className='absolute top-[80%] sm:top-[90%] invisible'
-			></div>
+			/>
 		</>
 	)
 }

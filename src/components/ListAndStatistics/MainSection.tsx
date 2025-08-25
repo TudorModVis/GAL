@@ -86,7 +86,7 @@ const MainSection = () => {
 							/>
 						</motion.div>
 					</motion.div>
-					<div className='col-span-full max-h-[400px] mt-12 mb-6 bg-green-900 overflow-hidden sm:hidden block rounded-2xl'>
+					<div className='col-span-full h-[400px] mt-12 mb-6 bg-green-900 overflow-hidden sm:hidden block rounded-2xl'>
 						<MapWithNoSSR />
 					</div>
 					<div className='w-full grid grid-cols-6 gap-4 sm:gap-[24px]'>

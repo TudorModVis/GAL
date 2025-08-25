@@ -283,16 +283,86 @@
 		},
 		"map": {
 			"name": "Название:",
-			"details": "Детали:",
+			"population": "Население:",
 			"location": "Местоположение:",
-			"sector": "Сектор:",
-			"unit": "Foj:",
+			"phone": "Телефон:",
+			"mail": "E-mail:",
+			"marker_sagaidac": {
+				"name": "Примэрия Сагайдак",
+				"population": "1.233",
+				"location": "Район Чимишлия, село Сагайдак",
+				"phone": "0241-35-236 // 0241-35-238",
+				"mail": "primariasagaidac@gmail.com"
+			},
+			"marker_suric": {
+				"name": "Примэрия Сурик",
+				"population": "378",
+				"location": "Район Чимишлия, село Сурик",
+				"phone": "0241-52-238",
+				"mail": "primariasuric@bk.ru"
+			},
+			"marker_satulnou": {
+				"name": "Примэрия Сатул Ноу",
+				"population": "1.022",
+				"location": "Район Чимишлия, село Сатул Ноу",
+				"phone": "0241-54-238",
+				"mail": "primariasatulnou2019@gmail.com"
+			},
+			"marker_porumbrei": {
+				"name": "Примэрия Порумбрей",
+				"population": "1.088",
+				"location": "Район Чимишлия, комуна Порумбрей",
+				"phone": "0241-76-236 // 0241-76-238",
+				"mail": "primaria03@mail.ru"
+			},
+			"marker_codreni": {
+				"name": "Примэрия Кодрень",
+				"population": "409",
+				"location": "Район Чимишлия, комуна Кодрень",
+				"phone": "0241-93-636 // 0241-93-638",
+				"mail": "codreni2@gmail.com"
+			},
 			"marker_selemet": {
-				"name": "Примэрия коммуны Селемет",
-				"details": "098230243645 - Юридическое лицо",
-				"location": "Р-Н ЧИМИШЛИЯ, С.Селемет",
-				"sector": "Государственный",
-				"foj": "Случайная тестовая единица"
+				"name": "Примэрия Селемет",
+				"population": "1.981",
+				"location": "Район Чимишлия, село Селемет",
+				"phone": "0241-39-236 // 0241-39-238",
+				"mail": "primariaselemet@yahoo.com"
+			},
+			"marker_mihailovca": {
+				"name": "Примэрия Михайловка",
+				"population": "1.799",
+				"location": "Район Чимишлия, село Михайловка",
+				"phone": "0241-44-236",
+				"mail": "prim.mihailovca@mail.ru"
+			},
+			"marker_batir": {
+				"name": "Примэрия Батыр",
+				"population": "1.319",
+				"location": "Район Чимишлия, село Батыр",
+				"phone": "0241-59-236",
+				"mail": "primariabatir@mail.ru"
+			},
+			"marker_taraclia": {
+				"name": "Примэрия Тараклия",
+				"population": "2.537",
+				"location": "Район Каушаны, село Тараклия",
+				"phone": "0243-61-238",
+				"mail": "primartaraclia@gmail.com"
+			},
+			"marker_ciuflesti": {
+				"name": "Примэрия Чуфлешты",
+				"population": "655",
+				"location": "Район Каушаны, село Чуфлешты",
+				"phone": "0243-65-223 // 0243-65-272 // 0243-65-400",
+				"mail": "primariaciuflestii83@gmail.com"
+			},
+			"marker_ecaterinovca": {
+				"name": "Примэрия Екатериновка",
+				"population": "905",
+				"location": "Район Чимишлия, село Екатериновка",
+				"phone": "0241-31-238 // 0241-31-236",
+				"mail": "pecaterinovca@gmail.com"
 			}
 		},
 		"listAndStatistics": {
