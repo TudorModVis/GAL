@@ -69,9 +69,9 @@ export const ADMIN_SIDEBAR_ITEMS: IAdminSidebarSubsection[] = [
 			},
 			{
 				title: {
-					ro: 'Statistica GAL',
-					ru: 'Статистика GAL',
-					en: 'GAL Statistics'
+					ro: 'Conținut Dinamic',
+					ru: 'Динамическое',
+					en: 'Dynamic Content'
 				},
 				link: ADMIN_PAGES.STATISTICS
 			}
@@ -216,9 +216,9 @@ export const ADMIN_PAGE_HEADERS = {
 			ru: 'O GAL'
 		},
 		slug: {
-			ro: 'Statistica GAL',
-			en: 'GAL Statistics',
-			ru: 'Статистика GAL'
+			ro: 'Conținut Dinamic',
+			en: 'Dynamic Content',
+			ru: 'Динамическое'
 		}
 	}
 } as const

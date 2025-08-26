@@ -43,9 +43,9 @@ export const ADMIN_STATISTICS_TRANSLATE = {
 		}
 	},
     statisticsTitle: {
-        ro: "Statistica GAL",
-        en: "GAL Statistics",
-        ru: "Статистика GAL"
+        ro: 'Conținut Dinamic',
+        en: 'Dynamic Content',
+        ru: 'Динамическое'
     },
     projectsNumberInput: {
         ro: {

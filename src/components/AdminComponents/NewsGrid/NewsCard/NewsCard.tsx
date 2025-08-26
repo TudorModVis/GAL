@@ -33,7 +33,7 @@ export function NewsCard({ blog, cols }: Props) {
 			>
 				<div className={`w-full relative ${cols === 2 ? 'min-h-[25rem] max-h-[25rem]' : 'h-[16.5rem] max-h-[16.5rem]'}`}>
 					<div
-						className={`${cols === 2 && 'hidden'} flex absolute top-[1rem] left-[1rem] items-center gap-[0.5rem]`}
+						className={`${cols === 2 && 'hidden'} flex flex-wrap absolute top-[1rem] left-[1rem] items-center gap-[0.5rem]`}
 					>
 						{blog.categories.map((category, index) => (
 							<Category
