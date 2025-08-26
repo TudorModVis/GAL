@@ -146,7 +146,7 @@ export default function Search({ hoveredMenu = null, handleHoverEnd = () => {} }
 						className='fixed top-0 -left-[50%] z-10 flex h-screen w-[200%] flex-col bg-black/35 backdrop-blur-xs'
 					>
 						<div className='relative mb-10 mt-[7.5rem] grid h-screen w-full grid-cols-full'>
-							<div className='col-span-8 col-start-3 grid max-h-[751px] grid-cols-8 grid-rows-[4rem_4rem_1fr] gap-x-6 rounded-2xl bg-sand-50'>
+							<div className='col-span-8 col-start-3 grid h-[82vh] [@media(max-height:660px)]:h-[78vh] grid-cols-8 grid-rows-[4rem_4rem_1fr] gap-x-6 rounded-2xl bg-sand-50'>
 								<input
 									className='col-span-full h-16 bg-[url(/search.svg)] bg-[position:1.5rem_center] bg-no-repeat pl-14 pr-6 outline-none'
 									type='search'
@@ -224,7 +224,7 @@ export default function Search({ hoveredMenu = null, handleHoverEnd = () => {} }
 											</div>
 										</div>
 
-										<div className='relative col-span-4 col-start-5 rounded-br-2xl'>
+										<div className='relative col-span-4 col-start-5 rounded-br-2xl overflow-hidden'>
 											<SearchSidePart
 												closeSearch={setIsClicked}
 												tags={payload?.data?.categories ?? []}

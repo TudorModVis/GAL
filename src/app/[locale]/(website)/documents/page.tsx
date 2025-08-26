@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 		imageFromBackend = management?.data.main_image
 	} catch {}
 
-	const fallbackImage = '/documents_image.png'
+	const fallbackImage = '/meta_image.jpg'
 	const image = imageFromBackend || fallbackImage
 
 	const title = t('title')

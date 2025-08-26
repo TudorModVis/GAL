@@ -18,7 +18,7 @@ export async function generateMetadata({
 	const t = await getTranslations('index.meta')
 	let title: string = t('title')
 	let description: string = t('description')
-	let image: string = '/videoPoster.jpg'
+	let image: string = '/meta_image.jpg'
 
 	try {
 		const res = await blogService.getBlogById(news_name)
