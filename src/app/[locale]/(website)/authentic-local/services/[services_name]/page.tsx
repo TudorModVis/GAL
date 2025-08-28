@@ -10,9 +10,9 @@ export type Locale = 'ro' | 'ru' | 'en'
 export async function generateMetadata({
 	params
 }: {
-	params: Promise<{ locale: Locale; news_name: string }>
+	params: Promise<{ locale: Locale; services_name: string }>
 }) {
-	const { locale, news_name } = await params
+	const { locale, services_name } = await params
 	setRequestLocale(locale)
 
 	const t = await getTranslations('index.meta')
@@ -21,7 +21,7 @@ export async function generateMetadata({
 	let image: string = '/meta_image.jpg'
 
 	try {
-		const res = await blogService.getBlogById(news_name)
+		const res = await blogService.getBlogById(services_name)
 		const data: IBlogResponse = (res as any)?.data ?? (res as any)
 
 		if (data?.main_image) image = data.main_image
