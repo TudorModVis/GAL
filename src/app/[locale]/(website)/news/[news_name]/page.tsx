@@ -10,9 +10,9 @@ export type Locale = 'ro' | 'ru' | 'en'
 export async function generateMetadata({
 	params
 }: {
-	params: Promise<{ locale: Locale; news_name: string }>
+	params: { locale: Locale; news_id: string }
 }) {
-	const { locale, news_name } = await params
+	const { locale, news_id } = params
 	setRequestLocale(locale)
 
 	const t = await getTranslations('index.meta')
@@ -20,8 +20,10 @@ export async function generateMetadata({
 	let description: string = t('description')
 	let image: string = '/meta_image.jpg'
 
+	const key = decodeURIComponent(news_id).normalize?.('NFC') ?? news_id
+
 	try {
-		const res = await blogService.getBlogById(news_name)
+		const res = await blogService.getBlogById(key)
 		const data: IBlogResponse = (res as any)?.data ?? (res as any)
 
 		if (data?.main_image) image = data.main_image
@@ -40,7 +42,9 @@ export async function generateMetadata({
 				: rawSummary
 
 		if (maybeDesc) description = htmlToPlainText(String(maybeDesc))
-	} catch {}
+	} catch (e) {
+		console.error('generateMetadata(news):', e)
+	}
 
 	return {
 		title,
