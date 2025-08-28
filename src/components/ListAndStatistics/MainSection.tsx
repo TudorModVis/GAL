@@ -136,7 +136,7 @@ const MainSection = () => {
 						</div>
 					</div>
 				</div>
-				<div className='col-span-11 col-start-14 bg-green-900 overflow-hidden sm:block hidden rounded-2xl'>
+				<div className='col-span-11 col-start-14 overflow-hidden sm:block hidden rounded-2xl'>
 					<MapWithNoSSR />
 				</div>
 			</section>
