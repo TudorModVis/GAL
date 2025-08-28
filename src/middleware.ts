@@ -13,6 +13,10 @@ export default async function middleware(request: NextRequest) {
 
 	const accessToken = cookies.get(EnumTokens.ACCESS_TOKEN)?.value
 
+	if (url.includes('/administration') || url.includes('/administratie') || url.includes('/администрация')) {
+		return intlMiddleware(request);
+	}
+
 	const isLogInPage = url.includes('/admin/login')
 	const isAdminRootUrl = url.endsWith('/admin') || url.endsWith('/admin/')
 	const isAdminPage = url.includes('/admin') && !url.includes('/administration')
