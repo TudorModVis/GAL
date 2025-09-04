@@ -38,7 +38,7 @@ export default async function AboutUsPage({ params }: { params: Promise<{ locale
 					heroTitle1={t('heroTitle.1')}
 					heroTitle2={t('heroTitle.2')}
 					videoSource='../despre-video.webm'
-					posterSource='../videoPoster.jpg'
+					posterSource='../aboutPoster.jpg'
 				/>
 				<MainSection />
 				<LastNews />
