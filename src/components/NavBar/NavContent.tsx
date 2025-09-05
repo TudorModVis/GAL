@@ -402,7 +402,7 @@ const NavContent: React.FC<Props> = ({ arrowColor = '#FFFEFD' }) => {
 				/>
 				<LinkWithArrow
 					text={tNav('resource_map')}
-					href='/'
+					href='/map'
 					arrowProps='-rotate-45 fill-sand-50 group-hover/link:rotate-0'
 					customStyle='lg:flex hidden w-full items-center gap-1 [&>div]:rounded-full [&>div:nth-child(1)]:px-4 [&>div:nth-child(1)]:py-2.5 [&>div]:bg-forest-800 [&>div]:text-sand-50 [&>div]:group-hover/link:bg-forest-700 [&>div:nth-child(2)]:p-3.5'
 				/>

@@ -83,6 +83,18 @@ export const routing = defineRouting({
 			ru: '/общественные-услуги/[community_services_id]'
 		},
 
+		'/terms-and-conditions': {
+			ro: '/termeni-si-conditii',
+			en: '/terms-and-conditions',
+			ru: '/правила-и-условия'
+		},
+
+		'/map': {
+			ro: '/mapa',
+			en: '/map',
+			ru: '/карта'
+		},
+
 		'/contacts': { ro: '/contacte', en: '/contacts', ru: '/контакты' },
 		'/aboutUs': { ro: '/despreNoi', en: '/aboutUs', ru: '/о-нас' },
 		'/administration': { ro: '/administratie', en: '/administration', ru: '/администрация' },

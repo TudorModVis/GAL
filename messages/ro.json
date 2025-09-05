@@ -42,7 +42,39 @@
 			"touristAttractions": {
 				"title": "Descoperă locurile reprezentative ale regiunii – tradiție, natură și patrimoniu.",
 				"description": "Această rubrică prezintă locurile și experiențele care definesc identitatea regiunii, de la atracții naturale și monumente de patrimoniu, până la festivaluri, gastronomie locală și inițiative turistice de familie. Turismul rural prinde viață prin oameni și locuri care păstrează viu spiritul autentic al satului."
+			},
+			"termsAndConditions":{
+				"title": "Termeni și Condiții de Utilizare",
+				"description": "Citește despre scopul platformei, datele colectate, protecția informațiilor personale, responsabilitatea utilizatorilor și legislația aplicabilă în Republica Moldova."
+			},
+			"map":{
+				"title":"Mapă",
+				"description":"Găsește toate primăriile"
 			}
+		},
+		"termsAndConditions": {
+			"header": "Termeni și Condiții de Utilizare",
+			"publication_date": "Data publicării: 05.08.2024",
+			"general_info": "1. Informații generale",
+			"general_info_text1": "Website-ul galstejaruldacilor.md este administrat de GAL „Stejarul Daciilor”, Asociație Obștească, cu cod fiscal (IDNO) 1018620003280, având sediul în satul Gura Galbenei, raionul Cimișlia, Republica Moldova.",
+			"general_info_text2": "Pentru întrebări sau informații suplimentare, ne puteți contacta: <br/><br/> • E-mail: galstejaruldaciilor@gmail.com <br/> • Telefon: +373 79 236 441 <br/><br/> Accesând și utilizând acest website, sunteți de acord cu respectarea prezentelor Termeni și Condiții. Dacă nu sunteți de acord cu acestea, vă rugăm să nu utilizați website-ul.",
+			"website_reason": "2. Scopul website-ului",
+			"website_reason_text": "Website-ul galstejaruldacilor.md are scop exclusiv informativ, prezentând activitatea GAL „Stejarul Daciilor”, proiectele implementate și oferind posibilitatea transmiterii de mesaje prin intermediul formularului de contact.",
+			"what_we_colect": "3.1 Ce date colectăm",
+			"what_we_colect_text": "Prin formularul de contact, putem colecta următoarele date personale: <br/><br/> • Nume și prenume <br/> • Adresă de e-mail <br/> • Număr de telefon (opțional) <br/> • Conținutul mesajului",
+			"reason_to_collect": "3.2 Scopul colectării",
+			"reason_to_collect_text": "Datele personale colectate sunt utilizate exclusiv pentru: <br/><br/>• comunicarea cu utilizatorii, <br/>• răspuns la solicitări, sesizări sau întrebări transmise prin formularul de contact.",
+			"data_protection": "3.3 Protecția datelor",
+			"data_protection_text1": "GAL „Stejarul Daciilor” respectă legislația națională privind protecția datelor cu caracter personal, inclusiv Legea nr. 133/2011. Datele colectate nu vor fi transmise terților fără consimțământul expres al utilizatorului, cu excepția cazurilor prevăzute de lege.",
+			"data_protection_text2": "Utilizatorii au dreptul să solicite accesul la datele lor, rectificarea, ștergerea sau restricționarea prelucrării, în conformitate cu legislația în vigoare, printr-o cerere scrisă la adresa de e-mail: galstejaruldaciilor@gmail.com.",
+			"user_responsability": "4. Responsabilitatea utilizatorului",
+			"user_responsability_text": "Utilizatorii website-ului se angajează: <br/><br/> • să furnizeze date reale și corecte în formularul de contact, <br/> • să nu transmită conținut ilegal, abuziv sau care încalcă drepturile altor persoane.",
+			"responsability_limit": "5. Limitarea răspunderii",
+			"responsability_limit_text": "Conținutul website-ului este oferit doar în scop informativ. Deși ne străduim să menținem informațiile actualizate și corecte, GAL „Stejarul Daciilor” nu garantează exactitatea, completitudinea sau actualitatea acestora și nu este responsabilă pentru eventualele erori sau omisiuni. Website-ul poate conține linkuri către alte pagini externe; nu avem control asupra conținutului acestor site-uri și nu ne asumăm responsabilitatea pentru conținutul lor.",
+			"modify": "6. Modificarea Termenilor și Condițiilor",
+			"modify_text": "Ne rezervăm dreptul de a modifica acești Termeni și Condiții în orice moment, fără notificare prealabilă. Versiunea actualizată va fi disponibilă permanent pe această pagină.",
+			"legislation": "7. Legislație aplicabilă",
+			"legislation_text": "Prezentul document este guvernat de legislația Republicii Moldova. Orice litigiu va fi soluționat de instanțele competente din Republica Moldova."
 		},
 		"heroTitle": {
 			"1": "Grupul de Acțiune Locală Stejarul Dacilor",

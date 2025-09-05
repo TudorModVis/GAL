@@ -184,7 +184,7 @@ const Footer = () => {
 					className='flex flex-col sm:flex-row gap-2 sm:gap-8 items-center
                         mt-2 sm:mt-0 mb-12 sm:mb-0'
 				>
-					<Link href='/'>{t('useful_information.terms_and_conditions')}</Link>
+					<Link href='/terms-and-conditions'>{t('useful_information.terms_and_conditions')}</Link>
 					<Link
 						href='/'
 						className='flex gap-1 items-center group'
