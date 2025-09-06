@@ -13,17 +13,17 @@ import Socials from './Socials'
 import { Link } from '@/i18n/navigation'
 
 const partnerLogos = [
-	{ src: '/programul_leader.png', alt: 'Programul LEADER', w: 262, h: 64 },
+	{ src: '/programul_leader.svg', alt: 'Programul LEADER', w: 262, h: 64 },
 	{
-		src: '/ministerul_agriculturii_si_industriei_alimentare_al_republicii_moldova.png',
+		src: '/ministerul_agriculturii_si_industriei_alimentare_al_republicii_moldova.svg',
 		alt: 'Ministerul Agriculturii și Industriei Alimentare al Republicii Moldova',
 		w: 202,
 		h: 129
 	},
-	{ src: '/aipa.png', alt: 'AIPA', w: 200, h: 64 },
-	{ src: '/eu4moldova.png', alt: 'EU4MOLDOVA', w: 127, h: 129 },
+	{ src: '/aipa.svg', alt: 'AIPA', w: 200, h: 64 },
+	{ src: '/eu4moldova.svg', alt: 'EU4MOLDOVA', w: 127, h: 129 },
 	{
-		src: '/solidarity_fund_pl_in_moldova.png',
+		src: '/solidarity_fund_pl_in_moldova.svg',
 		alt: 'Solidarity Fund PL in Moldova',
 		w: 152,
 		h: 129
@@ -119,6 +119,7 @@ const Footer = () => {
 								height={h}
 								className='object-contain w-full h-full max-w-[var(--w)] max-h-[var(--h)]'
 								sizes='(max-width:640px) 40vw, 12vw'
+								quality={100}
 								priority
 							/>
 						</div>
@@ -126,7 +127,7 @@ const Footer = () => {
 				</div>
 				<div className='grid sm:hidden justify-between relative items-center [&>*]:cursor-pointer row-start-2 min-h-0 flex-1'>
 					<Image
-						src='/programul_leader.png'
+						src='/programul_leader.svg'
 						alt='Programul Leader'
 						width={262}
 						height={64}
@@ -134,7 +135,7 @@ const Footer = () => {
 						style={{ height: 'auto' }}
 					/>
 					<Image
-						src='/ministerul_agriculturii_si_industriei_alimentare_al_republicii_moldova.png'
+						src='/ministerul_agriculturii_si_industriei_alimentare_al_republicii_moldova.svg'
 						alt='Ministerul agriculturii și industriei alimentare al Republicii Moldova'
 						width={202}
 						height={129}
@@ -142,7 +143,7 @@ const Footer = () => {
 						style={{ height: 'auto' }}
 					/>
 					<Image
-						src='/aipa.png'
+						src='/aipa.svg'
 						alt='Aipa'
 						width={200}
 						height={64}
@@ -150,7 +151,7 @@ const Footer = () => {
 						style={{ height: 'auto' }}
 					/>
 					<Image
-						src='/eu4moldova.png'
+						src='/eu4moldova.svg'
 						alt='EU4MOLDOVA'
 						width={127}
 						height={129}
@@ -158,7 +159,7 @@ const Footer = () => {
 						style={{ height: 'auto' }}
 					/>
 					<Image
-						src='/solidarity_fund_pl_in_moldova.png'
+						src='/solidarity_fund_pl_in_moldova.svg'
 						alt='Solidarity Fund PL in Moldova'
 						width={152}
 						height={129}
