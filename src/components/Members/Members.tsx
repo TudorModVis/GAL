@@ -45,6 +45,7 @@ const Members = () => {
 							src={imageAt(0)!}
 							width={300}
 							height={400}
+							quality={100}
 							className='rounded-2xl'
 							style={{ objectFit: 'cover', height: '100%', width: '100%' }}
 						/>

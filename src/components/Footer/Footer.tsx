@@ -18,10 +18,11 @@ const partnerLogos = [
 		src: '/ministerul_agriculturii_si_industriei_alimentare_al_republicii_moldova.svg',
 		alt: 'Ministerul Agriculturii și Industriei Alimentare al Republicii Moldova',
 		w: 202,
-		h: 129
+		h: 129,
+		absolute: true
 	},
 	{ src: '/aipa.svg', alt: 'AIPA', w: 200, h: 64 },
-	{ src: '/eu4moldova.svg', alt: 'EU4MOLDOVA', w: 127, h: 129 },
+	{ src: '/eu4moldova.svg', alt: 'EU4MOLDOVA', w: 127, h: 129, absolute: true },
 	{
 		src: '/solidarity_fund_pl_in_moldova.svg',
 		alt: 'Solidarity Fund PL in Moldova',
@@ -101,27 +102,41 @@ const Footer = () => {
 
 				<h4 className='sm:mb-0 mb-2 sm:px-0'>{t('useful_information.our_partners')}</h4>
 
-				<div
-					className='min-h-0 hidden sm:flex flex-wrap items-center justify-between
-                     gap-4 sm:gap-6 px-4 sm:px-0'
-				>
-					{partnerLogos.map(({ src, alt, w, h }) => (
+				<div className='min-h-0 hidden sm:flex flex-wrap items-center justify-between gap-4 sm:gap-6 px-4 sm:px-0'>
+					{partnerLogos.map(({ src, alt, w, h, absolute }) => (
 						<div
 							key={src}
-							className='flex-none flex justify-center items-center
-               h-full max-h-[var(--h)] max-w-[var(--w)]'
-							style={{ '--w': `${w}px`, '--h': `${h}px` } as React.CSSProperties}
+							className={
+								absolute
+									? 'relative flex-none mb-3 h-[129px] w-[220px]'
+									: 'flex-none flex justify-center items-center h-full'
+							}
+							style={
+								absolute ? undefined : ({ '--w': `${w}px`, '--h': `${h}px` } as React.CSSProperties)
+							}
 						>
-							<Image
-								src={src}
-								alt={alt}
-								width={w}
-								height={h}
-								className='object-contain w-full h-full max-w-[var(--w)] max-h-[var(--h)]'
-								sizes='(max-width:640px) 40vw, 12vw'
-								quality={100}
-								priority
-							/>
+							{absolute ? (
+								<Image
+									src={src}
+									alt={alt}
+									fill
+									className='object-contain'
+									sizes='(max-width:640px) 40vw, 220px'
+									quality={100}
+									priority
+								/>
+							) : (
+								<Image
+									src={src}
+									alt={alt}
+									width={w}
+									height={h}
+									className='object-contain w-full h-full max-w-[var(--w)] max-h-[var(--h)]'
+									sizes='(max-width:640px) 40vw, 12vw'
+									quality={100}
+									priority
+								/>
+							)}
 						</div>
 					))}
 				</div>
